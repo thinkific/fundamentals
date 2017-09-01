@@ -1,0 +1,24 @@
+{% comment %}
+  This is the legacy public bundle card.
+  Found on Horizon, Ice-Cream & Altitude
+{% endcomment %}
+
+<section class="course-card course-card__public-legacy {{ bundle.status }}" data-card-url="{{ bundle.links.landing_page_url }}" tabindex="0">
+  <header class="course-card__img-container">
+    <a href="{{ bundle.links.landing_page_url }}" tabindex="-1">
+      <img src="{{ bundle.card_image_url }}" alt="{{ bundle.name }}" title="{{ bundle.name }}" class="course-card__img img-responsive" />
+    </a>
+  </header>
+  <div class="course-card__body">
+    {% if bundle.is_public %}
+      <div class="course-card__price">
+        {{ bundle.display_price }}
+      </div>
+    {% endif %}
+    <h3>{{ bundle.name }}</h3>
+    <p>{{ bundle.tagline | truncate: 250 }}</p>
+  </div>
+  <footer class="course-card__cta">
+    <a href="{{ bundle.links.landing_page_url }}" class="button button-primary button-block">{{ 'liquid.partials.course_card.link_landing_page' | translate }}</a>
+  </footer>
+</section>

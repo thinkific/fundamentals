@@ -1,0 +1,48 @@
+// Banner
+// ======================================
+
+.banner {
+
+  .section__heading {
+    font-weight: 400;
+  }
+
+  .section__subheading {
+    font-size: modular-scale(1);
+  }
+
+  .section__button-group {
+
+    .button {
+
+      &:first-child {
+        @include screen-sm-max {
+          margin-bottom: $gutter-width / 2;
+        }
+      }
+    }
+  }
+}
+
+.banner__video {
+
+  &--mobile {}
+}
+
+.banner__read-more {
+  display: inline-block;
+  position: relative;
+  top: 2rem;
+  color: $link__color;
+  font-size: .875rem;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  .fa {
+    margin: 0 10px 0 0;
+    padding: 4px;
+    border: 1px solid $link__color;
+    font-size: .875rem;
+    line-height: .875rem;
+  }
+}

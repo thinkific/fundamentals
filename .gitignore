@@ -1,0 +1,7 @@
+resources
+*.zip
+build
+node_modules
+libs
+.idea
+.sass-cache

@@ -1,0 +1,47 @@
+{% comment %}
+  This is the 'my account certificates' page.
+  Here, a user can view all of their completed certificates.
+  Note: Completion Certificates are only available on certain plans.
+        This page will be hidden if Completion Certificates are not enabled.
+{% endcomment %}
+
+<div class="my-account">
+  <div class="container">
+    <div class="row">
+      <aside class="page__menu hidden-print">
+        {% include 'my_account_menu' %}
+      </aside>
+      <main class="page__content" id="main-content" role="main">
+        <h1>{{ 'liquid.views.my_account_certificates_page.header_my_certificates' | translate }}</h1>
+        {% if site.current_user.has_certificates %}
+          <h2>{{ 'liquid.views.my_account_certificates_page.table.header_certificates' | translate }}</h2>
+          <table class="my-account__certificates">
+            <thead>
+              <tr>
+                <th>{{ 'liquid.views.my_account_certificates_page.table.column_course' | translate }}</th>
+                <th>{{ 'liquid.views.my_account_certificates_page.table.column_completed_at' | translate }}</th>
+                <th>{{ 'liquid.views.my_account_certificates_page.table.column_certificate' | translate }}</th>
+              </tr>
+            <tbody>
+              {% for enrollment in page.enrollments_with_certificates %}
+                <tr>
+                  <td class="certificate-entry">{{ enrollment.course_name | truncate: 25 }}</td>
+                  <td>{{ enrollment.completed_at | date: '%B %d, %Y %H:%M' }}</td>
+                  <td>
+                    <a href="{{ enrollment.certificate_url }}" target="_blank">
+                      {{ 'liquid.views.my_account_certificates_page.table.view' | translate }}
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p class="my-account__no-certificates">
+            {{ 'liquid.views.my_account_certificates_page.msg_no_certificates' | translate }}
+          </p>
+        {% endif %}
+      </main>
+    </div>
+  </div>
+</div>

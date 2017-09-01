@@ -1,0 +1,228 @@
+<section class="text-image {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="text-image">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      {% if section.settings.section_text != blank %}
+        <section class="text-image__body">
+          {{ section.settings.section_text }}
+        </section>
+      {% endif %}
+      {% if section.settings.section_image != blank %}
+        <figure class="text-image__image">
+          {% if section.settings.section_image_caption_toggle %}
+            <figcaption>{{ section.settings.section_image_caption }}</figcaption>
+          {% endif %}
+          <img src="{{ section.settings.section_image }}" alt="{{ section_image_caption }}" title="{{ section_image_caption }}" />
+        </figure>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.text-image {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+
+  {% if section.settings.section_image_alignment == 'right' %}
+  .text-image__image {
+    order: 3;
+  }
+  {% endif %}
+
+  {% if section.settings.background_image != blank %}
+    $background-image: '{{ section.settings.background_image }}';
+  {% else %}
+    $background-image: null;
+  {% endif %}
+
+  $background-overlay-color: {{ section.settings.overlay_color }};
+  $background-overlay-opacity: {{ section.settings.overlay_opacity }} * 0.01;
+
+  @if $background-overlay-opacity {
+    $color: rgba($background-overlay-color, $background-overlay-opacity);
+    $overlay: linear-gradient(
+      $color,
+      $color
+    );
+  } @else {
+    $overlay: null;
+  }
+  $img: if($background-image, url('#{$background-image}'), null);
+
+  @if $img {
+    $background: ($overlay, $img);
+  } @else {
+    $background: (rgba($background-overlay-color, $background-overlay-opacity));
+  }
+
+  &.full-width-background {
+    @include background-image($background...);
+  }
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Image and Text",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":""
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Text",
+      "settings":[
+        {
+          "type":"richtext",
+          "id":"section_text",
+          "label":"",
+          "default":""
+        }
+      ]
+    },
+    {
+      "label":"Image",
+      "settings":[
+        {
+          "type":"image",
+          "id":"section_image",
+          "label":"",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"section_image_alignment",
+          "label":"Alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        },
+        {
+          "type":"text",
+          "id":"section_image_caption",
+          "label":"Caption",
+          "description":"The caption will be applied to the images <strong>alt</strong> and <strong>title</strong> attributes for Screen reader accessibility",
+          "default":""
+        },
+        {
+          "type":"checkbox",
+          "id":"section_image_caption_toggle",
+          "label":"Show Caption",
+          "default":"false"
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "description":"",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"secondary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        },
+        {
+          "type":"image",
+          "id":"background_image",
+          "label":"Image",
+          "default":""
+        },
+        {
+          "type":"color",
+          "id":"overlay_color",
+          "label":"Overlay Color",
+          "default":"#D9DEE2"
+        },
+        {
+          "type":"number",
+          "id":"overlay_opacity",
+          "label":"Overlay Opacity",
+          "default":0,
+          "min":0,
+          "max":100
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

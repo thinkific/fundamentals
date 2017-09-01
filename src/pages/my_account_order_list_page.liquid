@@ -1,0 +1,60 @@
+{% comment %}
+  This is the 'my account order history' page.
+  Here, a user can view all of their orders.
+{% endcomment %}
+
+<div class="my-account">
+  <div class="container">
+    <div class="row">
+      <aside class="page__menu hidden-print">
+        {% include 'my_account_menu' %}
+      </aside>
+      <main class="page__content" id="main-content" role="main">
+        <h1>{{ 'liquid.views.my_account_orders_index_page.header_orders' | translate }}</h1>
+        <table class="my-account__order-history">
+          <thead>
+            <tr>
+              <th>{{ 'liquid.views.my_account_orders_index_page.column_order_number' | translate }}</th>
+              <th>{{ 'liquid.views.my_account_orders_index_page.column_product' | translate }}</th>
+              <th>{{ 'liquid.views.my_account_orders_index_page.column_date' | translate }}</th>
+              <th>{{ 'liquid.views.my_account_orders_shared.expires' | translate }}</th>
+              <th>{{ 'liquid.views.my_account_orders_index_page.column_status' | translate }}</th>
+              <th>{{ 'liquid.views.my_account_orders_index_page.column_current_value' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if page.has_orders %}
+              {% for order in page.orders %}
+                <tr id="order-{{ order.id }}">
+                  <td>
+                    <a href="{{ site.account_orders_url }}/{{ order.id }}">
+                      {{ order.number }}
+                    </a>
+                  </td>
+                  <td>
+                    {% if order.has_subscription %}
+                      {{ 'liquid.views.my_account_orders_index_page.link_subscription' | translate }}
+                    {% endif %}
+                    {{ order.product_name }}
+                  </td>
+                  <td>{{ order.created_date }}</td>
+                  <td>{{ order.product_expiry_date }}</td>
+                  <td>{{ order.status_key | translate }}</td>
+                  <td>{{ order.cost }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="6" class="order-history--empty">
+                  <span>
+                    {{ 'liquid.views.my_account_orders_index_page.msg_empty_table' | translate }}
+                  </span>
+                </td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </main>
+    </div>
+  </div>
+</div>

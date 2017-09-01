@@ -1,0 +1,26 @@
+{% comment %}
+  This is the card representation of your bundle.
+{% endcomment %}
+
+<section class="course-card course-card__public {{ bundle.status }}" data-card-url="{{ bundle.links.landing_page_url }}" tabindex="0">
+  <header class="course-card__img-container">
+    <a href="{{ bundle.links.landing_page_url }}" tabindex="-1">
+      <img src="{{ bundle.card_image_url }}" alt="{{ bundle.name }}" title="{{ bundle.name }}" class="course-card__img img-responsive" />
+    </a>
+  </header>
+  <div class="course-card__body">
+    {% if bundle.is_public %}
+      <div class="course-card__price">
+        {{ bundle.display_price }}
+      </div>
+    {% endif %}
+    <h3>{{ bundle.name }}</h3>
+    <p>{{ bundle.tagline | truncate: 250 }}</p>
+  </div>
+  {% if bundle.chapters.size != blank OR bundle.lesson_hours != blank %}
+    <footer class="course-card__details">
+      {% if bundle.chapters.size != blank %}<span class="course-card__lesson-count">{{ bundle.chapters.size }}</span>{% endif %}
+      {% if bundle.lesson_hours != blank %}<span class="course-card__lesson-hours">{{ bundle.lesson_hours }}</span>{% endif %}
+    </footer>
+  {% endif %}
+</section>

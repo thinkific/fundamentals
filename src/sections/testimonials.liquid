@@ -1,0 +1,213 @@
+<section class="testimonials medium-section {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-ptestimonial-item="testimonials">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      {% if section.blocks != empty %}
+        <section class="testimonials__list owl-carousel">
+          {% for block in section.blocks %}
+            <div class="testimonials__list-item">
+              <i class="fa fa-quote-left"></i>
+              <p>&ldquo;{{ block.settings.testimonial_body }}&rdquo;</p>
+              <span><img src="{{ block.settings.testimonial_avatar }}" alt="{{ block.settings.testimonial_author }}" title="{{ block.settings.testimonial_author }}" />{{ block.settings.testimonial_author }}</span>
+            </div>
+          {% endfor %}
+        </section>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+<script>
+$(window).load(function() {
+  var $testimonialsCarousel = $('.testimonials__list'),
+      testimonialsOwlOptions = {
+        center: false,
+        dots: true,
+        loop: true,
+        margin: 0,
+        nav: false,
+        slideBy: 1,
+        responsive: {
+          0: {
+            items: 1
+          },
+          480: {
+            items: 1.15
+          },
+          992: {
+            items: 1.85
+          }
+        }
+      };
+  $testimonialsCarousel.owlCarousel(testimonialsOwlOptions);
+});
+</script>
+
+{% style %}
+
+section.testimonials {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Testimonials",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"What customers are saying"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"secondary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"Add Testimonial",
+    "limit":10,
+    "types":[
+      {
+        "type":"testimonial",
+        "label":"",
+        "settings":[
+          {
+            "type":"text",
+            "id":"testimonial_author",
+            "label":"Author"
+          },
+          {
+            "type":"image",
+            "id":"testimonial_avatar",
+            "label":"Avatar"
+          },
+          {
+            "type":"richtext",
+            "id":"testimonial_body",
+            "label":"Text"
+          }
+        ]
+      }
+    ],
+    "defaults":[
+      {
+        "type":"testimonial",
+        "values":{
+          "testimonial_author":"Customer Name",
+          "testimonial_avatar":"https://placekitten.com/150/150",
+          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
+        }
+      },
+      {
+        "type":"testimonial",
+        "values":{
+          "testimonial_author":"Customer Name",
+          "testimonial_avatar":"https://placekitten.com/150/150",
+          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
+        }
+      },
+      {
+        "type":"testimonial",
+        "values":{
+          "testimonial_author":"Customer Name",
+          "testimonial_avatar":"https://placekitten.com/150/150",
+          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
+        }
+      },
+      {
+        "type":"testimonial",
+        "values":{
+          "testimonial_author":"Customer Name",
+          "testimonial_avatar":"https://placekitten.com/150/150",
+          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
+        }
+      },
+      {
+        "type":"testimonial",
+        "values":{
+          "testimonial_author":"Customer Name",
+          "testimonial_avatar":"https://placekitten.com/150/150",
+          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

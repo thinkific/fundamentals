@@ -1,0 +1,245 @@
+<header class="header {% if section.settings.header_style == 'floating' %}floating{% endif %}" data-preview-item="header">
+  <div class="container">
+    <div class="row">
+      <section class="header__logo">
+        {% if site.has_logo %}
+          <a href="{{ site.home_url }}"><img src="{{ site.logo_url }}" alt="{{ site.name }}" title="{{ site.name }}" class="img-responsive"></a>
+        {% else %}
+          <a href="{{ site.home_url }}" class="header__school-name">{{ site.name }}</a>
+        {% endif %}
+      </section>
+      <nav class="header__nav">
+        <section class="header__nav-left {% unless section.settings.menu_position == 'none' %}{% if section.settings.menu_position == 'left' %}header__nav-primary{% else %}header__nav-secondary{% endif %}{% endunless %}">
+          <ul>
+            {% if section.settings.menu_position == 'left' %}
+             {% include 'header_default_links' %}
+            {% endif %}
+            {% include 'header_left_menu' %}
+          </ul>
+        </section>
+        <section class="header__nav-right {% unless section.settings.menu_position == 'none' %}{% if section.settings.menu_position == 'right' %}header__nav-primary{% else %}header__nav-secondary{% endif %}{% endunless %}">
+          <ul>
+            {% include 'header_right_menu' %}
+            {% if section.settings.menu_position != 'left' %}
+              {% include 'header_default_links' %}
+            {% endif %}
+            {% if site.current_user.signed_in %}
+              <li class="dropdown header__nav-item">
+                <a class="dropdown__toggle-button" data-toggle="dropdown" aria-expanded="true" tabindex="0">
+                  {{ site.current_user.first_name_last_initial }}
+                  <img src="{{ site.current_user.avatar }}" class="header__user-avatar">
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                {% include 'header_user_menu' %}
+              </li>
+            {% else %}
+              <li class="header__nav-item header__nav-sign-in">
+                <a href='{{ site.sign_in_url }}'>
+                  {{ 'liquid.partials.header_with_links.link_sign_in' | translate }}
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </section>
+      </nav>
+      <a class="header__mobile-button" aria-expanded="true" tabindex="0">
+        <span class="sr-only">{{ 'liquid.partials.header_with_links.button_menu' | translate }}</span>
+        <span class="header__mobile-button__toggle-icon">
+          <span>toggle menu</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+$(document).ready(function() {
+  function dynamicHeaderHeight() {
+    headerHeight = $header.outerHeight();
+  }
+
+  var $adminBar = $('.admin-notice__bar'),
+      $body = $('body'),
+      $header = $('.header'),
+      $main = $('main'),
+      $dropdownToggle = $('.dropdown__toggle-button'),
+      $mobileButton = $('.header__mobile-button'),
+      $navigation = $('.header__nav');
+
+  var adminBarHeight = $adminBar.outerHeight(),
+      beforeHeaderHeight = $body.find('>*').nextUntil('.header').outerHeight(),
+      headerTop = $header.offset().top;
+
+      dynamicHeaderHeight();
+
+  $(window).resize(function() {
+    dynamicHeaderHeight();
+    $('.header__nav-floating').css('height', headerHeight);
+  });
+
+  var isMobile = window.matchMedia("only screen and (max-width: 767px)");
+
+  if(adminBarHeight != NaN) {
+    $body.css({
+      'padding-bottom': adminBarHeight
+    });
+  }
+  $dropdownToggle.on('click keypress', function(e) {
+    if (e.which === 13 || e.type === 'click') {
+      e.preventDefault();
+      e.stopPropagation();
+      $('.dropdown').toggleClass('open');
+    }
+  });
+  $mobileButton.on('click keypress', function(e) {
+    if (e.which === 13 || e.type === 'click') {
+      e.preventDefault();
+      e.stopPropagation();
+      {% case section.settings.menu_mobile_type %}
+      {% when 'overlay' %}
+        $navigation.toggleClass('header__nav--overlay');
+      {% when 'expanded' %}
+        $navigation.toggleClass('header__nav--expanded');
+      {% endcase %}
+      $mobileButton.toggleClass('open');
+      $navigation.focus();
+    }
+  });
+  {% if section.settings.menu_fixed %}
+    $(window).bind('scroll', function (e) {
+      if(!isMobile.matches) {
+        if ($(window).scrollTop() > headerTop) {
+          $adminBar.addClass('fixed');
+          $header.addClass('fixed');
+          if(!$header.hasClass('floating')) {
+            $body.css({
+              'padding-top': beforeHeaderHeight + headerHeight,
+            });
+          }
+        }
+        if ($(window).scrollTop() <= headerTop) {
+          $adminBar.removeClass('fixed');
+          if(!$header.hasClass('floating')) {
+            $body.css({
+              'padding-top': 0
+            });
+          }
+          $header.removeClass('fixed');
+        }
+      }
+    });
+  {% endif %}
+  {% if section.settings.header_style == 'floating' %}
+    $main.find('.banner').prepend('<span class="header__nav-floating" style="display:block;height:' + headerHeight + 'px;"></span>');
+  {% endif %}
+});
+</script>
+
+{% style %}
+
+header.header {
+
+  {% if section.settings.logo_width != blank and section.settings.logo_height != blank %}
+  .header__logo {
+    img {
+      max-width: {{ section.settings.logo_width }}px;
+      max-height: {{ section.settings.logo_height }}px;
+    }
+  }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Page Header",
+  "settings":[
+    {
+      "label":"Header",
+      "settings":[
+        {
+          "type":"select",
+          "id":"header_style",
+          "label":"Position",
+          "default":"floating",
+          "options":[
+            {
+              "value":"floating",
+              "label":"Floating"
+            },
+            {
+              "value":"top",
+              "label":"Top"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Logo",
+      "settings":[
+        {
+          "type":"text",
+          "id":"logo_width",
+          "label":"Width",
+          "default":"60"
+        },
+        {
+          "type":"text",
+          "id":"logo_height",
+          "label":"Height",
+          "default":"60"
+        }
+      ]
+    },
+    {
+      "label":"Navigation",
+      "settings":[
+        {
+          "type":"select",
+          "id":"menu_position",
+          "label":"Primary Menu",
+          "default":"none",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        },
+        {
+          "type":"checkbox",
+          "id":"menu_fixed",
+          "label":"Fixed Menu",
+          "default":true
+        },
+        {
+          "type":"select",
+          "id":"menu_mobile_type",
+          "label":"Mobile Menu Type",
+          "default":"overlay",
+          "options":[
+            {
+              "value":"overlay",
+              "label":"Overlay"
+            },
+            {
+              "value":"expanded",
+              "label":"Expanded"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

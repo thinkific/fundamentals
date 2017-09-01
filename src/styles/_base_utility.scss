@@ -1,0 +1,131 @@
+// Utility
+// ======================================
+
+// Language Bar (Safari)
+// Vendor default index is 1, resolves overlap
+#language-bar {
+  z-index: 9999;
+}
+
+// Skip to Main Content
+#skip-link {
+
+  a {
+    position: absolute;
+    top: auto;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -9999;
+
+    &:active,
+    &:focus {
+      top: auto;
+      left: auto;
+      margin: 15px;
+      padding: 15px;
+      border: 2px solid $alert--info;
+      background-color: $black;
+      color: $white;
+      font-size: 1.2rem;
+      text-align: center;
+      overflow: auto;
+      z-index: 999;
+    }
+  }
+}
+
+.sr-only {
+  @include sr-only;
+}
+
+// Hide
+.hidden {
+  display: none !important;
+}
+
+@media print {
+
+  .hidden-print {
+    display: none !important;
+  }
+}
+
+// Notifications
+#notifications {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  .flash {
+    @include make-col(12);
+  }
+}
+
+// Full-Width Backgrounds
+.full-width-background {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: 1;
+}
+
+// Section Background Presets
+.banner-section-color-preset {
+  @include section-background-preset($banner-background-color, $banner-heading-color, $banner-subheading-color, $banner-text-color);
+}
+
+.primary-section-color-preset {
+  @include section-background-preset($primary-background-color, $primary-heading-color, $primary-subheading-color, $primary-text-color);
+}
+
+.secondary-section-color-preset {
+  @include section-background-preset($secondary-background-color, $secondary-heading-color, $secondary-subheading-color, $secondary-text-color);
+}
+
+.tertiary-section-color-preset {
+  @include section-background-preset($tertiary-background-color, $tertiary-heading-color, $tertiary-subheading-color, $tertiary-text-color);
+}
+
+// Section Height Presets
+.large-section {
+
+  .container {
+    @include screen-lg-min {
+      padding-top: $large-section;
+      padding-bottom: $large-section;
+    }
+
+    padding-top: $large-section / 2;
+    padding-bottom: $large-section / 2;
+  }
+}
+
+.medium-section {
+
+  .container {
+    @include screen-lg-min {
+      padding-top: $medium-section;
+      padding-bottom: $medium-section;
+    }
+
+    padding-top: $medium-section / 2;
+    padding-bottom: $medium-section / 2;
+  }
+}
+
+.small-section {
+
+  .container {
+    @include screen-lg-min {
+      padding-top: $small-section;
+      padding-bottom: $small-section;
+    }
+
+    padding-top: $small-section / 2;
+    padding-bottom: $small-section / 2;
+  }
+}

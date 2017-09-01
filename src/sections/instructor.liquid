@@ -1,0 +1,153 @@
+<section class="instructor {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="instructor">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      {% if section.blocks != empty %}
+        <ul class="instructor__list">
+          {% for block in section.blocks %}
+            <li class="instructor__profile">
+              <header>
+                {% if block.settings.avatar != blank %}
+                  <img class="instructor__avatar sr-only" alt="{{ block.settings.full_name }}" src="{{ block.settings.avatar }}" />
+                {% endif %}
+                  <h4 class="instructor__name">
+                    {{ block.settings.full_name }}
+                  </h4>
+                {% if block.settings.title != blank %}
+                  <h4 class="instructor__title">
+                    {{ block.settings.title }}
+                  </h4>
+                {% endif %}
+              </header>
+              {% if block.settings.bio != blank %}
+                <section class="instructor__bio">
+                  {{ block.settings.bio }}
+                </section>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.instructor {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Instructors",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":""
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"Add Instructor",
+    "limit":3,
+    "types":[
+      {
+        "type":"instructor",
+        "label":"",
+        "settings":[
+          {
+            "type":"instructor_picker",
+            "id":"instructor",
+            "label":"Select Course Instructor"
+          }
+        ]
+      }
+    ],
+    "defaults":[
+
+    ]
+  }
+}
+{% endschema %}

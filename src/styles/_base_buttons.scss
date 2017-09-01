@@ -1,0 +1,19 @@
+// Buttons
+// ======================================
+
+.button {
+  @include button;
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+.button-large {
+  padding: $button__padding--large;
+}
+
+.button-primary {
+  @include button-primary;
+}

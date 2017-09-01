@@ -1,0 +1,35 @@
+// Lists
+// ======================================
+
+ol,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+[class*="__list"],
+[class*="__menu"],
+[class*="__nav"] {
+  list-style: none;
+
+  li {
+    list-style: none;
+  }
+}
+
+[class*="__nav"] {
+
+  li {
+    display: inline-block;
+  }
+}
+
+[class*="__list"],
+[class*="__menu"] {
+  display: block;
+
+  li {
+    display: block;
+  }
+}

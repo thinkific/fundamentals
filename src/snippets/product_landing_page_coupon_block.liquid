@@ -1,0 +1,18 @@
+{% comment %}
+  This is the visual indication on a course or bundle landing page that displays
+  an applied coupon (one that was specified in the url)
+{% endcomment %}
+
+<section class="products__coupon">
+  <div class="container">
+    {% if page.coupon.is_valid %}
+      <span class="coupon coupon--valid">
+        {{ page.coupon.discounted_amount }} {{ 'liquid.partials.course_landing_page_coupon_block.text_of_price' | translate }} {{ page.coupon.full_price }}
+      </span>
+    {% else %}
+      <span class="coupon coupon--valid">
+        {{ 'liquid.partials.course_landing_page_coupon_block.text_invalid_coupon' | translate }}
+      </span>
+    {% endif %}
+  </div>
+</section>

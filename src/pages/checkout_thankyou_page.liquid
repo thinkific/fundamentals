@@ -1,0 +1,63 @@
+{% comment %}
+  This is the checkout thankyou page.
+  Specifically, this is the page where a user lands after purchasing a course
+  or a bundle.
+{% endcomment %}
+
+<main class="checkout checkout__thankyou" id="main-content" role="main">
+  <div class="container">
+    <div class="row">
+      <section class="checkout__thank-you">
+        <h1>{{ 'liquid.views.checkout_thankyou_page.title_thank_you' | translate }}</h1>
+        {% for item in page.items %}
+          {{ item.name }}
+        {% endfor %}
+      </section>
+      <section class="checkout__order-receipt">
+        <p>
+          {{ 'liquid.views.checkout_thankyou_page.text_info' | translate }}
+          <a href="{{ page.order_receipt_url }}", class="text-underline">
+            {{ 'liquid.views.checkout_thankyou_page.link_order_receipt' | translate }}
+          </a>
+        </p>
+      </section>
+      <section class="checkout__start-learning">
+        {% if page.product_is_course %}
+          <a class="button button-primary" href="{{ page.take_course_url }}">
+            {{ 'liquid.views.checkout_thankyou_page.link_start_learning' | translate }}
+          </a>
+        {% else %}
+          {% for bundled_course in page.bundled_courses %}
+            <div class="checkout__start-learning--bundle">
+              <h3>{{ bundled_course.name }}</h3>
+              <a class="button" href="{{ bundled_course.links.resume }}">
+                {{ 'liquid.views.checkout_thankyou_page.link_start_learning' | translate }}
+              </a>
+            </div>
+          {% endfor %}
+          {% if page.has_more_bundled_courses %}
+            <div class="checkout__bundle-additional-courses">
+              {{ page.remaining_bundle_courses_message }}
+            </div>
+          {% endif %}
+        {% endif %}
+      </section>
+    </div>
+  </div>
+</main>
+
+{% schema %}
+{
+  "sections":{
+    "options":[
+      "course_cards",
+      "call_to_action",
+      "video"
+    ],
+    "defaults":[
+      "video",
+      "course_cards"
+    ]
+  }
+}
+{% endschema %}

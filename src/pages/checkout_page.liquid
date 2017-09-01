@@ -1,0 +1,29 @@
+{% comment %}
+  This is the checkout page.
+  Specifically, this is the page where a user would type in their credit
+  card number, apply a coupon or checkout with PayPal
+  Note that you cannot edit the actual form, however the surrounding content
+  of the page may be modified.
+{% endcomment %}
+
+<main class="checkout" id="main-content" role="main">
+  <div class="container">
+    <div class="row">
+      <section class="checkout__form">
+        <ul class="progress-bar">
+          <li>{{ 'checkouts.new.list_item_1' | translate }}</li>
+          <li class="active">{{ 'checkouts.new.list_item_2' | translate }}</li>
+        </ul>
+        <h1>Complete your purchase</h1>
+        {{ page.checkout_form }}
+      </section>
+      <section class="checkout__product-overview">
+        <h2>Your Order</h2>
+        <div class="checkout__product-details">
+          <img src="{{ page.product.card_image_url }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" class="img-responsive" />
+          <h3 class="checkout__product-description">{{ page.checkout_description }}</h3>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,62 @@
+// Tables
+// ======================================
+
+table {
+  @include screen-lg-min {
+    table-layout: fixed;
+  }
+  @include screen-md-max {
+    width: 100%;
+    overflow-x: scroll;
+    // See https://github.com/twbs/bootstrap/pull/10057
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $gutter-width;
+  background-color: $interface__background-color;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: $gutter-width / 3;
+    border-top: $interface__border;
+    vertical-align: top;
+  }
+
+  thead {
+
+    th {
+      border-bottom: $interface__border;
+      text-align: left;
+      vertical-align: bottom;
+    }
+  }
+
+  tbody {
+
+    & + tbody {
+      border-top: $interface__border;
+    }
+
+    tr {
+
+      &:nth-of-type(odd) {
+        background-color: $gray-0;
+      }
+
+      &:active,
+      &:focus,
+      &:hover {
+        @include transition(background-color 400ms ease);
+
+        background-color: tint($accent__color, 90%);
+      }
+    }
+  }
+
+  table {
+    background-color: $interface__background-color;
+  }
+}

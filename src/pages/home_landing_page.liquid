@@ -1,0 +1,66 @@
+{% layout 'theme' %}
+
+{% comment %}
+  This is the site landing page.
+{% endcomment %}
+
+<main class="home" id="main-content" role="main">
+  {% if content_for_page != empty %}
+    {{ content_for_page }}
+  {% else %}
+    <section class="banner">
+      <div class="container">
+        {% if site.has_home_header %}
+          <h1 class="section__heading">{{ site.home_header }}</h1>
+          {% if site.has_home_subheader %}
+            <h2 class="section__subheading">{{ site.home_subheader }}</h2>
+          {% endif %}
+        {% endif %}
+      </div>
+    </section>
+    <section class="home__product-list">
+      <div class="container">
+        <div class="row">
+          {% include 'products_card_list' %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+</main>
+
+{% schema %}
+{
+  "sections":{
+    "options":[
+      "banner",
+      "description",
+      "checklist",
+      "course_cards",
+      "course_categories",
+      "instructor",
+      "bonus",
+      "call_to_action",
+      "countdown_timer",
+      "showcase",
+      "testimonials",
+      "icon_and_text",
+      "image_and_text",
+      "video"
+    ],
+    "defaults":[
+      "banner",
+      "icon_and_text",
+      "image_and_text",
+      "showcase",
+      "countdown_timer",
+      "video",
+      "checklist",
+      "course_categories",
+      "instructor",
+      "testimonials",
+      "course_cards",
+      "call_to_action"
+    ]
+  }
+}
+{% endschema %}

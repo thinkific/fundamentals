@@ -1,0 +1,42 @@
+// Base
+// ======================================
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+* {
+
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+a {
+  @include transition(color 300ms ease);
+
+  color: $link__color;
+
+  &:active,
+  &:hover,
+  &:focus {
+    @include transition(color 300ms ease);
+
+    color: $link__color--active;
+  }
+
+  &:focus {
+    outline-style: dotted;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $body__background-color;
+  color: $body__font-color;
+  overflow-x: hidden;
+}

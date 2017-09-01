@@ -1,0 +1,48 @@
+// Dashboard
+// ======================================
+
+.student-dashboard {
+  background-color: $gray-0;
+
+  .container {
+    @include page-padding;
+  }
+}
+
+.student-dashboard__banner {
+  background-color: $interface__background-color;
+
+  h2 {
+    margin: 0;
+    font-family: $body__font-family;
+    font-weight: 400;
+  }
+}
+
+.student-dashboard__form {
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .form__select-no-label {
+
+    .form__control {
+      border: 0;
+      background-color: transparent;
+      direction: rtl;
+    }
+  }
+
+  .row {
+    @include justify-content(space-between);
+
+    margin-right: 0;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,75 @@
+// Theme Style: Elegance
+// ======================================
+
+// Mixins
+@mixin subheading-ornament {
+  position: relative;
+
+  &:before {
+    display: block;
+    position: relative;
+    width: 1.5rem;
+    height: 2px;
+    margin-bottom: $gutter-width / 2;
+    content: "";
+  }
+}
+
+// Overrides
+.banner-section-color-preset {
+
+  .section__subheading {
+
+    &:before {
+      background-color: $banner-subheading-color;
+    }
+  }
+}
+
+.primary-section-color-preset {
+
+  .section__subheading {
+
+    &:before {
+      background-color: $accent__color;
+    }
+  }
+}
+
+
+.secondary-section-color-preset {
+
+  .section__subheading {
+
+    &:before {
+      background-color: $accent__color;
+    }
+  }
+}
+
+
+.tertiary-section-color-preset {
+
+  .section__subheading {
+
+    &:before {
+      background-color: $accent__color;
+    }
+  }
+}
+
+
+// Sections
+.banner {
+
+  .section__subheading {
+    @include subheading-ornament;
+  }
+}
+
+.call-to-action {
+
+  .section__subheading {
+    @include subheading-ornament;
+  }
+}

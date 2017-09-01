@@ -1,0 +1,34 @@
+{% comment %}
+  This is the legacy public course card.
+  Found on Horizon, Ice-Cream & Altitude
+{% endcomment %}
+
+<section class="course-card course-card__public-legacy {{ course.status }}" data-card-url="{{ course.links.landing_page_url }}" tabindex="0">
+  <header class="course-card__img-container">
+    <a href="{{ course.links.landing_page_url }}" tabindex="-1">
+      <img src="{{ course.card_image_url }}" alt="{{ course.name }}" title="{{ course.name }}" class="course-card__img img-responsive" />
+    </a>
+  </header>
+  <div class="course-card__body">
+    {% if course.is_public %}
+    <div class="course-card__price">
+      {{ course.display_price }}
+    </div>
+    {% endif %}
+    <h3>{{ course.name }}</h3>
+    <p>{{ course.course_card_text | truncate: 250 }}</p>
+    {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
+      <span class="review__stars">
+        {% for index in (1..5) %}
+          <input type="radio" name="rating" value="{{ index }}" tabindex="-1" />
+          {% if index <= course.reviews.average_rating %}
+            {% include 'star' %}
+          {% endif %}
+        {% endfor %}
+      </span>
+    {% endif %}
+  </div>
+  <footer class="course-card__cta">
+    <a href="{{ course.links.landing_page_url }}" class="button button-primary button-block">{{ 'liquid.partials.course_card.link_landing_page' | translate }}</a>
+  </footer>
+</section>

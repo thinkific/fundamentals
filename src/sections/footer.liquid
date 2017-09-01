@@ -1,0 +1,146 @@
+<footer class="footer hidden-print {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="footer">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.show_navigation %}
+        <ul class="footer__nav-site">
+          <li class="footer__nav-item">
+            <a href="{{ site.home_url }}">
+              {{ 'liquid.partials.footer.link_home' | translate }}
+            </a>
+          </li>
+          <li class="footer__nav-item">
+            <a data-uv-trigger="true" href="mailto:{{ site.support_email }}">
+              {{ 'liquid.partials.footer.link_support' | translate }}
+            </a>
+          </li>
+          {% if site.has_terms %}
+            <li class="footer__nav-item">
+              <a href="{{ site.terms_url }}">
+                {{ 'liquid.partials.footer.link_terms' | translate }}
+              </a>
+            </li>
+          {% endif %}
+          {% if site.has_privacy_policy %}
+            <li class="footer__nav-item">
+              <a href="{{ site.privacy_policy_url }}">
+                {{ 'liquid.partials.footer.link_privacy_policy' | translate }}
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      {% endif %}
+      {% if section.blocks != empty %}
+        <ul class="footer__nav-social">
+          {% for block in section.blocks %}
+            <li class="footer__nav-item"><a href="{{ block.settings.social_url }}"><i class="fa {{ block.settings.social_icon }}"></i></a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      <span class="section__divide"></span>
+      {% if section.settings.show_copyright %}
+        <aside class="footer__copyright">
+          {% if section.settings.custom_copyright != blank and section.settings.custom_copyright != "" %}
+            {{ section.settings.custom_copyright }}
+          {% else %}
+            {{ site.copyright }}
+          {% endif %}
+        </aside>
+      {% endif %}
+      {% unless site.white_labelling_activated %}
+        <aside class="footer__white-label">
+          <a href="//www.thinkific.com/?utm_source={{ site.subdomain }}&utm_medium=powered-by&utm_campaign=Referral" target="_blank" tabindex="-1">Powered By Thinkific</a>
+        </aside>
+      {% endunless %}
+    </article>
+  </div>
+</footer>
+
+{% style %}
+
+footer.footer {
+
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Footer",
+  "settings":[
+    {
+      "label":"Text",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"show_copyright",
+          "label":"Show Copyright",
+          "default":"true"
+        },
+        {
+          "type":"richtext",
+          "id":"custom_copyright",
+          "label":"Custom Copyright",
+          "description":"If a custom copyright message is not present, the default system copyright is displayed, unless disabled.",
+          "default":""
+        }
+      ]
+    },
+    {
+      "label":"Navigation",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"show_navigation",
+          "label":"Show Navigation",
+          "default":"true"
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"Add Social Link",
+    "limit":10,
+    "types":[
+      {
+        "type":"social_link",
+        "label":"",
+        "settings":[
+          {
+            "type":"image",
+            "id":"social_icon",
+            "label":"Icon"
+          },
+          {
+            "type":"text",
+            "id":"social_url",
+            "label":"URL"
+          }
+        ]
+      }
+    ],
+    "defaults":[
+      {
+        "type":"social_link",
+        "values":{
+          "social_icon":"fa-facebook-square",
+          "social_url":"//www.facebook.com"
+        }
+      },
+      {
+        "type":"social_link",
+        "values":{
+          "social_icon":"fa-instagram",
+          "social_url":"//www.instagram.com"
+        }
+      },
+      {
+        "type":"social_link",
+        "values":{
+          "social_icon":"fa-youtube-square",
+          "social_url":"//www.youtube.com"
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

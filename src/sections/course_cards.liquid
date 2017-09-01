@@ -1,0 +1,160 @@
+<section class="course-cards {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | append: '-section' }}{% endif %}" data-preview-item="course-cards">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      <ul class="course-cards__list">
+        {% for product in section.settings.course_cards %}
+          {% if product.is_course %}
+            {% assign course = product.course %}
+            <li class="course-cards__list-item">
+              {% include 'course_card' with course %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.course-cards {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Course Cards",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"You may also like"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Add Course Cards",
+      "settings":[
+        {
+          "type":"products_picker",
+          "id":"course_cards",
+          "label":"",
+          "default":[
+
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Section Height",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height Preset",
+          "description":"Presets can be configured in the base.scss",
+          "default":"large",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

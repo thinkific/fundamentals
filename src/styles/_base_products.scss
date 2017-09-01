@@ -1,0 +1,471 @@
+// Products
+// ======================================
+
+// Course Card
+.course-card {
+	@include card;
+}
+
+.course-card__dashboard {
+
+	.course-card__img {
+		position: relative;
+		height: 200px;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		overflow: hidden;
+
+		&:after {
+			@include transition(max-height 400ms ease-out, opacity 300ms ease-out);
+
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			max-height: 0;
+			background-color: $black;
+			line-height: 200px;
+			text-align: center;
+			content: "";
+			opacity: 0;
+			overflow: hidden;
+			z-index: 2;
+		}
+
+		&:hover,
+		&:focus {
+
+			&:after {
+				@include transition(max-height 400ms ease-in, opacity 300ms ease-in);
+
+				max-height: 1000px;
+				opacity: .4;
+			}
+
+			a {
+				@include transition(top 200ms ease-in);
+
+				top: 40%;
+			}
+		}
+
+		h3 {
+			@include transform(translatey(-50%));
+
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			margin: 0;
+			padding: $gutter-width / 2;
+			text-align: center;
+			z-index: 1;
+		}
+
+		a {
+			@include transform(translatex(-50%));
+			@include transition(top 200ms ease-out);
+
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			min-width: 55%;
+			z-index: 3;
+		}
+	}
+}
+
+.course-card__dashboard-legacy {
+
+	.course-card__body,
+	.course-card__cta {
+		padding: $gutter-width / 2;
+	}
+}
+
+.course-card__public {
+
+	&:focus,
+	&:hover {
+		cursor: pointer;
+	}
+
+	.course-card__body {
+		padding: $gutter-width * 1.5 $gutter-width / 2 $gutter-width / 2;
+	}
+}
+
+.course-card__public-legacy {
+
+	.course-card__body,
+	.course-card__cta {
+		padding: $gutter-width / 2;
+	}
+
+	.course-card__body {
+		text-align: left;
+	}
+
+	.course-card__price {
+		@include transform(none);
+
+		position: relative;
+		top: initial;
+		margin: 0 0 $gutter-width / 2;
+		padding: 0;
+		border: 0;
+		background: transparent;
+	}
+}
+
+.course-card__body {
+	position: relative;
+	text-align: center;
+
+	h3 {
+		font-size: 1.125rem;
+		font-weight: 400;
+		line-height: 1.25;
+	}
+}
+
+.course-card__price {
+	@include transform(translatex(-50%));
+
+	display: inline-block;
+	position: absolute;
+	top: -1rem;
+	padding: $gutter-width / 4 $gutter-width / 2;
+	border: 2px solid $heading__font-color;
+	background-color: $interface__background-color;
+	font-size: .875rem;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.course-card__progress--circle {
+	@include transform(translatex(-50%));
+
+	position: absolute;
+	top: -($progress__circle-size/2);
+	left: 50%;
+	width:  $progress__circle-size;
+	height: $progress__circle-size;
+	margin: 0 auto;
+	text-align: left;
+	z-index: 3;
+
+	.circle {
+
+		.mask,
+		.fill {
+			@include backface-visibility(hidden);
+			@include transition($progress__transition);
+			position: absolute;
+			width: $progress__circle-size;
+			height: $progress__circle-size;
+			border-radius: 50%;
+		}
+
+		.mask {
+			clip: rect(0, $progress__circle-size, $progress__circle-size, $progress__circle-size/2);
+
+			.fill {
+				background-color: $progress__circle-color;
+				clip: rect(0, $progress__circle-size/2, $progress__circle-size, 0);
+			}
+		}
+	}
+
+	.progress__percentage {
+		position: absolute;
+		width: $progress__inset-size;
+		height: $progress__inset-size;
+		margin-top:  ($progress__circle-size - $progress__inset-size)/2;
+		margin-left: ($progress__circle-size - $progress__inset-size)/2;
+		border-radius: 50%;
+		background-color: $white;
+		line-height: $progress__inset-size;
+		text-align: center;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: $progress__inset-size;
+			height: $progress__inset-size;
+			border: 1px solid $gray-2;
+			border-radius: 50%;
+			content: "";
+		}
+	}
+
+	$i: 0;
+	$increment: 180deg / 100;
+	@for $i from 1 through 100 {
+
+		&[data-progress="#{$i}"] {
+
+			.circle {
+
+				.mask.full,
+				.fill {
+					@include transition-delay(1s);
+					@include transform(rotate($increment * $i));
+				}
+
+				.fill.fix {
+					@include transform(rotate($increment * $i * 2));
+				}
+			}
+		}
+	}
+}
+
+.course-card__progress--bar {
+	@include make-col(12);
+
+	margin: 0 0 $gutter-width / 2;
+	padding: 0;
+
+	.progress__percentage {
+		position: relative;
+		margin: 0 0 $gutter-width / 2;
+		font-size: 2rem;
+    font-weight: 400;
+
+		&:after {
+			display: block;
+			position: absolute;
+			bottom: $gutter-width / -2;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background-color: $gray-2;
+			content: "";
+			z-index: 0;
+		}
+	}
+
+	.progress__bar {
+		display: block;
+		position: relative;
+		top: -3px;
+		height: 3px;
+		background-color: $accent__color;
+		z-index: 1;
+	}
+}
+
+.course-card__details {
+	@include make-row;
+
+	margin-top: auto;
+	font-size: 0;
+	line-height: 1;
+
+	& > * {
+		@include make-col(6);
+
+		display: inline-block;
+		padding: 10px;
+		border-top: 1px solid $gray-1;
+		border-right: 1px solid $gray-1;
+		border-bottom: 0;
+		color: $body__font-color;
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1.4rem;
+		text-align: center;
+
+		&:only-child,
+		&:last-child {
+			border-right: 0;
+		}
+
+		&:only-child {
+			@include make-col(12);
+		}
+	}
+
+	a {
+		@include transition(box-shadow 600ms ease);
+
+		text-decoration: none;
+
+		&:first-child {
+			border-right: 1px solid $gray-1;
+		}
+
+		&:active,
+		&:focus,
+		&:hover {
+			@include transition(box-shadow 600ms ease);
+
+			color: $accent__color;
+			box-shadow: $shadow-button;
+		}
+
+		.fa {
+			display: block;
+		}
+	}
+}
+
+.course-card__lesson-count,
+.course-card__lesson-time {
+	font-size: .875rem;
+	font-weight: 400;
+	line-height: 1;
+
+	strong {
+		display: block;
+	}
+}
+
+.course-card__cta-secondary {
+	@include make-row;
+	@include justify-content(space-between);
+
+	padding-right: $gutter-width / 2;
+	padding-left: $gutter-width / 2;
+
+	& > a {
+		font-size: .875rem;
+		font-weight: 600;
+		text-decoration: none;
+
+		&:first-child {
+			text-align: left;
+		}
+
+		&:last-child {
+			text-align: right;
+		}
+	}
+}
+
+.course-card__cta {
+	margin-top: auto;
+	padding: $gutter-width;
+}
+
+// Product List
+.products__list {
+	@include make-row();
+
+	margin-right: $gutter-width / -2;
+  margin-left:  $gutter-width / -2;
+
+	.products__list-item {
+		@include screen-md-min {
+			@include make-col(6);
+		}
+		@include screen-lg-min {
+			@include make-col(4);
+		}
+		@include make-col(12);
+
+		padding-bottom: $gutter-width;
+	}
+}
+
+.products__search {
+	margin: 0 0 $gutter-width;
+}
+
+.products__search-form {
+	@include make-row;
+	@include justify-content(space-between);
+}
+
+.products__search-box {
+	min-width: 20rem;
+	margin: 0 0 $gutter-width / 2 0;
+
+}
+
+// Review Stars
+.review__stars {
+	@include align-self(center);
+
+	display: inline-block;
+  position: relative;
+  width: 90px;
+  height: 18px;
+	margin: 0 0 $gutter-width / 2;
+  background: $review-star__empty-star;
+  background-size: contain;
+  font-size: 0;
+  white-space: nowrap;
+	overflow: hidden;
+
+  .review__star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    opacity: 1;
+		z-index: 1;
+  }
+
+  input {
+		@include appearance(none);
+
+    display: inline-block;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  .review__star ~ .review__star {
+    left: 18px;
+  }
+
+  .review__star ~ .review__star ~ .review__star {
+    left: 36px;
+  }
+
+  .review__star ~ .review__star ~ .review__star ~ .review__star {
+    left: 54px;
+  }
+
+  .review__star ~ .review__star ~ .review__star ~ .review__star ~ .review__star {
+    left: 72px;
+  }
+}
+
+.review__stars-input {
+  .review__star {
+    opacity: 1;
+  }
+
+  input {
+    position: relative;
+
+    &:checked + .review__star ~ .review__star {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+
+    .review__star {
+      opacity: 1 !important;
+    }
+
+    input {
+
+			&:hover + .review__star ~ .review__star {
+				opacity: 0 !important;
+			}
+		}
+  }
+}

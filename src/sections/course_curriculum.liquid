@@ -1,0 +1,160 @@
+<section class="course-curriculum medium-section {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="course-curriculum">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      <ul class="course-curriculum__chapter-list">
+        {% for chapter in page.course.chapters %}
+          {% assign index = forloop.index + 1 %}
+          <li class="course-curriculum__chapter">
+            <header class="course-curriculum__chapter-header">
+              <span class="course-curriculum__chapter-number">{{ index }}</span>
+              <h5 class="course-curriculum__chapter-title">{{ chapter.name }}
+                {% if chapter.duration_in_seconds > 0 %}
+                  <span class="course-curriculum__chapter-time">
+                    {{ chapter.duration_in_seconds_as_time }}
+                  </span>
+                {% endif %}
+                <i class="course-curriculum__chapter-collapse"></i>
+              </h5>
+            </header>
+            <ul class="course-curriculum__chapter-content" id="chapter-{{ index + 1 }}">
+              {% for content in chapter.contents %}
+                <li>
+                  <a href="{{ content.take_course_url }}" class="course-curriculum__chapter-lesson">
+                  {{ content.name }}
+                  {% if content.free %}
+                    <span class="course-curriculum__chapter-lesson--free">{{ 'liquid.partials.course_landing_page_curriculum.label_free' | translate }}</span>
+                  {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<script>
+$(document).ready(function() {
+  var $header = $('.course-curriculum__chapter-header');
+  {% if section.settings.show_collapsed %}
+    $header.not(":eq(0)").each(function(k,v) {
+      $(v).addClass('collapse');
+      $(v).next('.course-curriculum__chapter-content').hide();
+    });
+  {% endif %}
+  $header.on('click keypress', function(e) {
+    if (e.which === 13 || e.type === 'click') {
+      e.stopPropagation();
+      $(this).toggleClass('collapse');
+      $(this).next('.course-curriculum__chapter-content').toggle(350);
+    }
+  });
+});
+</script>
+
+{% style %}
+
+section.course-curriculum {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Course Curriculum",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"What's included?"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Curriculum Content",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"show_collapsed",
+          "label":"Collapsed by default",
+          "default":true
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

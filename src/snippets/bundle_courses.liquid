@@ -1,0 +1,29 @@
+{% comment %}
+  Display the bundle cards
+{% endcomment %}
+
+{% if bundle.courses.size > 0 %}
+  {% assign initial_courses = 6 %}
+  <section class="bundle-courses">
+    <h2 class="section__heading">{{ bundle.course_contents_description }}</h2>
+    <ul class="bundle-courses__list">
+      {% for course in bundle.courses limit: initial_courses %}
+        <li class="bundle-courses__list-item">
+          {% include 'course_card' with course %}
+        </li>
+      {% endfor %}
+      {% for course in bundle.courses offset: initial_courses %}
+        <li class="bundle-courses--hidden hidden">
+          {% include 'course_card' with course %}
+        </li>
+      {% endfor %}
+    </ul>
+    {% if bundle.courses.size > initial_courses %}
+      <div id="see-more" class="bundle-courses__see-more">
+        <a href="#see-more" class="bundle-courses__see-all-button button button-primary">
+          {{ 'liquid.views.bundle_landing_page.link_view_all' | translate }} {{ page.bundle_num_of_courses }} {{ 'liquid.views.bundle_landing_page.link_courses' | translate }}
+        </a>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

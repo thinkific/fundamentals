@@ -1,0 +1,19 @@
+// Showcase
+// ======================================
+
+.showcase__list {
+  @include make-row;
+  @include justify-content(center);
+}
+
+.showcase__list-item {
+  @include screen-md-min {
+    @include make-col(4)
+  }
+  @include screen-lg-min {
+    @include make-col(2);
+  }
+  @include make-col(12);
+
+  margin: 0 0 $gutter-width;
+}

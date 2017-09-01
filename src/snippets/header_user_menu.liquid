@@ -1,0 +1,46 @@
+{% comment %}
+  These are links that appear in your site header that allow users in different
+  roles to see different menu items.
+{% endcomment %}
+
+<ul class="dropdown__menu">
+  {% if site.current_user.signed_in %}
+    {% if site.current_user.is_site_owner or site.current_user.is_site_admin or site.current_user.is_thinkific_system %}
+      <li class="dropdown__menu-item">
+        <a href="{{ site.dashboard_url }}">
+          {{ 'liquid.partials.header_user_menu.link_admin' | translate }}
+        </a>
+      </li>
+    {% else %}
+      {% if site.current_user.is_course_admin %}
+        <li class="dropdown__menu-item">
+          <a href="{{ site.course_administrator_dashboard_url }}">
+            {{ 'liquid.partials.header_user_menu.link_admin' | translate }}
+          </a>
+        </li>
+      {% endif %}
+    {% endif %}
+    {% if site.current_user.is_affiliate %}
+      <li class="dropdown__menu-item">
+        <a href="{{ site.affiliate_dashboard_url }}">
+          {{ 'liquid.partials.header_user_menu.link_affiliate' | translate }}
+        </a>
+      </li>
+    {% endif %}
+  {% endif %}
+  <li class="dropdown__menu-item">
+    <a href="{{ site.current_user.account_url }}">
+      {{ 'liquid.partials.header_with_links.link_my_account' | translate }}
+    </a>
+  </li>
+  <li class="dropdown__menu-item">
+    <a href="mailto:{{ site.support_email }}" target="_blank">
+      {{ 'liquid.partials.header_with_links.link_support' | translate }}
+    </a>
+  </li>
+  <li class="dropdown__menu-item">
+    <a href="{{ site.sign_out_url }}">
+      {{ 'liquid.partials.header_with_links.link_sign_out' | translate }}
+    </a>
+  </li>
+</ul>

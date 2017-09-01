@@ -1,0 +1,98 @@
+{% comment %}
+  This is the Affiliate Reports page.
+  This is where affiliate users can view how much commission they are owed.
+{% endcomment %}
+
+<div class="affiliate">
+  <div class="container">
+    <div class="row">
+      <aside class="page__menu hidden-print">
+        {% include 'affiliate_dashboard_menu' %}
+      </aside>
+      <main class="page__content" id="main-content" role="main">
+        <article class="affiliate__commissions-overview">
+          <section class="affiliate__commissions-owed">
+            <h2>{{ 'liquid.views.affiliate_reports_page.label_total_commissions_owed' | translate }}</h2>
+            <p>{{ page.total_commission_owed_in_dollars }}</p>
+          </section>
+          <section class="affiliate__commissions-paid">
+            <h2>{{ 'liquid.views.affiliate_reports_page.label_total_commissions_paid' | translate }}</h2>
+            <p>{{ page.total_commission_paid_in_dollars }}</p>
+          </section>
+        </article>
+        <h3>{{ 'liquid.views.affiliate_reports_page.header_commissions' | translate }}</h3>
+        {% if page.has_commissions %}
+          <table class="affiliate__commissions">
+            <thead>
+              <tr>
+                <th>{{ 'liquid.views.affiliate_reports_page.table_header_product' | translate }}</th>
+                <th>{{ 'liquid.views.affiliate_reports_page.table_header_date' | translate }}</th>
+                <th>{{ 'liquid.views.affiliate_reports_page.table_header_sale' | translate }}</th>
+                <th>{{ 'liquid.views.affiliate_reports_page.table_header_commission' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for commission in page.commissions %}
+                <tr>
+                  <td>{{ commission.product_name }}</td>
+                  <td>{{ commission.date | long_date }}</td>
+                  <td>{{ commission.sale_total }}</td>
+                  <td>
+                    {% if commission.sale_was_refunded %}
+                      <span class="affiliate-commission--refunded">{{ commission.amount_without_refunds }}</span>
+                    {% endif %}
+                    <span>{{ commission.amount_with_any_refunds }}</span>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>{{ 'liquid.views.affiliate_reports_page.message_no_commissions' | translate }}</p>
+        {% endif %}
+        <h3>{{ 'liquid.views.affiliate_reports_page.header_payouts' | translate }}</h3>
+        {% if page.has_payouts %}
+          <table class="affiliate__payouts">
+            <thead>
+              <tr>
+                <th>{{ 'liquid.views.affiliate_reports_page.table_header_date' | translate }}</th>
+                <th>{{ 'liquid.views.affiliate_reports_page.table_header_amount' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for payout in page.payouts %}
+                <tr>
+                  <td>{{ payout.date | long_date }}</td>
+                  <td>{{ payout.amount }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>{{ 'liquid.views.affiliate_reports_page.message_no_payouts' | translate }}</p>
+        {% endif %}
+        <h3>{{ 'liquid.views.affiliate_reports_page.header_visitors' | translate }}</h3>
+        {% if page.has_visitors %}
+          <table class="affiliate__visitors">
+            <thead>
+              <tr>
+                <th>{{ 'liquid.views.affiliate_reports_page.table_header_date' | translate }}</th>
+                <th>{{ 'liquid.views.affiliate_reports_page.table_header_total' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for visitor_date in page.visitor_dates %}
+                <tr>
+                  <td>{{ visitor_date.date | long_date }}</td>
+                  <td>{{ visitor_date.total_visitors }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>{{ 'liquid.views.affiliate_reports_page.message_no_visitors' | translate }}</p>
+        {% endif %}
+      </main>
+    </div>
+  </div>
+</div>

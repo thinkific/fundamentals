@@ -1,0 +1,206 @@
+<section class="course-content {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="course-content">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      <ul class="course-content__content-list">
+        {% assign course = page.course %}
+        {% if course.has_lessons %}
+        <li class="course-content__content-item">
+          <i class="icon-lesson"></i>
+          <span>
+            {{ course.lesson_count }}
+          </span>
+        </li>
+        {% endif %}
+        {% if course.has_quizzes %}
+        <li class="course-content__content-item">
+          <i class="icon-quiz"></i>
+          <span>
+            {{ course.quiz_count }}
+          </span>
+        </li>
+        {% endif %}
+        {% if course.has_surveys %}
+        <li class="course-content__content-item">
+          <i class="icon-survey"></i>
+          <span>
+            {{ course.survey_count }}
+          </span>
+        </li>
+        {% endif %}
+        {% if course.has_multimedia %}
+        <div class="course-content__content-item">
+          <i class="icon-iframe"></i>
+          <span>
+            {{ course.multimedia_count }}
+          </span>
+        </div>
+        {% endif %}
+        {% if course.has_text %}
+        <li class="course-content__content-item">
+          <i class="icon-htmlitem"></i>
+          <span>
+            {{ course.text_count }}
+          </span>
+        </li>
+        {% endif %}
+        {% if course.has_pdfs %}
+        <li class="course-content__content-item">
+          <i class="icon-pdf"></i>
+          <span>
+            {{ course.pdf_count }}
+          </span>
+        </li>
+        {% endif %}
+        {% if course.has_disqus %}
+        <div class="course-content__content-item">
+          <i class="icon-chat"></i>
+          <span>
+            {{ course.disqus_count }}
+          </span>
+        </div>
+        {% endif %}
+        {% if course.has_audios %}
+        <li class="course-content__content-item">
+          <i class="icon-audio"></i>
+          <span>
+            {{ course.audio_count }}
+          </span>
+        </li>
+        {% endif %}
+        {% if course.has_downloads %}
+        <li class="course-content__content-item">
+          <i class="icon-download"></i>
+          <span>
+            {{ course.download_count }}
+          </span>
+        </li>
+        {% endif %}
+        {% if course.has_presentations %}
+        <div class="course-content__content-item">
+          <i class="icon-presentation"></i>
+          <span>
+            {{ course.presentation_count }}
+          </span>
+        </div>
+        {% endif %}
+        {% if course.has_brillium_exams %}
+        <li class="course-content__content-item">
+          <i class="icon-quiz"></i>
+          <span>
+            {{ course.brillium_exam_count }}
+          </span>
+        </li>
+        {% endif %}
+        {% if course.has_duration %}
+        <li class="course-content__content-item">
+          <i class="icon-time"></i>
+          <span>
+            {{ course.duration }}
+          </span>
+        </li>
+        {% endif %}
+      </ul>
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.course-content {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Course Content",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"What's included?"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

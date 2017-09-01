@@ -1,0 +1,33 @@
+// Affiliate
+// ======================================
+
+.affiliate {
+  @include page-padding;
+}
+
+.affiliate__links {
+  table-layout: auto;
+}
+
+.affiliate__links-homepage {
+  @include form-control;
+
+  display: inline-block;
+  width: auto;
+  background-color: $gray-0;
+  line-height: 1;
+}
+
+.affiliate__commissions-owed,
+.affiliate__commissions-paid {
+
+  p {
+    @include form-control;
+
+    display: inline-block;
+    width: auto;
+    min-width: 10rem;
+    background-color: $gray-0;
+    line-height: 1;
+  }
+}

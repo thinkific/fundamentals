@@ -1,0 +1,115 @@
+<section class="description {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="description">
+  <div class="container">
+    <article class="section__content">
+      <section class="section__body">
+        {{ section.settings.body }}
+      </section>
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.description {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Description",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"What's included?"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Text",
+      "settings":[
+        {
+          "type":"richtext",
+          "id":"body",
+          "label":"",
+          "default":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p>"
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

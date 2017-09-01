@@ -1,0 +1,225 @@
+// Soup of the Day
+// ======================================
+
+@import 'bourbon';
+
+// Grid
+// ======================================
+$grid-columns: 12 !default;
+$gutter-width: 1.875rem !default;
+
+// Breakpoints
+// ======================================
+
+$screen-xs: 320px !default;
+$screen-sm: 480px !default;
+$screen-md: 768px !default;
+$screen-lg: 992px !default;
+$screen-xl: 1200px !default;
+$screen-xxl: 1440px !default;
+
+$screen-legacy-max: ($screen-xs - 1) !default;
+$screen-xs-max: ($screen-sm - 1) !default;
+$screen-sm-max: ($screen-md - 1) !default;
+$screen-md-max: ($screen-lg - 1) !default;
+$screen-lg-max: ($screen-xl - 1) !default;
+
+// Modular Scale
+// ======================================
+$modular-scale-base: 1rem !default;
+$modular-scale-base-md: .875rem !default;
+$modular-scale-base-sm: .5rem !default;
+$modular-scale-ratio: 1.25 !default;
+
+// Colors
+// ======================================
+
+// Alert
+$alert--info: #FFED8F !default;
+$alert--error: #E75725 !default;
+$alert--success: #54C670 !default;
+
+// Core
+$black: #000000 !default;
+$white: #ffffff !default;
+$gray-0: #f7f7f7 !default;
+$gray-1: #e5e5e5 !default;
+$gray-2: #eceeef !default;
+$gray-3: #ced4da !default;
+$gray-4: #adb5bd !default;
+$gray-5: #999999 !default;
+$gray-6: #636c72 !default;
+$gray-7: #505050 !default;
+$gray-8: #495057 !default;
+$gray-9: #343a40 !default;
+$gray-10: #292b2c !default;
+
+// Vendors
+$linked-in: #4875B4 !default;
+
+// Global
+// ======================================
+
+// Body
+$body__background-color: {{ theme.settings.background_color }} !default;
+$body__font-color: {{ theme.settings.body_text_color }} !default;
+$body__font-family: '{{ theme.settings.body_font }}', Sans-Serif !default;
+$body__font-size: modular-scale(0) !default;
+$body__font-weight: 400 !default;
+$body__line-height: 2 !default;
+
+// Headings
+$heading__font-color: {{ theme.settings.heading_color }} !default;
+$heading__font-family: '{{ theme.settings.heading_font }}', Sans-Serif !default;
+$heading__font-weight: 600 !default;
+$heading__line-height: 1.2 !default;
+
+$subheading__font-family: '{{ theme.settings.subheading_font }}', Sans-Serif !default;
+$subheading__font-weight: 400 !default;
+
+// Interface
+$interface__background-color: $white !default;
+$interface__border: 1px solid $gray-2 !default;
+$interface__shadow: 1px 1px 0 rgba(0, 0, 0, 0.05) !default;
+
+// Section Presets
+// ======================================
+
+$banner-background-color: {{ theme.settings.banner_background_color }} !default;
+$banner-heading-color: {{ theme.settings.banner_heading_color }} !default;
+$banner-subheading-color: {{ theme.settings.banner_subheading_color }} !default;
+$banner-text-color: {{ theme.settings.banner_text_color }} !default;
+
+$primary-background-color: {{ theme.settings.primary_background_color }} !default;
+$primary-heading-color: {{ theme.settings.primary_heading_color }} !default;
+$primary-subheading-color: {{ theme.settings.primary_subheading_color }} !default;
+$primary-text-color: {{ theme.settings.primary_text_color }} !default;
+
+$secondary-background-color: {{ theme.settings.secondary_background_color }} !default;
+$secondary-heading-color: {{ theme.settings.secondary_heading_color }} !default;
+$secondary-subheading-color: {{ theme.settings.secondary_subheading_color }} !default;
+$secondary-text-color: {{ theme.settings.secondary_text_color }} !default;
+
+$tertiary-background-color: {{ theme.settings.tertiary_background_color }} !default;
+$tertiary-heading-color: {{ theme.settings.tertiary_heading_color }} !default;
+$tertiary-subheading-color: {{ theme.settings.tertiary_subheading_color }} !default;
+$tertiary-text-color: {{ theme.settings.tertiary_text_color }} !default;
+
+// Decoration
+// ======================================
+
+$base__border-radius: 0 !default;
+$base__border-color: $gray-0 !default;
+$base__border-width: 1px !default;
+$base__border-style: solid !default;
+
+$cursor-disabled: not-allowed !default;
+
+// Forms & Inputs
+// ======================================
+
+$form__control-padding: 10px 15px !default;
+$form__input-color: $body__font-color !default;
+$form__input-background: $white !default;
+$form__input-color-placeholder: $gray-1 !default;
+$form__input-background-disabled: $gray-0 !default;
+$form__input-height: calc($body__font-size * $body__line-height) + ($gutter-width) !default;
+
+// Review Stars
+// ======================================
+
+$review-star__empty: $gray-2;
+$review-star__filled-color: {{ theme.settings.review_star }} !default;
+$review-star__background-color: {{ theme.settings.review_star_background }} !default;
+$review-star__empty-star: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=") !default;
+
+// Branding
+// ======================================
+
+$brand__color: {{ theme.settings.brand_color }} !default;
+$accent__color: {{ theme.settings.accent_color }} !default;
+
+// Heading
+$heading__background-color: {{ theme.settings.heading_background_color }} !default;
+$heading__text-color: {{ theme.settings.heading_text_color }} !default;
+
+// Anchors
+$link__color: {{ theme.settings.link_color }} !default;
+$link__color--active: {{ theme.settings.link_hover_color }} !default;
+
+// Logo
+$logo__width: {{ theme.settings.logo_width }}px !default;
+$logo__height: {{ theme.settings.logo_height }}px !default;
+
+// Navigation
+$nav__background-color: {{ theme.settings.menu_background_color }} !default;
+$nav__link-color: {{ theme.settings.menu_link_color }} !default;
+$nav__background-color--active: {{ theme.settings.menu_background_hover_color }} !default;
+$nav__link-color--active: {{ theme.settings.menu_link_hover_color }} !default;
+$nav__fixed-background-color: {{ theme.settings.menu_fixed_background_color }} !default;
+$nav__fixed-link-color: {{ theme.settings.menu_fixed_link_color }} !default;
+$nav__fixed-link-color--active: {{ theme.settings.menu_fixed_link_hover_color }} !default;
+$nav__mobile-background-color: {{ theme.settings.menu_mobile_background_color }} !default;
+$nav__mobile-link-color: {{ theme.settings.menu_mobile_link_color }} !default;
+$nav__mobile-background-color--active: {{ theme.settings.menu_mobile_background_hover_color }} !default;
+$nav__mobile-link-color--active: {{ theme.settings.menu_mobile_link_hover_color }} !default;
+
+// Mobile Menu
+$mobile-menu__width: 32px;
+$mobile-menu__height: 32px;
+$mobile-menu__thickness: 3px;
+$mobile-menu__space: 10px;
+$mobile-menu__transition: 250ms;
+
+// Dropdown
+$dropdown__background-color: {{ theme.settings.dropdown_background_color }} !default;
+$dropdown__link-color: {{ theme.settings.dropdown_link_color }} !default;
+$dropdown__link-background-color: {{ theme.settings.dropdown_link_background_color }} !default;
+$dropdown__link-color--active: {{ theme.settings.dropdown_link_hover_color }} !default;
+$dropdown__link-background-color--active: {{ theme.settings.dropdown_link_background_hover_color }} !default;
+
+// Footer
+$footer__background-color: {{ theme.settings.footer_background_color }} !default;
+$footer__text-color: {{ theme.settings.footer_text_color }} !default;
+$footer__link-color: {{ theme.settings.footer_link_color }} !default;
+$footer__link-color--active: {{ theme.settings.footer_link_hover_color }} !default;
+
+// Buttons
+$button__padding: 10px 15px !default;
+$button__padding--large: 10px 30px !default;
+$button__border-width: 2px !default;
+$button__border-style: solid !default;
+$button__border-radius: 0 !default;
+$button__font-size: $body__font-size !default;
+$button__font-weight: 600 !default;
+
+$button__primary-background: {{ theme.settings.primary_button_background_color }} !default;
+$button__primary-color: {{ theme.settings.primary_button_text_color }} !default;
+$button__primary-background--active: {{ theme.settings.primary_button_background_hover_color }} !default;
+$button__primary-color--active: {{ theme.settings.primary_button_text_hover_color }} !default;
+
+$button__secondary-background: {{ theme.settings.secondary_button_background_color }} !default;
+$button__secondary-color: {{ theme.settings.secondary_button_text_color }} !default;
+$button__secondary-background--active: {{ theme.settings.secondary_button_background_hover_color }} !default;
+$button__secondary-color--active: {{ theme.settings.secondary_button_text_hover_color }} !default;
+
+// Shadows
+$shadow-button: 0 0 16px 0 rgba(0, 0, 0, 0.15) !default;
+$shadow-menu: 0 0 8px 0 rgba(0, 0, 0, 0.15) !default;
+$shadow-1: 0 2px 4px 0 rgba(0, 0, 0, 0.26) !default;
+$shadow-2: 0 4px 12px 0 rgba(68, 68, 68, 0.5) !default;
+$shadow-3: 0 8px 16px 0 rgba(0, 0, 0, 0.2) !default;
+
+// Progress Bar (Circle)
+$progress__circle-size: 60px !default;
+$progress__meter-size: 6px !default;
+$progress__circle-background: $white !default;
+$progress__circle-color: $accent__color !default;
+$progress__inset-size: $progress__circle-size - $progress__meter-size !default;
+$progress__inset-color: $white !default;
+$progress__transition: transform 800ms ease !default;
+
+// Section Padding
+$large-section: 5.625rem;
+$medium-section: 3.750rem;
+$small-section: 1.875rem;

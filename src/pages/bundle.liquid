@@ -1,0 +1,122 @@
+{% layout 'theme' %}
+
+{% comment %}
+  This is the default Bundle landing page
+
+  If a user enters a coupon URL ( yoursite.com?coupon=100) they
+  will see a small section that displays details about the coupon.
+{% endcomment %}
+
+{% if page.bundle.coupon_supported and page.coupon_code_provided %}
+  {% include 'product_landing_page_coupon_block' %}
+{% endif %}
+
+<main class="bundle" id="main-content" role="main">
+  {% if content_for_page != empty %}
+    {{ content_for_page }}
+  {% else %}
+    {% assign bundle = page.bundle %}
+    <section class="banner {% if bundle.banner_image_url != blank %}full-width-background{% endif %}">
+      <div class="container">
+        <h1 class="section__heading">{{ bundle.name }}</h1>
+        {% if bundle.tagline != blank %}
+          <h2 class="section__subheading">{{ bundle.tagline }}</h2>
+        {% endif %}
+        {% include 'product_action_buttons' %}
+      </div>
+    </section>
+    {% if bundle.description != blank %}
+      <section class="description" data-preview-item="description">
+        <div class="container">
+          <div class="section__content">
+            <div class="section__body">
+              {{ section.settings.body }}
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+    {% include 'bundle_courses' with bundle %}
+  {% endif %}
+</main>
+
+{% if content_for_page == empty %}
+{% style %}
+
+section.banner {
+  {% if bundle.banner_image_url != blank %}
+    $background-image: '{{ bundle.banner_image_url }}';
+  {% else %}
+    $background-image: null;
+  {% endif %}
+
+  $background-color: {{ theme.settings.accent_color }};
+  $background-overlay-color: $background-color;
+  $background-overlay-opacity: {{ bundle.banner_overlay_opacity_percentage }};
+
+  @if $background-overlay-opacity {
+    $color: rgba($background-overlay-color, $background-overlay-opacity);
+    $overlay: linear-gradient(
+      $color,
+      $color
+    );
+  } @else {
+    $overlay: null;
+  }
+  $img: if($background-image, url('#{$background-image}'), null);
+
+  @if $img {
+    $background: ($overlay, $img);
+  } @else {
+    $background: (rgba($background-overlay-color, $background-overlay-opacity));
+  }
+
+  &.full-width-background {
+    @include background-image($background...);
+  }
+}
+
+{% endstyle %}
+{% endif %}
+
+{% schema %}
+{
+  "sections":{
+    "options":[
+      "banner",
+      "description",
+      "bundle_includes",
+      "course_cards",
+      "instructor",
+      "reviews",
+      "bonus",
+      "call_to_action",
+      "checklist",
+      "countdown_timer",
+      "pricing_table",
+      "showcase",
+      "testimonials",
+      "icon_and_text",
+      "image_and_text",
+      "video"
+    ],
+    "defaults":[
+      "banner",
+      "icon_and_text",
+      "description",
+      "showcase",
+      "video",
+      "checklist",
+      "image_and_text",
+      "pricing_table",
+      "testimonials",
+      "instructors",
+      "bonus",
+      "reviews",
+      "call_to_action"
+    ]
+  }
+}
+{% endschema %}
+
+{% include 'bundle_footer_scripts' %}

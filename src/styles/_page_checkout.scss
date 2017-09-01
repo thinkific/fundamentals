@@ -1,0 +1,272 @@
+// Checkout
+// ======================================
+
+.checkout {
+
+  &.checkout__thankyou {
+    @include page-padding;
+  }
+}
+
+.progress-bar {
+  @include make-col(12);
+
+  margin: 0 0 $gutter-width;
+  padding: 0;
+  font-size: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    font-size: .875rem;
+
+    &:first-child {
+
+      &:after {
+        display: inline-block;
+        position: relative;
+        margin: 0 8px;
+        font-family: "FontAwesome";
+        font-size: .9rem;
+        content: "\f0da";
+      }
+    }
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
+.checkout__form,
+.checkout__product-overview {
+  @include make-col(12);
+  @include screen-lg-min {
+    @include make-col(6);
+
+    padding: $gutter-width * 2;
+  }
+
+  padding: $gutter-width;
+}
+
+.checkout__sign-in,
+.checkout__sign-up {
+  margin: 0 0 $gutter-width;
+
+  a {
+    color: $body__font-color;
+    font-size: .875rem;
+  }
+}
+
+.checkout__product-overview {
+  background-color: $gray-0;
+
+  h2,
+  h3 {
+    font-family: $body__font-family;
+  }
+
+  img {
+
+    &.img-responsive {
+      margin-bottom: $gutter-width / 2;
+    }
+  }
+}
+
+.checkout__product-details {
+  margin: 0 0 $gutter-width;
+  padding: $gutter-width 0;
+  border-top: 1px solid $gray-1;
+  border-bottom: 1px solid $gray-1;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+
+// In-App Checkout Form (Thinkific)
+.thinkific__checkout__cart-item__title,
+.thinkific__checkout__cart-item__cost,
+.thinkific__cart-item__cost {
+  @include make-col(6);
+
+  padding: 0;
+}
+
+.checkout__thank-you,
+.checkout__order-receipt,
+.checkout__start-learning {
+  @include make-col(12);
+}
+
+.thinkific__checkout__coupon-code__submit-container,
+.thinkific__checkout__credit-card-submit-container,
+.thinkific__checkout__enroll-free__container {
+
+  .btn {
+    @include button;
+    @include button-primary;
+  }
+}
+
+.thinkific__checkout__cart-item,
+.thinkific__checkout__cart-item--total-row {
+  @include make-row;
+  @include flex-grow(1);
+}
+
+.thinkific__checkout__cart-item__cost,
+.thinkific__cart-item__cost {
+  text-align: right;
+}
+
+.thinkific__checkout__cart-item--total-row {
+  width: 100%;
+  margin: $gutter-width 0;
+  padding: $gutter-width 0 0;
+  border-top: 1px solid $gray-1;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.thinkific__checkout__credit-card-container {
+  padding-top: $gutter-width;
+}
+
+.thinkific__checkout__coupon-code__input,
+.StripeElement {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid $gray-2;
+  border-radius: 0;
+  background-color: $interface__background-color;
+  font-size: 1rem;
+
+  &::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  &::-moz-placeholder {
+    color: transparent;
+  }
+
+  &:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  &:-moz-placeholder {
+    color: transparent;
+  }
+}
+
+.thinkific__checkout__coupon-code__check-container {
+
+  a {
+    display: block;
+    width: 100%;
+    padding: $button__padding;
+    border: 1px solid $gray-1;
+    background-color: $white;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+.thinkific__checkout__coupon-code__form-container {
+  margin: 0 0 $gutter-width;
+}
+
+.thinkific__checkout__coupon-code {
+
+  &.hide {
+    display: none;
+  }
+
+  label {
+    color: $body__font-color;
+    font-size: .75rem;
+    font-weight: bold;
+    line-height: 2;
+  }
+}
+
+.thinkific__checkout__coupon-code__container {
+  position: relative;
+}
+
+.thinkific__checkout__coupon-code__input-container {
+  margin: 0 0 $gutter-width;
+}
+
+#thinkific__checkout__coupon-code__errors-container {
+
+  &.visible {
+    @include screen-sm-min {
+      position: absolute;
+      top: 2.5rem;
+    }
+
+    display: inline-block;
+    right: .5rem;
+    padding: 3px;
+    background-color: $interface__background-color;
+    color: $alert--error;
+    font-size: .875rem;
+    line-height: 1;
+
+    & + .thinkific__checkout__coupon-code__input-container .thinkific__checkout__coupon-code__input {
+      border-color: $alert--error;
+
+      &:focus {
+
+        outline-color: $alert--error;
+      }
+    }
+  }
+}
+
+.StripeElement {
+  position: relative;
+  margin: 0 0 $gutter-width;
+
+  &:before {
+    @include form-label;
+
+    position: absolute;
+    top: -1.6rem;
+    left: 0;
+    content: "Card Information";
+  }
+
+  &--focus {
+    border: 1px solid $accent__color;
+  }
+}
+
+.CardField-number {
+  color: $body__font-color;
+  font-size: .75rem;
+  font-weight: bold;
+  line-height: 2;
+
+  input {
+    display: block;
+  }
+}
+
+.order-security {
+  padding: $gutter-width / 2 0;
+
+  img {
+    vertical-align: middle;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+}

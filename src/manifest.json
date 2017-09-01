@@ -1,0 +1,512 @@
+{
+  "info": {
+    "name": "Fundamentals (Starter Theme)",
+    "author": "Thinkific",
+    "version": "2.0.0",
+    "documentation_url": "https://help.thinkific.com/",
+    "support_url": "https://support.thinkific.com/"
+  },
+  "settings": [
+    {
+      "label": "General",
+      "description": "This is where you select the site colors",
+      "settings": [
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "brand_color",
+          "label": "Brand Color",
+          "default": "#1E242A"
+        },
+        {
+          "type": "color",
+          "id": "accent_color",
+          "label": "Accent Color",
+          "default": "#DEA986"
+        }
+      ]
+    },
+    {
+      "label": "Navigation (Menu + Fixed Menu)",
+      "description": "This is where you style the navigation",
+      "settings": [
+        {
+          "type": "color",
+          "id": "menu_background_color",
+          "label": "Background Color",
+          "default": "transparent"
+        },
+        {
+          "type": "color",
+          "id": "menu_link_color",
+          "label": "Link Color",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "menu_link_hover_color",
+          "label": "Link Color (Hover)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "menu_fixed_background_color",
+          "label": "Background Color (Fixed)",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_fixed_link_color",
+          "label": "Link Color (Fixed Menu)",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "menu_fixed_link_hover_color",
+          "label": "Link Color (Fixed Menu - Hover)",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "label": "Navigation (Mobile)",
+      "description": "This is where you style the mobile navigation",
+      "settings": [
+        {
+          "type": "color",
+          "id": "menu_mobile_background_color",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_mobile_link_color",
+          "label": "Link Color",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "menu_mobile_background_hover_color",
+          "label": "Background Color (Hover)",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "menu_mobile_link_hover_color",
+          "label": "Link Color (Hover)",
+          "default": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "label": "Dropdown Menu",
+      "description": "This is where you style the dropdown menu",
+      "settings": [
+        {
+          "type": "color",
+          "id": "dropdown_background_color",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "dropdown_link_color",
+          "label": "Link Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "dropdown_link_background_hover_color",
+          "label": "Link Background Color (Hover)",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "dropdown_link_hover_color",
+          "label": "Link Color (Hover)",
+          "default": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "label": "Button (Primary)",
+      "description": "This is where you style the primary button",
+      "settings": [
+        {
+          "type": "color",
+          "id": "primary_button_background_color",
+          "label": "Primary Button Color",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "primary_button_text_color",
+          "label": "Primary Button Text Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "primary_button_background_hover_color",
+          "label": "Primary Button Color (Hover)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "primary_button_text_hover_color",
+          "label": "Primary Button Text Color (Hover)",
+          "default": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "label": "Button (Secondary)",
+      "description": "This is where you style the secondary button",
+      "settings": [
+        {
+          "type": "color",
+          "id": "secondary_button_background_color",
+          "label": "Secondary Button Color",
+          "default": " #DEA986"
+        },
+        {
+          "type": "color",
+          "id": "secondary_button_text_color",
+          "label": "Secondary Button Text Color",
+          "default": " #DEA986"
+        },
+        {
+          "type": "color",
+          "id": "secondary_button_background_hover_color",
+          "label": "Secondary Button Color (Hover)",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "secondary_button_text_hover_color",
+          "label": "Secondary Button Text Color (Hover)",
+          "default": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "label": "Links",
+      "description": "This is where you style the page links",
+      "settings": [
+        {
+          "type": "color",
+          "id": "link_color",
+          "label": "Link Color",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "link_hover_color",
+          "label": "Hover Cover",
+          "default": "#505050"
+        }
+      ]
+    },
+    {
+      "label": "Typography",
+      "description": "This is where you select the typography",
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_font",
+          "label": "Heading Font",
+          "default": "Droid Serif",
+          "options": [
+            {
+              "value": "Droid Serif",
+              "label": "Droid Serif",
+              "group": "Serif"
+            },
+            {
+              "value": "Lato",
+              "label": "Lato",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Montserrat",
+              "label": "Montserrat",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Open Sans",
+              "label": "Open Sans",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Raleway",
+              "label": "Raleway",
+              "group": "Sans-serif"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "default": "#1E242A"
+        },
+        {
+          "type": "select",
+          "id": "subheading_font",
+          "label": "Subheading Font",
+          "default": "Lato",
+          "options": [
+            {
+              "value": "Droid Serif",
+              "label": "Droid Serif",
+              "group": "Serif"
+            },
+            {
+              "value": "Lato",
+              "label": "Lato",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Montserrat",
+              "label": "Montserrat",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Open Sans",
+              "label": "Open Sans",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Raleway",
+              "label": "Raleway",
+              "group": "Sans-serif"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "subheading_color",
+          "label": "Subheading Color",
+          "default": "#505050"
+        },
+        {
+          "type": "select",
+          "id": "body_font",
+          "label": "Body Font",
+          "default": "Lato",
+          "options": [
+            {
+              "value": "Lato",
+              "label": "Lato",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Montserrat",
+              "label": "Montserrat",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Open Sans",
+              "label": "Open Sans",
+              "group": "Sans-serif"
+            },
+            {
+              "value": "Raleway",
+              "label": "Raleway",
+              "group": "Sans-serif"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "body_text_color",
+          "label": "Body Color",
+          "default": "#505050"
+        },
+        {
+          "type":"select",
+          "id": "icon_font",
+          "label": "Icon Font",
+          "default": "'FontAwesome'",
+          "options": [
+            {
+              "value": "'FontAwesome'",
+              "label": "Font Awesome",
+              "group": "Sans-serif"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Footer",
+      "description": "This is where you style the footer",
+      "settings": [
+        {
+          "type": "color",
+          "id": "footer_background_color",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "footer_text_color",
+          "label": "Text Color",
+          "default": "#505050"
+        },
+        {
+          "type": "color",
+          "id": "footer_link_color",
+          "label": "Link Color",
+          "default": "#505050"
+        },
+        {
+          "type": "color",
+          "id": "footer_link_hover_color",
+          "label": "Hover Color",
+          "default": "#505050"
+        }
+      ]
+    },
+    {
+      "label": "Section - Background Preset (Banner)",
+      "settings": [
+        {
+          "type": "color",
+          "id": "banner_background_color",
+          "label": "Background Color",
+          "default": "#505050"
+        },
+        {
+          "type": "color",
+          "id": "banner_heading_color",
+          "label": "Heading Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "banner_subheading_color",
+          "label": "Subheading Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "banner_text_color",
+          "label": "Text Color",
+          "default": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "label": "Section - Background Preset (Primary)",
+      "settings": [
+        {
+          "type": "color",
+          "id": "primary_background_color",
+          "label": "Background Color",
+          "default": "#F7F7F7"
+        },
+        {
+          "type": "color",
+          "id": "primary_heading_color",
+          "label": "Heading Color",
+          "default": "#1E242A"
+        },
+        {
+          "type": "color",
+          "id": "primary_subheading_color",
+          "label": "Subheading Color",
+          "default": "#505050"
+        },
+        {
+          "type": "color",
+          "id": "primary_text_color",
+          "label": "Text Color",
+          "default": "#505050"
+        }
+      ]
+    },
+    {
+      "label": "Section - Background Preset (Secondary)",
+      "settings": [
+        {
+          "type": "color",
+          "id": "secondary_background_color",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "secondary_heading_color",
+          "label": "Heading Color",
+          "default": "#1E242A"
+        },
+        {
+          "type": "color",
+          "id": "secondary_subheading_color",
+          "label": "Subheading Color",
+          "default": "#505050"
+        },
+        {
+          "type": "color",
+          "id": "secondary_text_color",
+          "label": "Text Color",
+          "default": "#505050"
+        }
+      ]
+    },
+    {
+      "label": "Section - Background Color (Tertiary)",
+      "settings": [
+        {
+          "type": "color",
+          "id": "tertiary_background_color",
+          "label": "Background Color",
+          "default": "#DEA986"
+        },
+        {
+          "type": "color",
+          "id": "tertiary_heading_color",
+          "label": "Heading Color",
+          "default": "#1E242A"
+        },
+        {
+          "type": "color",
+          "id": "tertiary_subheading_color",
+          "label": "Subheading Color",
+          "default": "#505050"
+        },
+        {
+          "type": "color",
+          "id": "tertiary_text_color",
+          "label": "Text Color",
+          "default": "#505050"
+        }
+      ]
+    }
+  ],
+  "presets": {
+    "starter": {
+      "title": "Starter",
+      "description": "Keeping it a hunnid, that's so fundamental",
+      "settings": {
+        "background_color": "#ffffff",
+        "primary_button_color": "#DEA986",
+        "body_font": "'Open Sans'"
+      }
+    },
+    "elegance": {
+      "title": "Elegance",
+      "description": "Ooooo-weeeee!",
+      "settings": {
+        "background_color": "#FF33FF",
+        "primary_button_color": "#FF33FF",
+        "body_font": "'Lato'"
+      }
+    }
+  }
+}

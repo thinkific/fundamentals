@@ -1,0 +1,68 @@
+// Typography
+// ======================================
+
+body {
+  font-family: $body__font-family;
+  font-size: $body__font-size;
+  font-weight: $body__font-weight;
+  line-height: $body__line-height;
+  // Legibility enhancement
+  text-rendering: optimizeLegibility;
+  text-shadow: 0 0 1px transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+form,
+input,
+textarea,
+label,
+fieldset,
+legend,
+select,
+optgroup,
+option,
+datalist,
+keygen,
+output {
+  font-family: $body__font-family;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include heading;
+}
+
+@each $size in 1, 2, 3 {
+  h#{$size} {
+    font-size: modular-scale(6 - $size, $modular-scale-base-sm);
+  }
+}
+
+@include screen-md-min {
+  @each $size in 1, 2, 3, 4, 5, 6 {
+    h#{$size} {
+      font-size: modular-scale(6 - $size, $modular-scale-base-md);
+    }
+  }
+}
+
+@include screen-lg-min {
+  @each $size in 1, 2, 3, 4, 5, 6 {
+    h#{$size} {
+      font-size: modular-scale(6 - $size);
+    }
+  }
+}
+
+.section__heading {
+  @include heading;
+}
+
+.section__subheading {
+  @include subheading;
+}

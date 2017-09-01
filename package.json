@@ -1,0 +1,30 @@
+{
+  "name": "Fundamentals",
+  "version": "3.0.0",
+  "description": "Starter theme package for Site Builder",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && node app.js",
+    "build:css": "node-sass",
+    "watch:css": "npm run build:css && npm run build:css -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkific/fundamentals.git"
+  },
+  "author": "Thinkific Labs, Inc",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/thinkific/fundamentals/issues"
+  },
+  "homepage": "https://github.com/thinkific/fundamentals#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.0.0",
+    "gulp": "^3.9.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

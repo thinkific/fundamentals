@@ -1,0 +1,180 @@
+<section class="reviews {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="reviews">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      {% if section.settings.reviews.size > 0 %}
+        <ul class="reviews__list">
+          {% for review in section.settings.reviews %}
+            <li class="reviews__list-item" data-review-id="{{ forloop.index }}">
+              <header>
+                <span class="review__stars">
+                  {% for index in (1..5) %}
+                    <input type="radio" name"rating" value="{{ index }}"  />
+                    {% if index <= review.rating %}
+                      {% include 'star' %}
+                    {% endif %}
+                  {% endfor %}
+                </span>
+                <h4 class="review__title">
+                  {{ review.title }}
+                </h4>
+                <h4 class="review__author">By {{ review.user.full_name }}</h4>
+              </header>
+              <section class="review__body">
+                <div class="review__body--partial">
+                  <p>{{ review.review_text | truncate: 250 }}</p>
+                  {% if review.review_text.size >= 250 %}
+                    <a class="review__show-more" href="">
+                      {{ 'liquid.views.curriculum_course_landing_page.read_more_text' | translate }}
+                    </a>
+                  {% endif %}
+                </div>
+                <div class="review__body--complete">
+                  <p>{{ review.review_text }}</p>
+                  <a class="review__show-less" href="">
+                    {{ 'liquid.views.curriculum_course_landing_page.read_less_text' | translate }}
+                  </a>
+                </div>
+              </section>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+<script type="text/javascript">
+  $(document).ready(function(e) {
+    var $showButton = $('button[class*="review__show-"]');
+    $showButton.on('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var $this = $(this),
+          $partial = $this.parents('.reviews__list-item').find('.review__body--partial'),
+          $full = $this.parents('.reviews__list-item').find('.review__body--complete');
+      if($this.hasClass('review__show-more')) {
+        $full.show();
+        $partial.hide();
+      }
+      else {
+        $full.hide();
+        $partial.show();
+      }
+    });
+  });
+</script>
+
+{% style %}
+
+section.reviews {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Reviews",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"What customers are saying"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Reviews",
+      "description":"Include reviews for this course",
+      "settings":[
+        {
+          "type":"reviews_picker",
+          "id":"reviews",
+          "label":"Course Reviews",
+          "default":[
+
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

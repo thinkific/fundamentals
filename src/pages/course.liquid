@@ -1,0 +1,60 @@
+{% layout 'theme' %}
+
+{% comment %}
+  If a user enters a coupon URL ( yoursite.com?coupon=100) they
+  will see a small section that displays details about the coupon.
+{% endcomment %}
+
+{% if page.course.coupon_supported and page.coupon_code_provided %}
+  {% include 'product_landing_page_coupon_block' %}
+{% endif %}
+
+<main class="course" id="main-content" role="main">
+  {{ content_for_page }}
+</main>
+
+{% schema %}
+{
+  "sections":{
+    "options":[
+      "banner",
+      "description",
+      "bundle_includes",
+      "course_cards",
+      "course_categories",
+      "course_curriculum",
+      "course_content",
+      "instructor",
+      "reviews",
+      "bonus",
+      "call_to_action",
+      "checklist",
+      "countdown_timer",
+      "pricing_table",
+      "showcase",
+      "testimonials",
+      "icon_and_text",
+      "image_and_text",
+      "video"
+    ],
+    "defaults":[
+      "banner",
+      "icon_and_text",
+      "description",
+      "showcase",
+      "video",
+      "checklist",
+      "image_and_text",
+      "pricing_table",
+      "testimonials",
+      "instructors",
+      "course_curriculum",
+      "bonus",
+      "reviews",
+      "call_to_action"
+    ]
+  }
+}
+{% endschema %}
+
+{% include 'course_footer_scripts' %}

@@ -1,0 +1,91 @@
+// Countdown Timer
+// ======================================
+
+
+.countdown-timer {
+
+  .section__headings {
+    @include screen-md-max {
+      margin: 0 0 $gutter-width;
+
+      .section__heading,
+      .section__subheading {
+        text-align: center;
+      }
+    }
+    @include screen-lg-min {
+      @include make-col(6);
+    }
+    @include make-col(12);
+  }
+
+  .section__heading {
+    margin: 0 0 $gutter-width / 4;
+    font-family: $body__font-family;
+    font-size: modular-scale(2);
+    font-weight: 400;
+  }
+
+  .section__subheading {
+    color: $accent__color;
+    font-size: modular-scale(0);
+    font-weight: bold;
+  }
+}
+
+
+.section__countdown-timer {
+  @include screen-md-max {
+    text-align: center;
+  }
+  @include screen-lg-min {
+    @include make-col(6);
+  }
+  @include make-col(12);
+
+  text-align: left;
+
+  ul {
+    @include screen-md-min {
+      width: auto;
+    }
+
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    list-style: none;
+    text-align: center;
+  }
+
+  li {
+    @include screen-sm-min {
+      font-size: 3rem;
+    }
+    @include screen-md-min {
+      min-width: 100px;
+    }
+
+    display: inline-block;
+    min-width: 25%;
+    padding: $gutter-width / 2;
+    border: 1px solid $gray-1;
+    background: $interface__background-color;
+    font-family: $heading__font-family;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+
+    &:not(:first-child) {
+      border-left: 0;
+    }
+
+    span {
+      display: block;
+      padding: 5px 0 0;
+      font-family: $body__font-family;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+  }
+}

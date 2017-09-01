@@ -1,0 +1,216 @@
+<section class="countdown-timer large-section {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="countdown-timer">
+  <div class="container">
+    <div class="row">
+      <article class="section__headings">
+        {% if section.settings.heading != blank %}
+          <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% if section.settings.subheading != blank %}
+            <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+          {% endif %}
+        {% endif %}
+        {% if section.settings.price != blank || section.blocks != nil %}
+          <ul class="section__button-group">
+            {% if section.settings.price != blank %}
+              <li><a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
+            {% else %}
+              {% if section.blocks != empty %}
+                {% for block in section.blocks %}
+                  <li><a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
+                {% endfor %}
+              {% endif %}
+            {% endif %}
+          </ul>
+        {% endif %}
+      </article>
+      <article class="section__countdown-timer">
+        <ul id="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
+          <li id="clock-days" class="clock-interval">00</li>
+          <li id="clock-hours" class="clock-interval">00</li>
+          <li id="clock-minutes" class="clock-interval">00</li>
+          <li id="clock-seconds" class="clock-interval">00</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+var dueDate = document.querySelector('#countdown-clock');
+if (dueDate) {
+  var deadline = dueDate.dataset.deadline;
+  function getTimeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date());
+
+    var negativeDate = t < 0;
+
+    var seconds = negativeDate ? 0 : Math.floor((t / 1000) % 60);
+    var minutes = negativeDate ? 0 : Math.floor((t / 1000 / 60) % 60);
+    var hours = negativeDate ? 0 : Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = negativeDate ? 0 : Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+      'total': t,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
+  function initializeClock(id, endtime) {
+    var clock = document.getElementById(id);
+    var daysSpan = clock.querySelector('#clock-days');
+    var hoursSpan = clock.querySelector('#clock-hours');
+    var minutesSpan = clock.querySelector('#clock-minutes');
+    var secondsSpan = clock.querySelector('#clock-seconds');
+    function updateClock() {
+      var t = getTimeRemaining(endtime);
+      daysSpan.innerHTML = t.days + "<span>Days</span>";
+      hoursSpan.innerHTML = ('0' + t.hours).slice(-2) + "<span>Hours</span>";
+      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2) + "<span>Minutes</span>";
+      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2) + "<span>Seconds</span>";
+      if (t.total <= 0) {
+        clearInterval(timeinterval);
+      }
+    }
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
+  }
+  initializeClock('countdown-clock', deadline);
+}
+</script>
+
+{% style %}
+
+section.countdown-timer {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Countdown Timer",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Take <strong>50% off</strong> Digital Marketing Mastery"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":"Expires May 16th"
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type":"datetime",
+      "id":"expiry_date",
+      "label":"Expiry Date and Time",
+      "default":"September 30 2017 10:00:00"
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"Add Button",
+    "limit":2,
+    "types":[
+      {
+        "type":"button",
+        "label":"",
+        "settings":[
+          {
+            "type":"text",
+            "id":"button_text",
+            "label":"Text"
+          },
+          {
+            "type":"price_picker",
+            "id":"price",
+            "label":"Attach a course"
+          },
+          {
+            "type":"page_picker",
+            "id":"button_url",
+            "label":"Custom URL"
+          }
+        ]
+      }
+    ],
+    "defaults":[
+      {
+        "type":"button",
+        "values":{
+          "button_text":"Learn More",
+          "button_url":"/courses/demo"
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

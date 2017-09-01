@@ -1,0 +1,163 @@
+<section class="bonus {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="bonus">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      {% if section.blocks != empty %}
+        <ul class="bonus__list">
+          {% for block in section.blocks %}
+            <li class="bonus__list-item">
+              <h4>{{ block.settings.bonus_name }}</h4>
+              <h4>{{ block.settings.bonus_value }}</h4>
+              <p>{{ block.settings.bonus_body }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.bonus {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Bonus",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Bonus material"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":"Still not convinced? Here's some free stuff."
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"Add Bonus",
+    "limit":9,
+    "types":[
+      {
+        "type":"bonus",
+        "label":"",
+        "settings":[
+          {
+            "type":"text",
+            "id":"bonus_name",
+            "label":"Name"
+          },
+          {
+            "type":"text",
+            "id":"bonus_value",
+            "label":"Value"
+          },
+          {
+            "type":"richtext",
+            "id":"bonus_body",
+            "label":"Description"
+          }
+        ]
+      }
+    ],
+    "defaults":[
+      {
+        "type":"bonus",
+        "values":{
+          "bonus_name":"Free LinkedIn certification",
+          "bonus_value":"100",
+          "bonus_body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus, nunc ac tincidunt venenatis, mauris elit tempus est, id vulputate ipsum sapien quis nisl. Fusce porta magna mi, eu efficitur velit pulvinar a. Nullam et arcu viverra, tincidunt libero in, efficitur diam."
+        }
+      },
+      {
+        "type":"bonus",
+        "values":{
+          "bonus_name":"Free digital marketing E-book",
+          "bonus_value":"50",
+          "bonus_body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus, nunc ac tincidunt venenatis, mauris elit tempus est, id vulputate ipsum sapien quis nisl. Fusce porta magna mi, eu efficitur velit pulvinar a. Nullam et arcu viverra, tincidunt libero in, efficitur diam."
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

@@ -1,0 +1,108 @@
+<section class="video" class="{% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | append: '-section' }}{% endif %}" data-preview-item="video">
+  <div class="container">
+    <article class="section__content">
+      {% if section.settings.video.frame != blank %}
+        <section class="section__video">
+          {{ section.settings.video.frame }}
+        </section>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.video {
+
+  $background-overlay-color: {{ section.settings.overlay_color }};
+  $background-overlay-opacity: {{ section.settings.overlay_opacity }} * 0.01;
+
+  @if $background-overlay-opacity {
+    $background: (rgba($background-overlay-color, $background-overlay-opacity));
+  }
+
+  .section__content {
+    &:after {
+      content: "";
+      background: $background;
+    }
+  }
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Video",
+  "settings":[
+    {
+      "label":"Video",
+      "settings":[
+        {
+          "type":"video",
+          "id":"video",
+          "label":"",
+          "default":{
+            "id":false,
+            "type":"",
+            "url":"",
+            "identifier":"",
+            "frame":"",
+            "popover":"",
+            "oembed":false
+          }
+        }
+      ]
+    },
+    {
+      "label":"Background Overlay",
+      "settings":[
+        {
+          "type":"color",
+          "id":"overlay_color",
+          "label":"Overlay Color",
+          "default":"#D9DEE2"
+        },
+        {
+          "type":"number",
+          "id":"overlay_opacity",
+          "label":"Overlay Opacity",
+          "default":0,
+          "min":0,
+          "max":100
+        }
+      ]
+    },
+    {
+      "label":"Section Height",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height Preset",
+          "description":"Presets can be configured in the base.scss",
+          "default":"large",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
