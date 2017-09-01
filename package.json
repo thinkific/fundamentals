@@ -1,6 +1,6 @@
 {
   "name": "Fundamentals",
-  "version": "3.0.0",
+  "version": "2.1.0",
   "description": "Starter theme package for Site Builder",
   "main": "index.js",
   "scripts": {
