@@ -9,7 +9,7 @@
     display: block;
     position: relative;
     width: 1.5rem;
-    height: 2px;
+    height: 3px;
     margin-bottom: $gutter-width / 2;
     content: "";
   }
@@ -67,7 +67,21 @@
   }
 }
 
+.bonus {
+  
+  .section__subheading {
+    @include subheading-ornament;
+  }
+}
+
 .call-to-action {
+
+  .section__subheading {
+    @include subheading-ornament;
+  }
+}
+
+.description {
 
   .section__subheading {
     @include subheading-ornament;
