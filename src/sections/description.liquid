@@ -1,10 +1,20 @@
-<section class="description {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="description">
+<section class="description large-section {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="description">
   <div class="container">
-    <article class="section__content">
-      <section class="section__body">
-        {{ section.settings.body }}
-      </section>
-    </article>
+    <div class="row">
+      <article class="section__headings">
+        {% if section.settings.heading != blank %}
+          <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% if section.settings.subheading != blank %}
+            <p class="section__subheading">{{ section.settings.subheading }}</p>
+          {% endif %}
+        {% endif %}
+      </article>
+      <article class="section__content">
+        <section class="section__body">
+          {{ section.settings.body }}
+        </section>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -38,13 +48,13 @@ section.description {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"What's included?"
+          "default":"Course description"
         },
         {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":""
+          "default":"Learn how to drive customer behaviour online"
         },
         {
           "type":"radio",
@@ -88,7 +98,7 @@ section.description {
           "id":"background_color_preset",
           "label":"Color Preset",
           "description":"Presets can be configured in the Colors configuration menu",
-          "default":"primary",
+          "default":"secondary",
           "options":[
             {
               "value":"none",
