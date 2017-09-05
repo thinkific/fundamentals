@@ -16,7 +16,7 @@
           <li><a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
         {% else %}
           {% for block in section.blocks %}
-            <li><a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
+            <li><a class="button button-primary button-large" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
           {% endfor %}
         {% endif %}
         </ul>

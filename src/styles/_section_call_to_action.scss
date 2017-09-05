@@ -1,2 +1,9 @@
 // Call To Action
 // ======================================
+
+.call-to-action {
+
+  .section__button-group {
+    @include justify-content(center);
+  }
+}
