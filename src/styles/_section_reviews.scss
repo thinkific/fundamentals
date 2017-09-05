@@ -1,2 +1,58 @@
 // Reviews
 // ======================================
+
+.reviews {
+
+  .section__heading {
+    margin: 0 0 $gutter-width * 2;
+  }
+}
+
+.reviews__list {
+
+  &.owl-carousel {
+
+    .owl-dots {
+      text-align: center;
+    }
+  }
+}
+
+.reviews__list-item {
+
+  header {
+    margin: 0 0 $gutter-width / 2;
+    border-bottom: $interface__border;
+  }
+}
+
+.review__title,
+.review__author {
+  font-family: $body__font-family;
+}
+
+.review__title {
+  font-size: modular-scale(1);
+}
+
+.review__author {
+  color: $body__font-color;
+  font-size: modular-scale(0);
+}
+
+.review__body--complete {
+  display: none;
+}
+
+.review__show-more,
+.review__show-less {
+  font-size: .875rem;
+  font-weight: bold;
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
