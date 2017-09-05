@@ -217,31 +217,32 @@
     }
   }
 
-  .form__label,
-  .form__forgot-password {
-    @include flex-grow(1);
-    @include screen-sm-min {
-      margin-right: $gutter-width / 2;
-    }
-
-    &:last-child {
+  label {
+    @include screen-sm-max {
+      width: 100%;
       margin-right: 0;
     }
-  }
 
-  label {
+    margin-right: $gutter-width / 2;
 
     &:only-of-type {
+      width: auto;
       margin-right: 0;
     }
   }
 }
 
 @mixin form-label {
+  @include flex-grow(1);
+
   color: $body__font-color;
   font-size: .75rem;
   font-weight: bold;
   line-height: 2;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   input,
   textarea {

@@ -51,14 +51,15 @@ textarea {
 .form__remember-me,
 .form__forgot-password {
 
-  &,
-  .form__label {
+  & {
     font-size: .75rem;
     line-height: 2;
   }
 }
 
 .form__forgot-password {
+  @include flex-grow(1);
+
   text-align: right;
 }
 
