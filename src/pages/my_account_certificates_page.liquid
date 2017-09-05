@@ -12,9 +12,9 @@
         {% include 'my_account_menu' %}
       </aside>
       <main class="page__content" id="main-content" role="main">
-        <h1>{{ 'liquid.views.my_account_certificates_page.header_my_certificates' | translate }}</h1>
+        <h1 class="page__heading">{{ 'liquid.views.my_account_certificates_page.header_my_certificates' | translate }}</h1>
         {% if site.current_user.has_certificates %}
-          <h2>{{ 'liquid.views.my_account_certificates_page.table.header_certificates' | translate }}</h2>
+          <h5>{{ 'liquid.views.my_account_certificates_page.table.header_certificates' | translate }}</h5>
           <table class="my-account__certificates">
             <thead>
               <tr>

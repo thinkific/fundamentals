@@ -10,7 +10,7 @@
         {% include 'affiliate_dashboard_menu' %}
       </aside>
       <main class="page__content" id="main-content" role="main">
-        <h1>{{ 'liquid.views.affiliate_settings_page.header_affiliate_information' | translate }}</h1>
+        <h1 class="page__heading">{{ 'liquid.views.affiliate_settings_page.header_affiliate_information' | translate }}</h1>
         {% form 'affiliate_settings' %}
         {% if errors.size > 0 %}
           {% include 'form_errors' %}

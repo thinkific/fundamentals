@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <article class="sign-in__form">
-        <h1>{{ 'liquid.views.sign_in_page.header_welcome_back' | translate }}</h1>
+        <h1 class="page__heading">{{ 'liquid.views.sign_in_page.header_welcome_back' | translate }}</h1>
         {% include 'remote_sign_in' %}
         {% form 'sign_in' %}
         {% if errors.size > 0 %}

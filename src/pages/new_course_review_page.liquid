@@ -7,8 +7,8 @@
   <div class="container">
     <div class="row">
       <article class="course-review__form">
-        <h1>{{ 'liquid.views.new_course_review_page.custom_tell_us_what_you_thought_text' | translate }}</h1>
-        <h2>{{ page.course_review.course.name }}</h2>
+        <h1 class="page__heading">{{ 'liquid.views.new_course_review_page.custom_tell_us_what_you_thought_text' | translate }}</h1>
+        <h3>{{ page.course_review.course.name }}</h3>
         {% form 'new_course_review' %}
         {% if errors.size > 0 %}
           {% include 'form_errors' %}

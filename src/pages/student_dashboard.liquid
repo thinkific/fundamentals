@@ -7,14 +7,14 @@
 <main class="student-dashboard" id="main-content" role="main">
   <section class="student-dashboard__banner">
     <div class="container">
-      <h2>{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</h2>
+      <h4>{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</h4>
     </div>
   </section>
   <div class="container">
     <section class="student-dashboard__form">
       <form action="{{ site.student_dashboard_url }}" method="get" id="search-form">
         <div class="row">
-          <h1>My Courses</h1>
+          <h1 class="page__heading">My Courses</h1>
           <div class="products__search-box">
             <label for="q" class="form__search-label">
               <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" />

@@ -14,7 +14,7 @@
         {% if errors.size > 0 %}
           {% include 'form_errors' %}
         {% endif %}
-        <h1>{{ 'liquid.views.my_account_notifications_page.header_notifications' | translate }}</h1>
+        <h1 class="page__heading">{{ 'liquid.views.my_account_notifications_page.header_notifications' | translate }}</h1>
         {% if page.allow_weekly_email_reminders %}
           <div class="form__group">
             {% assign field = fields.notify_on_weekly_reminder %}

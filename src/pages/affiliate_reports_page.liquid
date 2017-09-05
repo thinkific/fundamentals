@@ -10,17 +10,18 @@
         {% include 'affiliate_dashboard_menu' %}
       </aside>
       <main class="page__content" id="main-content" role="main">
+        <h1 class="page__heading">{{ 'liquid.views.affiliate_links_page.header_financial_reports' | translate }}</h1>
         <article class="affiliate__commissions-overview">
           <section class="affiliate__commissions-owed">
-            <h2>{{ 'liquid.views.affiliate_reports_page.label_total_commissions_owed' | translate }}</h2>
+            <strong>{{ 'liquid.views.affiliate_reports_page.label_total_commissions_owed' | translate }}</h4>
             <p>{{ page.total_commission_owed_in_dollars }}</p>
           </section>
           <section class="affiliate__commissions-paid">
-            <h2>{{ 'liquid.views.affiliate_reports_page.label_total_commissions_paid' | translate }}</h2>
+            <h4>{{ 'liquid.views.affiliate_reports_page.label_total_commissions_paid' | translate }}</h4>
             <p>{{ page.total_commission_paid_in_dollars }}</p>
           </section>
         </article>
-        <h3>{{ 'liquid.views.affiliate_reports_page.header_commissions' | translate }}</h3>
+        <h4>{{ 'liquid.views.affiliate_reports_page.header_commissions' | translate }}</h4>
         {% if page.has_commissions %}
           <table class="affiliate__commissions">
             <thead>
@@ -50,7 +51,7 @@
         {% else %}
           <p>{{ 'liquid.views.affiliate_reports_page.message_no_commissions' | translate }}</p>
         {% endif %}
-        <h3>{{ 'liquid.views.affiliate_reports_page.header_payouts' | translate }}</h3>
+        <h4>{{ 'liquid.views.affiliate_reports_page.header_payouts' | translate }}</h4>
         {% if page.has_payouts %}
           <table class="affiliate__payouts">
             <thead>
@@ -71,7 +72,7 @@
         {% else %}
           <p>{{ 'liquid.views.affiliate_reports_page.message_no_payouts' | translate }}</p>
         {% endif %}
-        <h3>{{ 'liquid.views.affiliate_reports_page.header_visitors' | translate }}</h3>
+        <h4>{{ 'liquid.views.affiliate_reports_page.header_visitors' | translate }}</h4>
         {% if page.has_visitors %}
           <table class="affiliate__visitors">
             <thead>

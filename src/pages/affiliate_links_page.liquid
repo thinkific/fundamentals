@@ -10,11 +10,11 @@
         {% include 'affiliate_dashboard_menu' %}
       </aside>
       <main class="page__content" id="main-content" role="main">
-        <h1>{{ 'liquid.views.affiliate_links_page.header_affiliate_links' | translate }}</h1>
+        <h1 class="page__heading">{{ 'liquid.views.affiliate_links_page.header_affiliate_links' | translate }}</h1>
         <section class="affiliate__links">
-          <h2>{{ 'liquid.views.affiliate_links_page.header_homepage_link' | translate }}</h2>
+          <h4>{{ 'liquid.views.affiliate_links_page.header_homepage_link' | translate }}</h4>
           <p class="affiliate__links-homepage">{{ page.homepage_link }}</p>
-          <h2>{{ 'liquid.views.affiliate_links_page.header_product_links' | translate }}</h3>
+          <h4>{{ 'liquid.views.affiliate_links_page.header_product_links' | translate }}</h3>
           {% if page.has_affiliate_links %}
             <table class="affiliate__links">
               <thead>
