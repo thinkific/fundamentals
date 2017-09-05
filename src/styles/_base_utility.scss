@@ -91,41 +91,49 @@
 }
 
 // Section Height Presets
-.large-section {
-
-  .container {
-    @include screen-lg-min {
-      padding-top: $large-section;
-      padding-bottom: $large-section;
-    }
-
-    padding-top: $large-section / 2;
-    padding-bottom: $large-section / 2;
-  }
+.section-height__large {
+  @include section-height($section-height__large);
 }
 
-.medium-section {
-
-  .container {
-    @include screen-lg-min {
-      padding-top: $medium-section;
-      padding-bottom: $medium-section;
-    }
-
-    padding-top: $medium-section / 2;
-    padding-bottom: $medium-section / 2;
-  }
+.section-height__medium {
+  @include section-height($section-height__medium);
 }
 
-.small-section {
+.section-height__small {
+  @include section-height($section-height__small);
+}
 
-  .container {
-    @include screen-lg-min {
-      padding-top: $small-section;
-      padding-bottom: $small-section;
+// OwlCarousel
+.owl-carousel {
+
+  .owl-item {
+    padding-right: $gutter-width;
+  }
+
+  .owl-dots {
+    padding: $gutter-width 0;
+
+    .owl-dot {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      margin: 0 10px 0 0;
+      border: 1px solid $accent__color;
+      border-radius: 50%;
+
+      &:last-of-type {
+        margin: 0;
+      }
+
+      &.active {
+        background-color: $accent__color;
+      }
     }
+  }
 
-    padding-top: $small-section / 2;
-    padding-bottom: $small-section / 2;
+  .owl-nav {
+
+    .owl-prev,
+    .owl-next {}
   }
 }

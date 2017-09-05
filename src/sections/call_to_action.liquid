@@ -1,4 +1,4 @@
-<section class="call-to-action large-section {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | append: '-section' }}{% endif %}" data-preview-item="call-to-action">
+<section class="call-to-action {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="call-to-action">
   <div class="container">
     <article class="section__content">
       {% if section.settings.heading != blank %}
@@ -189,7 +189,7 @@ section.call-to-action {
           "id":"section_height_preset",
           "label":"Height Preset",
           "description":"Presets can be configured in the base.scss",
-          "default":"medium",
+          "default":"large",
           "options":[
             {
               "value":"none",
