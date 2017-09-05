@@ -368,6 +368,20 @@
   }
 }
 
+// Section Height
+@mixin section-height-preset($padding: $section-height__large) {
+
+  .container {
+    @include screen-lg-min {
+      padding-top: $padding;
+      padding-bottom: $padding;
+    }
+
+    padding-top: $padding / 2;
+    padding-bottom: $padding / 2;
+  }
+}
+
 // Transition Prefixer
 @mixin trans-prefix($value, $prefix: "") {
   $slice: str-slice(inspect($value), 0, 9);
@@ -392,20 +406,6 @@
   @include trans-prefix($spec, -webkit-);
   @include trans-prefix($spec, -moz-);
   @include trans-prefix($spec);
-}
-
-// Section Height
-@mixin section-height($padding) {
-
-  .container {
-    @include screen-lg-min {
-      padding-top: $padding;
-      padding-bottom: $padding;
-    }
-
-    padding-top: $padding / 2;
-    padding-bottom: $padding / 2;
-  }
 }
 
 // Typography

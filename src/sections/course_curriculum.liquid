@@ -1,4 +1,4 @@
-<section class="course-curriculum section-height__medium {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="course-curriculum">
+<section class="course-curriculum section-height__medium {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="course-curriculum">
   <div class="container">
     <article class="section__content">
       {% if section.settings.heading != blank %}

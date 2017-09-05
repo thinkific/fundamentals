@@ -74,33 +74,33 @@
 }
 
 // Section Background Presets
-.banner-section-color-preset {
+.section-color-preset__banner {
   @include section-background-preset($banner-background-color, $banner-heading-color, $banner-subheading-color, $banner-text-color);
 }
 
-.primary-section-color-preset {
+.section-color-preset__primary {
   @include section-background-preset($primary-background-color, $primary-heading-color, $primary-subheading-color, $primary-text-color);
 }
 
-.secondary-section-color-preset {
+.section-color-preset__secondary {
   @include section-background-preset($secondary-background-color, $secondary-heading-color, $secondary-subheading-color, $secondary-text-color);
 }
 
-.tertiary-section-color-preset {
+.section-color-preset__tertiary {
   @include section-background-preset($tertiary-background-color, $tertiary-heading-color, $tertiary-subheading-color, $tertiary-text-color);
 }
 
 // Section Height Presets
 .section-height__large {
-  @include section-height($section-height__large);
+  @include section-height-preset($section-height__large);
 }
 
 .section-height__medium {
-  @include section-height($section-height__medium);
+  @include section-height-preset($section-height__medium);
 }
 
 .section-height__small {
-  @include section-height($section-height__small);
+  @include section-height-preset($section-height__small);
 }
 
 // OwlCarousel
