@@ -16,7 +16,7 @@
 }
 
 // Overrides
-.banner-section-color-preset {
+.section-color-preset__banner {
 
   .section__subheading {
 
@@ -26,7 +26,7 @@
   }
 }
 
-.primary-section-color-preset {
+.section-color-preset__primary {
 
   .section__subheading {
 
@@ -37,7 +37,7 @@
 }
 
 
-.secondary-section-color-preset {
+.section-color-preset__secondary {
 
   .section__subheading {
 
@@ -48,7 +48,7 @@
 }
 
 
-.tertiary-section-color-preset {
+.section-color-preset__tertiary {
 
   .section__subheading {
 
@@ -68,7 +68,7 @@
 }
 
 .bonus {
-  
+
   .section__subheading {
     @include subheading-ornament;
   }
