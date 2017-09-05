@@ -3,25 +3,6 @@
 
 .description {
 
-  .container {
-
-    &:before {
-      @include screen-lg-min {
-        left: 30%;
-      }
-
-      display: block;
-      position: absolute;
-      top: 0;
-      right: -100%;
-      bottom: 0;
-      left: -100%;
-      background-color: $gray-0;
-      content: "";
-      z-index: 0;
-    }
-  }
-
   .section__headings {
     @include screen-lg-min {
       @include make-col(5);

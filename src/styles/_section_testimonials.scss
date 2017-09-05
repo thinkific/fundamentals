@@ -4,28 +4,6 @@
 .testimonials {
   overflow: hidden;
 
-  .container {
-
-    &:before {
-      @include screen-md-min {
-        right: 5.5%;
-      }
-      @include screen-lg-min {
-        right: 40%;
-      }
-
-      display: block;
-      position: absolute;
-      top: 0;
-      right: -100%;
-      bottom: 0;
-      left: -100%;
-      background-color: $gray-0;
-      content: "";
-      z-index: 0;
-    }
-  }
-
   .section__heading {
     position: relative;
     margin: 0 0 $gutter-width * 2;
