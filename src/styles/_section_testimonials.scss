@@ -2,6 +2,8 @@
 // ======================================
 
 .testimonials {
+  @include section-height-preset($section-height__medium);
+  
   overflow: hidden;
 
   .section__heading {

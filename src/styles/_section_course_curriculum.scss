@@ -2,6 +2,7 @@
 // ======================================
 
 .course-curriculum {
+  @include section-height-preset($section-height__medium);
 
   .section__heading {
     margin: 0 0 $gutter-width * 1.5;

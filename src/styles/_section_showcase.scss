@@ -1,6 +1,10 @@
 // Showcase
 // ======================================
 
+.showcase {
+  @include section-height-preset($section-height__medium);
+}
+
 .showcase__list {
   @include make-row;
   @include justify-content(center);
