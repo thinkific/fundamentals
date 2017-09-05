@@ -30,13 +30,14 @@ $(window).load(function() {
         dots: true,
         loop: true,
         margin: 0,
-        nav: false,
+        nav: true,
+        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
         slideBy: 1,
         responsive: {
           0: {
             items: 1
           },
-          480: {
+          768: {
             items: 1.15
           },
           992: {
@@ -204,7 +205,7 @@ section.testimonials {
         "values":{
           "testimonial_author":"Customer Name",
           "testimonial_avatar":"https://placekitten.com/150/150",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
+          "testimonial_body":"Nam commodo ornare lectus."
         }
       }
     ]

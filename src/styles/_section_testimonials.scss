@@ -21,15 +21,21 @@
 
     .owl-item {
       @include screen-sm-min {
-        padding-right: $gutter-width * 1.5;
+        padding-right: $gutter-width;
       }
 
       padding-right: $gutter-width / 2;
 
       &.active {
+        @include screen-xs-max {
+          padding: 0 $gutter-width;
+        }
 
         & + .owl-item {
-          opacity: .7;
+          @include screen-sm-min {
+            opacity: .7;
+          }
+          opacity: 0;
         }
       }
 
@@ -42,13 +48,38 @@
         vertical-align: middle;
       }
     }
+
+    .owl-nav {
+      @include screen-sm-min {
+        display: none;
+      }
+
+      .owl-prev {
+        left: 0;
+      }
+
+      .owl-next {
+        right: 0;
+      }
+    }
+
+    .owl-dots {
+      @include screen-md-min {
+        text-align: left;
+      }
+
+      text-align: center;
+    }
   }
 }
 
 .testimonials__list-item {
   @include card;
+  @include screen-md-min {
+    padding: $gutter-width * 1.5 $gutter-width * 1.5 $gutter-width;
+  }
 
-  padding: $gutter-width * 1.5 $gutter-width * 1.5 $gutter-width;
+  padding: $gutter-width * 1.5 $gutter-width $gutter-width;
 
   p {
     margin: 0 0 $gutter-width / 1.5;
