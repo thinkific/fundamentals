@@ -15,10 +15,10 @@
             {% for block in section.blocks %}
               <li class="pricing-table__list-item">
                 <div class="pricing-table__list-item-details">
-                  <h4>{{ block.settings.po_price }}</h4>
-                  <h5>{{ block.settings.po_type }}</h5>
+                  <h4>{{ block.settings.pricing_option_price }}</h4>
+                  <h5>{{ block.settings.pricing_option_type }}</h5>
                 </div>
-                <a href="{{ block.settings.po_button.links.add_to_cart }}" class="button button-primary">Buy Now</a>
+                <a href="{{ block.settings.pricing_option_button.links.add_to_cart }}" class="button button-primary">Buy Now</a>
               </li>
             {% endfor %}
           </ul>
@@ -130,17 +130,17 @@ section.pricing-table {
         "settings":[
           {
             "type":"text",
-            "id":"po_price",
+            "id":"pricing_option_price",
             "label":"Price"
           },
           {
             "type":"text",
-            "id":"po_type",
+            "id":"pricing_option_type",
             "label":"Type"
           },
           {
             "type":"prices_picker",
-            "id":"po_button",
+            "id":"pricing_option_button",
             "label":"Product Price"
           }
         ]
@@ -150,25 +150,25 @@ section.pricing-table {
       {
         "type":"pricing_option",
         "values":{
-          "po_price":"6 x $100.00",
-          "po_type":"6 month payment plan",
-          "po_button":""
+          "pricing_option_price":"6 x $100.00",
+          "pricing_option_type":"6 month payment plan",
+          "pricing_option_button":"/cart/add_product/1410?price_id=578"
         }
       },
       {
         "type":"pricing_option",
         "values":{
-          "po_price":"$100.00/month",
-          "po_type":"Subscription",
-          "po_button":""
+          "pricing_option_price":"$100.00/month",
+          "pricing_option_type":"Subscription",
+          "pricing_option_button":"/cart/add_product/1410?price_id=578"
         }
       },
       {
         "type":"pricing_option",
         "values":{
-          "po_price":"$600.00",
-          "po_type":"One time payment",
-          "po_button":""
+          "pricing_option_price":"$600.00",
+          "pricing_option_type":"One time payment",
+          "pricing_option_button":"/cart/add_product/1410?price_id=578"
         }
       }
     ]
