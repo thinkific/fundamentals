@@ -1,6 +1,10 @@
 // Icon & Text
 // ======================================
 
+.text-icon {
+  @include section-height-preset($section-height__medium);
+}
+
 .text-icon__list {
   @include make-row;
 }
