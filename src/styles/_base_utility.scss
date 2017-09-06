@@ -132,8 +132,34 @@
   }
 
   .owl-nav {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    z-index: 0;
 
     .owl-prev,
-    .owl-next {}
+    .owl-next {
+      @include transition(color 400ms ease);
+
+      position: absolute;
+      color: $gray-3;
+      font-size: modular-scale(1);
+      z-index: 2;
+
+      &:active,
+      &:focus,
+      &:hover {
+        color: $gray-6;
+      }
+    }
+
+    .owl-prev {
+      left: $gutter-width * -1.5;
+    }
+
+    .owl-next {
+      right: $gutter-width * -1.5;
+    }
   }
 }
