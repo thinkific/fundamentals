@@ -107,6 +107,13 @@
   }
 }
 
+.pricing-table {
+
+  .section__subheading {
+    @include subheading-ornament;
+  }
+}
+
 .testimonials {
 
   .container {

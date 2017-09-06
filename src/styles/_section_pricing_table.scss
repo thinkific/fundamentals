@@ -1,2 +1,82 @@
 // Pricing Table
 // ======================================
+
+.pricing-table {
+  @include section-height-preset($section-height__large);
+
+  .section__headings {
+    @include screen-lg-min {
+      @include make-col(4);
+    }
+    @include make-col(12);
+    @include screen-md-min {
+      padding-right: $gutter-width * 2;
+    }
+  }
+
+  .section__content {
+    @include screen-lg-min {
+      @include make-col(8);
+    }
+    @include make-col(12);
+  }
+}
+
+.pricing-table__list {
+
+  li {
+    @include screen-sm-min {
+      @include display(flex);
+      @include align-items(flex-start);
+    }
+  }
+}
+
+.pricing-table__list-item {
+  margin: 0 0 $gutter-width;
+  padding: 0 0 $gutter-width;
+  border-bottom: $interface__border;
+
+  &:last-of-type {
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .button {
+    @include align-self(center);
+  }
+}
+
+.pricing-table__list-item-details {
+  @include screen-sm-min {
+    flex: 0 0 70%;
+    max-width: 70%;
+    min-height: 1px;
+    padding: 0;
+  }
+  @include screen-md-min {
+    flex: 0 0 80%;
+    max-width: 80%;
+  }
+
+  h4,
+  h5 {
+    font-family: $body__font-family;
+  }
+
+  h4 {
+    margin: 0 0 $gutter-width / 2;
+    font-weight: 400;
+  }
+
+  h5 {
+    @include screen-sm-min {
+      margin: 0;
+    }
+
+    color: $accent__color;
+    font-size: modular-scale(0);
+    font-weight: bold;
+  }
+}
