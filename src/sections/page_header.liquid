@@ -135,22 +135,6 @@ $(document).ready(function() {
 });
 </script>
 
-{% style %}
-
-header.header {
-
-  {% if section.settings.logo_width != blank and section.settings.logo_height != blank %}
-  .header__logo {
-    img {
-      max-width: {{ section.settings.logo_width }}px;
-      max-height: {{ section.settings.logo_height }}px;
-    }
-  }
-  {% endif %}
-}
-
-{% endstyle %}
-
 {% schema %}
 {
   "label":"Page Header",
@@ -173,23 +157,6 @@ header.header {
               "label":"Top"
             }
           ]
-        }
-      ]
-    },
-    {
-      "label":"Logo",
-      "settings":[
-        {
-          "type":"text",
-          "id":"logo_width",
-          "label":"Width",
-          "default":"60"
-        },
-        {
-          "type":"text",
-          "id":"logo_height",
-          "label":"Height",
-          "default":"60"
         }
       ]
     },

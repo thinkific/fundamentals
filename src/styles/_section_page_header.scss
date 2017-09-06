@@ -83,12 +83,20 @@
   line-height: 1;
 
   a {
+    display: block;
     text-decoration: none;
   }
 
   img {
-    width: 100%;
-    height: auto;
+    @include screen-sm-max {
+      display: block;
+      max-width: 100%;
+      max-height: 60px;
+    }
+
+    width: auto;
+    max-width: initial;
+    max-height: 35px;
   }
 }
 
