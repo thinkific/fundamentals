@@ -3,6 +3,35 @@
 
 @import 'bourbon';
 
+// Functions
+// ======================================
+
+@function dynamic-text-color($color: $body__background-color) {
+  @if (lightness($color) > 85) {
+    @return $body__font-color;
+  } @else {
+    @return $white;
+  }
+}
+
+@function section-height($key) {
+  @if map-has-key($section-height, $key) {
+    @return map-get($section-height, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $section-height.";
+  @return null;
+}
+
+@function gray-scale($key) {
+  @if map-has-key($gray-scale, $key) {
+    @return map-get($gray-scale, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $gray-scale.";
+  @return null;
+}
+
 // Grid
 // ======================================
 $grid-columns: 12 !default;
@@ -65,7 +94,7 @@ $gray-scale: (
   7: $gray-7,
   8: $gray-8,
   9: $gray-9,
- 10: $gray-10
+  10: $gray-10
 );
 
 // Vendors
@@ -234,9 +263,9 @@ $progress__inset-color: $white !default;
 $progress__transition: transform 800ms ease !default;
 
 // Section Padding
-$section-height__large: 5.625rem;
-$section-height__medium: 3.750rem;
-$section-height__small: 1.875rem;
+$section-height__large: 5.625rem !default;
+$section-height__medium: 3.750rem !default;
+$section-height__small: 1.875rem !default;
 
 $section-height: (
   small: $section-height__small,

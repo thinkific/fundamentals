@@ -1,32 +1,3 @@
-// Functions
-// ======================================
-
-@function dynamic-text-color($color: $body__background-color) {
-  @if (lightness($color) > 85) {
-    @return $body__font-color;
-  } @else {
-    @return $white;
-  }
-}
-
-@function section-height($key) {
-  @if map-has-key($section-height, $key) {
-    @return map-get($section-height, $key);
-  }
-
-  @warn "Unknown `#{$key}` in $section-height.";
-  @return null;
-}
-
-@function gray-scale($key) {
-  @if map-has-key($gray-scale, $key) {
-    @return map-get($gray-scale, $key);
-  }
-
-  @warn "Unknown `#{$key}` in $gray-scale.";
-  @return null;
-}
-
 // Mixins
 // ======================================
 
