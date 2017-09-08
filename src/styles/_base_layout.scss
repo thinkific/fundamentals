@@ -4,13 +4,13 @@
 // Container
 .container {
   @include screen-md-min {
-    max-width: $screen-md;
+    max-width: $screen-md - $gutter-width;
   }
   @include screen-lg-min {
-    max-width: $screen-lg;
+    max-width: $screen-lg - $gutter-width;
   }
   @include screen-xl-min {
-    max-width: $screen-xl;
+    max-width: $screen-xl - $gutter-width;
   }
 
   position: relative;
