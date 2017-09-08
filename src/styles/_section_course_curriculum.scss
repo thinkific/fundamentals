@@ -2,7 +2,7 @@
 // ======================================
 
 .course-curriculum {
-  @include section-height-preset($section-height__medium);
+  @include section-height-preset(section-height(medium));
 
   .section__heading {
     margin: 0 0 $gutter-width * 1.5;
@@ -22,7 +22,7 @@
 
   position: relative;
   margin-bottom: $gutter-width / 2;
-  border-bottom: 1px solid $gray-1;
+  border-bottom: 1px solid gray-scale(1);
   cursor: pointer;
 
   &.collapse {

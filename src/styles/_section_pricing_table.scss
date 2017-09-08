@@ -2,7 +2,7 @@
 // ======================================
 
 .pricing-table {
-  @include section-height-preset($section-height__large);
+  @include section-height-preset(section-height(large));
 
   .section__headings {
     @include screen-lg-min {

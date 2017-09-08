@@ -61,7 +61,7 @@
 }
 
 .checkout__product-overview {
-  background-color: $gray-0;
+  background-color: gray-scale(0);
 
   h2,
   h3 {
@@ -79,8 +79,8 @@
 .checkout__product-details {
   margin: 0 0 $gutter-width;
   padding: $gutter-width 0;
-  border-top: 1px solid $gray-1;
-  border-bottom: 1px solid $gray-1;
+  border-top: 1px solid gray-scale(1);
+  border-bottom: 1px solid gray-scale(1);
 
   h3 {
     margin: 0;
@@ -128,7 +128,7 @@
   width: 100%;
   margin: $gutter-width 0;
   padding: $gutter-width 0 0;
-  border-top: 1px solid $gray-1;
+  border-top: 1px solid gray-scale(1);
   font-weight: bold;
   line-height: 1;
 }
@@ -142,7 +142,7 @@
   display: block;
   width: 100%;
   padding: 8px;
-  border: 1px solid $gray-2;
+  border: 1px solid gray-scale(2);
   border-radius: 0;
   background-color: $interface__background-color;
   font-size: 1rem;
@@ -170,7 +170,7 @@
     display: block;
     width: 100%;
     padding: $button__padding;
-    border: 1px solid $gray-1;
+    border: 1px solid gray-scale(1);
     background-color: $white;
     text-align: center;
     text-decoration: none;

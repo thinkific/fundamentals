@@ -83,7 +83,7 @@
   p {
     @include form-control;
 
-    background-color: $gray-0;
+    background-color: gray-scale(0);
     line-height: 1;
   }
 

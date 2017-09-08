@@ -6,7 +6,7 @@
 // Grid
 // ======================================
 $grid-columns: 12 !default;
-$gutter-width: 1.875rem !default;
+$gutter-width: 2rem !default;
 
 // Breakpoints
 // ======================================
@@ -54,6 +54,20 @@ $gray-8: #495057 !default;
 $gray-9: #343a40 !default;
 $gray-10: #292b2c !default;
 
+$gray-scale: (
+  0: $gray-0,
+  1: $gray-1,
+  2: $gray-2,
+  3: $gray-3,
+  4: $gray-4,
+  5: $gray-5,
+  6: $gray-6,
+  7: $gray-7,
+  8: $gray-8,
+  9: $gray-9,
+ 10: gray-scale(1)0
+);
+
 // Vendors
 $linked-in: #4875B4 !default;
 
@@ -79,7 +93,7 @@ $subheading__font-weight: 400 !default;
 
 // Interface
 $interface__background-color: $white !default;
-$interface__border: 1px solid $gray-2 !default;
+$interface__border: 1px solid gray-scale(2) !default;
 $interface__shadow: 1px 1px 0 rgba(0, 0, 0, 0.05) !default;
 
 // Section Presets
@@ -109,7 +123,7 @@ $tertiary-text-color: {{ theme.settings.tertiary_text_color }} !default;
 // ======================================
 
 $base__border-radius: 0 !default;
-$base__border-color: $gray-0 !default;
+$base__border-color: gray-scale(0) !default;
 $base__border-width: 1px !default;
 $base__border-style: solid !default;
 
@@ -121,14 +135,14 @@ $cursor-disabled: not-allowed !default;
 $form__control-padding: 10px 15px !default;
 $form__input-color: $body__font-color !default;
 $form__input-background: $white !default;
-$form__input-color-placeholder: $gray-1 !default;
-$form__input-background-disabled: $gray-0 !default;
+$form__input-color-placeholder: gray-scale(1) !default;
+$form__input-background-disabled: gray-scale(0) !default;
 $form__input-height: calc($body__font-size * $body__line-height) + ($gutter-width) !default;
 
 // Review Stars
 // ======================================
 
-$review-star__empty: $gray-2;
+$review-star__empty: gray-scale(2);
 $review-star__filled-color: {{ theme.settings.review_star }} !default;
 $review-star__background-color: {{ theme.settings.review_star_background }} !default;
 $review-star__empty-star: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=") !default;
@@ -223,3 +237,9 @@ $progress__transition: transform 800ms ease !default;
 $section-height__large: 5.625rem;
 $section-height__medium: 3.750rem;
 $section-height__small: 1.875rem;
+
+$section-height: (
+  small: $section-height__small,
+  medium: $section-height__medium,
+  large: $section-height__large
+);

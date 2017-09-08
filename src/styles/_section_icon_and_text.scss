@@ -2,7 +2,7 @@
 // ======================================
 
 .text-icon {
-  @include section-height-preset($section-height__medium);
+  @include section-height-preset(section-height(medium));
 }
 
 .text-icon__list {

@@ -20,19 +20,19 @@ input,
 textarea {
 
   &::-webkit-input-placeholder {
-    color: $gray-5;
+    color: gray-scale(5);
   }
 
   &::-moz-placeholder {
-    color: $gray-5;
+    color: gray-scale(5);
   }
 
   &:-ms-input-placeholder {
-    color: $gray-5;
+    color: gray-scale(5);
   }
 
   &:-moz-placeholder {
-    color: $gray-5;
+    color: gray-scale(5);
   }
 }
 
