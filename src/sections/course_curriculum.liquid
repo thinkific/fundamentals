@@ -60,10 +60,10 @@ $(document).ready(function() {
       var $content = $(this).next('.course-curriculum__chapter-content');
       $(this).toggleClass('collapse');
       if($content.is(":visible")) {
-        $content.hide(350);
+        $content.slideUp(350);
       }
       else {
-        $content.show(350);
+        $content.slideDown(350);
       }
     }
   });
