@@ -59,6 +59,10 @@
   left: 0;
   width: 100%;
 
+  .row {
+    @include make-row;
+  }
+
   .flash {
     @include make-col(12);
   }

@@ -5,7 +5,7 @@
 .course-review {
   @include page-padding;
 
-  .row {
+  .course-review__wrapper {
     @include justify-content(center);
   }
 }

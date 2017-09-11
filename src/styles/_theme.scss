@@ -83,7 +83,7 @@
 
 .description {
 
-  .container {
+  [class*="__container"] {
 
     &:before {
       @include screen-lg-min {
@@ -116,7 +116,7 @@
 
 .testimonials {
 
-  .container {
+  .testimonials__container {
 
     &:before {
       @include screen-md-min {
