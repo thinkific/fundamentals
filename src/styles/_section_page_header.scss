@@ -5,7 +5,7 @@
   @include transition(background-color 600ms ease, box-shadow 400ms ease);
 
   position: relative;
-  border-bottom: 1px solid $gray-2;
+  border-bottom: 1px solid gray-scale(2);
   background-color: $nav__background-color;
   z-index: 11;
 
@@ -243,8 +243,6 @@
   @include screen-md-min {
     display: none;
   }
-
-
 }
 
 .header__mobile-button__toggle-icon {

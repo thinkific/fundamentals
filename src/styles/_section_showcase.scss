@@ -2,12 +2,15 @@
 // ======================================
 
 .showcase {
-  @include section-height-preset($section-height__medium);
+  @include section-height-preset(section-height(large));
 }
 
 .showcase__list {
   @include make-row;
   @include justify-content(center);
+
+  margin-right: $gutter-width / -2;
+  margin-left: $gutter-width / -2;
 }
 
 .showcase__list-item {

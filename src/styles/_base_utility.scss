@@ -92,15 +92,15 @@
 
 // Section Height Presets
 .section-height__large {
-  @include section-height-preset($section-height__large);
+  @include section-height-preset(section-height(large));
 }
 
 .section-height__medium {
-  @include section-height-preset($section-height__medium);
+  @include section-height-preset(section-height(medium));
 }
 
 .section-height__small {
-  @include section-height-preset($section-height__small);
+  @include section-height-preset(section-height(small));
 }
 
 // OwlCarousel
@@ -143,14 +143,14 @@
       @include transition(color 400ms ease);
 
       position: absolute;
-      color: $gray-3;
+      color: gray-scale(3);
       font-size: modular-scale(1);
       z-index: 2;
 
       &:active,
       &:focus,
       &:hover {
-        color: $gray-6;
+        color: gray-scale(6);
       }
     }
 

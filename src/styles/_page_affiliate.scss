@@ -14,7 +14,7 @@
 
   display: inline-block;
   width: auto;
-  background-color: $gray-0;
+  background-color: gray-scale(0);
   line-height: 1;
 }
 
@@ -27,7 +27,7 @@
     display: inline-block;
     width: auto;
     min-width: 10rem;
-    background-color: $gray-0;
+    background-color: gray-scale(0);
     line-height: 1;
   }
 }
