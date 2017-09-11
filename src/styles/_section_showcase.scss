@@ -2,7 +2,7 @@
 // ======================================
 
 .showcase {
-  @include section-height-preset(section-height(large));
+  @include section-height(section-height-preset(large));
 }
 
 .showcase__list {
