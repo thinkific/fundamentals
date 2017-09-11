@@ -2,56 +2,39 @@
 // ======================================
 
 // Container
-.container {
-  @include screen-md-min {
-    max-width: $screen-md - $gutter-width;
-  }
-  @include screen-lg-min {
-    max-width: $screen-lg - $gutter-width;
-  }
-  @include screen-xl-min {
-    max-width: $screen-xl - $gutter-width;
-  }
-
-  position: relative;
-  width: 100%;
-  max-height: 100%;
-  margin: 0 auto;
-  padding-right: ($gutter-width / 2);
-  padding-left: ($gutter-width / 2);
+[class*="__container"] {
+  @include make-container;
 }
 
-.row {
-  @include make-row();
+[class*="__wrapper"] {
+  @include make-row;
 
-  margin-right: $gutter-width / -2;
-  margin-left:  $gutter-width / -2;
-  padding-right: 0;
-  padding-left: 0;
-}
+  &>[class*="__menu"] {
+    @include screen-sm-max {
+      @include order(2);
+    }
+    @include screen-lg-min {
+      @include make-col(3);
+    }
+    @include make-col(12);
 
-.page__menu {
-  @include screen-sm-max {
-    @include order(2);
+    @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+      margin: 0 0 $gutter-width;
+    }
   }
-  @include screen-lg-min {
-    @include make-col(3);
-  }
-  @include make-col(12);
 
-  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
-    margin: 0 0 $gutter-width;
+  &>[class*="__content"] {
+    @include screen-sm-max {
+      @include order(1);
+      margin: 0 0 $gutter-width;
+    }
+    @include make-col(12);
   }
 }
 
-.page__content {
-  @include screen-sm-max {
-    @include order(1);
-    margin: 0 0 $gutter-width;
-  }
-  @include make-col(12);
+[class*="__content"] {
 
-  .page__menu + & {
+  [class*="__menu"] + & {
     @include screen-lg-min {
       @include make-col(9);
 
