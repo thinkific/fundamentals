@@ -4,13 +4,13 @@
 {% endcomment %}
 
 <div class="affiliate">
-  <div class="container">
-    <div class="row">
-      <aside class="page__menu hidden-print">
+  <div class="affiliate__container">
+    <div class="affiliate__wrapper">
+      <aside class="affiliate__menu hidden-print">
         {% include 'affiliate_dashboard_menu' %}
       </aside>
-      <main class="page__content" id="main-content" role="main">
-        <h1 class="page__heading">{{ 'liquid.views.affiliate_settings_page.header_affiliate_information' | translate }}</h1>
+      <main class="affiliate__content" id="main-content" role="main">
+        <h1 class="affiliate__heading">{{ 'liquid.views.affiliate_settings_page.header_affiliate_information' | translate }}</h1>
         {% form 'affiliate_settings' %}
         {% if errors.size > 0 %}
           {% include 'form_errors' %}

@@ -4,18 +4,18 @@
 {% endcomment %}
 
 <div class="my-account">
-  <div class="container">
-    <div class="row">
-      <aside class="page__menu hidden-print">
+  <div class="my-account__container">
+    <div class="my-account__wrapper">
+      <aside class="my-account__menu hidden-print">
         {% include 'my_account_menu' %}
       </aside>
-      <main class="page__content" id="main-content" role="main">
-        <h1 class="page__heading">{{ 'liquid.views.my_account_page.header_your_profile' | translate }}</h1>
+      <main class="my-account__content" id="main-content" role="main">
+        <h1 class="my-account__heading">{{ 'liquid.views.my_account_page.header_your_profile' | translate }}</h1>
         {% form 'my_account' %}
         {% if errors.size > 0 %}
           {% include 'form_errors' %}
         {% endif %}
-        <div class="row">
+        <div class="my-account__profile__wrapper">
           <section class="my-account__avatar">
             <div class="account-content-profile-img">
               {% assign field = fields.avatar %}

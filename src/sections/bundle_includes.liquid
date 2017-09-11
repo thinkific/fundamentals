@@ -1,12 +1,14 @@
 <section class="bundle-includes {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="bundle-includes">
-  <div class="container">
+  <div class="bundle-includes__container">
     <article class="section__content">
-      {% if section.settings.heading != blank %}
-        <h3 class="section__heading">{{ section.settings.heading }}</h3>
-        {% if section.settings.subheading != blank %}
-          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+      <section class="section__headings">
+        {% if section.settings.heading != blank %}
+          <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% if section.settings.subheading != blank %}
+            <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+          {% endif %}
         {% endif %}
-      {% endif %}
+      </section>
       {% include 'bundle_courses' with bundle %}
     </article>
   </div>
