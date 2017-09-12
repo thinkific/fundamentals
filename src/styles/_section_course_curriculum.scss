@@ -4,8 +4,8 @@
 .course-curriculum {
   @include section-height(section-height-preset(medium));
 
-  .section__heading {
-    margin: 0 0 $gutter-width * 1.5;
+  .section__headings {
+    margin: 0 0 $gutter-width * 2;
   }
 }
 

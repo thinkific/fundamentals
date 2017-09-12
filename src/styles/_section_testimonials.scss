@@ -6,10 +6,8 @@
 
   overflow: hidden;
 
-  .section__heading {
-    position: relative;
+  .section__headings {
     margin: 0 0 $gutter-width * 2;
-    z-index: 1;
   }
 }
 
