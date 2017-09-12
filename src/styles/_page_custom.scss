@@ -1,0 +1,8 @@
+// Custom Page
+// ======================================
+
+.custom {}
+
+.custom__container {
+  @include make-container;
+}
