@@ -4,8 +4,8 @@
 {% endcomment %}
 
 <main class="collection" id="main-content" role="main">
-  <div class="container">
-    <h1 class="page__heading">{{ collection.name }}</h1>
+  <div class="collection__container">
+    <h1 class="collection__heading">{{ collection.name }}</h1>
     {% include 'products_search' %}
     {% if page.has_search_query %}
       {% include 'products_search_query' %}

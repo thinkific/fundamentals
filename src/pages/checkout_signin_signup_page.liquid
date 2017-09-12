@@ -8,15 +8,15 @@
 {% endcomment %}
 
 <main class="checkout" id="main-content" role="main">
-  <div class="container">
-    <div class="row">
+  <div class="checkout__container">
+    <div class="checkout__wrapper">
       <article class="checkout__form">
         <ul class="progress-bar">
           <li class="active">{{ 'checkouts.new.list_item_1' | translate }}</li>
           <li>{{ 'checkouts.new.list_item_2' | translate }}</li>
         </ul>
         <section class="checkout__form--sign-in">
-          <h1 class="page__heading">{{ 'liquid.views.sign_in_page.header_welcome_back' | translate }}</h1>
+          <h1 class="checkout__heading">{{ 'liquid.views.sign_in_page.header_welcome_back' | translate }}</h1>
           <aside class="checkout__sign-up">
             <a id="button__sign-up" href="#">{{ 'liquid.views.sign_in_page.link_create_account' | translate }}</a>
           </aside>
