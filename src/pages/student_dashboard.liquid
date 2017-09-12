@@ -6,22 +6,22 @@
 
 <main class="student-dashboard" id="main-content" role="main">
   <section class="student-dashboard__banner">
-    <div class="container">
+    <div class="student-dashboard__container">
       <h4>{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</h4>
     </div>
   </section>
-  <div class="container">
+  <div class="student-dashboard__container">
     <section class="student-dashboard__form">
       <form action="{{ site.student_dashboard_url }}" method="get" id="search-form">
-        <div class="row">
-          <h1 class="page__heading">My Courses</h1>
+        <div class="form__group">
+          <h1 class="student-dashboard__heading">My Courses</h1>
           <div class="products__search-box">
             <label for="q" class="form__search-label">
               <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" />
             </label>
           </div>
         </div>
-        <div class="row">
+        <div class="form__group">
           <a href='{{ site.collections_url }}'>{{ 'liquid.views.student_dashboard.link_view_more_courses' | translate }}</a>
           <label class="form__label form__select-no-label">
             <select name="status" id="status" class="form__control">

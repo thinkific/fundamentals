@@ -51,13 +51,16 @@ h6 {
   }
 }
 
-.page__heading {
-  @include screen-md-min {
-    font-size: modular-scale(3);
-  }
-  @include heading;
+h1 {
 
-  font-size: modular-scale(2);
+  &[class*="__heading"] {
+    @include screen-md-min {
+      font-size: modular-scale(3);
+    }
+    @include heading;
+
+    font-size: modular-scale(2);
+  }
 }
 
 .section__heading {

@@ -4,8 +4,8 @@
 {% endcomment %}
 
 <div class="my-account">
-  <div class="container">
-    <div class="row">
+  <div class="my-account__container">
+    <div class="my-account__wrapper">
       {% if page.has_form_errors %}
         <div id="notice" class="notice__form-error">
           <p>
@@ -26,10 +26,10 @@
           </ul>
         </div>
       {% endif %}
-      <aside class="page__menu">
+      <aside class="my-account__menu">
         {% include 'my_account_menu' %}
       </aside>
-      <main class="page__content" id="main-content" role="main">
+      <main class="my-account__content" id="main-content" role="main">
         {{ page.edit_billings_form }}
       </main>
     </div>

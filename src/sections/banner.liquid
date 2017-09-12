@@ -1,14 +1,14 @@
 <section class="banner {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="banner">
-  <div class="container">
+  <div class="banner__container">
     <article class="section__content">
-      {% if section.settings.title != blank %}
       <header class="section__headings">
-        <h1 class="section__heading">{{ section.settings.title }}</h1>
-        {% if section.settings.subtitle != blank %}
-          <h2 class="section__subheading">{{ section.settings.subtitle }}</h2>
+        {% if section.settings.title != blank %}
+          <h1 class="section__heading">{{ section.settings.title }}</h1>
+          {% if section.settings.subtitle != blank %}
+            <h2 class="section__subheading">{{ section.settings.subtitle }}</h2>
+          {% endif %}
         {% endif %}
       </header>
-      {% endif %}
       {% if section.settings.video.frame != blank %}
         <section class="section__video">
           {{ section.settings.video.frame }}
