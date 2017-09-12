@@ -103,6 +103,8 @@
   &:active,
   &:focus,
   &:hover {
+    @include transition(background-color 300ms ease, border-color 300ms ease);
+    
     background-color: $button__secondary-background--active;
     color: $button__secondary-color--active;
   }
@@ -131,6 +133,42 @@
   border: $interface__border;
   background-color: $interface__background-color;
 }
+// Container
+@mixin make-container {
+  @include screen-md-min {
+    max-width: $screen-md - $gutter-width;
+  }
+  @include screen-lg-min {
+    max-width: $screen-lg - $gutter-width;
+  }
+  @include screen-xl-min {
+    max-width: $screen-xl - $gutter-width;
+  }
+
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  padding-right: ($gutter-width / 2);
+  padding-left: ($gutter-width / 2);
+}
+
+// Rows
+@mixin make-row {
+  @include display(flex);
+  @include flex-wrap(wrap);
+
+  &:after,
+  &:before {
+    @include flex-basis(0);
+    order: 1;
+  }
+
+  margin-right: $gutter-width / -2;
+  margin-left:  $gutter-width / -2;
+  padding-right: 0;
+  padding-left: 0;
+}
 
 // Columns
 @mixin column {
@@ -142,7 +180,6 @@
   min-height: 1px; // Prevent collapsing
   padding-right: $gutter-width / 2;
   padding-left: $gutter-width / 2;
-  //border: 1px solid transparent;
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
@@ -340,18 +377,6 @@
   padding-bottom: $padding-bottom / 4;
 }
 
-// Rows
-@mixin make-row() {
-  @include display(flex);
-  @include flex-wrap(wrap);
-
-  &:after,
-  &:before {
-    @include flex-basis(0);
-    order: 1;
-  }
-}
-
 // Section Presets
 @mixin section-background-preset($background-color: $white, $heading-color: $black, $subheading-color: gray-scale(4), $text-color: gray-scale(4)) {
   background-color: $background-color;
@@ -372,7 +397,7 @@
 // Section Height
 @mixin section-height($padding: $section-height__large) {
 
-  .container {
+  [class*="__container"] {
     @include screen-lg-min {
       padding-top: $padding;
       padding-bottom: $padding;
