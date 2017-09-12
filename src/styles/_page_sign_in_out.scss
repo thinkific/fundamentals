@@ -6,7 +6,7 @@
 .express-sign-in {
   @include page-padding;
 
-  .row {
+  [class*="__wrapper"] {
     @include justify-content(center);
   }
 }

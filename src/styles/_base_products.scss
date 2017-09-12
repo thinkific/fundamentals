@@ -263,6 +263,8 @@
 	@include make-row;
 
 	margin-top: auto;
+	margin-right: 0;
+	margin-left: 0;
 	font-size: 0;
 	line-height: 1;
 
@@ -379,6 +381,9 @@
 .products__search-form {
 	@include make-row;
 	@include justify-content(space-between);
+
+	margin-right: 0;
+	margin-left: 0;
 }
 
 .products__search-box {

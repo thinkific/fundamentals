@@ -56,10 +56,10 @@
     }
   }
 
-  & > .container {
+  & > .header__container {
     padding: 20px $gutter-width / 2;
 
-    & > .row {
+    & > .header__wrapper {
       @include align-items(center);
       @include flex-wrap(nowrap);
       @include justify-content(space-between);
@@ -158,6 +158,8 @@
   }
 
   width: 100%;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .header__nav--overlay {
