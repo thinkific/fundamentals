@@ -1,12 +1,14 @@
 <section class="instructor {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="instructor">
   <div class="container">
-    <article class="section__content">
-      {% if section.settings.heading != blank %}
+    {% if section.settings.heading != blank %}
+      <header class="section__headings">
         <h3 class="section__heading">{{ section.settings.heading }}</h3>
         {% if section.settings.subheading != blank %}
           <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
         {% endif %}
-      {% endif %}
+      </header>
+    {% endif %}
+    <article class="section__content">
       {% if section.blocks != empty %}
         <ul class="instructor__list">
           {% for block in section.blocks %}
@@ -37,6 +39,27 @@
     </article>
   </div>
 </section>
+
+<script>
+$(window).load(function() {
+  var $instructorsCarousel = $('.instructor__list').addClass('owl-carousel'),
+      instructorsOwlOptions = {
+        center: false,
+        dots: true,
+        loop: true,
+        margin: 0,
+        nav: true,
+        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+        slideBy: 1,
+        responsive: {
+          0: {
+            items: 1
+          }
+        }
+      };
+  $instructorsCarousel.owlCarousel(instructorsOwlOptions);
+});
+</script>
 
 {% style %}
 
@@ -81,7 +104,7 @@ section.instructor {
           "id":"heading_alignment",
           "label":"Alignment",
           "description":"Headings will inherit the same alignment",
-          "default":"left",
+          "default":"center",
           "options":[
             {
               "value":"left",
@@ -107,7 +130,7 @@ section.instructor {
           "id":"background_color_preset",
           "label":"Color Preset",
           "description":"Presets can be configured in the Colors configuration menu",
-          "default":"primary",
+          "default":"secondary",
           "options":[
             {
               "value":"none",
@@ -146,7 +169,26 @@ section.instructor {
         ]
       }
     ],
-    "defaults": []
+    "defaults": [
+      {
+        "type":"instructor",
+        "values":{
+          "instructor":
+        }
+      },
+      {
+        "type":"instructor",
+        "values":{
+          "instructor":
+        }
+      },
+      {
+        "type":"instructor",
+        "values":{
+          "instructor": 
+        }
+      }
+    ]
   }
 }
 {% endschema %}
