@@ -9,7 +9,7 @@
 }
 
 .course-curriculum {
-  @include section-height-preset($section-height__large);
+  @include section-height(section-height-preset(large));
 
   .course-curriculum__chapter-list {
     @include make-row;
@@ -166,7 +166,7 @@
 }
 
 .course-curriculum-legacy {
-  @include section-height-preset($section-height__medium);
+  @include section-height(section-height-preset(medium));
 
   .course-curriculum__chapter {
     margin: 0 0 $gutter-width * 1.5;
