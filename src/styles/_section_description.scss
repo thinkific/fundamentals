@@ -21,3 +21,11 @@
     @include make-col(12);
   }
 }
+
+.description__container {
+  @include make-container;
+}
+
+.description__wrapper {
+  @include make-row(true);
+}

@@ -7,3 +7,7 @@
     @include justify-content(center);
   }
 }
+
+.call-to-action__container {
+  @include make-container;
+}

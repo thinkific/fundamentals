@@ -5,6 +5,44 @@
   @include page-padding;
 }
 
+.affiliate__container {
+  @include make-container;
+}
+
+.affiliate__wrapper {
+  @include make-row(true);
+}
+
+.affiliate__menu {
+  @include screen-sm-max {
+    @include order(2);
+  }
+  @include screen-lg-min {
+    @include make-col(3);
+  }
+  @include make-col(12);
+
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+    margin: 0 0 $gutter-width;
+  }
+}
+
+.affiliate__content {
+  @include screen-sm-max {
+    @include order(1);
+    margin: 0 0 $gutter-width;
+  }
+  @include make-col(12);
+
+  .affiliate__menu + & {
+    @include screen-lg-min {
+      @include make-col(9);
+
+      padding-left: $gutter-width;
+    }
+  }
+}
+
 .affiliate__links {
   table-layout: auto;
 }

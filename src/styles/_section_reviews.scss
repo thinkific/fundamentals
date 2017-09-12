@@ -2,10 +2,15 @@
 // ======================================
 
 .reviews {
+  @include section-height(section-height-preset(large));
 
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
+}
+
+.reviews__container {
+  @include make-container;
 }
 
 .reviews__list {

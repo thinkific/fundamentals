@@ -9,6 +9,10 @@
   }
 }
 
+.instructor__container {
+  @include make-container;
+}
+
 .instructor__list {}
 
 .instructor__profile {

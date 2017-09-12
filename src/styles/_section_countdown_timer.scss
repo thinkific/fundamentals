@@ -33,6 +33,13 @@
   }
 }
 
+.countdown-timer__container {
+  @include make-container;
+}
+
+.countdown-timer__wrapper {
+  @include make-row(true);
+}
 
 .section__countdown-timer {
   @include screen-md-max {

@@ -1,2 +1,8 @@
 // Course Cards
 // ======================================
+
+.course-cards {}
+
+.course-cards__container {
+  @include make-container;
+}

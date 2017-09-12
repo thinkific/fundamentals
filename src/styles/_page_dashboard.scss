@@ -3,10 +3,11 @@
 
 .student-dashboard {
   background-color: gray-scale(0);
+}
 
-  [class*="__container"] {
-    @include page-padding;
-  }
+.student-dashboard__container {
+  @include make-container;
+  @include page-padding;
 }
 
 .student-dashboard__banner {

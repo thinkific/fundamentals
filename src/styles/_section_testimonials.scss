@@ -11,6 +11,10 @@
   }
 }
 
+.testimonials__container {
+  @include make-container;
+}
+
 .testimonials__list {
 
   &.owl-carousel {

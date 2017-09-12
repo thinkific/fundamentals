@@ -2,7 +2,7 @@
 // ======================================
 
 .pagination {
-  @include make-row;
+  @include make-row(false);
   @include screen-md-min {
     margin: 0 0 $gutter-width;
   }

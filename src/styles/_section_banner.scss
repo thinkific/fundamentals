@@ -24,6 +24,10 @@
   }
 }
 
+.banner__container {
+  @include make-container;
+}
+
 .banner__video {
 
   &--mobile {}

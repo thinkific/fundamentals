@@ -1,2 +1,8 @@
 // Image & Text
 // ======================================
+
+.text-image {}
+
+.text-image__container {
+  @include make-container;
+}
