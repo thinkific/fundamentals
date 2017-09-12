@@ -1,12 +1,14 @@
 <section class="course-cards {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="course-cards">
   <div class="container">
-    <article class="section__content">
+    <header class="section__headings">
       {% if section.settings.heading != blank %}
         <h3 class="section__heading">{{ section.settings.heading }}</h3>
         {% if section.settings.subheading != blank %}
           <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
         {% endif %}
       {% endif %}
+    </header>
+    <article class="section__content">
       <ul class="course-cards__list">
         {% for product in section.settings.course_cards %}
           {% if product.is_course %}
