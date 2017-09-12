@@ -10,7 +10,7 @@
     </header>
     <article class="section__content">
       {% if section.settings.reviews.size > 0 %}
-        <ul class="reviews__list owl-carousel">
+        <ul class="reviews__list">
           {% for review in section.settings.reviews %}
             <li class="reviews__list-item" data-review-id="{{ forloop.index }}">
               <header>
@@ -54,7 +54,7 @@
 <script>
 $(window).load(function(e) {
   var $showButton = $('a[class*="review__show-"]'),
-      $reviewsCarousel = $('.reviews__list'),
+      $reviewsCarousel = $('.reviews__list').addClass('owl-carousel'),
       reviewsOwlOptions = {
         center: false,
         dots: true,
