@@ -38,15 +38,6 @@
           opacity: 0;
         }
       }
-
-      img {
-        display: inline-block;
-        width: 32px;
-        height: 32px;
-        margin: 0 $gutter-width / 2 0 0;
-        border-radius: 50%;
-        vertical-align: middle;
-      }
     }
 
     .owl-nav {
@@ -67,8 +58,6 @@
       @include screen-md-min {
         text-align: left;
       }
-
-      text-align: center;
     }
   }
 }
@@ -80,6 +69,15 @@
   }
 
   padding: $gutter-width * 1.5 $gutter-width $gutter-width;
+
+  img {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: 0 $gutter-width / 2 0 0;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
 
   p {
     margin: 0 0 $gutter-width / 1.5;

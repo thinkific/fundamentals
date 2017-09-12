@@ -10,10 +10,9 @@
 
 .reviews__list {
 
-  &.owl-carousel {
-
-    .owl-dots {
-      text-align: center;
+  .owl-item {
+    @include screen-md-min {
+      padding-right: $gutter-width;
     }
   }
 }
