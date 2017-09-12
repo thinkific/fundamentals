@@ -1,27 +1,27 @@
 <section class="countdown-timer {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="countdown-timer">
   <div class="countdown-timer__container">
     <div class="countdown-timer__wrapper">
-      <header class="section__headings">
-        {% if section.settings.heading != blank %}
+      {% if section.settings.heading != blank %}
+        <header class="section__headings">
           <h3 class="section__heading">{{ section.settings.heading }}</h3>
           {% if section.settings.subheading != blank %}
             <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
           {% endif %}
-        {% endif %}
-        {% if section.settings.price != blank || section.blocks != nil %}
-          <ul class="section__button-group">
-            {% if section.settings.price != blank %}
-              <li><a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
-            {% else %}
-              {% if section.blocks != empty %}
-                {% for block in section.blocks %}
-                  <li><a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
-                {% endfor %}
+          {% if section.settings.price != blank || section.blocks != nil %}
+            <ul class="section__button-group">
+              {% if section.settings.price != blank %}
+                <li><a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
+              {% else %}
+                {% if section.blocks != empty %}
+                  {% for block in section.blocks %}
+                    <li><a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
+                  {% endfor %}
+                {% endif %}
               {% endif %}
-            {% endif %}
-          </ul>
-        {% endif %}
-      </header>
+            </ul>
+          {% endif %}
+        </header>
+      {% endif %}
       <article class="section__countdown-timer">
         <ul id="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
           <li id="clock-days" class="clock-interval">00</li>
