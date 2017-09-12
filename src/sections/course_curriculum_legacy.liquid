@@ -1,45 +1,39 @@
-<section class="course-curriculum {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="course-curriculum">
-  <div class="course-curriculum__container">
-    <header class="section__headings">
+<section class="course-curriculum-legacy {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="course-curriculum">
+  <div class="container">
+    <article class="section__content">
       {% if section.settings.heading != blank %}
         <h3 class="section__heading">{{ section.settings.heading }}</h3>
         {% if section.settings.subheading != blank %}
           <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
         {% endif %}
       {% endif %}
-    </header>
-    <article class="section__content">
       <ul class="course-curriculum__chapter-list">
         {% for chapter in page.course.chapters %}
           {% assign index = forloop.index + 1 %}
           <li class="course-curriculum__chapter">
-            <span class="course-curriculum__chapter-number">{{ index }}</span>
-            <div class="course-curriculum__chapter-content-wrapper">
-              <header class="course-curriculum__chapter-header">
-                <h5 class="course-curriculum__chapter-title">{{ chapter.name }}
-                  <i class="course-curriculum__chapter-collapse fa"></i>
-                </h5>
+            <header class="course-curriculum__chapter-header">
+              <span class="course-curriculum__chapter-number">{{ index }}</span>
+              <h5 class="course-curriculum__chapter-title">{{ chapter.name }}
                 {% if chapter.duration_in_seconds > 0 %}
                   <span class="course-curriculum__chapter-time">
-                    <i class="fa fa-clock-o"></i>
                     {{ chapter.duration_in_seconds_as_time }}
                   </span>
                 {% endif %}
-              </header>
-              <ul class="course-curriculum__chapter-content" id="chapter-{{ index + 1 }}">
-                {% for content in chapter.contents %}
-                  <li>
-                    <a href="{{ content.take_course_url }}" class="course-curriculum__chapter-lesson">
-                    <i class="{{ content.icon_css_class }}"></i>
-                    {{ content.name }}
-                    {% if content.free %}
-                      <span class="course-curriculum__chapter-lesson--free">{{ 'liquid.partials.course_landing_page_curriculum.label_free' | translate }}</span>
-                    {% endif %}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
+                <i class="course-curriculum__chapter-collapse"></i>
+              </h5>
+            </header>
+            <ul class="course-curriculum__chapter-content" id="chapter-{{ index + 1 }}">
+              {% for content in chapter.contents %}
+                <li>
+                  <a href="{{ content.take_course_url }}" class="course-curriculum__chapter-lesson">
+                  {{ content.name }}
+                  {% if content.free %}
+                    <span class="course-curriculum__chapter-lesson--free">{{ 'liquid.partials.course_landing_page_curriculum.label_free' | translate }}</span>
+                  {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
           </li>
         {% endfor %}
       </ul>
@@ -49,7 +43,7 @@
 
 <script>
 $(document).ready(function() {
-  var $header = $('.course-curriculum .course-curriculum__chapter-header');
+  var $header = $('.course-curriculum-legacy .course-curriculum__chapter-header');
   {% if section.settings.show_collapsed %}
     $header.not(":eq(0)").each(function(k,v) {
       $(v).addClass('collapse');
@@ -59,14 +53,8 @@ $(document).ready(function() {
   $header.on('click keypress', function(e) {
     if (e.which === 13 || e.type === 'click') {
       e.stopPropagation();
-      var $content = $(this).next('.course-curriculum__chapter-content');
       $(this).toggleClass('collapse');
-      if($content.is(":visible")) {
-        $content.slideUp(350);
-      }
-      else {
-        $content.slideDown(350);
-      }
+      $(this).next('.course-curriculum__chapter-content').toggle(350);
     }
   });
 });

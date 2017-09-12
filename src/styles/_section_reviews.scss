@@ -3,17 +3,16 @@
 
 .reviews {
 
-  .section__heading {
+  .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
 }
 
 .reviews__list {
 
-  &.owl-carousel {
-
-    .owl-dots {
-      text-align: center;
+  .owl-item {
+    @include screen-md-min {
+      padding-right: $gutter-width;
     }
   }
 }

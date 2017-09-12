@@ -1,7 +1,7 @@
 <section class="countdown-timer {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="countdown-timer">
   <div class="countdown-timer__container">
     <div class="countdown-timer__wrapper">
-      <article class="section__headings">
+      <header class="section__headings">
         {% if section.settings.heading != blank %}
           <h3 class="section__heading">{{ section.settings.heading }}</h3>
           {% if section.settings.subheading != blank %}
@@ -21,7 +21,7 @@
             {% endif %}
           </ul>
         {% endif %}
-      </article>
+      </header>
       <article class="section__countdown-timer">
         <ul id="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
           <li id="clock-days" class="clock-interval">00</li>

@@ -395,7 +395,7 @@
 }
 
 // Section Height
-@mixin section-height-preset($padding: $section-height__large) {
+@mixin section-height($padding: $section-height__large) {
 
   [class*="__container"] {
     @include screen-lg-min {

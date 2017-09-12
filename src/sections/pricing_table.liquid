@@ -1,14 +1,14 @@
 <section class="pricing-table {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="pricing-table">
   <div class="pricing-table__container">
     <div class="pricing-table__wrapper">
-      <article class="section__headings">
+      <header class="section__headings">
         {% if section.settings.heading != blank %}
           <h3 class="section__heading">{{ section.settings.heading }}</h3>
           {% if section.settings.subheading != blank %}
             <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
           {% endif %}
         {% endif %}
-      </article>
+      </header>
       <article class="section__content">
         {% if section.blocks != empty %}
           <ul class="pricing-table__list">

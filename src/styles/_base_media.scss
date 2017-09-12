@@ -1,6 +1,13 @@
 // Media
 // ======================================
 
+img {
+
+  .owl-carousel .owl-item & {
+    width: initial;
+  }
+}
+
 .img-responsive {
   display: block;
   width: 100%;

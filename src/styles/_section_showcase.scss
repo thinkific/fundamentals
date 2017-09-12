@@ -2,7 +2,11 @@
 // ======================================
 
 .showcase {
-  @include section-height-preset(section-height(large));
+  @include section-height(section-height-preset(large));
+
+  .section__headings {
+    margin: 0 0 $gutter-width * 2;
+  }
 }
 
 .showcase__list {

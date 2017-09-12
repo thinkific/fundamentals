@@ -2,7 +2,7 @@
 // ======================================
 
 .bonus {
-  @include section-height-preset(section-height(large));
+  @include section-height(section-height-preset(large));
 
   .section__headings {
     @include screen-lg-min {

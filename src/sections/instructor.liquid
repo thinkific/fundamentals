@@ -10,23 +10,24 @@
       {% if section.blocks != empty %}
         <ul class="instructor__list">
           {% for block in section.blocks %}
+          {% assign instructor = block.settings.instructor %}
             <li class="instructor__profile">
               <header>
-                {% if block.settings.avatar != blank %}
-                  <img class="instructor__avatar sr-only" alt="{{ block.settings.full_name }}" src="{{ block.settings.avatar }}" />
+                {% if instructor.avatar != blank %}
+                  <img class="instructor__avatar" src="{{ instructor.avatar }}" alt="{{ instructor.full_name }}" title="{{ instructor.full_name }}"  />
                 {% endif %}
                   <h4 class="instructor__name">
-                    {{ block.settings.full_name }}
+                    {{ instructor.full_name }}
                   </h4>
-                {% if block.settings.title != blank %}
+                {% if instructor.title != blank %}
                   <h4 class="instructor__title">
-                    {{ block.settings.title }}
+                    {{ instructor.title }}
                   </h4>
                 {% endif %}
               </header>
-              {% if block.settings.bio != blank %}
+              {% if instructor.bio != blank %}
                 <section class="instructor__bio">
-                  {{ block.settings.bio }}
+                  {{ instructor.bio }}
                 </section>
               {% endif %}
             </li>
@@ -67,7 +68,7 @@ section.instructor {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":""
+          "default":"About the instructors"
         },
         {
           "type":"text",
@@ -145,9 +146,7 @@ section.instructor {
         ]
       }
     ],
-    "defaults":[
-
-    ]
+    "defaults": []
   }
 }
 {% endschema %}
