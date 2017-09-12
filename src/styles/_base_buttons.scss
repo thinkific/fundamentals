@@ -17,3 +17,20 @@
 .button-primary {
   @include button-primary;
 }
+
+[class*="__button-group"] {
+  @include make-row(false);
+  @include align-items(flex-start);
+
+	.button {
+		@include display(flex);
+		@include order(2);
+
+		width: auto;
+		margin-right: $gutter-width / 2;
+	}
+
+	.button-primary {
+		@include order(1);
+	}
+}
