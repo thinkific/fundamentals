@@ -106,12 +106,9 @@
 // OwlCarousel
 .owl-carousel {
 
-  .owl-item {
-    padding-right: $gutter-width;
-  }
-
   .owl-dots {
     padding: $gutter-width 0;
+    text-align: center;
 
     .owl-dot {
       display: inline-block;
