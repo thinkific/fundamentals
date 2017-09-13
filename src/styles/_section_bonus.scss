@@ -26,6 +26,14 @@
   }
 }
 
+.bonus__container {
+  @include make-container;
+}
+
+.bonus__wrapper {
+  @include make-row(true);
+}
+
 .bonus__list-item {
   margin: 0 0 $gutter-width;
   padding: 0 0 $gutter-width / 2;

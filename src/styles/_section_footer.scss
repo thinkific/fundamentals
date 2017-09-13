@@ -1,2 +1,8 @@
 // Footer
 // ======================================
+
+.footer {}
+
+.footer__container {
+  @include make-container;
+}

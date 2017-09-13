@@ -9,12 +9,13 @@
   }
 }
 
-.showcase__list {
-  @include make-row;
-  @include justify-content(center);
+.showcase__container {
+  @include make-container;
+}
 
-  margin-right: $gutter-width / -2;
-  margin-left: $gutter-width / -2;
+.showcase__list {
+  @include make-row(true);
+  @include justify-content(center);
 }
 
 .showcase__list-item {

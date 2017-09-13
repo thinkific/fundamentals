@@ -5,10 +5,19 @@
 .sign-up,
 .express-sign-in {
   @include page-padding;
+}
 
-  [class*="__wrapper"] {
-    @include justify-content(center);
-  }
+.sign-in__container,
+.sign-up__container,
+.express-sign-in__container {
+  @include make-container;
+}
+
+
+.sign-in__wrapper,
+.sign-up__wrapper,
+.express-sign-in__wrapper {
+  @include justify-content(center);
 }
 
 .sign-in__form,

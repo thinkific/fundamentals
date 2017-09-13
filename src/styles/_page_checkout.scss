@@ -8,6 +8,14 @@
   }
 }
 
+.checkout__container {
+  @include make-container;
+}
+
+.checkout__wrapper {
+  @include make-row(true);
+}
+
 .progress-bar {
   @include make-col(12);
 
@@ -115,7 +123,7 @@
 
 .thinkific__checkout__cart-item,
 .thinkific__checkout__cart-item--total-row {
-  @include make-row;
+  @include make-row(false);
   @include flex-grow(1);
 }
 

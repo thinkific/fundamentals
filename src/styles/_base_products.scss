@@ -260,7 +260,7 @@
 }
 
 .course-card__details {
-	@include make-row;
+	@include make-row(false);
 
 	margin-top: auto;
 	margin-right: 0;
@@ -328,7 +328,7 @@
 }
 
 .course-card__cta-secondary {
-	@include make-row;
+	@include make-row(false);
 	@include justify-content(space-between);
 
 	padding-right: $gutter-width / 2;
@@ -379,11 +379,8 @@
 }
 
 .products__search-form {
-	@include make-row;
+	@include make-row(false);
 	@include justify-content(space-between);
-
-	margin-right: 0;
-	margin-left: 0;
 }
 
 .products__search-box {

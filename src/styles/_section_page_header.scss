@@ -55,19 +55,21 @@
       }
     }
   }
+}
 
-  & > .header__container {
-    padding: 20px $gutter-width / 2;
+.header__container {
+  @include make-container;
+  padding: 20px $gutter-width / 2;
+}
 
-    & > .header__wrapper {
-      @include align-items(center);
-      @include flex-wrap(nowrap);
-      @include justify-content(space-between);
+.header__wrapper {
+  @include make-row(false);
+  @include align-items(center);
+  @include flex-wrap(nowrap);
+  @include justify-content(space-between);
 
-      position: relative;
-      margin: 0;
-    }
-  }
+  position: relative;
+  margin: 0;
 }
 
 .header__nav-floating {
@@ -116,7 +118,7 @@
 
 // Navigation
 .header__nav {
-  @include make-row;
+  @include make-row(false);
   @include screen-sm-max {
     @include transition(opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
 
@@ -158,8 +160,6 @@
   }
 
   width: 100%;
-  margin-right: 0;
-  margin-left: 0;
 }
 
 .header__nav--overlay {

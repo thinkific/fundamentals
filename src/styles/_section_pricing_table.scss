@@ -22,6 +22,14 @@
   }
 }
 
+.pricing-table__container {
+  @include make-container;
+}
+
+.pricing-table__wrapper {
+  @include make-row(true);
+}
+
 .pricing-table__list {
 
   li {

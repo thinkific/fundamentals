@@ -1,2 +1,8 @@
 // Course Categories
 // ======================================
+
+.course-categories {}
+
+.course-categories__container {
+  @include make-container;
+}

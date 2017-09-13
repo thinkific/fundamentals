@@ -60,7 +60,7 @@
   width: 100%;
 
   .row {
-    @include make-row;
+    @include make-row(true);
   }
 
   .flash {

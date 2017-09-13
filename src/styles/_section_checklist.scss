@@ -22,10 +22,16 @@
   }
 }
 
+.checklist__container {
+  @include make-container;
+}
+
+.checklist__wrapper {
+  @include make-row(true);
+}
+
 .checklist__list {
-  @include make-row;
-  margin-right: $gutter-width / -2;
-  margin-left: $gutter-width / -2;
+  @include make-row(true);
 }
 
 .checklist__list-item {

@@ -1,18 +1,15 @@
 // Course Curriculum
 // ======================================
 
-[class*="course-curriculum"] {
+.course-curriculum {
+  @include section-height(section-height-preset(large));
 
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
-}
-
-.course-curriculum {
-  @include section-height(section-height-preset(large));
 
   .course-curriculum__chapter-list {
-    @include make-row;
+    @include make-row(false);
 
     .course-curriculum__chapter {
       @include screen-md-min {
@@ -165,15 +162,23 @@
   }
 }
 
+.course-curriculum__container {
+  @include make-container;
+}
+
 .course-curriculum-legacy {
   @include section-height(section-height-preset(medium));
+
+  .section__headings {
+    margin: 0 0 $gutter-width * 2;
+  }
 
   .course-curriculum__chapter {
     margin: 0 0 $gutter-width * 1.5;
   }
 
   .course-curriculum__chapter-header {
-    @include make-row;
+    @include make-row(false);
 
     margin-bottom: $gutter-width / 2;
     border-bottom: 1px solid $gray-1;
@@ -270,6 +275,10 @@
     margin-left: 5px;
     border-radius: 3px;
   }
+}
+
+.course-curriculum-legacy__container {
+  @include make-container;
 }
 
 .course-curriculum__chapter-list {
