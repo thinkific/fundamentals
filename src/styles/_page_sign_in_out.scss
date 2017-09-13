@@ -17,6 +17,7 @@
 .sign-in__wrapper,
 .sign-up__wrapper,
 .express-sign-in__wrapper {
+  @include make-row(true);
   @include justify-content(center);
 }
 
