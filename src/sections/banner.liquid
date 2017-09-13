@@ -1,4 +1,4 @@
-<section class="banner {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="banner">
+<section class="banner {% if section.settings.background_image != blank or theme.settings.banner_background_promo_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="banner">
   <div class="banner__container">
     <article class="section__content">
       {% if section.settings.title != blank %}
@@ -70,6 +70,8 @@ section.banner {
 
   {% if section.settings.background_image != blank %}
     $background-image: '{{ section.settings.background_image }}';
+  {% elsif theme.settings.banner_background_promo_image != blank %}
+    $background-image: '{{ theme.settings.banner_background_promo_image }}';
   {% else %}
     $background-image: null;
   {% endif %}

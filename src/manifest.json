@@ -85,14 +85,14 @@
         },
         {
           "type": "color",
-          "id": "menu_mobile_link_color",
-          "label": "Link Color",
+          "id": "menu_mobile_background_hover_color",
+          "label": "Background Color (Hover)",
           "default": "#DEA986"
         },
         {
           "type": "color",
-          "id": "menu_mobile_background_hover_color",
-          "label": "Background Color (Hover)",
+          "id": "menu_mobile_link_color",
+          "label": "Link Color",
           "default": "#DEA986"
         },
         {
@@ -121,15 +121,15 @@
         },
         {
           "type": "color",
-          "id": "dropdown_link_background_hover_color",
-          "label": "Link Background Color (Hover)",
-          "default": "#DEA986"
-        },
-        {
-          "type": "color",
           "id": "dropdown_link_hover_color",
           "label": "Link Color (Hover)",
           "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "dropdown_link_background_hover_color",
+          "label": "Link Background Color (Hover)",
+          "default": "#DEA986"
         }
       ]
     },
@@ -250,7 +250,7 @@
         },
         {
           "type": "color",
-          "id": "heading_color",
+          "id": "heading_text_color",
           "label": "Heading Color",
           "default": "#1E242A"
         },
@@ -289,7 +289,7 @@
         },
         {
           "type": "color",
-          "id": "subheading_color",
+          "id": "subheading_text_color",
           "label": "Subheading Color",
           "default": "#505050"
         },
@@ -331,10 +331,10 @@
           "type":"select",
           "id": "icon_font",
           "label": "Icon Font",
-          "default": "'FontAwesome'",
+          "default": "FontAwesome",
           "options": [
             {
-              "value": "'FontAwesome'",
+              "value": "FontAwesome",
               "label": "Font Awesome",
               "group": "Sans-serif"
             }
@@ -376,6 +376,12 @@
       "label": "Section - Background Preset (Banner)",
       "settings": [
         {
+          "type": "image",
+          "id": "banner_background_promo_image",
+          "label": "Promo Image",
+          "default": ""
+        },
+        {
           "type": "color",
           "id": "banner_background_color",
           "label": "Background Color",
@@ -383,13 +389,13 @@
         },
         {
           "type": "color",
-          "id": "banner_heading_color",
+          "id": "banner_heading_text_color",
           "label": "Heading Color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
-          "id": "banner_subheading_color",
+          "id": "banner_subheading_text_color",
           "label": "Subheading Color",
           "default": "#FFFFFF"
         },
@@ -412,13 +418,13 @@
         },
         {
           "type": "color",
-          "id": "primary_heading_color",
+          "id": "primary_heading_text_color",
           "label": "Heading Color",
           "default": "#1E242A"
         },
         {
           "type": "color",
-          "id": "primary_subheading_color",
+          "id": "primary_subheading_text_color",
           "label": "Subheading Color",
           "default": "#505050"
         },
@@ -441,13 +447,13 @@
         },
         {
           "type": "color",
-          "id": "secondary_heading_color",
+          "id": "secondary_heading_text_color",
           "label": "Heading Color",
           "default": "#1E242A"
         },
         {
           "type": "color",
-          "id": "secondary_subheading_color",
+          "id": "secondary_subheading_text_color",
           "label": "Subheading Color",
           "default": "#505050"
         },
@@ -470,13 +476,13 @@
         },
         {
           "type": "color",
-          "id": "tertiary_heading_color",
+          "id": "tertiary_heading_text_color",
           "label": "Heading Color",
           "default": "#1E242A"
         },
         {
           "type": "color",
-          "id": "tertiary_subheading_color",
+          "id": "tertiary_subheading_text_color",
           "label": "Subheading Color",
           "default": "#505050"
         },
@@ -492,20 +498,122 @@
   "presets": {
     "starter": {
       "title": "Starter",
-      "description": "Keeping it a hunnid, that's so fundamental",
+      "description": "Default theme starter style configuration",
       "settings": {
-        "background_color": "#ffffff",
-        "primary_button_color": "#DEA986",
-        "body_font": "'Open Sans'"
+        "background_color": "transparent",
+        "brand_color": "#2AA0E9",
+        "accent_color": "#2AA0E9",
+        "menu_background_color": "transparent",
+        "menu_link_color": "#FFFFFF",
+        "menu_link_hover_color": "#FFFFFF",
+        "menu_fixed_background_color": "#FFFFFF",
+        "menu_fixed_link_color": "#68717A",
+        "menu_fixed_link_hover_color": "#68717A",
+        "menu_mobile_background_color": "transparent",
+        "menu_mobile_background_hover_color": "transparent",
+        "menu_mobile_link_color": "#FFFFFF",
+        "menu_mobile_link_hover_color": "#FFFFFF",
+        "dropdown_background_color": "#FFFFFF",
+        "dropdown_link_color": "#68717A",
+        "dropdown_link_hover_color": "#2AA0E9",
+        "dropdown_link_background_hover_color": "transparent",
+        "primary_button_background_color": "#36C69C",
+        "primary_button_text_color": "#FFFFFF",
+        "primary_button_background_hover_color": "#44caa3",
+        "primary_button_text_hover_color": "#FFFFFF",
+        "secondary_button_background_color": "transparent",
+        "secondary_button_text_color": "#36C69C",
+        "secondary_button_background_hover_color": "#36C69C",
+        "secondary_button_text_hover_color": "#FFFFFF",
+        "link_color": "#2AA0E9",
+        "link_hover_color": "#23527c",
+        "heading_font": "Open Sans",
+        "heading_text_color": "#33393F",
+        "subheading_font": "Open Sans",
+        "subheading_text_color": "#33393F",
+        "body_font": "Open Sans",
+        "body_text_color": "#68717A",
+        "icon_font": "FontAwesome",
+        "footer_background_color": "#FFFFFF",
+        "footer_text_color": "#68717A",
+        "footer_link_color": "#68717A",
+        "footer_link_hover_color": "#68717A",
+        "banner_background_color": "#1d9be9",
+        "banner_heading_text_color": "#FFFFFF",
+        "banner_subheading_text_color": "#FFFFFF",
+        "banner_text_color": "#FFFFFF",
+        "primary_background_color": "#FFFFFF",
+        "primary_heading_text_color": "#68717A",
+        "primary_subheading_text_color": "#68717A",
+        "primary_text_color": "#68717A",
+        "secondary_background_color": "#FFFFFF",
+        "secondary_heading_text_color": "#68717A",
+        "secondary_subheading_text_color": "#68717A",
+        "secondary_text_color": "#68717A",
+        "tertiary_background_color": "#FFFFFF",
+        "tertiary_heading_text_color": "#68717A",
+        "tertiary_subheading_text_color": "68717A",
+        "tertiary_text_color": "#68717A"
       }
     },
     "elegance": {
       "title": "Elegance",
-      "description": "Ooooo-weeeee!",
+      "description": "Elegance comes from being as beautiful inside as outside.",
       "settings": {
-        "background_color": "#FF33FF",
-        "primary_button_color": "#FF33FF",
-        "body_font": "'Lato'"
+        "background_color": "#FFFFFF",
+        "brand_color": "#1E242A",
+        "accent_color": "#DEA986",
+        "menu_background_color": "transparent",
+        "menu_link_color": "#DEA986",
+        "menu_link_hover_color": "#000000",
+        "menu_fixed_background_color": "#FFFFFF",
+        "menu_fixed_link_color": "#DEA986",
+        "menu_fixed_link_hover_color": "#000000",
+        "menu_mobile_background_color": "#FFFFFF",
+        "menu_mobile_background_hover_color": "#DEA986",
+        "menu_mobile_link_color": "#DEA986",
+        "menu_mobile_link_hover_color": "#FFFFFF",
+        "dropdown_background_color": "#FFFFFF",
+        "dropdown_link_color": "#000000",
+        "dropdown_link_hover_color": "#FFFFFF",
+        "dropdown_link_background_hover_color": "#DEA986",
+        "primary_button_background_color": "#DEA986",
+        "primary_button_text_color": "#FFFFFF",
+        "primary_button_background_hover_color": "#000000",
+        "primary_button_text_hover_color": "#FFFFFF",
+        "secondary_button_background_color": "#DEA986",
+        "secondary_button_text_color": "#DEA986",
+        "secondary_button_background_hover_color": "#DEA986",
+        "secondary_button_text_hover_color": "#FFFFFF",
+        "link_color": "#DEA986",
+        "link_hover_color": "#505050",
+        "heading_font": "Droid Serif",
+        "heading_text_color": "#1E242A",
+        "subheading_font": "Lato",
+        "subheading_text_color": "#505050",
+        "body_font": "Lato",
+        "body_text_color": "#505050",
+        "icon_font": "FontAwesome",
+        "footer_background_color": "#FFFFFF",
+        "footer_text_color": "#505050",
+        "footer_link_color": "#505050",
+        "footer_link_hover_color": "#505050",
+        "banner_background_color": "#505050",
+        "banner_heading_text_color": "#FFFFFF",
+        "banner_subheading_text_color": "#FFFFFF",
+        "banner_text_color": "#FFFFFF",
+        "primary_background_color": "#F7F7F7",
+        "primary_heading_text_color": "#1E242A",
+        "primary_subheading_text_color": "#505050",
+        "primary_text_color": "#505050",
+        "secondary_background_color": "#FFFFFF",
+        "secondary_heading_text_color": "#1E242A",
+        "secondary_subheading_text_color": "#505050",
+        "secondary_text_color": "#505050",
+        "tertiary_background_color": "#DEA986",
+        "tertiary_heading_text_color": "#DEA986",
+        "tertiary_subheading_text_color": "#505050",
+        "tertiary_text_color": "#505050"
       }
     }
   }
