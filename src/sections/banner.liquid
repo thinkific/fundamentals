@@ -1,11 +1,6 @@
 <section class="banner {% if section.settings.background_image != blank or theme.settings.banner_background_promo_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="banner">
   <div class="banner__container">
     <div class="banner__wrapper">
-      {% if section.settings.video.frame != blank %}
-        <section class="section__video">
-          {{ section.settings.video.frame }}
-        </section>
-      {% endif %}
       <article class="section__content">
         {% if section.settings.title != blank %}
           <header class="section__headings">
@@ -159,26 +154,6 @@ section.banner {
       ]
     },
     {
-      "label":"Video",
-      "settings":[
-        {
-          "type":"video",
-          "id":"video",
-          "label":"Video",
-          "default":{
-            "id":false,
-            "type":"",
-            "url":"",
-            "identifier":"",
-            "frame":"",
-            "popover":"",
-            "oembed":false
-          },
-          "description":"Include an intro video beside your course title"
-        }
-      ]
-    },
-    {
       "label":"Read More",
       "settings":[
         {
@@ -238,7 +213,7 @@ section.banner {
           "id":"background_image",
           "default":"",
           "label":"Image",
-          "description": "Suggested Dimensions: 1440x500px"
+          "description": "GIF is also supported for looped background images."
         },
         {
           "type":"color",
