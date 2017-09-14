@@ -357,18 +357,18 @@
 // Product List
 .products__list {
 	@include make-row(true);
+}
 
-	.products__list-item {
-		@include screen-md-min {
-			@include make-col(6);
-		}
-		@include screen-lg-min {
-			@include make-col(4);
-		}
-		@include make-col(12);
-
-		padding-bottom: $gutter-width;
+.products__list-item {
+	@include screen-md-min {
+		@include make-col(6);
 	}
+	@include screen-lg-min {
+		@include make-col(4);
+	}
+	@include make-col(12);
+
+	padding-bottom: $gutter-width;
 }
 
 .products__search {
