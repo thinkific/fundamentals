@@ -9,22 +9,7 @@
       </header>
     {% endif %}
     <article class="section__content">
-      <ul class="course-category__list">
-        {% for category in # %}
-          <li class="course-category__list-item">
-            <article class="course-category" data-card-url="{{ category.links.landing_page_url }}">
-              <header class="course-category__img-container">
-                <h4>{{ category.name }}</h4>
-                <img src="{{ category.card_image_url }}" alt="{{ category.name }}" title="{{ category.name }}" class="course-card__img" />
-              </header>
-              <footer class="course-category__details">
-                <span class="course-category__course-count">{{ category.course_count }}</span>
-                <span class="course-category__content-hours">{{ category.content_hours }}</span>
-              </footer>
-            </article>
-          </li>
-        {% endfor %}
-      </ul>
+      {% include 'product_category_list' %}
     </article>
   </div>
 </section>
