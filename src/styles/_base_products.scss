@@ -356,10 +356,7 @@
 
 // Product List
 .products__list {
-	@include make-row();
-
-	margin-right: $gutter-width / -2;
-  margin-left:  $gutter-width / -2;
+	@include make-row(true);
 
 	.products__list-item {
 		@include screen-md-min {
