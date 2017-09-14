@@ -130,7 +130,7 @@ $(document).ready(function() {
     });
   {% endif %}
   {% if section.settings.header_style == 'floating' %}
-    $main.find('.banner').prepend('<span class="header__nav-floating" style="display:block;height:' + headerHeight + 'px;"></span>');
+    $main.find('.banner, .banner-legacy').prepend('<span class="header__nav-floating" style="display:block;height:' + headerHeight + 'px;"></span>');
   {% endif %}
 });
 </script>
