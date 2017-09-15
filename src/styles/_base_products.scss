@@ -196,7 +196,7 @@
 			left: 0;
 			width: $progress__inset-size;
 			height: $progress__inset-size;
-			border: 1px solid $gray-2;
+			border: 1px solid gray-scale(2);
 			border-radius: 50%;
 			content: "";
 		}
@@ -243,7 +243,7 @@
 			left: 0;
 			width: 100%;
 			height: 3px;
-			background-color: $gray-2;
+			background-color: gray-scale(2);
 			content: "";
 			z-index: 0;
 		}
@@ -260,9 +260,11 @@
 }
 
 .course-card__details {
-	@include make-row;
+	@include make-row(false);
 
 	margin-top: auto;
+	margin-right: 0;
+	margin-left: 0;
 	font-size: 0;
 	line-height: 1;
 
@@ -271,8 +273,8 @@
 
 		display: inline-block;
 		padding: 10px;
-		border-top: 1px solid $gray-1;
-		border-right: 1px solid $gray-1;
+		border-top: 1px solid gray-scale(1);
+		border-right: 1px solid gray-scale(1);
 		border-bottom: 0;
 		color: $body__font-color;
 		font-size: 0.875rem;
@@ -296,7 +298,7 @@
 		text-decoration: none;
 
 		&:first-child {
-			border-right: 1px solid $gray-1;
+			border-right: 1px solid gray-scale(1);
 		}
 
 		&:active,
@@ -326,7 +328,7 @@
 }
 
 .course-card__cta-secondary {
-	@include make-row;
+	@include make-row(false);
 	@include justify-content(space-between);
 
 	padding-right: $gutter-width / 2;
@@ -354,22 +356,19 @@
 
 // Product List
 .products__list {
-	@include make-row();
+	@include make-row(true);
+}
 
-	margin-right: $gutter-width / -2;
-  margin-left:  $gutter-width / -2;
-
-	.products__list-item {
-		@include screen-md-min {
-			@include make-col(6);
-		}
-		@include screen-lg-min {
-			@include make-col(4);
-		}
-		@include make-col(12);
-
-		padding-bottom: $gutter-width;
+.products__list-item {
+	@include screen-md-min {
+		@include make-col(6);
 	}
+	@include screen-lg-min {
+		@include make-col(4);
+	}
+	@include make-col(12);
+
+	padding-bottom: $gutter-width;
 }
 
 .products__search {
@@ -377,7 +376,7 @@
 }
 
 .products__search-form {
-	@include make-row;
+	@include make-row(false);
 	@include justify-content(space-between);
 }
 

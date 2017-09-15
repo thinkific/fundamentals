@@ -1,8 +1,8 @@
 // Countdown Timer
 // ======================================
 
-
 .countdown-timer {
+  @include section-height(section-height-preset(large));
 
   .section__headings {
     @include screen-md-max {
@@ -33,6 +33,13 @@
   }
 }
 
+.countdown-timer__container {
+  @include make-container;
+}
+
+.countdown-timer__wrapper {
+  @include make-row(true);
+}
 
 .section__countdown-timer {
   @include screen-md-max {
@@ -68,7 +75,7 @@
     display: inline-block;
     min-width: 25%;
     padding: $gutter-width / 2;
-    border: 1px solid $gray-1;
+    border: 1px solid gray-scale(1);
     background: $interface__background-color;
     font-family: $heading__font-family;
     font-size: 1.5rem;

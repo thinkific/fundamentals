@@ -1,28 +1,15 @@
-<section class="course-categories {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="course-categories">
-  <div class="container">
-    <article class="section__content">
-      {% if section.settings.heading != blank %}
+<section class="course-categories {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="course-categories">
+  <div class="course-categories__container">
+    {% if section.settings.heading != blank %}
+      <header class="section__headings">
         <h3 class="section__heading">{{ section.settings.heading }}</h3>
         {% if section.settings.subheading != blank %}
           <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
         {% endif %}
-      {% endif %}
-      <ul class="course-category__list">
-        {% for category in # %}
-          <li class="course-category__list-item">
-            <article class="course-category" data-card-url="{{ category.links.landing_page_url }}">
-              <header class="course-category__img-container">
-                <h4>{{ category.name }}</h4>
-                <img src="{{ category.card_image_url }}" alt="{{ category.name }}" title="{{ category.name }}" class="course-card__img" />
-              </header>
-              <footer class="course-category__details">
-                <span class="course-category__course-count">{{ category.course_count }}</span>
-                <span class="course-category__content-hours">{{ category.content_hours }}</span>
-              </footer>
-            </article>
-          </li>
-        {% endfor %}
-      </ul>
+      </header>
+    {% endif %}
+    <article class="section__content">
+      {% include 'products_category_list' %}
     </article>
   </div>
 </section>
@@ -57,7 +44,7 @@ section.course-categories {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"You may also like"
+          "default":"Course Categories"
         },
         {
           "type":"text",
@@ -70,7 +57,7 @@ section.course-categories {
           "id":"heading_alignment",
           "label":"Alignment",
           "description":"Headings will inherit the same alignment",
-          "default":"left",
+          "default":"center",
           "options":[
             {
               "value":"left",

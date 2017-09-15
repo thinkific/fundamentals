@@ -9,14 +9,14 @@
     display: block;
     position: relative;
     width: 1.5rem;
-    height: 2px;
+    height: 3px;
     margin-bottom: $gutter-width / 2;
     content: "";
   }
 }
 
 // Overrides
-.banner-section-color-preset {
+.section-color-preset__banner {
 
   .section__subheading {
 
@@ -26,7 +26,7 @@
   }
 }
 
-.primary-section-color-preset {
+.section-color-preset__primary {
 
   .section__subheading {
 
@@ -37,7 +37,7 @@
 }
 
 
-.secondary-section-color-preset {
+.section-color-preset__secondary {
 
   .section__subheading {
 
@@ -48,7 +48,7 @@
 }
 
 
-.tertiary-section-color-preset {
+.section-color-preset__tertiary {
 
   .section__subheading {
 
@@ -67,9 +67,79 @@
   }
 }
 
+.bonus {
+
+  .section__subheading {
+    @include subheading-ornament;
+  }
+}
+
 .call-to-action {
 
   .section__subheading {
     @include subheading-ornament;
+  }
+}
+
+.description {
+
+  .section__subheading {
+    @include subheading-ornament;
+  }
+}
+
+.description__container {
+
+  &:before {
+    @include screen-lg-min {
+      left: 30%;
+    }
+
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    left: -100%;
+    background-color: gray-scale(0);
+    content: "";
+    z-index: 0;
+  }
+}
+
+.pricing-table {
+
+  .section__subheading {
+    @include subheading-ornament;
+  }
+}
+
+.testimonials {
+
+  .section__headings {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.testimonials__container {
+
+  &:before {
+    @include screen-md-min {
+      right: 5.5%;
+    }
+    @include screen-lg-min {
+      right: 40%;
+    }
+
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    left: -100%;
+    background-color: gray-scale(0);
+    content: "";
+    z-index: 0;
   }
 }

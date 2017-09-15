@@ -1,14 +1,14 @@
-<section class="checklist large-section {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="checklist">
-  <div class="container">
-    <div class="row">
-      <article class="section__headings">
-        {% if section.settings.heading != blank %}
+<section class="checklist {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="checklist">
+  <div class="checklist__container">
+    <div class="checklist__wrapper">
+      {% if section.settings.heading != blank %}
+        <header class="section__headings">
           <h3 class="section__heading">{{ section.settings.heading }}</h3>
           {% if section.settings.subheading != blank %}
             <p class="section__subheading">{{ section.settings.subheading }}</p>
           {% endif %}
-        {% endif %}
-      </article>
+        </header>
+      {% endif %}
       {% if section.blocks != empty %}
         <article class="section__content">
           <ul class="checklist__list">

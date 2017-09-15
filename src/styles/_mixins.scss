@@ -103,6 +103,8 @@
   &:active,
   &:focus,
   &:hover {
+    @include transition(background-color 300ms ease, border-color 300ms ease);
+
     background-color: $button__secondary-background--active;
     color: $button__secondary-color--active;
   }
@@ -130,6 +132,44 @@
   height: 100%;
   border: $interface__border;
   background-color: $interface__background-color;
+}
+// Container
+@mixin make-container {
+  @include screen-md-min {
+    max-width: $screen-md - $gutter-width;
+  }
+  @include screen-lg-min {
+    max-width: $screen-lg - $gutter-width;
+  }
+  @include screen-xl-min {
+    max-width: $screen-xl - $gutter-width;
+  }
+
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  padding-right: ($gutter-width / 2);
+  padding-left: ($gutter-width / 2);
+}
+
+// Rows
+@mixin make-row($negative-margins: true) {
+  @include display(flex);
+  @include flex-wrap(wrap);
+
+  &:after,
+  &:before {
+    @include flex-basis(0);
+    order: 1;
+  }
+
+  @if $negative-margins == true {
+    margin-right: $gutter-width / -2;
+    margin-left:  $gutter-width / -2;
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 // Columns
@@ -206,7 +246,7 @@
 
 // Forms
 @mixin form-group {
-  @include make-row;
+  @include make-row(false);
 
   margin: 0 0 $gutter-width / 2;
 
@@ -271,7 +311,7 @@
     right: 14px;
     width: 8px;
     height: 8px;
-    font-family: 'FontAwesome';
+    font-family: $icon__font-family;
     font-size: 1.2rem;
     content: "\f0d7";
     z-index: 2;
@@ -287,10 +327,11 @@
     position: absolute;
     top: .5rem;
     right: 14px;
-    font-family: 'FontAwesome';
+    font-family: $icon__font-family;
     font-size: 1rem;
     content: "\f0d7";
     z-index: 1;
+    pointer-events: none;
   }
 }
 
@@ -298,7 +339,7 @@
   display: block;
   width: 100%;
   padding: $gutter-width / 2;
-  border: 1px solid $gray-2;
+  border: 1px solid gray-scale(2);
   border-radius: 0;
   background-color: $interface__background-color;
   font-size: 1rem;
@@ -339,20 +380,8 @@
   padding-bottom: $padding-bottom / 4;
 }
 
-// Rows
-@mixin make-row() {
-  @include display(flex);
-  @include flex-wrap(wrap);
-
-  &:after,
-  &:before {
-    @include flex-basis(0);
-    order: 1;
-  }
-}
-
 // Section Presets
-@mixin section-background-preset($background-color: $white, $heading-color: $black, $subheading-color: $gray-4, $text-color: $gray-4) {
+@mixin section-background-preset($background-color: $white, $heading-color: $black, $subheading-color: gray-scale(4), $text-color: gray-scale(4)) {
   background-color: $background-color;
 
   .section__heading {
@@ -365,6 +394,20 @@
 
   p {
     color: $text-color;
+  }
+}
+
+// Section Height
+@mixin section-height($padding: $section-height__large) {
+
+  [class*="__container"] {
+    @include screen-lg-min {
+      padding-top: $padding;
+      padding-bottom: $padding;
+    }
+
+    padding-top: $padding / 2;
+    padding-bottom: $padding / 2;
   }
 }
 
@@ -404,7 +447,7 @@
 }
 
 @mixin subheading {
-  color: $heading__font-color;
+  color: $subheading__font-color;
   font-family: $subheading__font-family;
   font-weight: $subheading__font-weight;
 }

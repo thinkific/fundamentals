@@ -1,24 +1,28 @@
-<section class="bonus {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="bonus">
-  <div class="container">
-    <article class="section__content">
+<section class="bonus {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="bonus">
+  <div class="bonus__container">
+    <div class="bonus__wrapper">
       {% if section.settings.heading != blank %}
-        <h3 class="section__heading">{{ section.settings.heading }}</h3>
-        {% if section.settings.subheading != blank %}
-          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        <header class="section__headings">
+          <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% if section.settings.subheading != blank %}
+            <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+          {% endif %}
+        </header>
+      {% endif %}
+      <article class="section__content">
+        {% if section.blocks != empty %}
+          <ul class="bonus__list">
+            {% for block in section.blocks %}
+              <li class="bonus__list-item">
+                <h4>{{ block.settings.bonus_name }}</h4>
+                <h5>${{ block.settings.bonus_value }} value</h5>
+                <p>{{ block.settings.bonus_body }}</p>
+              </li>
+            {% endfor %}
+          </ul>
         {% endif %}
-      {% endif %}
-      {% if section.blocks != empty %}
-        <ul class="bonus__list">
-          {% for block in section.blocks %}
-            <li class="bonus__list-item">
-              <h4>{{ block.settings.bonus_name }}</h4>
-              <h4>{{ block.settings.bonus_value }}</h4>
-              <p>{{ block.settings.bonus_body }}</p>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </article>
+      </article>
+    </div>
   </div>
 </section>
 

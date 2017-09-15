@@ -2,17 +2,22 @@
 // ======================================
 
 .course-content {
+  @include section-height(section-height-preset(large));
 
-  .section__heading {
-    margin-bottom: $gutter-width;
+  .section__headings {
+    margin: 0 0 $gutter-width * 2;
   }
+}
+
+.course-content__container {
+  @include make-container;
 }
 
 .course-content__content-list {
   @include screen-lg-min {
     width: 80%;
   }
-  @include make-row;
+  @include make-row(false);
   @include justify-content(center);
 
   margin: 0 auto;

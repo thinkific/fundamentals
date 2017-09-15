@@ -2,35 +2,17 @@
 // ======================================
 
 .testimonials {
+  @include section-height(section-height-preset(large));
+
   overflow: hidden;
 
-  .container {
-
-    &:before {
-      @include screen-md-min {
-        right: 5.5%;
-      }
-      @include screen-lg-min {
-        right: 40%;
-      }
-
-      display: block;
-      position: absolute;
-      top: 0;
-      right: -100%;
-      bottom: 0;
-      left: -100%;
-      background-color: $gray-0;
-      content: "";
-      z-index: 0;
-    }
-  }
-
-  .section__heading {
-    position: relative;
+  .section__headings {
     margin: 0 0 $gutter-width * 2;
-    z-index: 1;
   }
+}
+
+.testimonials__container {
+  @include make-container;
 }
 
 .testimonials__list {
@@ -43,25 +25,42 @@
 
     .owl-item {
       @include screen-sm-min {
-        padding-right: $gutter-width * 1.5;
+        padding-right: $gutter-width;
       }
 
       padding-right: $gutter-width / 2;
 
       &.active {
+        @include screen-xs-max {
+          padding: 0 $gutter-width;
+        }
 
         & + .owl-item {
-          opacity: .7;
+          @include screen-sm-min {
+            opacity: .7;
+          }
+          opacity: 0;
         }
       }
+    }
 
-      img {
-        display: inline-block;
-        width: 32px;
-        height: 32px;
-        margin: 0 $gutter-width / 2 0 0;
-        border-radius: 50%;
-        vertical-align: middle;
+    .owl-nav {
+      @include screen-sm-min {
+        display: none;
+      }
+
+      .owl-prev {
+        left: 0;
+      }
+
+      .owl-next {
+        right: 0;
+      }
+    }
+
+    .owl-dots {
+      @include screen-md-min {
+        text-align: left;
       }
     }
   }
@@ -69,8 +68,20 @@
 
 .testimonials__list-item {
   @include card;
+  @include screen-md-min {
+    padding: $gutter-width * 1.5 $gutter-width * 1.5 $gutter-width;
+  }
 
-  padding: $gutter-width * 1.5 $gutter-width * 1.5 $gutter-width;
+  padding: $gutter-width * 1.5 $gutter-width $gutter-width;
+
+  img {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: 0 $gutter-width / 2 0 0;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
 
   p {
     margin: 0 0 $gutter-width / 1.5;

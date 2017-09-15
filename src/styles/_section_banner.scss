@@ -1,7 +1,12 @@
 // Banner
 // ======================================
 
-.banner {
+.banner,
+.banner-legacy {
+
+  .section__content {
+    @include make-col(12);
+  }
 
   .section__heading {
     font-weight: 400;
@@ -14,19 +19,59 @@
   .section__button-group {
 
     .button {
-
-      &:first-child {
-        @include screen-sm-max {
-          margin-bottom: $gutter-width / 2;
-        }
+      @include screen-sm-max {
+        margin-bottom: $gutter-width / 2;
       }
     }
   }
 }
 
-.banner__video {
+.banner-legacy {
 
-  &--mobile {}
+  &.section__has-video {
+
+    .section__video {
+      @include screen-lg-min {
+        @include make-col(5);
+        @include make-col-push(1);
+      }
+      @include screen-sm-min {
+        display: block;
+      }
+      @include align-self(center);
+
+      display: none;
+      padding-right: $gutter-width * 2;
+    }
+
+    .section__content {
+      @include screen-lg-min {
+        @include make-col(5);
+        @include make-col-push(1);
+      }
+    }
+  }
+}
+
+.banner__container,
+.banner-legacy__container {
+  @include make-container;
+}
+
+.banner__wrapper,
+.banner-legacy__wrapper {
+  @include make-row(true);
+}
+
+.section__video {
+
+  &--mobile {
+    @include screen-md-max {
+      display: block;
+    }
+
+    display: none;
+  }
 }
 
 .banner__read-more {

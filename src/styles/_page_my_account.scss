@@ -5,6 +5,48 @@
   @include page-padding;
 }
 
+.my-account__container {
+  @include make-container;
+}
+
+.my-account__wrapper {
+  @include make-row(true);
+}
+
+.my-account__menu {
+  @include screen-sm-max {
+    @include order(2);
+  }
+  @include screen-lg-min {
+    @include make-col(3);
+  }
+  @include make-col(12);
+
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+    margin: 0 0 $gutter-width;
+  }
+}
+
+.my-account__content {
+  @include screen-sm-max {
+    @include order(1);
+    margin: 0 0 $gutter-width;
+  }
+  @include make-col(12);
+
+  .my-account__menu + & {
+    @include screen-lg-min {
+      @include make-col(9);
+
+      padding-left: $gutter-width;
+    }
+  }
+}
+
+.my-account__profile__wrapper {
+  @include make-row(true);
+}
+
 .my-account__avatar {
   @include screen-md-min {
     @include make-col(3);
@@ -67,10 +109,8 @@
 }
 
 .my-account__order-overview {
-  @include make-row;
+  @include make-row(true);
 
-  margin-right: $gutter-width / -2;
-  margin-left:  $gutter-width / -2;
   list-style: none;
 
   li {
@@ -83,7 +123,7 @@
   p {
     @include form-control;
 
-    background-color: $gray-0;
+    background-color: gray-scale(0);
     line-height: 1;
   }
 

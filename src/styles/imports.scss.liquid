@@ -3,26 +3,55 @@
 
 @import 'bourbon';
 
+// Functions
+// ======================================
+
+@function dynamic-text-color($color: $body__background-color) {
+  @if (lightness($color) > 85) {
+    @return $black;
+  } @else {
+    @return $white;
+  }
+}
+
+@function gray-scale($key) {
+  @if map-has-key($gray-scale, $key) {
+    @return map-get($gray-scale, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $gray-scale.";
+  @return null;
+}
+
+@function section-height-preset($key) {
+  @if map-has-key($section-height, $key) {
+    @return map-get($section-height, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $section-height.";
+  @return null;
+}
+
 // Grid
 // ======================================
 $grid-columns: 12 !default;
-$gutter-width: 1.875rem !default;
+$gutter-width: 2rem !default;
 
 // Breakpoints
 // ======================================
 
-$screen-xs: 320px !default;
-$screen-sm: 480px !default;
-$screen-md: 768px !default;
-$screen-lg: 992px !default;
-$screen-xl: 1200px !default;
-$screen-xxl: 1440px !default;
+$screen-xs: 20rem !default;
+$screen-sm: 30rem !default;
+$screen-md: 48rem !default;
+$screen-lg: 62rem !default;
+$screen-xl: 75rem !default;
+$screen-xxl: 90rem !default;
 
-$screen-legacy-max: ($screen-xs - 1) !default;
-$screen-xs-max: ($screen-sm - 1) !default;
-$screen-sm-max: ($screen-md - 1) !default;
-$screen-md-max: ($screen-lg - 1) !default;
-$screen-lg-max: ($screen-xl - 1) !default;
+$screen-legacy-max: ($screen-xs - 0.0625rem) !default;
+$screen-xs-max: ($screen-sm - 0.0625rem) !default;
+$screen-sm-max: ($screen-md - 0.0625rem) !default;
+$screen-md-max: ($screen-lg - 0.0625rem) !default;
+$screen-lg-max: ($screen-xl - 0.0625rem) !default;
 
 // Modular Scale
 // ======================================
@@ -54,6 +83,20 @@ $gray-8: #495057 !default;
 $gray-9: #343a40 !default;
 $gray-10: #292b2c !default;
 
+$gray-scale: (
+  0: $gray-0,
+  1: $gray-1,
+  2: $gray-2,
+  3: $gray-3,
+  4: $gray-4,
+  5: $gray-5,
+  6: $gray-6,
+  7: $gray-7,
+  8: $gray-8,
+  9: $gray-9,
+  10: $gray-10
+);
+
 // Vendors
 $linked-in: #4875B4 !default;
 
@@ -69,47 +112,51 @@ $body__font-weight: 400 !default;
 $body__line-height: 2 !default;
 
 // Headings
-$heading__font-color: {{ theme.settings.heading_color }} !default;
+$heading__font-color: {{ theme.settings.heading_text_color }} !default;
 $heading__font-family: '{{ theme.settings.heading_font }}', Sans-Serif !default;
 $heading__font-weight: 600 !default;
 $heading__line-height: 1.2 !default;
 
+$subheading__font-color: {{ theme.settings.subheading_text_color }} !default;
 $subheading__font-family: '{{ theme.settings.subheading_font }}', Sans-Serif !default;
 $subheading__font-weight: 400 !default;
 
 // Interface
 $interface__background-color: $white !default;
-$interface__border: 1px solid $gray-2 !default;
+$interface__border: 1px solid gray-scale(2) !default;
 $interface__shadow: 1px 1px 0 rgba(0, 0, 0, 0.05) !default;
+
+// Icon
+$icon__font-family: '{{ icon_font }}', 'FontAwesome' !default
 
 // Section Presets
 // ======================================
 
 $banner-background-color: {{ theme.settings.banner_background_color }} !default;
-$banner-heading-color: {{ theme.settings.banner_heading_color }} !default;
-$banner-subheading-color: {{ theme.settings.banner_subheading_color }} !default;
+$banner-heading-color: {{ theme.settings.banner_heading_text_color }} !default;
+$banner-subheading-color: {{ theme.settings.banner_subheading_text_color }} !default;
 $banner-text-color: {{ theme.settings.banner_text_color }} !default;
 
 $primary-background-color: {{ theme.settings.primary_background_color }} !default;
-$primary-heading-color: {{ theme.settings.primary_heading_color }} !default;
-$primary-subheading-color: {{ theme.settings.primary_subheading_color }} !default;
+$primary-heading-color: {{ theme.settings.primary_heading_text_color }} !default;
+$primary-subheading-color: {{ theme.settings.primary_subheading_text_color }} !default;
 $primary-text-color: {{ theme.settings.primary_text_color }} !default;
 
 $secondary-background-color: {{ theme.settings.secondary_background_color }} !default;
-$secondary-heading-color: {{ theme.settings.secondary_heading_color }} !default;
-$secondary-subheading-color: {{ theme.settings.secondary_subheading_color }} !default;
+$secondary-heading-color: {{ theme.settings.secondary_heading_text_color }} !default;
+$secondary-subheading-color: {{ theme.settings.secondary_subheading_text_color }} !default;
 $secondary-text-color: {{ theme.settings.secondary_text_color }} !default;
 
 $tertiary-background-color: {{ theme.settings.tertiary_background_color }} !default;
-$tertiary-heading-color: {{ theme.settings.tertiary_heading_color }} !default;
-$tertiary-subheading-color: {{ theme.settings.tertiary_subheading_color }} !default;
+$tertiary-heading-color: {{ theme.settings.tertiary_heading_text_color }} !default;
+$tertiary-subheading-color: {{ theme.settings.tertiary_subheading_text_color }} !default;
 $tertiary-text-color: {{ theme.settings.tertiary_text_color }} !default;
 
 // Decoration
 // ======================================
 
 $base__border-radius: 0 !default;
-$base__border-color: $gray-0 !default;
+$base__border-color: gray-scale(0) !default;
 $base__border-width: 1px !default;
 $base__border-style: solid !default;
 
@@ -121,14 +168,14 @@ $cursor-disabled: not-allowed !default;
 $form__control-padding: 10px 15px !default;
 $form__input-color: $body__font-color !default;
 $form__input-background: $white !default;
-$form__input-color-placeholder: $gray-1 !default;
-$form__input-background-disabled: $gray-0 !default;
+$form__input-color-placeholder: gray-scale(1) !default;
+$form__input-background-disabled: gray-scale(0) !default;
 $form__input-height: calc($body__font-size * $body__line-height) + ($gutter-width) !default;
 
 // Review Stars
 // ======================================
 
-$review-star__empty: $gray-2;
+$review-star__empty: gray-scale(2);
 $review-star__filled-color: {{ theme.settings.review_star }} !default;
 $review-star__background-color: {{ theme.settings.review_star_background }} !default;
 $review-star__empty-star: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=") !default;
@@ -220,6 +267,12 @@ $progress__inset-color: $white !default;
 $progress__transition: transform 800ms ease !default;
 
 // Section Padding
-$large-section: 5.625rem;
-$medium-section: 3.750rem;
-$small-section: 1.875rem;
+$section-height__large: 5.625rem !default;
+$section-height__medium: 3.750rem !default;
+$section-height__small: 1.875rem !default;
+
+$section-height: (
+  small: $section-height__small,
+  medium: $section-height__medium,
+  large: $section-height__large
+);

@@ -26,7 +26,7 @@ $(window).load(function() {
     });
   }
 
-  var fonts = ['{{ theme.settings.heading_font}}:400,600,700', '{{ theme.settings.subheading_font }}:400,600,700', '{{ theme.settings.body_font }}:300,400,400i,600,700,800'],
+  var fonts = ['{{ theme.settings.heading_font }}:400,600,700', '{{ theme.settings.subheading_font }}:400,600,700', '{{ theme.settings.body_font }}:300,400,400i,600,700,800'],
       fontLoad = fonts.filter(function(elem, index, self) {
         return index == self.indexOf(elem);
       });
@@ -38,7 +38,7 @@ $(window).load(function() {
       families: fontLoad
     },
     custom: {
-      families: ['FontAwesome'],
+      families: ['{{ theme.settings.icon_font }}'],
       urls: ['https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css']
     }
   });

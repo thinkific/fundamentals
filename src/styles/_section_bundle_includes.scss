@@ -1,2 +1,8 @@
 // Bundle Includes
 // ======================================
+
+.bundle-includes {}
+
+.bundle-includes__container {
+  @include make-container;
+}

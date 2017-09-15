@@ -1,44 +1,43 @@
-<section class="banner {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | append: '-section' }}{% endif %}" data-preview-item="banner">
-  <div class="container">
-    <article class="section__content">
-      {% if section.settings.title != blank %}
-        <h1 class="section__heading">{{ section.settings.title }}</h1>
-        {% if section.settings.subtitle != blank %}
-          <h2 class="section__subheading">{{ section.settings.subtitle }}</h2>
-        {% endif %}
-      {% endif %}
-      {% if section.settings.video.frame != blank %}
-        <section class="section__video">
-          {{ section.settings.video.frame }}
-        </section>
-      {% endif %}
-      {% if section.blocks != empty %}
-        <section class="section__button-group">
-          {% for block in section.blocks %}
-            {% if block.type == 'banner_button' %}
-              <a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+<section class="banner {% if section.settings.background_image != blank or theme.settings.banner_background_promo_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="banner">
+  <div class="banner__container">
+    <div class="banner__wrapper">
+      <article class="section__content">
+        {% if section.settings.title != blank %}
+          <header class="section__headings">
+            <h1 class="section__heading">{{ section.settings.title }}</h1>
+            {% if section.settings.subtitle != blank %}
+              <h2 class="section__subheading">{{ section.settings.subtitle }}</h2>
             {% endif %}
-          {% endfor %}
-        </section>
-      {% else %}
-        {% include 'product_action_buttons' %}
-      {% endif %}
-      {% if section.settings.video.popover != blank %}
-        <section class="section__video--mobile">
-          {{ section.settings.video.popover }}
-        </section>
-      {% endif %}
-    </article>
-    {% if section.settings.show_read_more %}
-      {% if section.settings.read_more != blank %}
-        {% assign read_more = section.settings.read_more %}
-      {% else %}
-        {% assign read_more = 'Read More' %}
-      {% endif %}
-      <a href="#read-more" class="banner__read-more">
-        <i class="fa fa-chevron-down" aria-hidden="true"></i>{{ read_more }}
-      </a>
-    {% endif %}
+          </header>
+        {% endif %}
+        {% if section.blocks != empty %}
+          <section class="section__button-group">
+            {% for block in section.blocks %}
+              {% if block.type == 'banner_button' %}
+                <a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+              {% endif %}
+            {% endfor %}
+          </section>
+        {% else %}
+          {% include 'product_action_buttons' %}
+        {% endif %}
+        {% if section.settings.video.popover != blank %}
+          <section class="section__video--mobile">
+            {{ section.settings.video.popover }}
+          </section>
+        {% endif %}
+        {% if section.settings.show_read_more %}
+          {% if section.settings.read_more != blank %}
+            {% assign read_more = section.settings.read_more %}
+          {% else %}
+            {% assign read_more = 'Read More' %}
+          {% endif %}
+          <a href="#read-more" class="banner__read-more">
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>{{ read_more }}
+          </a>
+        {% endif %}
+      </article>
+    </div>
   </div>
 </section>
 
@@ -68,6 +67,8 @@ section.banner {
 
   {% if section.settings.background_image != blank %}
     $background-image: '{{ section.settings.background_image }}';
+  {% elsif theme.settings.banner_background_promo_image != blank %}
+    $background-image: '{{ theme.settings.banner_background_promo_image }}';
   {% else %}
     $background-image: null;
   {% endif %}
@@ -153,26 +154,6 @@ section.banner {
       ]
     },
     {
-      "label":"Video",
-      "settings":[
-        {
-          "type":"video",
-          "id":"video",
-          "label":"Video",
-          "default":{
-            "id":false,
-            "type":"",
-            "url":"",
-            "identifier":"",
-            "frame":"",
-            "popover":"",
-            "oembed":false
-          },
-          "description":"Include an intro video beside your course title"
-        }
-      ]
-    },
-    {
       "label":"Read More",
       "settings":[
         {
@@ -232,7 +213,7 @@ section.banner {
           "id":"background_image",
           "default":"",
           "label":"Image",
-          "description": "Suggested Dimensions: 1440x500px"
+          "description": "GIF is also supported for looped background images."
         },
         {
           "type":"color",

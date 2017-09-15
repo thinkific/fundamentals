@@ -1,8 +1,16 @@
 // Icon & Text
 // ======================================
 
+.text-icon {
+  @include section-height(section-height-preset(medium));
+}
+
+.text-icon__container {
+  @include make-container;
+}
+
 .text-icon__list {
-  @include make-row;
+  @include make-row(false);
 }
 
 .text-icon__list-item {

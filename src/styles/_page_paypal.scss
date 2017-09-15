@@ -1,2 +1,12 @@
 // PayPal
 // ======================================
+
+.paypal-express-checkout {}
+
+.paypal-express-checkout__container {
+  @include make-container;
+}
+
+.paypal-express-checkout__wrapper {
+  @include make-row(true);
+}

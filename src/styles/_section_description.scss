@@ -1,2 +1,31 @@
 // Description
 // ======================================
+
+.description {
+  @include section-height(section-height-preset(large));
+
+  .section__headings {
+    @include screen-lg-min {
+      @include make-col(5);
+    }
+    @include make-col(12);
+    @include screen-md-min {
+      padding-right: $gutter-width * 2;
+    }
+  }
+
+  .section__content {
+    @include screen-lg-min {
+      @include make-col(7);
+    }
+    @include make-col(12);
+  }
+}
+
+.description__container {
+  @include make-container;
+}
+
+.description__wrapper {
+  @include make-row(true);
+}

@@ -5,3 +5,8 @@
 .collections {
   @include page-padding;
 }
+
+.collection__container,
+.collections__container {
+  @include make-container;
+}

@@ -4,10 +4,15 @@
 // Course Review
 .course-review {
   @include page-padding;
+}
 
-  .row {
-    @include justify-content(center);
-  }
+.course-review__container {
+  @include make-container;
+}
+
+.course-review__wrapper {
+  @include make-row(true);
+  @include justify-content(center);
 }
 
 .course-review__form {

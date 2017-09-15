@@ -5,19 +5,29 @@
 .sign-up,
 .express-sign-in {
   @include page-padding;
+}
 
-  .row {
-    @include justify-content(center);
-  }
+.sign-in__container,
+.sign-up__container,
+.express-sign-in__container {
+  @include make-container;
+}
+
+
+.sign-in__wrapper,
+.sign-up__wrapper,
+.express-sign-in__wrapper {
+  @include make-row(true);
+  @include justify-content(center);
 }
 
 .sign-in__form,
 .sign-up__form {
-  @include screen-lg-min {
-    @include make-col(6);
-  }
   @include screen-md-min {
     @include make-col(8);
+  }
+  @include screen-lg-min {
+    @include make-col(6);
   }
   @include make-col(10);
 }

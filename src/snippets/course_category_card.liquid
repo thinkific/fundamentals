@@ -1,0 +1,15 @@
+{% comment %}
+  This is the card representation of your course categories.
+{% endcomment %}
+<section class="course-category-card" data-card-url="{{ collection.url }}" tabindex="0">
+  <header class="course-category-card__img-container">
+    <a href="{{ collection.url }}" tabindex="-1">
+      <img src="{{ collection.url }}" alt="{{ collection.name }}" title="{{ collection.name }}" class="course-category-card__img img-responsive" />
+      <h3>{{ collection.name }}</h3>
+    </a>
+  </header>
+  <footer class="course-category-card__details">
+    <span class="course-category-card__course-count"><strong>{{ collection.size }}</strong> Courses</span>
+    <span class="course-category-card__lesson-time"><strong>{{ collection.lesson_hours }}</strong> Hours</span>
+  </footer>
+</section>

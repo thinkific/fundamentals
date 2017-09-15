@@ -1,98 +1,101 @@
 // Lists
 // ======================================
 
-.page__menu {
+[class*="__wrapper"] {
 
-  ul {
-    @include screen-sm-max {
-      box-shadow: $interface__shadow;
-    }
-    @include screen-lg-min {
-      box-shadow: $interface__shadow;
-    }
-
-    border: $interface__border;
-  }
-
-  li {
-
-    a {
-      @include transition(color 0 ease);
-
-      display: block;
-      position: relative;
-      padding: 8px 16px;
-      background-color: $interface__background-color;
-      color: $link__color;
-      font-weight: 500;
-      text-align: left;
-      text-decoration: none;
-      text-transform: capitalize;
-
-      &:active,
-      &:focus,
-      &:hover {
-        color: $link__color--active;
-      }
-
-      &:before {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background-color: $link__color;
-        content: "";
-      }
-
-      &:active,
-      &:focus,
-      &:hover,
-      &.active {
-
-        &:before {
-          @include transition(width 300ms ease-in-out);
-          width: 5px;
-        }
-      }
-    }
-  }
-
-  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+  &>[class*="__menu"] {
 
     ul {
-      border: 0;
-      border-bottom: 1px solid $gray-1;
-      font-size: 0;
+      @include screen-sm-max {
+        box-shadow: $interface__shadow;
+      }
+      @include screen-lg-min {
+        box-shadow: $interface__shadow;
+      }
+
+      border: $interface__border;
     }
 
     li {
-      display: inline-block;
-      width: auto;
-
-      &:first-child {
-
-        a {
-          border-left: 1px solid $gray-1;
-        }
-      }
 
       a {
-        position: relative;
-        top: 1px;
-        border-top: 1px solid $gray-1;
-        border-right: 1px solid $gray-1;
-        background-color: $gray-0;
-        font-size: 1rem;
+        @include transition(color 0 ease);
 
-        &:before {
-          content: none;
+        display: block;
+        position: relative;
+        padding: 8px 16px;
+        background-color: $interface__background-color;
+        color: $link__color;
+        font-weight: 500;
+        text-align: left;
+        text-decoration: none;
+        text-transform: capitalize;
+
+        &:active,
+        &:focus,
+        &:hover {
+          color: $link__color--active;
         }
 
+        &:before {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          background-color: $link__color;
+          content: "";
+        }
+
+        &:active,
+        &:focus,
+        &:hover,
         &.active {
-          border-bottom: 1px solid $interface__background-color;
-          background: $interface__background-color;
+
+          &:before {
+            @include transition(width 300ms ease-in-out);
+            width: 5px;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+      ul {
+        border: 0;
+        border-bottom: 1px solid gray-scale(1);
+        font-size: 0;
+      }
+
+      li {
+        display: inline-block;
+        width: auto;
+
+        &:first-child {
+
+          a {
+            border-left: 1px solid gray-scale(1);
+          }
+        }
+
+        a {
+          position: relative;
+          top: 1px;
+          border-top: 1px solid gray-scale(1);
+          border-right: 1px solid gray-scale(1);
+          background-color: gray-scale(0);
+          font-size: 1rem;
+
+          &:before {
+            content: none;
+          }
+
+          &.active {
+            border-bottom: 1px solid $interface__background-color;
+            background: $interface__background-color;
+          }
         }
       }
     }

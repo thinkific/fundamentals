@@ -4,14 +4,14 @@
 {% endcomment %}
 
 <div class="my-account">
-  <div class="container">
-    <div class="row">
-      <aside class="page__menu hidden-print">
+  <div class="my-account__container">
+    <div class="my-account__wrapper">
+      <aside class="my-account__menu hidden-print">
         {% include 'my_account_menu' %}
       </aside>
-      <main class="page__content" id="main-content" role="main">
+      <main class="my-account__content" id="main-content" role="main">
         <a href="{{ site.account_orders_url }}" class="my-account__back-link">{{ 'liquid.views.my_account_orders_show_page.header_order_history' | translate }}</a>
-        <h1 class="page__heading">
+        <h1 class="my-account__heading">
           {% if page.order.has_subscription %}
             {{ 'liquid.views.my_account_orders_show_page.text_subscription' | translate }}
           {% endif %}

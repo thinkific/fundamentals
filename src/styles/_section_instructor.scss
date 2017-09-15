@@ -1,2 +1,47 @@
 // Instructor(s)
 // ======================================
+
+.instructor {
+  @include section-height(section-height-preset(large));
+
+  .section__headings {
+    margin: 0 0 $gutter-width * 2;
+  }
+}
+
+.instructor__container {
+  @include make-container;
+}
+
+.instructor__list {}
+
+.instructor__profile {
+
+  header {
+    margin: 0 0 $gutter-width;
+  }
+}
+
+.instructor__avatar {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto $gutter-width / 2;
+  border-radius: 50%;
+}
+
+.instructor__name,
+.instructor__title {
+  font-family: $body__font-family;
+  font-size: modular-scale(1);
+  text-align: center;
+}
+
+.instructor__name {
+  margin: 0 0 $gutter-width / 4;
+}
+
+.instructor__title {
+  margin: 0;
+  font-weight: 400;
+}

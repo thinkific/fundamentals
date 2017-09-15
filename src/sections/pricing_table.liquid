@@ -1,24 +1,30 @@
-<section class="pricing-table {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="pricing-table">
-  <div class="container">
-    <article class="section__content">
+<section class="pricing-table {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="pricing-table">
+  <div class="pricing-table__container">
+    <div class="pricing-table__wrapper">
       {% if section.settings.heading != blank %}
-        <h3 class="section__heading">{{ section.settings.heading }}</h3>
-        {% if section.settings.subheading != blank %}
-          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        <header class="section__headings">
+          <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% if section.settings.subheading != blank %}
+            <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+          {% endif %}
+        </header>
+      {% endif %}
+      <article class="section__content">
+        {% if section.blocks != empty %}
+          <ul class="pricing-table__list">
+            {% for block in section.blocks %}
+              <li class="pricing-table__list-item">
+                <div class="pricing-table__list-item-details">
+                  <h4>{{ block.settings.pricing_option_price }}</h4>
+                  <h5>{{ block.settings.pricing_option_type }}</h5>
+                </div>
+                <a href="{{ block.settings.pricing_option_button.links.add_to_cart }}" class="button button-primary">Buy Now</a>
+              </li>
+            {% endfor %}
+          </ul>
         {% endif %}
-      {% endif %}
-      {% if section.blocks != empty %}
-        <ul class="pricing-table__list">
-          {% for block in section.blocks %}
-            <li class="pricing-table__list-item">
-              <h4>{{ block.settings.po_price }}</h4>
-              <h4>{{ block.settings.po_type }}</h4>
-              <a href="{{ block.settings.po_button.links.add_to_cart }}" class="button button-primary">Buy Now</a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </article>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -91,7 +97,7 @@ section.pricing-table {
           "id":"background_color_preset",
           "label":"Color Preset",
           "description":"Presets can be configured in the Colors configuration menu",
-          "default":"primary",
+          "default":"secondary",
           "options":[
             {
               "value":"none",
@@ -124,17 +130,17 @@ section.pricing-table {
         "settings":[
           {
             "type":"text",
-            "id":"po_price",
+            "id":"pricing_option_price",
             "label":"Price"
           },
           {
             "type":"text",
-            "id":"po_type",
+            "id":"pricing_option_type",
             "label":"Type"
           },
           {
             "type":"prices_picker",
-            "id":"po_button",
+            "id":"pricing_option_button",
             "label":"Product Price"
           }
         ]
@@ -144,25 +150,25 @@ section.pricing-table {
       {
         "type":"pricing_option",
         "values":{
-          "po_price":"6 x $100.00",
-          "po_type":"6 month payment plan",
-          "po_button":""
+          "pricing_option_price":"6 x $100.00",
+          "pricing_option_type":"6 month payment plan",
+          "pricing_option_button":"/cart/add_product/1410?price_id=578"
         }
       },
       {
         "type":"pricing_option",
         "values":{
-          "po_price":"$100.00/month",
-          "po_type":"Subscription",
-          "po_button":""
+          "pricing_option_price":"$100.00/month",
+          "pricing_option_type":"Subscription",
+          "pricing_option_button":"/cart/add_product/1410?price_id=578"
         }
       },
       {
         "type":"pricing_option",
         "values":{
-          "po_price":"$600.00",
-          "po_type":"One time payment",
-          "po_button":""
+          "pricing_option_price":"$600.00",
+          "pricing_option_type":"One time payment",
+          "pricing_option_button":"/cart/add_product/1410?price_id=578"
         }
       }
     ]

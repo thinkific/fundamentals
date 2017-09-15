@@ -1,8 +1,8 @@
-// Image & Text
+// Custom Page
 // ======================================
 
-.text-image {}
+.custom {}
 
-.text-image__container {
+.custom__container {
   @include make-container;
 }

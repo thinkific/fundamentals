@@ -1,2 +1,62 @@
 // Reviews
 // ======================================
+
+.reviews {
+  @include section-height(section-height-preset(large));
+
+  .section__headings {
+    margin: 0 0 $gutter-width * 2;
+  }
+}
+
+.reviews__container {
+  @include make-container;
+}
+
+.reviews__list {
+
+  .owl-item {
+    @include screen-md-min {
+      padding-right: $gutter-width;
+    }
+  }
+}
+
+.reviews__list-item {
+
+  header {
+    margin: 0 0 $gutter-width / 2;
+    border-bottom: $interface__border;
+  }
+}
+
+.review__title,
+.review__author {
+  font-family: $body__font-family;
+}
+
+.review__title {
+  font-size: modular-scale(1);
+}
+
+.review__author {
+  color: $body__font-color;
+  font-size: modular-scale(0);
+}
+
+.review__body--complete {
+  display: none;
+}
+
+.review__show-more,
+.review__show-less {
+  font-size: .875rem;
+  font-weight: bold;
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
