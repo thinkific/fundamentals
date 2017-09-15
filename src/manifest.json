@@ -39,19 +39,19 @@
           "type": "color",
           "id": "menu_background_color",
           "label": "Background Color",
-          "default": "transparent"
+          "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "menu_link_color",
           "label": "Link Color",
-          "default": "#DEA986"
+          "default": "#505050"
         },
         {
           "type": "color",
           "id": "menu_link_hover_color",
           "label": "Link Color (Hover)",
-          "default": "#000000"
+          "default": "#505050"
         },
         {
           "type": "color",
@@ -563,9 +563,9 @@
         "background_color": "#FFFFFF",
         "brand_color": "#1E242A",
         "accent_color": "#DEA986",
-        "menu_background_color": "transparent",
-        "menu_link_color": "#DEA986",
-        "menu_link_hover_color": "#000000",
+        "menu_background_color": "#FFFFFF",
+        "menu_link_color": "#505050",
+        "menu_link_hover_color": "#505050",
         "menu_fixed_background_color": "#FFFFFF",
         "menu_fixed_link_color": "#DEA986",
         "menu_fixed_link_hover_color": "#000000",
