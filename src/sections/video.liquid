@@ -1,12 +1,39 @@
 {% if section.settings.video.frame != blank %}
   <section class="video" data-preview-item="video">
     <article class="section__content">
-      <section class="section__video">
-        {{ section.settings.video.frame }}
+      <section class="section__thumbnail">
+        <img src="{{ section.settings.video_thumbnail }}" class="img-responsive" alt="{{ section.settings.video.url }}" title="{{ section.settings.video.url }}" />
       </section>
+      {% if section.settings.video.popover != blank %}
+        <section class="section__video--trigger">
+          {{ section.settings.video.popover }}
+        </section>
+      {% endif %}
     </article>
   </section>
+
+  <script>
+    $('.video').find('.section__thumbnail').on('click', function(e) {
+      $(this).next('.section__video--trigger').find('a.venobox').trigger('click');
+    });
+  </script>
 {% endif %}
+
+{% style %}
+
+{% if section.settings.video_overlay_color != blank %}
+  .video {
+
+    &:after {
+      background-color: {{ section.settings.video_overlay_color }};
+      {% if section.settings.video_overlay_opacity != blank %}
+        opacity: {{ section.settings.video_overlay_opacity }} * 0.01;
+      {% endif %}
+    }
+  }
+{% endif %}
+
+{% endstyle %}
 
 {% schema %}
 {
@@ -28,6 +55,32 @@
             "popover":"",
             "oembed":false
           }
+        }
+      ]
+    },
+    {
+      "label":"Video Thumbnail",
+      "settings":[
+        {
+          "type":"image",
+          "id":"video_thumbnail",
+          "default":"",
+          "label":"Image",
+          "description": ""
+        },
+        {
+          "type":"color",
+          "id":"video_overlay_color",
+          "label":"Overlay Color",
+          "default":"#D9DEE2"
+        },
+        {
+          "type":"number",
+          "id":"video_overlay_opacity",
+          "label":"Overlay Opacity",
+          "default":0,
+          "min":0,
+          "max":100
         }
       ]
     }

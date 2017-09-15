@@ -2,6 +2,18 @@
 // ======================================
 
 .video {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    z-index: 1;
+    pointer-events: none;
+  }
 
   .section__content {
     position: relative;
@@ -16,7 +28,56 @@
     }
   }
 
-  .section__video {
+  .section__thumbnail {
     position: relative;
+
+    &:active,
+    &:focus,
+    &:hover {
+      cursor: pointer;
+
+      &:after {
+        @include transform(translatex(-50%) translatey(-50%) translateZ(0) translate3d(0, 0, 0) scale(1, 1));
+
+        opacity: 1;
+      }
+    }
+
+    &:after {
+      @include screen-md-min {
+        width: 2.5em;
+        height: 2.5em;
+        font-size: modular-scale(2);
+        line-height: 2.5em;
+      }
+      @include screen-lg-min {
+        width: 2.85em;
+        height: 2.85em;
+        font-size: modular-scale(3);
+        line-height: 2.85em;
+      }
+      @include transform(translatex(-50%) translatey(-50%) translateZ(0) translate3d(0, 0, 0) scale(1, 1));
+      @include transition(opacity 400ms ease);
+      @include backface-visibility(hidden);
+      @include filter(blur(0));
+
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2em;
+      height: 2em;
+      background-color: $interface__background-color;
+      font-family: $icon__font-family;
+      font-size: modular-scale(1);
+      text-align: center;
+      content: "\f04b";
+      opacity: 0.85;
+      z-index: 2;
+    }
   }
+}
+
+.section__video--trigger {
+  display: none;
 }
