@@ -16,13 +16,29 @@
 }
 
 .instructor__list {
+  @include screen-md-min {
+    @include make-col(10);
+  }
+  @include screen-lg-min {
+    @include make-col(9);
+  }
+
+  margin: 0 auto;
 
   &.owl-carousel {
 
     .owl-item {
-      @include screen-xs-max {
-        padding: 0 $gutter-width;
+      @include screen-sm-min {
+        padding: 0 $gutter-width * 1.5;
       }
+      @include screen-md-min {
+        padding: 0 $gutter-width * 2;
+      }
+      padding: 0 $gutter-width;
+    }
+
+    .owl-nav {
+      top: 45%;
     }
   }
 }
