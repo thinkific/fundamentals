@@ -4,6 +4,8 @@
 .instructor {
   @include section-height(section-height-preset(large));
 
+  overflow: hidden;
+
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
@@ -13,7 +15,17 @@
   @include make-container;
 }
 
-.instructor__list {}
+.instructor__list {
+
+  &.owl-carousel {
+
+    .owl-item {
+      @include screen-xs-max {
+        padding: 0 $gutter-width;
+      }
+    }
+  }
+}
 
 .instructor__profile {
 
