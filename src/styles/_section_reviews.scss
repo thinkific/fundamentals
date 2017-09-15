@@ -4,6 +4,8 @@
 .reviews {
   @include section-height(section-height-preset(large));
 
+  overflow: hidden;
+
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
