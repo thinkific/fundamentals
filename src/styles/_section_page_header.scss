@@ -217,9 +217,9 @@
     margin-right: 15px;
   }
 
-  a {
+  & > a {
     color: $nav__link-color;
-    font-weight: 400;
+    font-weight: 600;
     text-decoration: none;
     text-transform: uppercase;
 
@@ -227,6 +227,12 @@
     &:focus,
     &:hover {
       color: $nav__link-color--active;
+    }
+
+    .home_landing_page header[class="header floating"] &,
+    .course_landing_page header[class="header floating"] &,
+    .bundle_landing_page header[class="header floating"] & {
+      color: $banner-text-color;
     }
   }
 }
@@ -273,7 +279,7 @@
     right: 0;
     left: 0;
     height: $mobile-menu__thickness;
-    background-color: $accent__color;
+    background-color: $nav__link-color;
 
     &:before,
     &:after {
@@ -285,7 +291,7 @@
       left: 0;
       width: 100%;
       height: $mobile-menu__thickness;
-      background-color: $accent__color;
+      background-color: $nav__link-color;
       content: "";
 
       .open & {
@@ -347,7 +353,7 @@
     min-width: 160px;
     background-color: $dropdown__background-color;
 
-    li {
+    li.dropdown__menu-item {
 
       a {
         @include transition(none);
