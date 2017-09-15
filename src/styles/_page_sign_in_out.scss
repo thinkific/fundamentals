@@ -23,11 +23,11 @@
 
 .sign-in__form,
 .sign-up__form {
-  @include screen-lg-min {
-    @include make-col(6);
-  }
   @include screen-md-min {
     @include make-col(8);
+  }
+  @include screen-lg-min {
+    @include make-col(6);
   }
   @include make-col(10);
 }
