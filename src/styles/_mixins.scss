@@ -311,7 +311,7 @@
     right: 14px;
     width: 8px;
     height: 8px;
-    font-family: 'FontAwesome';
+    font-family: $icon__font-family;
     font-size: 1.2rem;
     content: "\f0d7";
     z-index: 2;
@@ -327,7 +327,7 @@
     position: absolute;
     top: .5rem;
     right: 14px;
-    font-family: 'FontAwesome';
+    font-family: $icon__font-family;
     font-size: 1rem;
     content: "\f0d7";
     z-index: 1;

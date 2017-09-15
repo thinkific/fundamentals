@@ -106,7 +106,7 @@
 
     &:after {
       color: $heading__font-color;
-      font-family: 'FontAwesome';
+      font-family: $icon__font-family;
       font-style: normal;
       content: "\f068";
     }
