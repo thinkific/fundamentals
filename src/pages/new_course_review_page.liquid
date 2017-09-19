@@ -29,7 +29,7 @@
         <label for="{{ field.name }}" class="form__review-stars-label ">{{ field.label }}</label>
         <span class="review__stars review__stars-input">
           {% for i in (1..5) %}
-            <input type="radio" value="{{ i }}" name="{{ field.name }}" {% if field.value == i %}checked="checked"{% endif %} />
+            <input type="radio" value="{{ i }}" name="{{ field.name }}" {% if i == 5 %}checked="checked"{% endif %} />
             {% include 'star' %}
           {% endfor %}
         </span>
