@@ -3,13 +3,13 @@
   All Courses, Dashboard, etc.
 {% endcomment %}
 
-<li class="header__nav-item">
+<li class="header__nav-item header__nav-item--default">
   <a href="{{ site.collections_url }}">
     {{ 'liquid.partials.header_with_links.link_all_courses' | translate }}
   </a>
 </li>
 {% if site.current_user.signed_in %}
-  <li class="header__nav-item">
+  <li class="header__nav-item header__nav-item--default">
     <a href="{{ site.student_dashboard_url }}">
       {{ 'liquid.partials.header_with_links.link_my_dashboard' | translate }}
     </a>

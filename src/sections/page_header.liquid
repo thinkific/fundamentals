@@ -8,39 +8,28 @@
           <a href="{{ site.home_url }}" class="header__school-name">{{ site.name }}</a>
         {% endif %}
       </section>
-      <nav class="header__nav">
-        <section class="header__nav-left {% unless section.settings.menu_position == 'none' %}{% if section.settings.menu_position == 'left' %}header__nav-primary{% else %}header__nav-secondary{% endif %}{% endunless %}">
-          <ul>
-            {% if section.settings.menu_position == 'left' %}
-             {% include 'header_default_links' %}
-            {% endif %}
-            {% include 'header_left_menu' %}
-          </ul>
-        </section>
-        <section class="header__nav-right {% unless section.settings.menu_position == 'none' %}{% if section.settings.menu_position == 'right' %}header__nav-primary{% else %}header__nav-secondary{% endif %}{% endunless %}">
-          <ul>
-            {% include 'header_right_menu' %}
-            {% if section.settings.menu_position != 'left' %}
-              {% include 'header_default_links' %}
-            {% endif %}
-            {% if site.current_user.signed_in %}
-              <li class="dropdown header__nav-item">
-                <a class="dropdown__toggle-button" data-toggle="dropdown" aria-expanded="true" tabindex="0">
-                  {{ site.current_user.first_name_last_initial }}
-                  <img src="{{ site.current_user.avatar }}" class="header__user-avatar">
-                  <i class="fa fa-caret-down"></i>
-                </a>
-                {% include 'header_user_menu' %}
-              </li>
-            {% else %}
-              <li class="header__nav-item header__nav-sign-in">
-                <a href='{{ site.sign_in_url }}'>
-                  {{ 'liquid.partials.header_with_links.link_sign_in' | translate }}
-                </a>
-              </li>
-            {% endif %}
-          </ul>
-        </section>
+      <nav class="header__nav {% if section.settings.menu_position == 'left' %}header__nav--left{% endif %}">
+        <ul>
+          {% include 'header_left_menu' %}
+          {% include 'header_right_menu' %}
+          {% include 'header_default_links' %}
+          {% if site.current_user.signed_in %}
+            <li class="dropdown header__nav-item">
+              <a class="dropdown__toggle-button" data-toggle="dropdown" aria-expanded="true" tabindex="0">
+                {{ site.current_user.first_name_last_initial }}
+                <img src="{{ site.current_user.avatar }}" class="header__user-avatar">
+                <i class="fa fa-caret-down"></i>
+              </a>
+              {% include 'header_user_menu' %}
+            </li>
+          {% else %}
+            <li class="header__nav-item header__nav-sign-in">
+              <a href='{{ site.sign_in_url }}'>
+                {{ 'liquid.partials.header_with_links.link_sign_in' | translate }}
+              </a>
+            </li>
+          {% endif %}
+        </ul>
       </nav>
       <a class="header__mobile-button" aria-expanded="true" tabindex="0">
         <span class="sr-only">{{ 'liquid.partials.header_with_links.button_menu' | translate }}</span>
@@ -167,12 +156,8 @@ $(document).ready(function() {
           "type":"select",
           "id":"menu_position",
           "label":"Primary Menu",
-          "default":"none",
+          "default":"right",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"left",
               "label":"Left"
