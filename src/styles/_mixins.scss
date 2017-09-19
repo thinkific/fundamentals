@@ -247,6 +247,7 @@
 // Forms
 @mixin form-group {
   @include make-row(false);
+  @include align-items(center);
 
   margin: 0 0 $gutter-width / 2;
 
