@@ -21,7 +21,6 @@ gulp.task('build:copy', ['build:clean'], () =>
 gulp.task('build:scripts', ['build:copy'], () =>
   gulp.src(jsFiles)
     .pipe(concat('scripts.js'))
-    .pipe(gulp.dest(jsDest))
     .pipe(rename('script.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(jsDest))
