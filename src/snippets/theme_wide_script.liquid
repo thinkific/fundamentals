@@ -7,13 +7,13 @@
   It is included near the bottom of the page.
 {% endcomment %}
 
+<script type="text/javascript" src="{{ 'script.min.js' | theme_asset_url }}"></script>
 <script>
 $(window).load(function() {
   var fonts = ['{{ theme.settings.heading_font }}:400,600,700', '{{ theme.settings.subheading_font }}:400,600,700', '{{ theme.settings.body_font }}:300,400,400i,600,700,800'],
       fontLoad = fonts.filter(function(elem, index, self) {
         return index == self.indexOf(elem);
       });
-
   // Web Font Loader
   // https://github.com/typekit/webfontloader
   WebFont.load({

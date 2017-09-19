@@ -2,7 +2,7 @@ ZIP_OUTPUT=fundamentals
 INCLUDE_FILES=./build/* ./build/.version
 
 # Zip (.version | manifest.json | *.liquid)
-zip: clean
+zip: clean gulp version
 	7z a -tzip -r $(ZIP_OUTPUT) $(INCLUDE_FILES)
 
 gulp:
