@@ -20,14 +20,13 @@ gulp.task('build:copy', ['build:clean'], () =>
 
 gulp.task('build:scripts', ['build:copy'], () =>
   gulp.src(jsFiles)
-    .pipe(concat('scripts.js'))
-    .pipe(rename('script.min.js'))
+    .pipe(concat('script.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(jsDest))
 );
 
 gulp.task('build:remove-scripts-dir', ['build:scripts'], () =>
-  gulp.src('build/scripts/', { read: false })
+  gulp.src('build/scripts', { read: false })
     .pipe(clean())
 );
 
