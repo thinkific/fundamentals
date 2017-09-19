@@ -46,7 +46,7 @@
 			}
 
 			a {
-				@include transition(top 200ms ease-in);
+				@include transition(background-color 300ms ease, border-color 300ms ease, top 200ms ease-in);
 
 				top: 40%;
 			}
