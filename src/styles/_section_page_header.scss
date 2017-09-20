@@ -82,6 +82,8 @@
   @include screen-sm-max {
     padding-right: $gutter-width / 2;
   }
+
+  margin-right: 15px;
   line-height: 1;
 
   a {
@@ -113,12 +115,17 @@
   &:focus,
   &:hover {
     color: $nav__link-color;
+
+    .home_landing_page header[class="header floating"] &,
+    .course_landing_page header[class="header floating"] &,
+    .bundle_landing_page header[class="header floating"] & {
+      color: $banner-text-color;
+    }
   }
 }
 
 // Navigation
 .header__nav {
-  @include make-row(false);
   @include screen-sm-max {
     @include transition(opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
 
@@ -144,6 +151,7 @@
         color: $nav__mobile-link-color;
         text-align: center;
         text-decoration: none;
+        text-transform: none;
 
         &:active,
         &:focus,
@@ -158,8 +166,39 @@
       }
     }
   }
+  @include screen-md-min {
+
+    &.header__nav--left {
+
+      & > ul {
+        text-align: left;
+      }
+
+      .dropdown,
+      .header__nav-sign-in {
+        float: right;
+      }
+
+      .dropdown__menu {
+        right: -10px;
+      }
+    }
+  }
 
   width: 100%;
+
+  & > ul {
+    text-align: right;
+
+    & > li {
+      @include screen-md-min {
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
 }
 
 .header__nav--overlay {
@@ -170,69 +209,49 @@
   z-index: 100;
 }
 
-.header__nav-left,
-.header__nav-right {
-  @include align-self(center);
+.header__nav-item {
   @include screen-md-min {
-    @include make-col(6);
-  }
+    margin-left: 15px;
 
-  margin-left: auto;
+    &.dropdown {
+      margin-right: 10px;
+    }
 
-  & > ul {
+    & > a {
+      color: $nav__link-color;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
 
-    & > li {
-      @include screen-md-min {
+      &:active,
+      &:focus,
+      &:hover {
+        color: $nav__link-color--active;
+      }
 
-        &:last-child {
-          margin-right: 0;
-        }
+      .home_landing_page header[class="header floating"] &,
+      .course_landing_page header[class="header floating"] &,
+      .bundle_landing_page header[class="header floating"] & {
+        color: $banner-text-color;
       }
     }
   }
 }
 
-.header__nav-primary {
-  @include screen-md-min {
-    @include make-col(9);
-  }
-}
+.header__nav-item--default {
 
-.header__nav-secondary {
-  @include screen-md-min {
-    @include make-col(3);
-  }
-}
-
-.header__nav-left {
-  width: auto;
-}
-
-.header__nav-right {
-  text-align: right;
-}
-
-.header__nav-item {
-  @include screen-md-min {
-    margin-right: 15px;
+  .dropdown__menu & {
+    display: none;
   }
 
-  & > a {
-    color: $nav__link-color;
-    font-weight: 600;
-    text-decoration: none;
-    text-transform: uppercase;
+  @include screen-tablet-only {
 
-    &:active,
-    &:focus,
-    &:hover {
-      color: $nav__link-color--active;
+    &.header__nav-item {
+      display: none;
     }
 
-    .home_landing_page header[class="header floating"] &,
-    .course_landing_page header[class="header floating"] &,
-    .bundle_landing_page header[class="header floating"] & {
-      color: $banner-text-color;
+    .dropdown__menu & {
+      display: block;
     }
   }
 }
@@ -321,8 +340,19 @@
       }
     }
 
+    .home_landing_page header[class="header floating"] &,
+    .course_landing_page header[class="header floating"] &,
+    .bundle_landing_page header[class="header floating"] & {
+      background-color: $banner-text-color;
+
+      &:before,
+      &:after {
+        background-color: $banner-text-color;
+      }
+    }
+
     .open & {
-      background: none;
+      background: none !important;
     }
   }
 }
@@ -353,25 +383,28 @@
     min-width: 160px;
     background-color: $dropdown__background-color;
 
-    li.dropdown__menu-item {
+    li {
 
-      a {
-        @include transition(none);
+      &.dropdown__menu-item {
 
-        display: block;
-        padding: 5px 16px;
-        background-color: $dropdown__link-background-color;
-        color: $dropdown__link-color;
-        font-weight: 500;
-        text-align: left;
-        text-decoration: none;
-        text-transform: capitalize;
+        a {
+          @include transition(none);
 
-        &:active,
-        &:focus,
-        &:hover {
-          background-color: $dropdown__link-background-color--active;
-          color: $dropdown__link-color--active;
+          display: block;
+          padding: 5px 16px;
+          background-color: $dropdown__link-background-color;
+          color: $dropdown__link-color;
+          font-weight: 500;
+          text-align: left;
+          text-decoration: none;
+          text-transform: capitalize;
+
+          &:active,
+          &:focus,
+          &:hover {
+            background-color: $dropdown__link-background-color--active;
+            color: $dropdown__link-color--active;
+          }
         }
       }
     }

@@ -84,6 +84,12 @@
   }
 }
 
+@mixin screen-tablet-only {
+  @media only screen and (min-width: $screen-md) and (max-width: $screen-lg) {
+    @content;
+  }
+}
+
 // Buttons
 @mixin button {
   @include transition(background-color 300ms ease, border-color 300ms ease);
