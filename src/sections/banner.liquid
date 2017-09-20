@@ -26,7 +26,7 @@
             {{ section.settings.video.popover }}
           </section>
         {% endif %}
-        {% if section.settings.show_read_more %}
+        {% if section.settings.read_more_show %}
           {% if section.settings.read_more != blank %}
             {% assign read_more = section.settings.read_more %}
           {% else %}
@@ -164,7 +164,7 @@ section.banner {
         },
         {
           "type":"checkbox",
-          "id":"show_read_more",
+          "id":"read_more_show",
           "label":"Show Read More",
           "default":"true"
         },
