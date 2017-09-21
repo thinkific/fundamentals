@@ -50,7 +50,7 @@ $(document).ready(function() {
   var $adminBar = $('.admin-notice__bar'),
       $body = $('body'),
       $header = $('.header'),
-      $main = $('main'),
+      $main = $('.home_landing_page main, .course_landing_page main, .bundle_landing_page main'),
       $dropdownToggle = $('.dropdown__toggle-button'),
       $mobileButton = $('.header__mobile-button'),
       $navigation = $('.header__nav');
@@ -119,7 +119,7 @@ $(document).ready(function() {
     });
   {% endif %}
   {% if section.settings.header_style == 'floating' %}
-    $main.find('.banner, .banner-legacy').prepend('<span class="header__nav-floating" style="display:block;height:' + headerHeight + 'px;"></span>');
+    $main.find('section').first().prepend('<span class="header__nav-floating" style="display:block;height:' + headerHeight + 'px;"></span>');
   {% endif %}
 });
 </script>
