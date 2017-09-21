@@ -130,6 +130,23 @@
   }
 }
 
+@mixin button-group {
+  @include make-row(false);
+  @include align-items(flex-start);
+
+  .button {
+    @include display(flex);
+    @include order(2);
+
+    width: auto;
+    margin-right: $gutter-width / 2;
+  }
+
+  .button-primary {
+    @include order(1);
+  }
+}
+
 // Cards
 @mixin card {
   @include display(flex);
@@ -400,7 +417,7 @@
     color: $subheading-color;
   }
 
-  p {
+  .section__body {
     color: $text-color;
   }
 }

@@ -10,7 +10,8 @@ li {
 
 [class*="__list"],
 [class*="__menu"],
-[class*="__nav"] {
+[class*="__nav"],
+ul[class*="__button-group"] {
   list-style: none;
 
   li {

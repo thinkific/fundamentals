@@ -16,6 +16,7 @@
   }
 
   .section__button-group {
+    @include button-group;
 
     .button {
       @include screen-sm-max {
