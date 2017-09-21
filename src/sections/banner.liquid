@@ -21,11 +21,6 @@
         {% else %}
           {% include 'product_action_buttons' %}
         {% endif %}
-        {% if section.settings.video.popover != blank %}
-          <section class="section__video--mobile">
-            {{ section.settings.video.popover }}
-          </section>
-        {% endif %}
         {% if section.settings.read_more_show %}
           {% if section.settings.read_more != blank %}
             {% assign read_more = section.settings.read_more %}
