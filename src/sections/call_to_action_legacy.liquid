@@ -1,0 +1,194 @@
+<section class="call-to-action-legacy {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="call-to-action-legacy">
+  <div class="call-to-action-legacy__container">
+    <div class="call-to-action-legacy__wrapper">
+      <article class="section__content">
+        {% if section.settings.description_text != blank %}
+          <div class="section__body">
+            {{ section.settings.description_text }}
+          </div>
+        {% endif %}
+        {% if section.settings.price != blank %}
+          {% assign button_href = section.settings.price.links.add_to_cart %}
+        {% else %}
+          {% assign button_href = '#' %}
+        {% endif %}
+        <a class="button button-primary" href="{{ button_href }}">{{ section.settings.button_text }}</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% style %}
+
+section.call-to-action-legacy {
+
+  .section__content {
+    text-align: {{ section.settings.content_alignment }};
+  }
+
+  {% if section.settings.background_image != blank %}
+    $background-image: '{{ section.settings.background_image }}';
+  {% else %}
+    $background-image: null;
+  {% endif %}
+
+  $background-overlay-color: {{ section.settings.background_color }};
+  $background-overlay-opacity: {{ section.settings.background_overlay }} * 0.01;
+
+  @if $background-overlay-opacity {
+    $color: rgba($background-overlay-color, $background-overlay-opacity);
+    $overlay: linear-gradient(
+      $color,
+      $color
+    );
+  } @else {
+    $overlay: null;
+  }
+  $img: if($background-image, url('#{$background-image}'), null);
+
+  @if $img {
+    $background: ($overlay, $img);
+  } @else {
+    $background: (rgba($background-overlay-color, $background-overlay-opacity));
+  }
+
+  &.full-width-background {
+    @include background-image($background...);
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "label": "Call To Action",
+  "settings": [
+    {
+      "label": "Call To Action",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description_text",
+          "label": "Description",
+          "default": "<h3>Use your Call To Action description to encourage students to sign up for your course</h3>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Sign up now!"
+        },
+        {
+          "type": "price_picker",
+          "id": "price",
+          "label": "Button Link",
+          "description": "Link your Call To Action button to one of your course prices"
+        },
+        {
+          "type":"radio",
+          "id":"content_alignment",
+          "label":"Content Alignment",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"banner",
+              "label":"Banner"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        },
+        {
+          "type":"image",
+          "id":"background_image",
+          "default":"",
+          "label":"Image"
+        },
+        {
+          "type":"color",
+          "id":"background_color",
+          "label":"Overlay Color",
+          "default":"#D9DEE2"
+        },
+        {
+          "type":"number",
+          "id":"background_overlay",
+          "label":"Overlay Opacity",
+          "default":0,
+          "min":0,
+          "max":100
+        }
+      ]
+    },
+    {
+      "label":"Section Height",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height Preset",
+          "description":"Presets can be configured in the base.scss",
+          "default":"large",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
