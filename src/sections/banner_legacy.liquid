@@ -60,8 +60,8 @@ section.banner {
     $background-image: null;
   {% endif %}
 
-  $background-overlay-color: {{ section.settings.overlay_color }};
-  $background-overlay-opacity: {{ section.settings.overlay_opacity }} * 0.01;
+  $background-overlay-color: {{ section.settings.background_color }};
+  $background-overlay-opacity: {{ section.settings.background_overlay }} * 0.01;
 
   @if $background-overlay-opacity {
     $color: rgba($background-overlay-color, $background-overlay-opacity);
@@ -190,13 +190,13 @@ section.banner {
         },
         {
           "type":"color",
-          "id":"overlay_color",
+          "id":"background_color",
           "label":"Overlay Color",
           "default":"#D9DEE2"
         },
         {
           "type":"number",
-          "id":"overlay_opacity",
+          "id":"background_overlay",
           "label":"Overlay Opacity",
           "default":0,
           "min":0,
