@@ -1,0 +1,22 @@
+// Description (Legacy)
+// ======================================
+
+.description-legacy {
+  @include section-height(section-height-preset(large));
+
+  .section__headings {
+    @include make-col(12);
+  }
+
+  .section__content {
+    @include make-col(12);
+  }
+}
+
+.description-legacy__container {
+  @include make-container;
+}
+
+.description-legacy__wrapper {
+  @include make-row(true);
+}
