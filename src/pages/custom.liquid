@@ -3,7 +3,46 @@
 {% endcomment %}
 
 <main class="custom" id="main-content" role="main">
-  <div class="custom__container">
-    {{ page.content }}
-  </div>
+  {{ content_for_page }}
 </main>
+
+{% schema %}
+{
+  "sections":{
+    "options":[
+      "banner",
+      "description",
+      "course_cards",
+      "course_categories",
+      "instructor",
+      "reviews",
+      "bonus",
+      "call_to_action",
+      "checklist",
+      "countdown_timer",
+      "pricing_table",
+      "showcase",
+      "testimonials",
+      "icon_and_text",
+      "image_and_text",
+      "richtext",
+      "video"
+    ],
+    "defaults":[
+      "banner",
+      "icon_and_text",
+      "description",
+      "showcase",
+      "video",
+      "checklist",
+      "image_and_text",
+      "pricing_table",
+      "testimonials",
+      "instructor",
+      "bonus",
+      "reviews",
+      "call_to_action"
+    ]
+  }
+}
+{% endschema %}
