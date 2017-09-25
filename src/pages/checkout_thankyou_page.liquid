@@ -44,6 +44,7 @@
       </section>
     </div>
   </div>
+  {{ content_for_page }}
 </main>
 
 {% schema %}
@@ -52,11 +53,14 @@
     "options":[
       "course_cards",
       "call_to_action",
+      "countdown_timer",
+      "richtext",
       "video"
     ],
     "defaults":[
-      "video",
-      "course_cards"
+      "course_cards",
+      "call_to_action",
+      "countdown_timer"
     ]
   }
 }
