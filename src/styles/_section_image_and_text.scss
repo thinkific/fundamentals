@@ -1,8 +1,38 @@
 // Image & Text
 // ======================================
 
-.text-image {}
+.text-image {
+  @include section-height(section-height-preset(large));
+
+  .section__content {
+    @include make-row(true);
+  }
+}
 
 .text-image__container {
   @include make-container;
+}
+
+.text-image__body {
+  @include make-col(12);
+
+  &.has-image {
+    @include make-col(6);
+    @include screen-md-max {
+      @include make-col(12);
+      @include order(initial);
+    }
+  }
+}
+
+.text-image__image {
+  @include make-col(12);
+
+  .text-image__body + & {
+    @include make-col(6);
+    @include screen-md-max {
+      @include make-col(12);
+      @include order(initial);
+    }
+  }
 }

@@ -1,25 +1,25 @@
 <section class="text-image {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="text-image">
   <div class="text-image__container">
-    {% if section.settings.heading != blank %}
-      <header class="section__headings">
-        <h3 class="section__heading">{{ section.settings.heading }}</h3>
-        {% if section.settings.subheading != blank %}
-          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
-        {% endif %}
-      </header>
-    {% endif %}
     <article class="section__content">
-      {% if section.settings.section_text != blank %}
-        <section class="text-image__body">
-          {{ section.settings.section_text }}
+      {% if section.settings.body != blank %}
+        <section class="text-image__body {% if section.settings.body != blank %}has-image{% endif %}">
+          {% if section.settings.heading != blank %}
+            <header class="section__headings">
+              <h3 class="section__heading">{{ section.settings.heading }}</h3>
+              {% if section.settings.subheading != blank %}
+                <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+              {% endif %}
+            </header>
+          {% endif %}
+          {{ section.settings.body }}
         </section>
       {% endif %}
-      {% if section.settings.section_image != blank %}
+      {% if section.settings.image != blank %}
         <figure class="text-image__image">
-          {% if section.settings.section_image_caption_toggle %}
-            <figcaption>{{ section.settings.section_image_caption }}</figcaption>
+          {% if section.settings.image_caption_toggle %}
+            <figcaption>{{ section.settings.image_caption }}</figcaption>
           {% endif %}
-          <img src="{{ section.settings.section_image }}" alt="{{ section_image_caption }}" title="{{ section_image_caption }}" />
+          <img src="{{ section.settings.image }}" alt="{{ image_caption }}" title="{{ image_caption }}" />
         </figure>
       {% endif %}
     </article>
@@ -40,12 +40,6 @@ section.text-image {
       margin-right: auto;
       margin-left: auto;
     }
-  {% endif %}
-
-  {% if section.settings.section_image_alignment == 'right' %}
-  .text-image__image {
-    order: 3;
-  }
   {% endif %}
 
   {% if section.settings.background_image != blank %}
@@ -78,6 +72,24 @@ section.text-image {
     @include background-image($background...);
   }
 }
+
+{% if section.settings.image_alignment == "left" %}
+  .text-image__image {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+  }
+  
+  .text-image__body {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+  }
+{% endif %}
 
 {% endstyle %}
 
@@ -128,7 +140,7 @@ section.text-image {
       "settings":[
         {
           "type":"richtext",
-          "id":"section_text",
+          "id":"body",
           "label":"",
           "default":""
         }
@@ -139,13 +151,13 @@ section.text-image {
       "settings":[
         {
           "type":"image",
-          "id":"section_image",
+          "id":"image",
           "label":"",
           "default":""
         },
         {
           "type":"radio",
-          "id":"section_image_alignment",
+          "id":"image_alignment",
           "label":"Alignment",
           "default":"left",
           "options":[
@@ -161,16 +173,16 @@ section.text-image {
         },
         {
           "type":"text",
-          "id":"section_image_caption",
+          "id":"image_caption",
           "label":"Caption",
           "description":"The caption will be applied to the images <strong>alt</strong> and <strong>title</strong> attributes for Screen reader accessibility",
           "default":""
         },
         {
           "type":"checkbox",
-          "id":"section_image_caption_toggle",
+          "id":"image_caption_toggle",
           "label":"Show Caption",
-          "default":"false"
+          "default":false
         }
       ]
     },
