@@ -59,6 +59,24 @@
       </p>
     {% endif %}
   </div>
+  {{ content_for_page }}
 </main>
+
+{% schema %}
+{
+  "sections":{
+    "options":[
+      "course_cards",
+      "call_to_action",
+      "countdown_timer"
+    ],
+    "defaults":[
+      "course_cards",
+      "call_to_action",
+      "countdown_timer"
+    ]
+  }
+}
+{% endschema %}
 
 {% include 'dashboard_footer_scripts' %}
