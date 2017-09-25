@@ -1,4 +1,4 @@
-<section class="banner-legacy {% if section.settings.background_image != blank or theme.settings.banner_background_promo_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %} {% if section.settings.video.frame != blank %}section__has-video{% endif %}" data-preview-item="banner">
+<section class="banner-legacy {% if section.settings.background_image != blank or theme.settings.banner_background_promo_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %} {% if section.settings.video.frame != blank %}section__has-video{% endif %}" data-preview-item="banner-legacy">
   <div class="banner-legacy__container">
     <div class="banner-legacy__wrapper">
       {% if section.settings.video.frame != blank %}
@@ -60,8 +60,8 @@ section.banner {
     $background-image: null;
   {% endif %}
 
-  $background-overlay-color: {{ section.settings.overlay_color }};
-  $background-overlay-opacity: {{ section.settings.overlay_opacity }} * 0.01;
+  $background-overlay-color: {{ section.settings.background_color }};
+  $background-overlay-opacity: {{ section.settings.background_overlay }} * 0.01;
 
   @if $background-overlay-opacity {
     $color: rgba($background-overlay-color, $background-overlay-opacity);
@@ -190,13 +190,13 @@ section.banner {
         },
         {
           "type":"color",
-          "id":"overlay_color",
+          "id":"background_color",
           "label":"Overlay Color",
           "default":"#D9DEE2"
         },
         {
           "type":"number",
-          "id":"overlay_opacity",
+          "id":"background_overlay",
           "label":"Overlay Opacity",
           "default":0,
           "min":0,

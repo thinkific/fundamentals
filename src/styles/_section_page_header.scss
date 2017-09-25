@@ -236,6 +236,8 @@
       }
     }
   }
+
+  display: inline-block;
 }
 
 .header__nav-item--default {
@@ -359,7 +361,6 @@
 
 // Dropdown(s)
 .dropdown {
-  display: block;
   position: relative;
 }
 
@@ -384,6 +385,7 @@
     background-color: $dropdown__background-color;
 
     li {
+      display: block;
 
       &.dropdown__menu-item {
 

@@ -1,0 +1,24 @@
+// Call To Action (Legacy)
+// ======================================
+
+.call-to-action-legacy {
+
+  .section__content {
+    @include screen-lg-min {
+      @include make-col(8);
+    }
+    @include screen-md-min {
+      @include make-col(10);
+    }
+    @include make-col(12);
+  }
+}
+
+.call-to-action-legacy__container {
+  @include make-container;
+}
+
+.call-to-action-legacy__wrapper {
+  @include make-row(true);
+  @include justify-content(center);
+}

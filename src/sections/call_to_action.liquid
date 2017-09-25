@@ -12,15 +12,15 @@
       {% if section.settings.body != blank %}
         <section class="section__body">{{ section.settings.body }}</section>
       {% endif %}
-      {% if section.settings.price != blank || section.blocks != empty %}
-        <ul class="section__button-group">
-        {% if section.settings.price != blank %}
-          <li><a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
-        {% else %}
-          {% for block in section.blocks %}
-            <li><a class="button button-primary button-large" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
-          {% endfor %}
-        {% endif %}
+      {% if section.blocks != empty %}
+      <ul class="section__button-group">
+        {% for block in section.blocks %}
+          {% if block.settings.price != nil %}
+            <li><a class="button" href="{{ block.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
+          {% else %}
+            <li><a class="button" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
+          {% endif %}
+        {% endfor %}
         </ul>
       {% endif %}
     </article>
@@ -31,14 +31,19 @@
 
 section.call-to-action {
 
-  .section__heading,
-  .section__subheading {
-    text-align: {{ section.settings.heading_alignment }};
+  .section__content {
+    text-align: {{ section.settings.content_alignment }};
   }
 
-  {% if section.settings.heading_alignment == "center" %}
+  {% if section.settings.content_alignment == "center" %}
     .section__subheading:before {
       margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+
+  {% if section.settings.content_alignment == "right" %}
+    .section__subheading:before {
       margin-left: auto;
     }
   {% endif %}
@@ -94,27 +99,6 @@ section.call-to-action {
           "id":"subheading",
           "label":"Subheading",
           "default":"Get started now!"
-        },
-        {
-          "type":"radio",
-          "id":"heading_alignment",
-          "label":"Alignment",
-          "description":"Headings will inherit the same alignment",
-          "default":"center",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
         }
       ]
     },
@@ -126,6 +110,26 @@ section.call-to-action {
           "id":"body",
           "label":"",
           "default":""
+        }
+      ]
+    },
+    {
+      "type":"radio",
+      "id":"content_alignment",
+      "label":"Alignment",
+      "default":"center",
+      "options":[
+        {
+          "value":"left",
+          "label":"Left"
+        },
+        {
+          "value":"center",
+          "label":"Center"
+        },
+        {
+          "value":"right",
+          "label":"Right"
         }
       ]
     },

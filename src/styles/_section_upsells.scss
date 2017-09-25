@@ -1,0 +1,86 @@
+// Upsells
+// ======================================
+
+.upsells {
+  @include section-height(section-height-preset(large));
+
+  .section__headings {
+    margin: 0 0 $gutter-width * 2;
+  }
+}
+
+.upsells__container {
+  @include make-container;
+}
+
+.upsels__wrapper {
+  @include make-row(true);
+}
+
+.upsells__list {
+
+}
+
+.upsells__list-item {
+  @include make-row(false);
+  @include align-items(center);
+
+  padding: $gutter-width / 2 0;
+  border-bottom: $interface__border;
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+
+.upsells__price {
+  @include screen-md-min {
+    @include make-col(3);
+  }
+  @include screen-lg-min {
+    @include make-col(2);
+  }
+  @include make-col(12);
+
+  font-size: modular-scale(1);
+  font-weight: bold;
+}
+
+.upsells__title {
+  @include screen-sm-max {
+    margin-bottom: $gutter-width / 2;
+  }
+  @include screen-md-min {
+    @include make-col(6);
+  }
+  @include screen-lg-min {
+    @include make-col(8);
+  }
+  @include make-col(12);
+
+  font-size: modular-scale(1);
+}
+
+.upsells__buy {
+  @include screen-md-min {
+    @include make-col(3);
+
+    text-align: right;
+  }
+  @include screen-lg-min {
+    @include make-col(2);
+  }
+  @include make-col(12);
+
+  .button {
+    min-width: 8rem;
+  }
+}
+
+.upsells__price,
+.upsells__title,
+.upsells__buy {
+  @include screen-sm-max {
+    padding-left: 0;
+  }
+}

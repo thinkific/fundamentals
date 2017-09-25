@@ -1,8 +1,7 @@
 // Banner
 // ======================================
 
-.banner,
-.banner-legacy {
+.banner {
 
   .section__content {
     @include make-col(12);
@@ -17,6 +16,7 @@
   }
 
   .section__button-group {
+    @include button-group;
 
     .button {
       @include screen-sm-max {
@@ -26,52 +26,12 @@
   }
 }
 
-.banner-legacy {
-
-  &.section__has-video {
-
-    .section__video {
-      @include screen-lg-min {
-        @include make-col(5);
-        @include make-col-push(1);
-      }
-      @include screen-sm-min {
-        display: block;
-      }
-      @include align-self(center);
-
-      display: none;
-      padding-right: $gutter-width * 2;
-    }
-
-    .section__content {
-      @include screen-lg-min {
-        @include make-col(5);
-        @include make-col-push(1);
-      }
-    }
-  }
-}
-
-.banner__container,
-.banner-legacy__container {
+.banner__container {
   @include make-container;
 }
 
-.banner__wrapper,
-.banner-legacy__wrapper {
+.banner__wrapper {
   @include make-row(true);
-}
-
-.section__video {
-
-  &--mobile {
-    @include screen-md-max {
-      display: block;
-    }
-
-    display: none;
-  }
 }
 
 .banner__read-more {

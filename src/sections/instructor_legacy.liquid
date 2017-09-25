@@ -1,0 +1,91 @@
+<section class="instructor-legacy {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="instructor-legacy">
+  <div class="instructor-legacy__container">
+    <article class="instructor-legacy__profile">
+      {% assign instructor = section.settings.instructor %}
+      <header>
+        {% if instructor.avatar != blank %}
+          <img class="instructor-legacy__avatar" alt="{{ instructor.full_name }}" title="{{ instructor.full_name }}" src="{{ instructor.avatar }}" />
+        {% endif %}
+          <h5 class="instructor-legacy__name">
+            {{ instructor.full_name }}
+          </h5>
+        {% if instructor.title != blank %}
+          <h6 class="instructor-legacy__title">
+            {{ instructor.title }}
+          </h6>
+        {% endif %}
+      </header>
+      {% if instructor.bio != blank %}
+        <section class="instructor-legacy__bio">
+          {% if section.settings.heading != blank %}
+            <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% endif %}
+          {{ instructor.bio }}
+        </section>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+{% schema %}
+{
+  "label":"Instructor",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"About the instructor"
+        }
+      ]
+    },
+    {
+      "label": "Instructor",
+      "settings": [
+        {
+          "type": "instructor_picker",
+          "id": "instructor",
+          "label": "Select Course Instructor"
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"primary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"banner",
+              "label":"Banner"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

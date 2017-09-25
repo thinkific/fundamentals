@@ -1,6 +1,6 @@
-<section class="description {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="description">
-  <div class="description__container">
-    <div class="description__wrapper">
+<section class="description-legacy {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="description-legacy">
+  <div class="description-legacy__container">
+    <div class="description-legacy__wrapper">
       {% if section.settings.heading != blank %}
         <header class="section__headings">
           <h3 class="section__heading">{{ section.settings.heading }}</h3>
@@ -11,7 +11,7 @@
       {% endif %}
       <article class="section__content">
         <section class="section__body">
-          {{ section.settings.body }}
+          {{ section.settings.description_text }}
         </section>
       </article>
     </div>
@@ -26,13 +26,6 @@ section.description {
   .section__subheading {
     text-align: {{ section.settings.heading_alignment }};
   }
-
-  {% if section.settings.heading_alignment == "center" %}
-    .section__subheading:before {
-      margin-right: auto;
-      margin-left: auto;
-    }
-  {% endif %}
 }
 
 {% endstyle %}
@@ -84,7 +77,7 @@ section.description {
       "settings":[
         {
           "type":"richtext",
-          "id":"body",
+          "id":"description_text",
           "label":"",
           "default":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p>"
         }
@@ -98,7 +91,7 @@ section.description {
           "id":"background_color_preset",
           "label":"Color Preset",
           "description":"Presets can be configured in the Colors configuration menu",
-          "default":"secondary",
+          "default":"primary",
           "options":[
             {
               "value":"none",

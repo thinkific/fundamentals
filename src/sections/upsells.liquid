@@ -1,0 +1,125 @@
+<section class="upsells {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | append: '-section-color-preset' }}{% endif %}" data-preview-item="upsells">
+  <div class="upsells__container">
+    <article class="section__content">
+      {% if section.settings.heading != blank %}
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      {% endif %}
+      <ul class="upsells__list">
+        {% for upsell in section.settings.upsells %}
+        <li class="upsells__list-item">
+          <span class="upsells__price">
+            {{ upsell.display_price }}
+          </span>
+          <span class="upsells__title">
+            {{ upsell.product.name }}
+          </span>
+          <span class="upsells__buy">
+            <a href="{{ upsell.links.add_to_cart }}" class="button button-primary">
+              {{ upsell.buy_button_text }}
+            </a>
+          </span>
+        </li>
+        {% endfor %}
+      </ul>
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.upsells {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label": "Upsells",
+  "settings": [
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"You may also be interested in..."
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Upsells",
+      "settings":[
+        {
+          "type": "prices_picker",
+          "id": "upsells",
+          "label": "Product Prices",
+          "default": [],
+          "tooltip": "Select both a product and a price to upsell your products"
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"secondary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
