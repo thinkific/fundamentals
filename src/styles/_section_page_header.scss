@@ -290,6 +290,33 @@
   @include screen-lg-min {
     display: inline-block;
   }
+
+  .button {
+    border: $button__border-width $button__border-style $nav__mobile-link-color;
+
+    .home_landing_page header[class="header floating"] & {
+      border-color: $nav__floating-link-color;
+    }
+
+    .course_landing_page header[class="header floating"] & {
+      border-color: $nav__floating-link-color;
+    }
+
+    .bundle_landing_page header[class="header floating"] & {
+      border-color: $nav__floating-link-color;
+    }
+
+    .page_template header[class="header floating"] & {
+      border-color: $nav__floating-link-color;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $nav__mobile-link-color;
+      color: $nav__mobile-link-color--active;
+    }
+  }
 }
 
 .header__user-avatar {
