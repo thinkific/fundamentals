@@ -17,15 +17,11 @@
   @include make-row(true);
 }
 
-.upsells__list {
-
-}
-
 .upsells__list-item {
   @include make-row(false);
   @include align-items(center);
 
-  padding: $gutter-width / 2 0;
+  padding: $gutter-width 0;
   border-bottom: $interface__border;
 
   &:last-of-type {
