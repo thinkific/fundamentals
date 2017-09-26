@@ -1,0 +1,154 @@
+<section class="faq{% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %} {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="faq">
+  <div class="faq__container">
+    {% if section.settings.heading != blank %}
+      <header class="section__headings">
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      </header>
+    {% endif %}
+    <article class="section__content">
+      {% if section.blocks != empty %}
+      <ul class="faq__list">
+        {% for block in section.blocks %}
+          <li class="faq__list-item">
+            <input type="checkbox" checked="checked" />
+            <strong>{{ block.settings.faq_question }}<i></i></strong>
+            <p>{{ block.settings.faq_answer }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </article>
+  </div>
+</section>
+
+<script>
+$(document).ready(function() {
+  var $faq = $('.faq__list-item input');
+  $faq.first().attr("checked", false);
+});
+</script>
+
+{% style %}
+
+section.faq {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Frequently Asked Questions",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Frequently Asked Questions"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Accordion",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"show_collapsed",
+          "label":"Collapsed by default",
+          "default":true
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"secondary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"FAQ",
+    "limit":9,
+    "types":[
+      {
+        "type":"faq",
+        "label":"Frequently Asked Question",
+        "settings":[
+          {
+            "type":"text",
+            "id":"faq_question",
+            "label":"Question"
+          },
+          {
+            "type":"text",
+            "id":"faq_answer",
+            "label":"Answer"
+          }
+        ]
+      }
+    ],
+    "defaults":[]
+  }
+}
+{% endschema %}
