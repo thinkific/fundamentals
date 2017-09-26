@@ -9,28 +9,28 @@
       </header>
     {% endif %}
     <article class="section__content">
-      <ul class="course-curriculum__chapter-list">
+      <ul class="course-curriculum-legacy__chapter-list">
         {% for chapter in page.course.chapters %}
           {% assign index = forloop.index + 1 %}
-          <li class="course-curriculum__chapter">
-            <header class="course-curriculum__chapter-header">
-              <span class="course-curriculum__chapter-number">{{ index }}</span>
-              <h5 class="course-curriculum__chapter-title">{{ chapter.name }}
+          <li class="course-curriculum-legacy__chapter">
+            <header class="course-curriculum-legacy__chapter-header">
+              <span class="course-curriculum-legacy__chapter-number">{{ index }}</span>
+              <h5 class="course-curriculum-legacy__chapter-title">{{ chapter.name }}
                 {% if chapter.duration_in_seconds > 0 %}
-                  <span class="course-curriculum__chapter-time">
+                  <span class="course-curriculum-legacy__chapter-time">
                     {{ chapter.duration_in_seconds_as_time }}
                   </span>
                 {% endif %}
-                <i class="course-curriculum__chapter-collapse"></i>
+                <i class="course-curriculum-legacy__chapter-collapse"></i>
               </h5>
             </header>
-            <ul class="course-curriculum__chapter-content" id="chapter-{{ index + 1 }}">
+            <ul class="course-curriculum-legacy__chapter-content" id="chapter-{{ index + 1 }}">
               {% for content in chapter.contents %}
                 <li>
-                  <a href="{{ content.take_course_url }}" class="course-curriculum__chapter-lesson">
+                  <a href="{{ content.take_course_url }}" class="course-curriculum-legacy__chapter-lesson">
                   {{ content.name }}
                   {% if content.free %}
-                    <span class="course-curriculum__chapter-lesson--free">{{ 'liquid.partials.course_landing_page_curriculum.label_free' | translate }}</span>
+                    <span class="course-curriculum-legacy__chapter-lesson--free">{{ 'liquid.partials.course_landing_page_curriculum.label_free' | translate }}</span>
                   {% endif %}
                   </a>
                 </li>
@@ -45,18 +45,17 @@
 
 <script>
 $(document).ready(function() {
-  var $header = $('.course-curriculum-legacy .course-curriculum__chapter-header');
+  var $header = $('.course-curriculum-legacy .course-curriculum-legacy__chapter-header');
   {% if section.settings.show_collapsed %}
     $header.not(":eq(0)").each(function(k,v) {
       $(v).addClass('collapse');
-      $(v).next('.course-curriculum__chapter-content').hide();
+      $(v).next('.course-curriculum-legacy__chapter-content').hide();
     });
   {% endif %}
   $header.on('click keypress', function(e) {
     if (e.which === 13 || e.type === 'click') {
-      e.stopPropagation();
       $(this).toggleClass('collapse');
-      $(this).next('.course-curriculum__chapter-content').toggle(350);
+      $(this).next('.course-curriculum-legacy__chapter-content').toggle(350);
     }
   });
 });
@@ -64,7 +63,7 @@ $(document).ready(function() {
 
 {% style %}
 
-section.course-curriculum {
+section.course-curriculum-legacy {
 
   .section__heading,
   .section__subheading {
@@ -76,7 +75,7 @@ section.course-curriculum {
 
 {% schema %}
 {
-  "label":"Course Curriculum",
+  "label":"Course Curriculum (Legacy)",
   "settings":[
     {
       "label":"Headings",
