@@ -293,7 +293,7 @@
 	}
 
 	a {
-		@include transition(box-shadow 600ms ease);
+		@include transition(box-shadow 400ms ease);
 
 		text-decoration: none;
 
@@ -304,7 +304,7 @@
 		&:active,
 		&:focus,
 		&:hover {
-			@include transition(box-shadow 600ms ease);
+			@include transition(box-shadow 400ms ease);
 
 			color: $accent__color;
 			box-shadow: $shadow-button;
@@ -384,7 +384,7 @@
 	@include screen-md-min {
 		min-width: 20rem;
 	}
-	
+
 	min-width: 100%;
 	margin: 0 0 $gutter-width / 2 0;
 }
