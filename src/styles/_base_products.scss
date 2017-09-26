@@ -381,9 +381,12 @@
 }
 
 .products__search-box {
-	min-width: 20rem;
+	@include screen-md-min {
+		min-width: 20rem;
+	}
+	
+	min-width: 100%;
 	margin: 0 0 $gutter-width / 2 0;
-
 }
 
 // Review Stars
