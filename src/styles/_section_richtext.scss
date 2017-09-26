@@ -1,0 +1,22 @@
+// Richtext
+// ======================================
+
+.richtext {
+  @include section-height(section-height-preset(large));
+
+  .section__headings {
+    @include make-col(12);
+  }
+
+  .section__content {
+    @include make-col(12);
+  }
+}
+
+.richtext__container {
+  @include make-container;
+}
+
+.richtext__wrapper {
+  @include make-row(true);
+}

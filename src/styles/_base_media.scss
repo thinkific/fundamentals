@@ -1,6 +1,29 @@
 // Media
 // ======================================
 
+figure {
+  position: relative;
+  margin: 0;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+figcaption {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: $gutter-width / 4 $gutter-width / 2;
+  background-color: gray-scale(0);
+  font-size: modular-scale(-1);
+  font-style: italic;
+  opacity: 0.7;
+}
+
 img {
 
   .owl-carousel .owl-item & {
