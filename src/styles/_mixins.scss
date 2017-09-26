@@ -92,7 +92,7 @@
 
 // Buttons
 @mixin button {
-  @include transition(background-color 300ms ease, border-color 300ms ease);
+  @include transition(background-color 300ms ease, border-color 300ms ease, box-shadow 400ms ease);
 
   display: inline-block;
   padding: $button__padding;
@@ -109,10 +109,11 @@
   &:active,
   &:focus,
   &:hover {
-    @include transition(background-color 300ms ease, border-color 300ms ease);
+    @include transition(background-color 300ms ease, border-color 300ms ease, box-shadow 400ms ease);
 
     background-color: $button__secondary-background--active;
     color: $button__secondary-color--active;
+    box-shadow: $shadow-button;
   }
 }
 
@@ -127,6 +128,19 @@
     border-color: $button__primary-background--active;
     background-color: $button__primary-background--active;
     color: $button__primary-color--active;
+  }
+}
+
+@mixin button-secondary {
+  border: $button__border-width $button__border-style $button__secondary-background--active;
+  background-color: $button__secondary-background;
+  color: $button__secondary-color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $button__secondary-background--active;
+    color: $button__secondary-color--active;
   }
 }
 
