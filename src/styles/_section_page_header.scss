@@ -243,17 +243,17 @@
 
 .header__nav-item--default {
 
-  .dropdown__menu & {
+  .user-signed-in .dropdown__menu & {
     display: none;
   }
 
   @include screen-tablet-only {
 
-    &.header__nav-item {
+    .user-signed-in &.header__nav-item {
       display: none;
     }
 
-    .dropdown__menu & {
+    .user-signed-in .dropdown__menu & {
       display: block;
     }
   }
