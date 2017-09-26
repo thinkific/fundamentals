@@ -11,7 +11,8 @@
 
   .home_landing_page &,
   .course_landing_page &,
-  .bundle_landing_page & {
+  .bundle_landing_page &,
+  .page_template & {
     border-bottom: 0;
 
     &[class="header floating"] {
@@ -119,7 +120,8 @@
 
     .home_landing_page header[class="header floating"] &,
     .course_landing_page header[class="header floating"] &,
-    .bundle_landing_page header[class="header floating"] & {
+    .bundle_landing_page header[class="header floating"] &,
+    .page_template header[class="header floating"] & {
       color: $banner-text-color;
     }
   }
@@ -236,7 +238,8 @@
 
       .home_landing_page header[class="header floating"] &,
       .course_landing_page header[class="header floating"] &,
-      .bundle_landing_page header[class="header floating"] & {
+      .bundle_landing_page header[class="header floating"] &,
+      .page_template header[class="header floating"] & {
         color: $banner-text-color;
       }
     }
@@ -357,7 +360,8 @@
 
     .home_landing_page header[class="header floating"] &,
     .course_landing_page header[class="header floating"] &,
-    .bundle_landing_page header[class="header floating"] & {
+    .bundle_landing_page header[class="header floating"] &,
+    .page_template header[class="header floating"] & {
       background-color: $banner-text-color;
 
       &:before,
