@@ -2,7 +2,6 @@
 // ======================================
 
 .text-image {
-  @include section-height(section-height-preset(large));
 
   .section__content {
     @include make-row(true);
@@ -20,7 +19,12 @@
     @include make-col(6);
     @include screen-md-max {
       @include make-col(12);
-      @include order(initial);
+      @include order(2);
+    }
+    @include screen-lg-min {
+      padding-top: $gutter-width * 2;
+      padding-right: $gutter-width * 2;
+      padding-bottom: $gutter-width * 2;
     }
   }
 }
@@ -32,7 +36,12 @@
     @include make-col(6);
     @include screen-md-max {
       @include make-col(12);
-      @include order(initial);
+      @include order(1);
+
+      margin-bottom: $gutter-width;
     }
+
+    padding-right: 0;
+    padding-left: 0;
   }
 }
