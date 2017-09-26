@@ -162,6 +162,10 @@
         }
       }
 
+      &.header__nav-cta {
+        display: none;
+      }
+
       .dropdown__toggle-button {
         display: none;
       }
@@ -256,6 +260,14 @@
     .user-signed-in .dropdown__menu & {
       display: block;
     }
+  }
+}
+
+.header__nav-cta {
+  display: none;
+
+  @include screen-lg-min {
+    display: inline-block;
   }
 }
 

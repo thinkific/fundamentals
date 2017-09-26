@@ -29,6 +29,18 @@
               </a>
             </li>
           {% endif %}
+          {% if page.product_is_course %}
+            {% assign course = page.course %}
+            {% unless course.is_draft %}
+              {% if course.is_public %}
+              {% if course.user_can_purchase %}
+                <li class="header__nav-item header__nav-cta">
+                  <a href="{{ course.links.buy }}" class="button button-secondary">{{ course.buy_button_text }}</a>
+                </li>
+              {% endif %}
+              {% endif %}
+            {% endunless %}
+          {% endif %}
         </ul>
       </nav>
       <a class="header__mobile-button" aria-expanded="true" tabindex="0">
