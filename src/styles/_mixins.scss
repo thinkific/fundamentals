@@ -92,7 +92,7 @@
 
 // Buttons
 @mixin button {
-  @include transition(background-color 300ms ease, border-color 300ms ease, box-shadow 400ms ease);
+  @include transition(background-color 300ms ease, border-color 300ms ease, box-shadow 600ms ease);
 
   display: inline-block;
   padding: $button__padding;
