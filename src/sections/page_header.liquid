@@ -40,6 +40,15 @@
               {% endif %}
               {% endif %}
             {% endunless %}
+          {% elsif page.product_is_bundle %}
+            {% assign bundle = page.bundle %}
+            {% unless bundle.previously_purchased %}
+              {% unless bundle.is_free %}
+                <li class="header__nav-item header__nav-cta">
+                  <a href="{{ bundle.links.buy }}" class="button button-secondary">{{ bundle.buy_button_text }}</a>
+                </li>
+              {% endunless %}
+            {% endunless %}
           {% endif %}
         </ul>
       </nav>
