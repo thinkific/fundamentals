@@ -118,11 +118,20 @@
   &:hover {
     color: $nav__link-color;
 
-    .home_landing_page header[class="header floating"] &,
-    .course_landing_page header[class="header floating"] &,
-    .bundle_landing_page header[class="header floating"] &,
+    .home_landing_page header[class="header floating"] & {
+      color: $nav__floating-link-color;
+    }
+
+    .course_landing_page header[class="header floating"] & {
+      color: $nav__floating-link-color;
+    }
+
+    .bundle_landing_page header[class="header floating"] & {
+      color: $nav__floating-link-color;
+    }
+
     .page_template header[class="header floating"] & {
-      color: $banner-text-color;
+      color: $nav__floating-link-color;
     }
   }
 }
@@ -236,11 +245,20 @@
         color: $nav__link-color--active;
       }
 
-      .home_landing_page header[class="header floating"] &,
-      .course_landing_page header[class="header floating"] &,
-      .bundle_landing_page header[class="header floating"] &,
+      .home_landing_page header[class="header floating"] & {
+        color: $nav__floating-link-color;
+      }
+
+      .course_landing_page header[class="header floating"] & {
+        color: $nav__floating-link-color;
+      }
+
+      .bundle_landing_page header[class="header floating"] & {
+        color: $nav__floating-link-color;
+      }
+
       .page_template header[class="header floating"] & {
-        color: $banner-text-color;
+        color: $nav__floating-link-color;
       }
     }
   }
@@ -362,11 +380,11 @@
     .course_landing_page header[class="header floating"] &,
     .bundle_landing_page header[class="header floating"] &,
     .page_template header[class="header floating"] & {
-      background-color: $banner-text-color;
+      background-color: $nav__floating-link-color;
 
       &:before,
       &:after {
-        background-color: $banner-text-color;
+        background-color: $nav__floating-link-color;
       }
     }
 

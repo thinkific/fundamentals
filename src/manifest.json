@@ -32,7 +32,7 @@
       ]
     },
     {
-      "label": "Navigation (Menu + Fixed Menu)",
+      "label": "Navigation",
       "description": "This is where you style the navigation",
       "settings": [
         {
@@ -70,6 +70,18 @@
           "id": "menu_fixed_link_hover_color",
           "label": "Link Color (Fixed Menu - Hover)",
           "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "menu_floating_link_color",
+          "label": "Link Color (Floating Menu)",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_floating_link_hover_color",
+          "label": "Link Color (Floating Menu - Hover)",
+          "default": "#FFFFFF"
         }
       ]
     },
