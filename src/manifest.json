@@ -21,13 +21,13 @@
           "type": "color",
           "id": "brand_color",
           "label": "Brand Color",
-          "default": "#1E242A"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "accent_color",
           "label": "Accent Color",
-          "default": "#DEA986"
+          "default": "#2AA0E9"
         }
       ]
     },
@@ -45,13 +45,13 @@
           "type": "color",
           "id": "menu_link_color",
           "label": "Link Color",
-          "default": "#505050"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "menu_link_hover_color",
           "label": "Link Color (Hover)",
-          "default": "#505050"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
@@ -63,13 +63,13 @@
           "type": "color",
           "id": "menu_fixed_link_color",
           "label": "Link Color (Fixed Menu)",
-          "default": "#DEA986"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "menu_fixed_link_hover_color",
           "label": "Link Color (Fixed Menu - Hover)",
-          "default": "#000000"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
@@ -99,13 +99,13 @@
           "type": "color",
           "id": "menu_mobile_background_hover_color",
           "label": "Background Color (Hover)",
-          "default": "#DEA986"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "menu_mobile_link_color",
           "label": "Link Color",
-          "default": "#DEA986"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
@@ -129,7 +129,7 @@
           "type": "color",
           "id": "dropdown_link_color",
           "label": "Link Color",
-          "default": "#000000"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
@@ -141,7 +141,7 @@
           "type": "color",
           "id": "dropdown_link_background_hover_color",
           "label": "Link Background Color (Hover)",
-          "default": "#DEA986"
+          "default": "#2AA0E9"
         }
       ]
     },
@@ -153,7 +153,7 @@
           "type": "color",
           "id": "primary_button_background_color",
           "label": "Primary Button Color",
-          "default": "#DEA986"
+          "default": "#36C69C"
         },
         {
           "type": "color",
@@ -165,7 +165,7 @@
           "type": "color",
           "id": "primary_button_background_hover_color",
           "label": "Primary Button Color (Hover)",
-          "default": "#000000"
+          "default": "#36C69C"
         },
         {
           "type": "color",
@@ -183,19 +183,19 @@
           "type": "color",
           "id": "secondary_button_background_color",
           "label": "Secondary Button Color",
-          "default": " #DEA986"
+          "default": "transparent"
         },
         {
           "type": "color",
           "id": "secondary_button_text_color",
           "label": "Secondary Button Text Color",
-          "default": " #DEA986"
+          "default": "#36C69C"
         },
         {
           "type": "color",
           "id": "secondary_button_background_hover_color",
           "label": "Secondary Button Color (Hover)",
-          "default": "#DEA986"
+          "default": "#36C69C"
         },
         {
           "type": "color",
@@ -213,13 +213,13 @@
           "type": "color",
           "id": "link_color",
           "label": "Link Color",
-          "default": "#DEA986"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "link_hover_color",
           "label": "Hover Cover",
-          "default": "#505050"
+          "default": "#2AA0E9"
         }
       ]
     },
@@ -231,7 +231,7 @@
           "type": "select",
           "id": "heading_font",
           "label": "Heading Font",
-          "default": "Droid Serif",
+          "default": "Open Sans",
           "options": [
             {
               "value": "Droid Serif",
@@ -264,13 +264,13 @@
           "type": "color",
           "id": "heading_text_color",
           "label": "Heading Color",
-          "default": "#1E242A"
+          "default": "#33393F"
         },
         {
           "type": "select",
           "id": "subheading_font",
           "label": "Subheading Font",
-          "default": "Lato",
+          "default": "Open Sans",
           "options": [
             {
               "value": "Droid Serif",
@@ -303,13 +303,13 @@
           "type": "color",
           "id": "subheading_text_color",
           "label": "Subheading Color",
-          "default": "#505050"
+          "default": "#33393F"
         },
         {
           "type": "select",
           "id": "body_font",
           "label": "Body Font",
-          "default": "Lato",
+          "default": "Open Sans",
           "options": [
             {
               "value": "Lato",
@@ -337,7 +337,7 @@
           "type": "color",
           "id": "body_text_color",
           "label": "Body Color",
-          "default": "#505050"
+          "default": "#68717A"
         },
         {
           "type":"select",
@@ -368,19 +368,19 @@
           "type": "color",
           "id": "footer_text_color",
           "label": "Text Color",
-          "default": "#505050"
+          "default": "#68717A"
         },
         {
           "type": "color",
           "id": "footer_link_color",
           "label": "Link Color",
-          "default": "#505050"
+          "default": "#68717A"
         },
         {
           "type": "color",
           "id": "footer_link_hover_color",
           "label": "Hover Color",
-          "default": "#505050"
+          "default": "#68717A"
         }
       ]
     },
@@ -397,7 +397,7 @@
           "type": "color",
           "id": "banner_background_color",
           "label": "Background Color",
-          "default": "#505050"
+          "default": "#2AA0E9"
         },
         {
           "type": "color",
@@ -426,25 +426,25 @@
           "type": "color",
           "id": "primary_background_color",
           "label": "Background Color",
-          "default": "#F7F7F7"
+          "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "primary_heading_text_color",
           "label": "Heading Color",
-          "default": "#1E242A"
+          "default": "#68717A"
         },
         {
           "type": "color",
           "id": "primary_subheading_text_color",
           "label": "Subheading Color",
-          "default": "#505050"
+          "default": "#68717A"
         },
         {
           "type": "color",
           "id": "primary_text_color",
           "label": "Text Color",
-          "default": "#505050"
+          "default": "#68717A"
         }
       ]
     },
@@ -461,19 +461,19 @@
           "type": "color",
           "id": "secondary_heading_text_color",
           "label": "Heading Color",
-          "default": "#1E242A"
+          "default": "#68717A"
         },
         {
           "type": "color",
           "id": "secondary_subheading_text_color",
           "label": "Subheading Color",
-          "default": "#505050"
+          "default": "#68717A"
         },
         {
           "type": "color",
           "id": "secondary_text_color",
           "label": "Text Color",
-          "default": "#505050"
+          "default": "#68717A"
         }
       ]
     },
@@ -484,25 +484,25 @@
           "type": "color",
           "id": "tertiary_background_color",
           "label": "Background Color",
-          "default": "#DEA986"
+          "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "tertiary_heading_text_color",
           "label": "Heading Color",
-          "default": "#1E242A"
+          "default": "#68717A"
         },
         {
           "type": "color",
           "id": "tertiary_subheading_text_color",
           "label": "Subheading Color",
-          "default": "#505050"
+          "default": "#68717A"
         },
         {
           "type": "color",
           "id": "tertiary_text_color",
           "label": "Text Color",
-          "default": "#505050"
+          "default": "#68717A"
         }
       ]
     }
@@ -512,35 +512,35 @@
       "title": "Starter",
       "description": "Default theme starter style configuration",
       "settings": {
-        "background_color": "transparent",
+        "background_color": "#FFFFFF",
         "brand_color": "#2AA0E9",
         "accent_color": "#2AA0E9",
-        "menu_background_color": "transparent",
-        "menu_link_color": "#FFFFFF",
-        "menu_link_hover_color": "#FFFFFF",
+        "menu_background_color": "#FFFFFF",
+        "menu_link_color": "#2AA0E9",
+        "menu_link_hover_color": "#2AA0E9",
         "menu_fixed_background_color": "#FFFFFF",
-        "menu_fixed_link_color": "#68717A",
-        "menu_fixed_link_hover_color": "#68717A",
+        "menu_fixed_link_color": "#2AA0E9",
+        "menu_fixed_link_hover_color": "#2AA0E9",
         "menu_floating_link_color": "#FFFFFF",
         "menu_floating_link_hover_color": "#FFFFFF",
-        "menu_mobile_background_color": "transparent",
-        "menu_mobile_background_hover_color": "transparent",
-        "menu_mobile_link_color": "#FFFFFF",
+        "menu_mobile_background_color": "#FFFFFF",
+        "menu_mobile_background_hover_color": "#2AA0E9",
+        "menu_mobile_link_color": "#2AA0E9",
         "menu_mobile_link_hover_color": "#FFFFFF",
         "dropdown_background_color": "#FFFFFF",
-        "dropdown_link_color": "#68717A",
-        "dropdown_link_hover_color": "#2AA0E9",
-        "dropdown_link_background_hover_color": "transparent",
+        "dropdown_link_color": "#2AA0E9",
+        "dropdown_link_hover_color": "#FFFFFF",
+        "dropdown_link_background_hover_color": "#2AA0E9",
         "primary_button_background_color": "#36C69C",
         "primary_button_text_color": "#FFFFFF",
-        "primary_button_background_hover_color": "#44caa3",
+        "primary_button_background_hover_color": "#36C69C",
         "primary_button_text_hover_color": "#FFFFFF",
         "secondary_button_background_color": "transparent",
         "secondary_button_text_color": "#36C69C",
         "secondary_button_background_hover_color": "#36C69C",
         "secondary_button_text_hover_color": "#FFFFFF",
         "link_color": "#2AA0E9",
-        "link_hover_color": "#23527c",
+        "link_hover_color": "#2AA0E9",
         "heading_font": "Open Sans",
         "heading_text_color": "#33393F",
         "subheading_font": "Open Sans",
@@ -552,7 +552,7 @@
         "footer_text_color": "#68717A",
         "footer_link_color": "#68717A",
         "footer_link_hover_color": "#68717A",
-        "banner_background_color": "#1d9be9",
+        "banner_background_color": "#2AA0E9",
         "banner_heading_text_color": "#FFFFFF",
         "banner_subheading_text_color": "#FFFFFF",
         "banner_text_color": "#FFFFFF",
