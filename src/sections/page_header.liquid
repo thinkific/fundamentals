@@ -35,7 +35,7 @@
               {% if course.is_public %}
               {% if course.user_can_purchase %}
                 <li class="header__nav-item header__nav-cta">
-                  <a href="{{ course.links.buy }}" class="button">{{ course.buy_button_text }}</a>
+                  <a href="{{ course.links.buy }}" class="button button-secondary">{{ course.buy_button_text }}</a>
                 </li>
               {% endif %}
               {% endif %}
@@ -45,7 +45,7 @@
             {% unless bundle.previously_purchased %}
               {% unless bundle.is_free %}
                 <li class="header__nav-item header__nav-cta">
-                  <a href="{{ bundle.links.buy }}" class="button">{{ bundle.buy_button_text }}</a>
+                  <a href="{{ bundle.links.buy }}" class="button button-secondary">{{ bundle.buy_button_text }}</a>
                 </li>
               {% endunless %}
             {% endunless %}

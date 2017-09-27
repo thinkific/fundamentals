@@ -292,29 +292,14 @@
   }
 
   .button {
-    border: $button__border-width $button__border-style $nav__mobile-link-color;
-
-    .home_landing_page header[class="header floating"] & {
-      border-color: $nav__floating-link-color;
-    }
-
-    .course_landing_page header[class="header floating"] & {
-      border-color: $nav__floating-link-color;
-    }
-
-    .bundle_landing_page header[class="header floating"] & {
-      border-color: $nav__floating-link-color;
-    }
-
-    .page_template header[class="header floating"] & {
-      border-color: $nav__floating-link-color;
-    }
+    background-color: transparent;
+    color: $button__primary-background !important;
 
     &:active,
     &:focus,
     &:hover {
-      background-color: $nav__mobile-link-color;
-      color: $nav__mobile-link-color--active;
+      background-color: $button__primary-background;
+      color: $button__primary-color--active !important;
     }
   }
 }
