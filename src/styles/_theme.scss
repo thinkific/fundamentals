@@ -16,15 +16,19 @@ $purple: #6659B0;
 .header__nav-cta {
 
   .button {
-    border-color: $white;
-    background-color: transparent;
-    color: $white !important;
 
-    &:active,
-    &:focus,
-    &:hover {
-      background-color: $white;
-      color: $purple !important;
+    header[class="header floating"] & {
+
+      border-color: $white;
+      background-color: transparent;
+      color: $white !important;
+
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $white;
+        color: $purple !important;
+      }
     }
   }
 }
