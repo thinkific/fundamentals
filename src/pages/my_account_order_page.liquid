@@ -47,48 +47,25 @@
             <p>{{ page.order.cost }}</p>
           </li>
         </ul>
-        <h2>{{ 'liquid.views.my_account_orders_show_page.header_order_summary' | translate }}</h2>
+        <h2 class="my-account__heading">{{ 'liquid.views.my_account_orders_show_page.header_order_summary' | translate }}</h2>
         <table class="my-account__order-summary">
           <thead>
             <tr>
-              <th>{{ 'liquid.views.my_account_orders_show_page.table_th_number' | translate }}</th>
+              <th>{{ 'liquid.views.my_account_orders_show_page.table_th_date' | translate }}</th>
               <th>{{ 'liquid.views.my_account_orders_show_page.table_th_product' | translate }}</th>
               <th class="text-right">{{ 'liquid.views.my_account_orders_show_page.table_th_amount' | translate }}</th>
             </tr>
           </thead>
           <tbody>
-            {% assign counter = 0 %}
-            {% for line_item in page.order.line_items %}
-              {% assign counter = counter | plus: 1 %}
-              <tr>
-                <td>{{ counter }}</td>
-                <td>
-                  {{ line_item.description }}
-                  {% if page.order.description_of_subscription != blank %}
-                  <br>
-                  <small>{{ page.order.description_of_subscription }}</small>
-                  {% endif %}
-                </td>
-                <td>{{ line_item.price }}</td>
-              </tr>
-            {% endfor %}
-            {% if page.order.coupon != blank %}
-              {% assign coupon = page.order.coupon %}
-              {% assign counter = counter | plus: 1 %}
-              <tr>
-                <td>{{ counter }}</td>
-                <td>{{ 'liquid.views.my_account_orders_show_page.table_td_promotion' | translate }} {{ coupon.name }}</td>
-                <td>-{{ coupon.discounted_amount }}</td>
-              </tr>
+            {% if page.order.has_recurring and page.order.payments.size > 0 %}
+              {% include 'order_multiple_payments' %}
+            {% else %}
+              {% include 'order_line_items' %}
             {% endif %}
-            {% for refund in page.order.refunded_transactions %}
-              {% assign counter = counter | plus: 1 %}
-              <tr>
-                <td>{{ counter }}</td>
-                <td>{{ 'liquid.views.my_account_orders_show_page.table_td_refund' | translate }}</td>
-                <td>-{{ refund.amount }}</td>
-              </tr>
-            {% endfor %}
+            {% if page.order.coupon != blank %}
+              {% include 'order_coupons' %}
+            {% endif %}
+            {% include 'order_refunds' %}
             <tr>
               <td colspan="2">
                 <strong>{{ 'liquid.views.my_account_orders_show_page.table_td_total_amount' | translate }}</strong>

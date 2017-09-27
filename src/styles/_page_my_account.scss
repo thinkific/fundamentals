@@ -111,6 +111,7 @@
 .my-account__order-overview {
   @include make-row(true);
 
+  margin-bottom: $gutter-width;
   list-style: none;
 
   li {

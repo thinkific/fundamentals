@@ -51,7 +51,8 @@ h6 {
   }
 }
 
-h1 {
+h1,
+h2 {
 
   &[class*="__heading"] {
     @include screen-md-min {

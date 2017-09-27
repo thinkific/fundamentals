@@ -1,0 +1,13 @@
+{% for line_item in page.order.line_items %}
+  <tr>
+    <td>{{ line_item.created_date }}</td>
+    <td>
+      {{ line_item.description }}
+      {% if page.order.description_of_subscription != blank %}
+        <br />
+        <small>{{ page.order.description_of_subscription }}</small>
+      {% endif %}
+    </td>
+    <td class="text-right">{{ line_item.price }}</td>
+  </tr>
+{% endfor %}

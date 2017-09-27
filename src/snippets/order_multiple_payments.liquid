@@ -1,0 +1,9 @@
+{% assign counter = page.order.payments.size | plus: 1 %}
+{% for payment in page.order.payments %}
+  {% assign counter = counter | minus: 1 %}
+  <tr>
+    <td>{{ payment.created_date }}</td>
+    <td>{{ page.order.line_items.first.description }}: {{ counter }} of {{ page.order.number_of_recurring_payments }}</td>
+    <td>{{ page.order.line_items.first.price }}</td>
+  </tr>
+{% endfor %}
