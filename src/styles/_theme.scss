@@ -1,168 +1,18 @@
-// Theme Style: Elegance
+// Theme Style: Starter
 // ======================================
 
-// Mixins
-@mixin subheading-ornament {
-  position: relative;
-
-  &:before {
-    display: block;
-    position: relative;
-    width: 1.5rem;
-    height: 3px;
-    margin-bottom: $gutter-width / 2;
-    content: "";
-  }
-}
-
-.header {
-
-  .home_landing_page &,
-  .course_landing_page &,
-  .bundle_landing_page & {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  }
-}
-
-.header__logo {
-
-  img {
-    max-height: 20px;
-  }
-}
-
-.header__nav-item {
-
-  a {
-    font-weight: bold;
-  }
-}
-
-// Overrides
+// Section Background Presets
 .section-color-preset__banner {
+  @include background-image(linear-gradient(136deg, #1d9be9 0%, #6659b0 100%, #1d9be9 100%, #000000 100%));
 
-  .section__subheading {
-
-    &:before {
-      background-color: $banner-subheading-color;
-    }
-  }
+  background-color: transparent;
 }
 
-.section-color-preset__primary {
+// Page Header
+.header__nav-cta {
 
-  .section__subheading {
-
-    &:before {
-      background-color: $accent__color;
-    }
-  }
-}
-
-
-.section-color-preset__secondary {
-
-  .section__subheading {
-
-    &:before {
-      background-color: $accent__color;
-    }
-  }
-}
-
-
-.section-color-preset__tertiary {
-
-  .section__subheading {
-
-    &:before {
-      background-color: $accent__color;
-    }
-  }
-}
-
-
-// Sections
-.banner {
-
-  .section__subheading {
-    @include subheading-ornament;
-  }
-}
-
-.bonus {
-
-  .section__subheading {
-    @include subheading-ornament;
-  }
-}
-
-.call-to-action {
-
-  .section__subheading {
-    @include subheading-ornament;
-  }
-}
-
-.description {
-
-  .section__subheading {
-    @include subheading-ornament;
-  }
-}
-
-.description__container {
-
-  &:before {
-    @include screen-lg-min {
-      left: 30%;
-    }
-
-    display: block;
-    position: absolute;
-    top: 0;
-    right: -100%;
-    bottom: 0;
-    left: -100%;
-    background-color: gray-scale(0);
-    content: "";
-    z-index: 0;
-  }
-}
-
-.pricing-table {
-
-  .section__subheading {
-    @include subheading-ornament;
-  }
-}
-
-.testimonials {
-
-  .section__headings {
-    position: relative;
-    z-index: 1;
-  }
-}
-
-.testimonials__container {
-
-  &:before {
-    @include screen-md-min {
-      right: 5.5%;
-    }
-    @include screen-lg-min {
-      right: 40%;
-    }
-
-    display: block;
-    position: absolute;
-    top: 0;
-    right: -100%;
-    bottom: 0;
-    left: -100%;
-    background-color: gray-scale(0);
-    content: "";
-    z-index: 0;
+  .button {
+    background-color: $button__primary-background--active;
+    color: $button__primary-color--active !important;
   }
 }
