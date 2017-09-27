@@ -1,9 +1,13 @@
 // Theme Style: Starter
 // ======================================
 
+// Colors
+$blue: #1d9be9;
+$purple: #6659B0;
+
 // Section Background Presets
 .section-color-preset__banner {
-  @include background-image(linear-gradient(136deg, #1d9be9 0%, #6659b0 100%, #1d9be9 100%, #000000 100%));
+  @include background-image(linear-gradient(136deg, $blue 0%, $purple 100%, $blue 100%, $black 100%));
 
   background-color: transparent;
 }
@@ -12,7 +16,15 @@
 .header__nav-cta {
 
   .button {
-    background-color: $button__primary-background--active;
-    color: $button__primary-color--active !important;
+    border-color: $white;
+    background-color: transparent;
+    color: $white !important;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $white;
+      color: $purple !important;
+    }
   }
 }
