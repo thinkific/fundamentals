@@ -8,12 +8,12 @@
   {% unless course.is_draft %}
     {% if course.user_can_resume %}
       {% unless course.user_enrollment_complete %}
-        <a href="{{ course.links.resume }}" class="button {% unless course.user_enrollment_complete or course.user_can_purchase %}button-primary{% endunless %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_resume_course' | translate }}</a>
+        <a href="{{ course.links.resume }}" class="button{% unless course.user_enrollment_complete or course.user_can_purchase %} button-primary{% else %} button-secondary{% endunless %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_resume_course' | translate }}</a>
       {% else %}
-        <a href="{{ course.links.resume }}" class="button">{{ 'liquid.partials.course_landing_page_action_buttons.link_review_course' | translate }}</a>
+        <a href="{{ course.links.resume }}" class="button button-secondary">{{ 'liquid.partials.course_landing_page_action_buttons.link_review_course' | translate }}</a>
       {% endunless %}
       {% if course.reviews_enabled %}
-        <a href="{{ course.links.review }}" class="button {% if course.user_enrollment_complete %}button-primary{% endif %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_rate_course' | translate }}</a>
+        <a href="{{ course.links.review }}" class="button{% if course.user_enrollment_complete %} button-primary{% else %} button-secondary{% endif %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_rate_course' | translate }}</a>
       {% endif %}
     {% endif %}
     {% if course.is_public %}
