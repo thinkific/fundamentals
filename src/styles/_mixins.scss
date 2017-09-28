@@ -99,7 +99,7 @@
   border: $button__border-width $button__border-style transparent;
   border-radius: $button__border-radius;
   background-color: transparent;
-  color: $brand__color;
+  color: $link__color;
   font-size: $button__font-size;
   font-weight: $button__font-weight;
   line-height: 1;
@@ -111,8 +111,8 @@
   &:hover {
     @include transition(background-color 300ms ease, border-color 300ms ease, box-shadow 400ms ease);
 
-    color: $brand__color;
     box-shadow: $shadow-button;
+    color: $link__color;
   }
 }
 
