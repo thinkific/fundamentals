@@ -52,6 +52,21 @@
   }
 }
 
+// Admin Notice (Override)
+.admin-notice__bar {
+  @include screen-md-max {
+
+    a {
+      display: block;
+    }
+  }
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 4;
+}
+
 // Notifications
 #notifications {
   position: fixed;
