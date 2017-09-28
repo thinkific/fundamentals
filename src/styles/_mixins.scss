@@ -31,61 +31,61 @@
 
 // Breakpoints
 @mixin screen-legacy-max {
-  @media only screen and (max-width: $screen-legacy-max) {
+  @media screen and (max-width: $screen-legacy-max) {
     @content;
   }
 }
 
 @mixin screen-xs-max {
-  @media only screen and (max-width: $screen-xs-max) {
+  @media screen and (max-width: $screen-xs-max) {
     @content;
   }
 }
 
 @mixin screen-sm-min {
-  @media only screen and (min-width: $screen-sm) {
+  @media screen and (min-width: $screen-sm) {
     @content;
   }
 }
 
 @mixin screen-sm-max {
-  @media only screen and (max-width: $screen-sm-max) {
+  @media screen and (max-width: $screen-sm-max) {
     @content;
   }
 }
 
 @mixin screen-md-min {
-  @media only screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-md) {
     @content;
   }
 }
 
 @mixin screen-md-max {
-  @media only screen and (max-width: $screen-md-max) {
+  @media screen and (max-width: $screen-md-max) {
     @content;
   }
 }
 
 @mixin screen-lg-min {
-  @media only screen and (min-width: $screen-lg) {
+  @media screen and (min-width: $screen-lg) {
     @content;
   }
 }
 
 @mixin screen-lg-max {
-  @media only screen and (max-width: $screen-lg-max) {
+  @media screen and (max-width: $screen-lg-max) {
     @content;
   }
 }
 
 @mixin screen-xl-min {
-  @media only screen and (min-width: $screen-xl) {
+  @media screen and (min-width: $screen-xl) {
     @content;
   }
 }
 
 @mixin screen-tablet-only {
-  @media only screen and (min-width: $screen-md) and (max-width: $screen-lg) {
+  @media screen and (min-width: $screen-md) and (max-width: $screen-lg) {
     @content;
   }
 }
