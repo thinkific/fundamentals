@@ -163,7 +163,6 @@
         color: $nav__mobile-link-color;
         text-align: center;
         text-decoration: none;
-        text-transform: none;
 
         &:active,
         &:focus,
@@ -235,9 +234,8 @@
 
     & > a {
       color: $nav__link-color;
-      font-weight: 600;
+      font-weight: 400;
       text-decoration: none;
-      text-transform: uppercase;
 
       &:active,
       &:focus,
@@ -311,7 +309,7 @@
   height: 32px;
   margin: 0 5px;
   border-radius: 50%;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .header__mobile-button {
