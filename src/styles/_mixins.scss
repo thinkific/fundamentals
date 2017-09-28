@@ -96,10 +96,10 @@
 
   display: inline-block;
   padding: $button__padding;
-  border: $button__border-width $button__border-style $button__secondary-background;
+  border: $button__border-width $button__border-style transparent;
   border-radius: $button__border-radius;
   background-color: transparent;
-  color: $button__secondary-color;
+  color: $brand__color;
   font-size: $button__font-size;
   font-weight: $button__font-weight;
   line-height: 1;
@@ -111,8 +111,7 @@
   &:hover {
     @include transition(background-color 300ms ease, border-color 300ms ease, box-shadow 400ms ease);
 
-    background-color: $button__secondary-background--active;
-    color: $button__secondary-color--active;
+    color: $brand__color;
     box-shadow: $shadow-button;
   }
 }
