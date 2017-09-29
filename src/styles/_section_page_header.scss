@@ -60,7 +60,7 @@
 
 .header__container {
   @include make-container;
-  padding: 20px $gutter-width / 2;
+  padding: $gutter-width / 2;
 }
 
 .header__wrapper {
@@ -415,8 +415,10 @@
   width: 100%;
 
   .fa-caret-down {
+    @include transform(translatey(-50%));
+    
     position: absolute;
-    top: 8px;
+    top: 50%;
     right: -10px;
   }
 }
