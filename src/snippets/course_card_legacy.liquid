@@ -19,9 +19,10 @@
     <p>{{ course.course_card_text | truncate: 250 }}</p>
     {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
       <span class="review__stars">
+        {% assign rating = course.reviews.average_rating | ceil %}
         {% for index in (1..5) %}
           <input type="radio" name="rating" value="{{ index }}" tabindex="-1" />
-          {% if index <= course.reviews.average_rating %}
+          {% if index <= rating %}
             {% include 'star' %}
           {% endif %}
         {% endfor %}
