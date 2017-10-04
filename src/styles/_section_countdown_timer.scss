@@ -1,7 +1,7 @@
 // Countdown Timer
 // ======================================
 
-.countdown-timer {
+.countdown {
   @include section-height(section-height-preset(large));
 
   .section__headings {
@@ -32,15 +32,15 @@
   }
 }
 
-.countdown-timer__container {
+.countdown__container {
   @include make-container;
 }
 
-.countdown-timer__wrapper {
+.countdown__wrapper {
   @include make-row(true);
 }
 
-.section__countdown-timer {
+.section__countdown {
   @include screen-md-max {
     text-align: center;
   }

@@ -1,6 +1,6 @@
-<section class="countdown-timer {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="countdown-timer">
-  <div class="countdown-timer__container">
-    <div class="countdown-timer__wrapper">
+<section class="countdown {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="countdown">
+  <div class="countdown__container">
+    <div class="countdown__wrapper">
       {% if section.settings.heading != blank %}
         <header class="section__headings">
           <h3 class="section__heading">{{ section.settings.heading }}</h3>
@@ -22,7 +22,7 @@
           {% endif %}
         </header>
       {% endif %}
-      <article class="section__countdown-timer">
+      <article class="section__countdown">
         <ul id="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
           <li id="clock-days" class="clock-interval">00</li>
           <li id="clock-hours" class="clock-interval">00</li>
@@ -80,7 +80,7 @@ if (dueDate) {
 
 {% style %}
 
-section.countdown-timer {
+section.countdown {
 
   .section__heading,
   .section__subheading {
