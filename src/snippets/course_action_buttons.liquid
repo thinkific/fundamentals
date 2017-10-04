@@ -7,11 +7,11 @@
   {% assign course = page.course %}
   {% unless course.is_draft %}
     {% if course.user_can_resume %}
-      {% unless course.user_enrollment_complete %}
-        <a href="{{ course.links.resume }}" class="button{% unless course.user_enrollment_complete or course.user_can_purchase %} button-primary{% else %} button-secondary{% endunless %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_resume_course' | translate }}</a>
-      {% else %}
+      {% if course.user_enrollment_complete %}
         <a href="{{ course.links.resume }}" class="button button-secondary">{{ 'liquid.partials.course_landing_page_action_buttons.link_review_course' | translate }}</a>
-      {% endunless %}
+      {% else %}
+        <a href="{{ course.links.resume }}" class="button button-primary">{{ 'liquid.partials.course_landing_page_action_buttons.link_resume_course' | translate }}</a>
+      {% endif %}
       {% if course.reviews_enabled %}
         <a href="{{ course.links.review }}" class="button{% if course.user_enrollment_complete %} button-primary{% else %} button-secondary{% endif %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_rate_course' | translate }}</a>
       {% endif %}
@@ -20,11 +20,11 @@
       {% if course.is_free %}
         <a href="{{ course.links.enroll_free }}" class="button button-primary">{{ 'liquid.partials.course_landing_page_action_buttons.link_enroll_free' | translate }}</a>
       {% endif %}
-      {% if course.has_free_trial %}
-        <a href="{{ course.links.enroll_free_trial }}" class="button button-primary">{{ 'liquid.partials.course_landing_page_action_buttons.link_free_trial' | translate }}</a>
-      {% endif %}
       {% if course.user_can_purchase %}
         <a href="{{ course.links.buy }}" class="button button-primary">{{ course.buy_button_text }}</a>
+      {% endif %}
+      {% if course.has_free_trial %}
+        <a href="{{ course.links.enroll_free_trial }}" class="button{% unless course.user_can_purchase %} button-primary{% else %} button-secondary{% endunless %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_free_trial' | translate }}</a>
       {% endif %}
     {% else %}
       <p class="product__private-title">
