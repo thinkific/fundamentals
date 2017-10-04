@@ -10,7 +10,7 @@
       {% if course.user_enrollment_complete %}
         <a href="{{ course.links.resume }}" class="button button-secondary">{{ 'liquid.partials.course_landing_page_action_buttons.link_review_course' | translate }}</a>
       {% else %}
-        <a href="{{ course.links.resume }}" class="button button-primary">{{ 'liquid.partials.course_landing_page_action_buttons.link_resume_course' | translate }}</a>
+        <a href="{{ course.links.resume }}" class="button{% if course.user_can_purchase %} button-secondary{% else %} button-primary{% endif %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_resume_course' | translate }}</a>
       {% endif %}
       {% if course.reviews_enabled %}
         <a href="{{ course.links.review }}" class="button{% if course.user_enrollment_complete %} button-primary{% else %} button-secondary{% endif %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_rate_course' | translate }}</a>
