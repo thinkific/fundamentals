@@ -95,6 +95,18 @@
 // Section Background Presets
 .section-color-preset__banner {
   @include section-background-preset($banner-background-color, $banner-heading-color, $banner-subheading-color, $banner-text-color);
+
+  .button-secondary {
+    border-color: $banner-heading-color;
+    color: $banner-heading-color;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border-color: $banner-background-color;
+      background-color: $banner-background-color;
+    }
+  }
 }
 
 .section-color-preset__primary {
