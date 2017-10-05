@@ -10,10 +10,9 @@
         {% include 'affiliate_dashboard_menu' %}
       </aside>
       <main class="affiliate__content" id="main-content" role="main">
-        <h1 class="affiliate__heading">{{ 'liquid.views.affiliate_links_page.header_financial_reports' | translate }}</h1>
         <article class="affiliate__commissions-overview">
           <section class="affiliate__commissions-owed">
-            <strong>{{ 'liquid.views.affiliate_reports_page.label_total_commissions_owed' | translate }}</h4>
+            <h4>{{ 'liquid.views.affiliate_reports_page.label_total_commissions_owed' | translate }}</h4>
             <p>{{ page.total_commission_owed_in_dollars }}</p>
           </section>
           <section class="affiliate__commissions-paid">
