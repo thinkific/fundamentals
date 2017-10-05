@@ -63,9 +63,13 @@
   }
 
   a {
+    @include screen-md-min {
+      font-size: .875rem;
+    }
+
     position: relative;
     color: $link__color--active;
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: bold;
     text-decoration: none;
 
@@ -77,8 +81,12 @@
   }
 
   .fa {
+    @include screen-md-min {
+      font-size: .5rem;
+    }
+
     margin: 0 5px;
-    font-size: .5rem;
+    font-size: 1rem;
     font-weight: normal;
     vertical-align: middle;
   }
