@@ -148,11 +148,15 @@
   @include align-items(flex-start);
 
   .button {
+    @include screen-sm-min {
+      width: auto;
+      margin-right: $gutter-width / 2;
+    }
     @include display(flex);
+    @include justify-content(center);
     @include order(2);
 
-    width: auto;
-    margin-right: $gutter-width / 2;
+    width: 100%;
   }
 
   .button-primary {
