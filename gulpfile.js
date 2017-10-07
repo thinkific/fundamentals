@@ -25,11 +25,11 @@ gulp.task('build:scripts', ['build:copy'], () =>
     .pipe(gulp.dest(jsDest))
 );
 
-gulp.task('build:remove-scripts-dir', ['build:scripts'], () =>
+gulp.task('build:package', ['build:scripts'], () =>
   gulp.src('build/scripts', { read: false })
     .pipe(clean())
 );
 
 gulp.task('default', [
-  'build:scripts',
+  'build:package'
 ])
