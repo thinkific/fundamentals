@@ -53,9 +53,11 @@
         &:focus,
         &:hover,
         &.active {
+          @include transition(width 300ms ease-in-out);
 
           &:before {
             @include transition(width 300ms ease-in-out);
+            
             width: 5px;
           }
         }

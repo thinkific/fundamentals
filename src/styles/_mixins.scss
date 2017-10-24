@@ -131,13 +131,14 @@
 }
 
 @mixin button-secondary {
-  border: $button__border-width $button__border-style $button__secondary-background--active;
+  border: $button__border-width $button__border-style $button__secondary-color;
   background-color: $button__secondary-background;
   color: $button__secondary-color;
 
   &:active,
   &:focus,
   &:hover {
+    border-color: $button__secondary-background--active;
     background-color: $button__secondary-background--active;
     color: $button__secondary-color--active;
   }

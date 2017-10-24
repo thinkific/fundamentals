@@ -97,14 +97,14 @@
   @include section-background-preset($banner-background-color, $banner-heading-color, $banner-subheading-color, $banner-text-color);
 
   .button-secondary {
-    border-color: $banner-heading-color;
+    border-color: $button__primary-background;
     color: $banner-heading-color;
 
     &:active,
     &:focus,
     &:hover {
-      border-color: $banner-background-color;
-      background-color: $banner-background-color;
+      border-color: $button__primary-background--active;
+      background-color: $button__primary-background--active;
     }
   }
 }
