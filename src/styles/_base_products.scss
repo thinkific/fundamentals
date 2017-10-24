@@ -203,7 +203,7 @@
 			left: 0;
 			width: $progress__inset-size;
 			height: $progress__inset-size;
-			border: 1px solid gray-scale(2);
+			border: $interface__border;
 			border-radius: 50%;
 			content: "";
 		}

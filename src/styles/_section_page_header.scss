@@ -5,7 +5,7 @@
   @include transition(background-color 600ms ease, box-shadow 400ms ease);
 
   position: relative;
-  border-bottom: 1px solid gray-scale(2);
+  border-bottom: $interface__border;
   background-color: $nav__background-color;
   z-index: 11;
 
@@ -416,7 +416,7 @@
 
   .fa-caret-down {
     @include transform(translatey(-50%));
-    
+
     position: absolute;
     top: 50%;
     right: -10px;

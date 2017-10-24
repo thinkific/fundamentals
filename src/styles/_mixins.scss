@@ -383,7 +383,7 @@
   display: block;
   width: 100%;
   padding: $gutter-width / 2;
-  border: 1px solid gray-scale(2);
+  border: $interface__border;
   border-radius: 0;
   background-color: $interface__background-color;
   font-size: 1rem;
