@@ -10,19 +10,29 @@
         </header>
       {% endif %}
       <article class="section__content">
-        {% if section.blocks != empty %}
-          <ul class="pricing-table__list">
-            {% for block in section.blocks %}
-              <li class="pricing-table__list-item">
-                <div class="pricing-table__list-item-details">
-                  <h4>{{ block.settings.pricing_option_price }}</h4>
-                  <h5>{{ block.settings.pricing_option_type }}</h5>
-                </div>
-                <a href="{{ block.settings.pricing_option_button.links.add_to_cart }}" class="button button-primary">Buy Now</a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+        <ul class="pricing-table__list">
+          <li class="pricing-table__list-item">
+            <div class="pricing-table__list-item-details">
+              <h4>{{ page.course.display_price }}</h4>
+              <h5>{{ section.settings.price_name }}</h5>
+            </div>
+            {% if page.course.is_free %}
+              {% assign enroll_free_text = 'liquid.partials.course_landing_page_action_buttons.link_enroll_free' | translate %}
+              <a href="{{ page.course.links.enroll_free }}" class="button button-primary">{{ enroll_free_text }}</a>
+            {% else %}
+              <a href="{{ page.course.links.buy }}" class="button button-primary">{{ page.course.buy_button_text }}</a>
+            {% endif %}
+          </li>
+          {% for price in page.course.additional_prices %}
+            <li class="pricing-table__list-item">
+              <div class="pricing-table__list-item-details">
+                <h4>{{ price.display_price }}</h4>
+                <h5>{{ price.name }}</h5>
+              </div>
+              <a href="{{ price.links.add_to_cart }}" class="button button-primary">{{ price.buy_button_text }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       </article>
     </div>
   </div>
@@ -90,6 +100,17 @@ section.pricing-table {
       ]
     },
     {
+      "label":"Pricing Options",
+      "settings": [
+        {
+          "type": "text",
+          "id": "price_name",
+          "label": "Default Price Description",
+          "default": "Regular Price"
+        }
+      ]
+    },
+    {
       "label":"Background",
       "settings":[
         {
@@ -119,59 +140,6 @@ section.pricing-table {
         }
       ]
     }
-  ],
-  "blocks":{
-    "label":"Add Pricing option",
-    "limit":9,
-    "types":[
-      {
-        "type":"pricing_option",
-        "label":"Price Option",
-        "settings":[
-          {
-            "type":"text",
-            "id":"pricing_option_price",
-            "label":"Price"
-          },
-          {
-            "type":"text",
-            "id":"pricing_option_type",
-            "label":"Type"
-          },
-          {
-            "type":"prices_picker",
-            "id":"pricing_option_button",
-            "label":"Product Price"
-          }
-        ]
-      }
-    ],
-    "defaults":[
-      {
-        "type":"pricing_option",
-        "values":{
-          "pricing_option_price":"6 x $100.00",
-          "pricing_option_type":"6 month payment plan",
-          "pricing_option_button":"/cart/add_product/1410?price_id=578"
-        }
-      },
-      {
-        "type":"pricing_option",
-        "values":{
-          "pricing_option_price":"$100.00/month",
-          "pricing_option_type":"Subscription",
-          "pricing_option_button":"/cart/add_product/1410?price_id=578"
-        }
-      },
-      {
-        "type":"pricing_option",
-        "values":{
-          "pricing_option_price":"$600.00",
-          "pricing_option_type":"One time payment",
-          "pricing_option_button":"/cart/add_product/1410?price_id=578"
-        }
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}
