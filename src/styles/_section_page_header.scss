@@ -53,6 +53,16 @@
             }
           }
         }
+
+        .header__school-name {
+          color: $nav__fixed-link-color;
+
+          &:active,
+          &:focus,
+          &:hover {
+            color: $nav__fixed-link-color--active;
+          }
+        }
       }
     }
   }
