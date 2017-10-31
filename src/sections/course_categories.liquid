@@ -1,4 +1,7 @@
-<section class="course-categories {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="course-categories">
+<section class="course-categories 
+{% if section.settings.background_color_preset != blank %}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}" data-preview-item="course-categories">
   <div class="course-categories__container">
     {% if section.settings.heading != blank %}
       <header class="section__headings">
@@ -85,10 +88,6 @@ section.course-categories {
           "description":"Presets can be configured in the Colors configuration menu",
           "default":"primary",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"primary",
               "label":"Primary"

@@ -1,4 +1,10 @@
-<section class="course-cards {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="course-cards">
+<section class="course-cards 
+{% if section.settings.background_color_preset != blank %}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}
+{% if section.settings.section_height_preset != blank %}
+ {{ section.settings.section_height_preset | prepend: 'section-height__' }}
+{% endif %}" data-preview-item="course-cards">
   <div class="course-cards__container">
     {% if section.settings.heading != blank %}
       <header class="section__headings">
@@ -106,10 +112,6 @@ section.course-cards {
           "default":"secondary",
           "options":[
             {
-              "value":"none",
-              "label":"None"
-            },
-            {
               "value":"primary",
               "label":"Primary"
             },
@@ -135,10 +137,6 @@ section.course-cards {
           "description":"Presets can be configured in the base.scss",
           "default":"large",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"small",
               "label":"Small"

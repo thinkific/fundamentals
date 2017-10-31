@@ -1,4 +1,13 @@
-<section class="call-to-action-legacy {% if section.settings.background_image != blank %}full-width-background{% endif %} {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="call-to-action-legacy">
+<section class="call-to-action-legacy 
+{% if section.settings.background_image != blank %}
+ full-width-background
+{% endif %}
+{% if section.settings.background_color_preset != blank %}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}
+{% if section.settings.section_height_preset != blank %}
+ {{ section.settings.section_height_preset | prepend: 'section-height__' }}
+{% endif %}" data-preview-item="call-to-action-legacy">
   <div class="call-to-action-legacy__container">
     <div class="call-to-action-legacy__wrapper">
       <article class="section__content">
@@ -116,10 +125,6 @@ section.call-to-action-legacy {
           "default":"primary",
           "options":[
             {
-              "value":"none",
-              "label":"None"
-            },
-            {
               "value":"banner",
               "label":"Banner"
             },
@@ -169,10 +174,6 @@ section.call-to-action-legacy {
           "description":"Presets can be configured in the base.scss",
           "default":"large",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"small",
               "label":"Small"

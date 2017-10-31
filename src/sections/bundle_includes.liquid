@@ -1,4 +1,7 @@
-<section class="bundle-includes {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="bundle-includes">
+<section class="bundle-includes 
+{% if section.settings.background_color_preset != blank %}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}" data-preview-item="bundle-includes">
   <div class="bundle-includes__container">
     {% if section.settings.heading != blank %}
       <header class="section__headings">
@@ -85,10 +88,6 @@ section.bundle-includes {
           "description":"Presets can be configured in the Colors configuration menu",
           "default":"primary",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"primary",
               "label":"Primary"

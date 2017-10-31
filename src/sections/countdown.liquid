@@ -1,4 +1,7 @@
-<section class="countdown {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="countdown">
+<section class="countdown 
+{% if section.settings.background_color_preset != blank %}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}" data-preview-item="countdown">
   <div class="countdown__container">
     <div class="countdown__wrapper">
       {% if section.settings.heading != blank %}
@@ -155,10 +158,6 @@ section.countdown {
           "description":"Presets can be configured in the Colors configuration menu",
           "default":"primary",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"primary",
               "label":"Primary"

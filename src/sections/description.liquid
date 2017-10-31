@@ -1,4 +1,7 @@
-<section class="description {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="description">
+<section class="description 
+{% if section.settings.background_color_preset != blank %}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}" data-preview-item="description">
   <div class="description__container">
     <div class="description__wrapper">
       {% if section.settings.heading != blank %}
@@ -100,10 +103,6 @@ section.description {
           "description":"Presets can be configured in the Colors configuration menu",
           "default":"secondary",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"primary",
               "label":"Primary"

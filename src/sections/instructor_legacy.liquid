@@ -1,4 +1,7 @@
-<section class="instructor-legacy {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="instructor-legacy">
+<section class="instructor-legacy
+{% if section.settings.background_color_preset != blank %}
+{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}" data-preview-item="instructor-legacy">
   <div class="instructor-legacy__container">
     <article class="instructor-legacy__profile">
       {% assign instructor = section.settings.instructor %}
@@ -62,10 +65,6 @@
           "description":"Presets can be configured in the Colors configuration menu",
           "default":"primary",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"banner",
               "label":"Banner"

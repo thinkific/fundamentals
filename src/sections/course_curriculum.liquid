@@ -1,7 +1,10 @@
-<section class="course-curriculum {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %}" data-preview-item="course-curriculum">
+<section class="course-curriculum 
+{% if section.settings.background_color_preset != blank %}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}" data-preview-item="course-curriculum">
   <div class="course-curriculum__container">
     {% if section.settings.heading != blank %}
-      <header class="section__headings">    
+      <header class="section__headings">
         <h3 class="section__heading">{{ section.settings.heading }}</h3>
         {% if section.settings.subheading != blank %}
           <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
@@ -147,10 +150,6 @@ section.course-curriculum {
           "description":"Presets can be configured in the Colors configuration menu",
           "default":"secondary",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"primary",
               "label":"Primary"
