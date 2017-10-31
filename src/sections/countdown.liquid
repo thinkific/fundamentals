@@ -1,4 +1,4 @@
-<section class="countdown 
+<section class="countdown
 {% if section.settings.background_color_preset != blank %}
  {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
 {% endif %}" data-preview-item="countdown">
@@ -10,18 +10,13 @@
           {% if section.settings.subheading != blank %}
             <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
           {% endif %}
-          {% if section.settings.price != blank || section.blocks != nil %}
-            <ul class="section__button-group">
-              {% if section.settings.price != blank %}
-                <li><a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
-              {% else %}
-                {% if section.blocks != empty %}
-                  {% for block in section.blocks %}
-                    <li><a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
-                  {% endfor %}
-                {% endif %}
-              {% endif %}
-            </ul>
+          {% if section.settings.price != blank %}
+            {% if section.settings.button_text != blank %}
+              {% assign button_text = section.settings.button_text %}
+            {% else %}
+              {% assign button_text = section.settings.price.buy_button_text %}
+            {% endif %}
+            <a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ button_text }}</a>
           {% endif %}
         </header>
       {% endif %}
@@ -143,10 +138,26 @@ section.countdown {
       ]
     },
     {
-      "type":"datetime",
-      "id":"expiry_date",
-      "label":"Expiry Date and Time",
-      "default":"2018-12-31T18:00:00.000Z"
+      "label":"Countdown",
+      "settings":[
+        {
+          "type":"datetime",
+          "id":"expiry_date",
+          "label":"Expiry Date and Time",
+          "default":"2018-12-31T18:00:00.000Z"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Enroll Now"
+        },
+        {
+          "type":"price_picker",
+          "id":"price",
+          "label":"Attach a course"
+        }
+      ]
     },
     {
       "label":"Background",
@@ -174,42 +185,6 @@ section.countdown {
         }
       ]
     }
-  ],
-  "blocks":{
-    "label":"Add Button",
-    "limit":2,
-    "types":[
-      {
-        "type":"button",
-        "label":"",
-        "settings":[
-          {
-            "type":"text",
-            "id":"button_text",
-            "label":"Text"
-          },
-          {
-            "type":"price_picker",
-            "id":"price",
-            "label":"Attach a course"
-          },
-          {
-            "type":"page_picker",
-            "id":"button_url",
-            "label":"Custom URL"
-          }
-        ]
-      }
-    ],
-    "defaults":[
-      {
-        "type":"button",
-        "values":{
-          "button_text":"Learn More",
-          "button_url":"/courses/demo"
-        }
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}
