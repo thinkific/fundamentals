@@ -42,15 +42,23 @@
 
 section.banner-legacy {
 
-  .section__heading,
-  .section__subheading {
-    text-align: {{ section.settings.heading_alignment }};
+  .section__content {
+    text-align: {{ section.settings.content_alignment }};
   }
 
-  {% if section.settings.heading_alignment == "center" %}
+  {% if section.settings.content_alignment == "center" %}
+    .section__button-group {
+      @include justify-content(center);
+    }
     .section__subheading:before {
       margin-right: auto;
       margin-left: auto;
+    }
+  {% endif %}
+
+  {% if section.settings.content_alignment == "right" %}
+    .section__button-group {
+      @include justify-content(flex-end);
     }
   {% endif %}
 
@@ -107,12 +115,16 @@ section.banner-legacy {
           "id":"subtitle",
           "label":"Subtitle",
           "default":"Get more detailed about your course here!"
-        },
+        }
+      ]
+    },
+    {
+      "label":"Content Alignment",
+      "settings":[
         {
           "type":"radio",
-          "id":"heading_alignment",
-          "label":"Alignment",
-          "description":"Headings will inherit the same alignment",
+          "id":"content_alignment",
+          "label":"",
           "default":"left",
           "options":[
             {

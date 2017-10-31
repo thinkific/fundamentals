@@ -18,6 +18,8 @@
   .section__button-group {
     @include button-group;
 
+    margin-bottom: $gutter-width;
+
     .button {
       @include screen-sm-max {
         margin-bottom: $gutter-width / 2;
@@ -37,7 +39,7 @@
 .banner__read-more {
   display: inline-block;
   position: relative;
-  bottom: 0;
+  margin-bottom: $gutter-width;
   color: $link__color;
   font-size: .875rem;
   text-decoration: none;
