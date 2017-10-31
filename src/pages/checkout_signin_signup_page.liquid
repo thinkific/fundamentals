@@ -11,10 +11,12 @@
   <div class="checkout__container">
     <div class="checkout__wrapper">
       <article class="checkout__form">
-        <ul class="progress-bar">
-          <li class="active">{{ 'checkouts.new.list_item_1' | translate }}</li>
-          <li>{{ 'checkouts.new.list_item_2' | translate }}</li>
-        </ul>
+        {% unless page.product.course.is_free or page.product.bundle.is_free %}
+          <ul class="progress-bar">
+            <li class="active">{{ 'checkouts.new.list_item_1' | translate }}</li>
+            <li>{{ 'checkouts.new.list_item_2' | translate }}</li>
+          </ul>
+        {% endunless %}
         <section class="checkout__form--sign-in">
           <h1 class="checkout__heading">{{ 'liquid.views.sign_in_page.header_welcome_back' | translate }}</h1>
           <aside class="checkout__sign-up">
