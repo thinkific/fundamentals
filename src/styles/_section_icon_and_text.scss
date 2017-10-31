@@ -11,6 +11,7 @@
 
 .text-icon__list {
   @include make-row(false);
+  @include justify-content(center);
 }
 
 .text-icon__list-item {
