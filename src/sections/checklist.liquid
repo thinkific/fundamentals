@@ -18,7 +18,6 @@
             {% for block in section.blocks %}
               <li class="checklist__list-item">
                 <h4><i class="fa {{ block.settings.item_icon }}"></i>{{ block.settings.item_name }}</h4>
-                {% if block.settings.item_body != blank and block.settings.item_body != "" %}<p>{{ block.settings.item_body }}</p>{% endif %}
               </li>
             {% endfor %}
           </ul>
@@ -134,11 +133,6 @@ section.checklist {
             "type":"text",
             "id":"item_name",
             "label":"Name"
-          },
-          {
-            "type":"textarea",
-            "id":"item_body",
-            "label":"Description"
           }
         ]
       }
@@ -148,48 +142,42 @@ section.checklist {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Management",
-          "item_body":""
+          "item_name":"Management"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Marketing",
-          "item_body":""
+          "item_name":"Marketing"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Branding",
-          "item_body":""
+          "item_name":"Branding"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Social Media",
-          "item_body":""
+          "item_name":"Social Media"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Email marketing",
-          "item_body":""
+          "item_name":"Email marketing"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Leadership",
-          "item_body":""
+          "item_name":"Leadership"
         }
       }
     ]
