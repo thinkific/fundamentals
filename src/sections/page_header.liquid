@@ -1,4 +1,4 @@
-<header class="header 
+<header class="header
 {% if section.settings.header_style == 'floating' %}
  floating
 {% endif %}" data-preview-item="header">
@@ -219,6 +219,63 @@ $(document).ready(function() {
         }
       ]
     }
-  ]
+  ],
+  "blocks":{
+    "label":"Navigation Links",
+    "limit":6,
+    "types":[
+      {
+        "type":"nav_item",
+        "label":"Link Item",
+        "settings":[
+          {
+            "type":"text",
+            "id":"nav_text",
+            "label":"Text"
+          },
+          {
+            "type":"page_picker",
+            "id":"nav_url",
+            "label":"URL"
+          },
+          {
+            "type": "select",
+            "id": "nav_target",
+            "label": "Open In",
+            "default": "_self",
+            "options": [
+              {
+                "value": "_self",
+                "label": "Same Window"
+              },
+              {
+                "value": "_blank",
+                "label": "New Window"
+              }
+            ]
+          },
+          {
+            "type": "radio",
+            "id": "nav_side",
+            "label": "",
+            "default": "right",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left Menu"
+              },
+              {
+                "value": "right",
+                "label": "Right Menu"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "defaults":[
+
+    ]
+  }
 }
 {% endschema %}

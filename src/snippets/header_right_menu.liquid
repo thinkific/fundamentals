@@ -4,18 +4,12 @@
   left hand side of the dashboard.
 {% endcomment %}
 
-{% if site.has_custom_right_links %}
-  {% for link in site.custom_right_links %}
-    {% if link.is_public %}
+{% if section.blocks != empty %}
+  {% for block in section.blocks %}
+    {% if block.settings.nav_side == "right" %}
       <li class="header__nav-item">
-        <a href="{{ link.formatted_url }}" target="{{ link.target }}">{{ link.formatted_text }}</a>
+        <a href="{{ block.settings.nav_url }}" target="{{ block.settings.nav_target }}">{{ block.settings.nav_text }}</a>
       </li>
-    {% else %}
-      {% if site.current_user.signed_in %}
-        <li class="header__nav-item">
-          <a href="{{ link.formatted_url }}" target="{{ link.target }}">{{ link.formatted_text }}</a>
-        </li>
-      {% endif %}
     {% endif %}
   {% endfor %}
 {% endif %}
