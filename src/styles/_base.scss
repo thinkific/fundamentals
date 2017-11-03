@@ -38,6 +38,9 @@ body {
   padding: 0;
   background-color: $body__background-color;
   color: $body__font-color;
+}
+
+main {
 
   & > section {
     overflow-x: hidden;
