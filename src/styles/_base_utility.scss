@@ -52,6 +52,11 @@
   }
 }
 
+// NoScroll
+.noscroll {
+  overflow: hidden;
+}
+
 // Admin Notice (Override)
 .admin-notice__bar {
   @include screen-md-max {
