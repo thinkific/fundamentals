@@ -46,8 +46,6 @@
 			}
 
 			a {
-				@include transition(background-color 300ms ease, border-color 300ms ease, top 200ms ease-in);
-
 				top: 40%;
 			}
 		}
@@ -66,7 +64,6 @@
 
 		a {
 			@include transform(translatex(-50%));
-			@include transition(top 200ms ease-out);
 
 			position: absolute;
 			top: 100%;

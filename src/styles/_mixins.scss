@@ -92,7 +92,7 @@
 
 // Buttons
 @mixin button {
-  @include transition(background-color 300ms ease, border-color 300ms ease, box-shadow 600ms ease);
+  @include transition(all 400ms ease);
 
   display: inline-block;
   padding: $button__padding;
@@ -109,7 +109,7 @@
   &:active,
   &:focus,
   &:hover {
-    @include transition(background-color 300ms ease, border-color 300ms ease, box-shadow 400ms ease);
+    @include transition(all 300ms ease, box-shadow 600ms ease);
 
     box-shadow: $shadow-button;
     color: $link__color;
