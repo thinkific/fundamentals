@@ -32,6 +32,15 @@
   @return null;
 }
 
+@function z-index($key) {
+  @if map-has-key($z-index, $key) {
+    @return map-get($z-index, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $z-index.";
+  @return null;
+}
+
 // Grid
 // ======================================
 $grid-columns: 12 !default;
@@ -280,23 +289,28 @@ $section-height: (
 );
 
 // Z-Index
-$z-index__page: -1;
-$z-index__element: 100;
-$z-index__element--active: 101;
-$z-index__overlay: 200;
-$z-index__navigation: 300;
-$z-index__navigation--active: 301;
-$z-index__modal: 400;
-$z-index__saiyan: 9001;
-
+$z-index__default: 0 !default;
+$z-index__element--background: 101 !default;
+$z-index__element--middleground: 102 !default;
+$z-index__element--foreground: 103 !default;
+$z-index__overlay: 200 !default;
+$z-index__navigation--background: 301 !default;
+$z-index__navigation--middleground: 302 !default;
+$z-index__navigation--foreground: 303 !default;
+$z-index__modal: 400 !default;
+$z-index__saiyan: 9999 !default;
+$z-index__yamcha: -9999 !default;
 
 $z-index: (
-  page: $z-index__page,
-  element: $z-index__element,
-  element-active: $z-index__element--active,
+  default: $z-index__default,
+  element--background: $z-index__element--background,
+  element--middleground: $z-index__element--middleground,
+  element--foreground: $z-index__element--foreground,
   overlay: $z-index__overlay,
-  navigation: $z-index__navigation,
-  navigation-active: $z-index__navigation--active,
+  navigation--background: $z-index__navigation--background,
+  navigation--middleground: $z-index__navigation--middleground,
+  navigation--foreground: $z-index__navigation--foreground,
   modal: $z-index__modal,
-  top: $z-index__saiyan
+  page-foreground: $z-index__saiyan,
+  page-background: $z-index__yamcha
 );
