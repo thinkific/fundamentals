@@ -7,7 +7,7 @@
   position: relative;
   border-bottom: $interface__border;
   background-color: $nav__background-color;
-  z-index: 11;
+  z-index: z-index(navigation--background);
 
   .home_landing_page &,
   .course_landing_page &,
@@ -161,7 +161,7 @@
     opacity: 0;
     overflow: hidden;
     visibility: hidden;
-    z-index: -1;
+    z-index: z-index(page-background);
 
     .header__nav-item {
       display: block;
@@ -231,7 +231,7 @@
 
   opacity: 1;
   visibility: visible;
-  z-index: 100;
+  z-index: z-index(navigation--foreground);
 }
 
 .header__nav-item {

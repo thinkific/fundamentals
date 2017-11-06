@@ -258,7 +258,7 @@
   box-shadow: $shadow-3;
   opacity: 0;
   visibility: hidden;
-  z-index: 10;
+  z-index: z-index(page-background);
 
   // Parent 'state' classname to modify the targets properties
   #{$trigger} & {
@@ -269,7 +269,7 @@
 
     opacity: 1;
     visibility: visible;
-    z-index: 1001;
+    z-index: z-index(navigation--foreground);
   }
 }
 
@@ -358,7 +358,7 @@
     font-family: $icon__font-family;
     font-size: 1.2rem;
     content: "\f0d7";
-    z-index: 2;
+    z-index: z-index(element--middleground);
     pointer-events: none;
   }
 }
@@ -375,7 +375,7 @@
     font-family: $icon__font-family;
     font-size: 1rem;
     content: "\f0d7";
-    z-index: 1;
+    z-index: z-index(element--background);
     pointer-events: none;
   }
 }

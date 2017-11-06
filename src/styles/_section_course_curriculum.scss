@@ -66,7 +66,7 @@
           bottom: 0;
           left: 65%;
           opacity: 1;
-          z-index: 1;
+          z-index: z-index(element--background);
         }
       }
 
@@ -99,7 +99,7 @@
     position: absolute;
     top: $gutter-width / 2;
     right: 0;
-    z-index: 2;
+    z-index: z-index(element--middleground);
 
     &:after {
       color: $heading__font-color;

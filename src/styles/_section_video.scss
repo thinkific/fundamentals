@@ -11,7 +11,7 @@
     bottom: 0;
     left: 0;
     content: "";
-    z-index: 1;
+    z-index: z-index(element--background);
     pointer-events: none;
   }
 
@@ -73,7 +73,7 @@
       text-align: center;
       content: "\f04b";
       opacity: 0.85;
-      z-index: 2;
+      z-index: z-index(element--middleground);
     }
   }
 }
