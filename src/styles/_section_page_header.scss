@@ -235,11 +235,19 @@
 .header__nav--overlay {
   @include transition(background-color 400ms ease, opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
   @include screen-sm-max {
-    opacity: 1;
-    visibility: visible;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
     z-index: z-index(navigation--middleground);
 
-    & + .header__mobile-button {
+    .header__nav {
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .header__mobile-button {
       z-index: z-index(navigation--foreground);
 
       span {
