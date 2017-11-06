@@ -18,12 +18,9 @@
     &[class="header floating"] {
       @include transform(translatex(-50%));
 
+      position: absolute;
       top: 0;
       left: 50%;
-    }
-
-    &.floating {
-      position: absolute;
       width: 100%;
       background-color: transparent;
     }
