@@ -109,10 +109,10 @@ $(document).ready(function() {
       e.preventDefault();
       e.stopPropagation();
       {% case section.settings.menu_mobile_type %}
+      {% when 'dropdown' %}
+        $navigation.toggleClass('header__nav--dropdown');
       {% when 'overlay' %}
         $navigation.toggleClass('header__nav--overlay');
-      {% when 'expanded' %}
-        $navigation.toggleClass('header__nav--expanded');
       {% endcase %}
       $mobileButton.toggleClass('open');
       $navigation.focus();
@@ -205,15 +205,15 @@ $(document).ready(function() {
           "type":"select",
           "id":"menu_mobile_type",
           "label":"Mobile Menu Type",
-          "default":"overlay",
+          "default":"dropdown",
           "options":[
+            {
+              "value":"dropdown",
+              "label":"Dropdown"
+            },
             {
               "value":"overlay",
               "label":"Overlay"
-            },
-            {
-              "value":"expanded",
-              "label":"Expanded"
             }
           ]
         }

@@ -226,12 +226,34 @@
   }
 }
 
-.header__nav--overlay {
+.header__nav--dropdown {
   @include transition(opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
+  @include screen-sm-max {
+    opacity: 1;
+    visibility: visible;
+    z-index: z-index(navigation--middleground);
+  }
+}
 
-  opacity: 1;
-  visibility: visible;
-  z-index: z-index(navigation--foreground);
+.header__nav--overlay {
+  @include transition(background-color 400ms ease, opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
+  @include screen-sm-max {
+    opacity: 1;
+    visibility: visible;
+    z-index: z-index(navigation--middleground);
+
+    & + .header__mobile-button {
+      z-index: z-index(navigation--foreground);
+
+      span {
+
+        &:before,
+        &:after {
+          background-color: $nav__mobile-link-color;
+        }
+      }
+    }
+  }
 }
 
 .header__nav-item {
