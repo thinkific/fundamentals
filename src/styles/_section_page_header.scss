@@ -247,6 +247,10 @@
       visibility: visible;
     }
 
+    .header__school-name {
+      color: $nav__mobile-link-color;
+    }
+
     .header__mobile-button {
       z-index: z-index(navigation--foreground);
 
