@@ -10,7 +10,7 @@
     {% include 'page_wide_css' %}
     {% include 'theme_wide_css' %}
   </head>
-  <body class="{{ page.page_identifier | kebab_filter }}">
+  <body class="{{ page.page_identifier | kebab_filter }} {{ theme.preset_name | kebab_filter }}">
     <div id="skip-link">
       <a href="#main-content" tabindex="0">Skip to main content</a>
     </div>
