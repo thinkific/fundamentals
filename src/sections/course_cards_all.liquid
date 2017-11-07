@@ -1,0 +1,156 @@
+<section class="course-cards course-cards-all {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="course-cards-all">
+  <div class="course-cards__container">
+    {% if section.settings.heading != blank %}
+      <header class="section__headings">
+        <h3 class="section__heading">{{ section.settings.heading }}</h3>
+        {% if section.settings.subheading != blank %}
+          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+        {% endif %}
+      </header>
+    {% endif %}
+    <article class="section__content">
+      {% paginate page.products by 6 %}
+        <ul class="products__list">
+          {% for product in paginate.collection %}
+            <li class="products__list-item">
+              {% if product.is_course %}
+                {% assign course = product.course %}
+                {% include 'course_card' with course %}
+              {% else %}
+                {% assign bundle = product.bundle %}
+                {% include 'bundle_card' with bundle %}
+              {% endif %}
+            </li>
+            {% assign product_count = forloop.length %}
+          {% endfor %}
+        </ul>
+        {% include 'pagination' with paginate %}
+      {% endpaginate %}
+    </article>
+  </div>
+</section>
+
+{% style %}
+
+section.course-cards-all {
+
+  .section__heading,
+  .section__subheading {
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  {% if section.settings.heading_alignment == "center" %}
+    .section__subheading:before {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  {% endif %}
+}
+
+{% endstyle %}
+
+{% schema %}
+{
+  "label":"Course Cards (All)",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"All Courses"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"Headings will inherit the same alignment",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Color Preset",
+          "description":"Presets can be configured in the Colors configuration menu",
+          "default":"secondary",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Section Height",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height Preset",
+          "description":"Presets can be configured in the base.scss",
+          "default":"large",
+          "options":[
+            {
+              "value":"none",
+              "label":"None"
+            },
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
