@@ -139,9 +139,9 @@ $subheading__font-family: '{{ theme.settings.subheading_font }}', Sans-Serif !de
 $subheading__font-weight: 400 !default;
 
 // Interface
-$interface__background-color: $white !default;
-$interface__border: 1px solid gray-scale(2) !default;
-$interface__shadow: 1px 1px 0 rgba(0, 0, 0, 0.05) !default;
+$interface__background-color: {{ theme.settings.interface_background_color }} !default;
+$interface__border: 1px solid {{ theme.settings.interface_border_color }} !default;
+$interface__shadow: $shadow-interface !default;
 
 // Icon
 $icon__font-family: '{{ icon_font }}', 'FontAwesome' !default

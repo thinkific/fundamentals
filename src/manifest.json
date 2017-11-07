@@ -505,6 +505,23 @@
           "default": "#68717A"
         }
       ]
+    },
+    {
+      "label": "Interface",
+      "settings": [
+        {
+          "type": "color",
+          "id": "interface_background_color",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "interface_border_color",
+          "label": "Border Color",
+          "default": "#ECEEEF"
+        }
+      ]
     }
   ],
   "presets": {
@@ -567,7 +584,9 @@
         "tertiary_background_color": "#FFFFFF",
         "tertiary_heading_text_color": "#68717A",
         "tertiary_subheading_text_color": "#68717A",
-        "tertiary_text_color": "#68717A"
+        "tertiary_text_color": "#68717A",
+        "interface_background_color": "#FFFFFF",
+        "interface_border_color": "#ECEEEF"
       }
     },
     "elegance": {
@@ -629,7 +648,9 @@
         "tertiary_background_color": "#DEA986",
         "tertiary_heading_text_color": "#DEA986",
         "tertiary_subheading_text_color": "#505050",
-        "tertiary_text_color": "#505050"
+        "tertiary_text_color": "#505050",
+        "interface_background_color": "#FFFFFF",
+        "interface_border_color": "#ECEEEF"
       }
     }
   }
