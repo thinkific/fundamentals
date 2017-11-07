@@ -140,7 +140,8 @@ $subheading__font-weight: 400 !default;
 
 // Interface
 $interface__background-color: {{ theme.settings.interface_background_color }} !default;
-$interface__border: 1px solid {{ theme.settings.interface_border_color }} !default;
+$interface__border-color: {{ theme.settings.interface_border_color }} !default;
+$interface__border: 1px solid $interface__border-color !default;
 $interface__shadow: $shadow-interface !default;
 
 // Icon
