@@ -126,6 +126,10 @@
 }
 
 // Section Height Presets
+.section-height__banner {
+  @include section-height($section-height__large * 2, $section-height__large);
+}
+
 .section-height__large {
   @include section-height(section-height-preset(large));
 }
