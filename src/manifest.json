@@ -14,19 +14,19 @@
         {
           "type": "color",
           "id": "background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "brand_color",
-          "label": "Brand Color",
+          "label": "Brand color",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "accent_color",
-          "label": "Accent Color",
+          "label": "Accent color",
           "default": "#2AA0E9"
         }
       ]
@@ -38,49 +38,49 @@
         {
           "type": "color",
           "id": "menu_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "menu_link_color",
-          "label": "Link Color",
+          "label": "Link color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "menu_link_hover_color",
-          "label": "Link Color (Hover)",
+          "label": "Link color (Hover)",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "menu_fixed_background_color",
-          "label": "Background Color (Fixed)",
+          "label": "Background color (Fixed)",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "menu_fixed_link_color",
-          "label": "Link Color (Fixed Menu)",
+          "label": "Link color (Fixed menu)",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "menu_fixed_link_hover_color",
-          "label": "Link Color (Fixed Menu - Hover)",
+          "label": "Link color (Fixed menu - Hover)",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "menu_floating_link_color",
-          "label": "Link Color (Floating Menu)",
+          "label": "Link color (Floating menu)",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "menu_floating_link_hover_color",
-          "label": "Link Color (Floating Menu - Hover)",
+          "label": "Link color (Floating menu - Hover)",
           "default": "#FFFFFF"
         }
       ]
@@ -92,55 +92,55 @@
         {
           "type": "color",
           "id": "menu_mobile_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "menu_mobile_background_hover_color",
-          "label": "Background Color (Hover)",
+          "label": "Background color (Hover)",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "menu_mobile_link_color",
-          "label": "Link Color",
+          "label": "Link color",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "menu_mobile_link_hover_color",
-          "label": "Link Color (Hover)",
+          "label": "Link color (Hover)",
           "default": "#FFFFFF"
         }
       ]
     },
     {
-      "label": "Dropdown Menu",
+      "label": "Dropdown menu",
       "description": "This is where you style the dropdown menu",
       "settings": [
         {
           "type": "color",
           "id": "dropdown_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "dropdown_link_color",
-          "label": "Link Color",
+          "label": "Link color",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "dropdown_link_hover_color",
-          "label": "Link Color (Hover)",
+          "label": "Link color (Hover)",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "dropdown_link_background_hover_color",
-          "label": "Link Background Color (Hover)",
+          "label": "Link background color (Hover)",
           "default": "#2AA0E9"
         }
       ]
@@ -152,25 +152,25 @@
         {
           "type": "color",
           "id": "primary_button_background_color",
-          "label": "Primary Button Color",
+          "label": "Background color",
           "default": "#36C69C"
         },
         {
           "type": "color",
           "id": "primary_button_text_color",
-          "label": "Primary Button Text Color",
+          "label": "Text color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "primary_button_background_hover_color",
-          "label": "Primary Button Color (Hover)",
+          "label": "Background color (Hover)",
           "default": "#36C69C"
         },
         {
           "type": "color",
           "id": "primary_button_text_hover_color",
-          "label": "Primary Button Text Color (Hover)",
+          "label": "Text color (Hover)",
           "default": "#FFFFFF"
         }
       ]
@@ -182,25 +182,25 @@
         {
           "type": "color",
           "id": "secondary_button_background_color",
-          "label": "Secondary Button Color",
+          "label": "Background color",
           "default": "transparent"
         },
         {
           "type": "color",
           "id": "secondary_button_text_color",
-          "label": "Secondary Button Text Color",
+          "label": "Text color",
           "default": "#36C69C"
         },
         {
           "type": "color",
           "id": "secondary_button_background_hover_color",
-          "label": "Secondary Button Color (Hover)",
+          "label": "Background color (Hover)",
           "default": "#36C69C"
         },
         {
           "type": "color",
           "id": "secondary_button_text_hover_color",
-          "label": "Secondary Button Text Color (Hover)",
+          "label": "Text color (Hover)",
           "default": "#FFFFFF"
         }
       ]
@@ -212,13 +212,13 @@
         {
           "type": "color",
           "id": "link_color",
-          "label": "Link Color",
+          "label": "Link color",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "link_hover_color",
-          "label": "Hover Cover",
+          "label": "Hover cover",
           "default": "#2AA0E9"
         }
       ]
@@ -230,7 +230,7 @@
         {
           "type": "select",
           "id": "heading_font",
-          "label": "Heading Font",
+          "label": "Heading font",
           "default": "Open Sans",
           "options": [
             {
@@ -263,13 +263,13 @@
         {
           "type": "color",
           "id": "heading_text_color",
-          "label": "Heading Color",
+          "label": "Heading color",
           "default": "#33393F"
         },
         {
           "type": "select",
           "id": "subheading_font",
-          "label": "Subheading Font",
+          "label": "Subheading font",
           "default": "Open Sans",
           "options": [
             {
@@ -302,13 +302,13 @@
         {
           "type": "color",
           "id": "subheading_text_color",
-          "label": "Subheading Color",
+          "label": "Subheading color",
           "default": "#33393F"
         },
         {
           "type": "select",
           "id": "body_font",
-          "label": "Body Font",
+          "label": "Body font",
           "default": "Open Sans",
           "options": [
             {
@@ -336,13 +336,13 @@
         {
           "type": "color",
           "id": "body_text_color",
-          "label": "Body Color",
+          "label": "Body color",
           "default": "#68717A"
         },
         {
           "type":"select",
           "id": "icon_font",
-          "label": "Icon Font",
+          "label": "Icon font",
           "default": "FontAwesome",
           "options": [
             {
@@ -361,147 +361,147 @@
         {
           "type": "color",
           "id": "footer_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "footer_text_color",
-          "label": "Text Color",
+          "label": "Text color",
           "default": "#68717A"
         },
         {
           "type": "color",
           "id": "footer_link_color",
-          "label": "Link Color",
+          "label": "Link color",
           "default": "#68717A"
         },
         {
           "type": "color",
           "id": "footer_link_hover_color",
-          "label": "Hover Color",
+          "label": "Link color (Hover)",
           "default": "#68717A"
         }
       ]
     },
     {
-      "label": "Section - Background Preset (Banner)",
+      "label": "Section - Background preset (Banner)",
       "settings": [
         {
           "type": "image",
           "id": "banner_background_promo_image",
-          "label": "Promo Image",
+          "label": "Promo image",
           "default": ""
         },
         {
           "type": "color",
           "id": "banner_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#2AA0E9"
         },
         {
           "type": "color",
           "id": "banner_heading_text_color",
-          "label": "Heading Color",
+          "label": "Heading color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "banner_subheading_text_color",
-          "label": "Subheading Color",
+          "label": "Subheading color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "banner_text_color",
-          "label": "Text Color",
+          "label": "Text color",
           "default": "#FFFFFF"
         }
       ]
     },
     {
-      "label": "Section - Background Preset (Primary)",
+      "label": "Section - Background preset (Primary)",
       "settings": [
         {
           "type": "color",
           "id": "primary_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "primary_heading_text_color",
-          "label": "Heading Color",
+          "label": "Heading color",
           "default": "#68717A"
         },
         {
           "type": "color",
           "id": "primary_subheading_text_color",
-          "label": "Subheading Color",
+          "label": "Subheading color",
           "default": "#68717A"
         },
         {
           "type": "color",
           "id": "primary_text_color",
-          "label": "Text Color",
+          "label": "Text color",
           "default": "#68717A"
         }
       ]
     },
     {
-      "label": "Section - Background Preset (Secondary)",
+      "label": "Section - Background preset (Secondary)",
       "settings": [
         {
           "type": "color",
           "id": "secondary_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "secondary_heading_text_color",
-          "label": "Heading Color",
+          "label": "Heading color",
           "default": "#68717A"
         },
         {
           "type": "color",
           "id": "secondary_subheading_text_color",
-          "label": "Subheading Color",
+          "label": "Subheading color",
           "default": "#68717A"
         },
         {
           "type": "color",
           "id": "secondary_text_color",
-          "label": "Text Color",
+          "label": "Text color",
           "default": "#68717A"
         }
       ]
     },
     {
-      "label": "Section - Background Color (Tertiary)",
+      "label": "Section - Background color (Tertiary)",
       "settings": [
         {
           "type": "color",
           "id": "tertiary_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#FFFFFF"
         },
         {
           "type": "color",
           "id": "tertiary_heading_text_color",
-          "label": "Heading Color",
+          "label": "Heading color",
           "default": "#68717A"
         },
         {
           "type": "color",
           "id": "tertiary_subheading_text_color",
-          "label": "Subheading Color",
+          "label": "Subheading color",
           "default": "#68717A"
         },
         {
           "type": "color",
           "id": "tertiary_text_color",
-          "label": "Text Color",
+          "label": "Text color",
           "default": "#68717A"
         }
       ]
@@ -512,7 +512,7 @@
         {
           "type": "color",
           "id": "interface_background_color",
-          "label": "Background Color",
+          "label": "Background color",
           "default": "#FFFFFF"
         },
         {
@@ -524,7 +524,7 @@
         {
           "type": "color",
           "id": "interface_border_color",
-          "label": "Border Color",
+          "label": "Border color",
           "default": "#ECEEEF"
         }
       ]
