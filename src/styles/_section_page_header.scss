@@ -80,12 +80,6 @@
   margin: 0;
 }
 
-.header__nav-floating {
-  @include screen-md-max {
-    display: none;
-  }
-}
-
 .header__logo {
   @include screen-sm-max {
     padding-right: $gutter-width / 2;

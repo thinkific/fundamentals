@@ -90,7 +90,6 @@ $(document).ready(function() {
 
   $(window).resize(function() {
     dynamicHeaderHeight();
-    $('.header__nav-floating').css('height', headerHeight);
   });
 
   var isMobile = window.matchMedia("only screen and (max-width: 767px)");
@@ -143,9 +142,6 @@ $(document).ready(function() {
         $header.removeClass('fixed');
       }
     });
-  {% endif %}
-  {% if section.settings.header_style == 'floating' %}
-    $main.find('section').first().prepend('<span class="header__nav-floating" style="display:block;height:' + headerHeight + 'px;"></span>');
   {% endif %}
 });
 </script>
