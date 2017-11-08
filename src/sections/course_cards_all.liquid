@@ -1,4 +1,10 @@
-<section class="course-cards course-cards-all {% if section.settings.background_color_preset != 'none' and section.settings.background_color_preset != blank %}{{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}{% endif %} {% if section.settings.section_height_preset != 'none' and section.settings.section_height_preset != blank %}{{ section.settings.section_height_preset | prepend: 'section-height__' }}{% endif %}" data-preview-item="course-cards-all">
+<section class="course-cards course-cards-all
+{% if section.settings.background_color_preset != blank %}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}
+{% if section.settings.section_height_preset != blank %}
+ {{ section.settings.section_height_preset | prepend: 'section-height__' }}
+{% endif %}" data-preview-item="course-cards-all">
   <div class="course-cards__container">
     {% if section.settings.heading != blank %}
       <header class="section__headings">
@@ -9,23 +15,22 @@
       </header>
     {% endif %}
     <article class="section__content">
-      {% paginate page.products by 6 %}
-        <ul class="products__list">
-          {% for product in paginate.collection %}
-            <li class="products__list-item">
-              {% if product.is_course %}
-                {% assign course = product.course %}
-                {% include 'course_card' with course %}
-              {% else %}
-                {% assign bundle = product.bundle %}
-                {% include 'bundle_card' with bundle %}
-              {% endif %}
-            </li>
-            {% assign product_count = forloop.length %}
-          {% endfor %}
-        </ul>
-        {% include 'pagination' with paginate %}
-      {% endpaginate %}
+      <ul class="products__list">
+        {% for product in page.products limit: {{section.settings.course_card_limit }} %}
+          <li class="products__list-item">
+            {% if product.is_course %}
+              {% assign course = product.course %}
+              {% include 'course_card' with course %}
+            {% else %}
+              {% assign bundle = product.bundle %}
+              {% include 'bundle_card' with bundle %}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <section class="section__button-group">
+        <a class="button button-primary" href="{{ site.collections_url }}">{{ 'liquid.views.student_dashboard.link_view_more_courses' | translate }}</a>
+      </section>
     </article>
   </div>
 </section>
@@ -92,6 +97,40 @@ section.course-cards-all {
       ]
     },
     {
+      "label":"Course Cards",
+      "settings":[
+        {
+          "type":"select",
+          "id":"course_card_limit",
+          "label":"Card Limit",
+          "description":"Maximum number of courses to show",
+          "default":"6",
+          "options":[
+            {
+              "value":"3",
+              "label":"3"
+            },
+            {
+              "value":"6",
+              "label":"6"
+            },
+            {
+              "value":"9",
+              "label":"9"
+            },
+            {
+              "value":"12",
+              "label":"12"
+            },
+            {
+              "value":"15",
+              "label":"15"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "label":"Background",
       "settings":[
         {
@@ -101,10 +140,6 @@ section.course-cards-all {
           "description":"Presets can be configured in the Colors configuration menu",
           "default":"secondary",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"primary",
               "label":"Primary"
@@ -131,10 +166,6 @@ section.course-cards-all {
           "description":"Presets can be configured in the base.scss",
           "default":"large",
           "options":[
-            {
-              "value":"none",
-              "label":"None"
-            },
             {
               "value":"small",
               "label":"Small"
