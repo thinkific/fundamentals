@@ -517,8 +517,8 @@
         },
         {
           "type": "color",
-          "id": "interface_active_background_color",
-          "label": "Background Color (Active)",
+          "id": "interface_hover_background_color",
+          "label": "Background color (Hover)",
           "default": "#FFFFFF"
         },
         {
@@ -592,7 +592,7 @@
         "tertiary_subheading_text_color": "#68717A",
         "tertiary_text_color": "#68717A",
         "interface_background_color": "#FFFFFF",
-        "interface_active_background_color": "#FFFFFF",
+        "interface_hover_background_color": "#FFFFFF",
         "interface_border_color": "#ECEEEF"
       }
     },
@@ -657,7 +657,7 @@
         "tertiary_subheading_text_color": "#505050",
         "tertiary_text_color": "#505050",
         "interface_background_color": "#FFFFFF",
-        "interface_active_background_color": "#FFFFFF",
+        "interface_hover_background_color": "#FFFFFF",
         "interface_border_color": "#ECEEEF"
       }
     }
