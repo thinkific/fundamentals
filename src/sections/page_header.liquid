@@ -1,4 +1,4 @@
-<header class="header{% if section.settings.header_style == 'floating' %} floating{% endif %}" data-preview-item="header">
+<header class="header{% if section.settings.header_style == 'floating' %} floating{% endif %}" data-preview-item="header" data-menu-type="header__nav--{{ section.settings.menu_mobile_type }}" data-menu>
   <div class="header__container">
     <div class="header__wrapper">
       <section class="header__logo">
@@ -8,7 +8,13 @@
           <a href="{{ site.home_url }}" class="header__school-name">{{ site.name }}</a>
         {% endif %}
       </section>
-      <nav class="header__nav{% if section.settings.menu_position == 'left' %} header__nav--left{% endif %}{% if site.current_user.signed_in %} user-signed-in{% endif %}">
+      <nav class="header__nav
+      {% if section.settings.menu_position == 'left' %}
+       header__nav--left
+      {% endif %}
+      {% if site.current_user.signed_in %}
+       user-signed-in
+      {% endif %}">
         <ul>
           {% include 'header_left_menu' %}
           {% include 'header_right_menu' %}
@@ -105,13 +111,8 @@ $(document).ready(function() {
     if (e.which === 13 || e.type === 'click') {
       e.preventDefault();
       e.stopPropagation();
-      {% case section.settings.menu_mobile_type %}
-      {% when 'dropdown' %}
-        $navigation.toggleClass('header__nav--dropdown');
-      {% when 'overlay' %}
-        $header.toggleClass('header__nav--overlay');
-        $('body').toggleClass('noscroll');
-      {% endcase %}
+      $header.attr('data-menu', $header.attr('data-menu') == 'open' ? 'closed' : 'open');
+      $('body').toggleClass('noscroll');
       $mobileButton.toggleClass('open');
       $navigation.focus();
     }

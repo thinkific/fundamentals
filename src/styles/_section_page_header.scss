@@ -146,8 +146,6 @@
 // Navigation
 .header__nav {
   @include screen-sm-max {
-    @include transition(opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
-
     display: block;
     position: absolute;
     top: 160%;
@@ -223,42 +221,63 @@
   }
 }
 
-.header__nav--dropdown {
-  @include transition(opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
-  @include screen-sm-max {
-    opacity: 1;
-    visibility: visible;
-    z-index: z-index(navigation--middleground);
+[data-menu-type="header__nav--dropdown"] {
+
+  // This selector is used for specificity to override the [class="header floating"] selector chain
+  &.header {
+    @include screen-sm-max {
+
+      &[data-menu="open"] {
+
+        .header__nav {
+          @include transition(opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
+
+          opacity: 1;
+          visibility: visible;
+          z-index: z-index(navigation--middleground);
+        }
+      }
+    }
   }
 }
 
-.header__nav--overlay {
-  @include transition(background-color 400ms ease, opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
-  @include screen-sm-max {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: z-index(navigation--middleground);
+[data-menu-type="header__nav--overlay"] {
 
-    .header__nav {
-      box-shadow: none;
-      opacity: 1;
-      visibility: visible;
-    }
+  // This selector is used for specificity to override the [class="header floating"] selector chain
+  &.header {
+    @include screen-sm-max {
 
-    .header__school-name {
-      color: $nav__mobile-link-color;
-    }
+      &[data-menu="open"] {
+        @include transition(background-color 400ms ease, opacity 600ms ease, visibility 600ms ease, z-index 600ms ease);
 
-    .header__mobile-button {
-      z-index: z-index(navigation--foreground);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $nav__mobile-background-color !important;
+        z-index: z-index(navigation--middleground);
 
-      span {
+        .header__nav {
+          padding-top: $gutter-width;
+          box-shadow: none;
+          opacity: 1;
+          visibility: visible;
+        }
 
-        &:before,
-        &:after {
-          background-color: $nav__mobile-link-color;
+        .header__school-name {
+          color: $nav__mobile-link-color;
+        }
+
+        .header__mobile-button {
+          z-index: z-index(navigation--foreground);
+
+          span {
+
+            &:before,
+            &:after {
+              background-color: $nav__mobile-link-color;
+            }
+          }
         }
       }
     }
