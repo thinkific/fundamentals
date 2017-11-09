@@ -45,8 +45,8 @@
 
 <script>
 $(window).load(function() {
-  var $instructorsCarousel = $('.instructor__list').addClass('owl-carousel'),
-      instructorsOwlOptions = {
+  var $instructorCarousel = $('.instructor__list').addClass('owl-carousel'),
+      instructorOwlOptions = {
         center: false,
         dots: true,
         loop: true,
@@ -60,7 +60,7 @@ $(window).load(function() {
           }
         }
       };
-  $instructorsCarousel.owlCarousel(instructorsOwlOptions);
+  $instructorCarousel.owlCarousel(instructorOwlOptions);
 });
 </script>
 
@@ -85,7 +85,7 @@ section.instructor {
 
 {% schema %}
 {
-  "label":"Instructors",
+  "label":"Instructor",
   "settings":[
     {
       "label":"Headings",
@@ -94,7 +94,7 @@ section.instructor {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"About the instructors"
+          "default":"About the instructor"
         },
         {
           "type":"text",
