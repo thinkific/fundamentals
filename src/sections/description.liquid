@@ -27,13 +27,28 @@ section.description {
 
   .section__heading,
   .section__subheading {
-    text-align: {{ section.settings.heading_alignment }};
+    text-align: {{ section.settings.content_alignment }};
   }
 
-  {% if section.settings.heading_alignment == "center" %}
+  {% if section.settings.content_alignment == "center" %}
     .section__subheading:before {
       margin-right: auto;
       margin-left: auto;
+    }
+    .section__headings,
+    .section__content {
+      @include screen-lg-min {
+        @include make-col(12);
+      }
+    }
+  {% endif %}
+
+  {% if section.settings.content_alignment == "right" %}
+    .section__headings {
+      @include order(2);
+    }
+    .section__content {
+      @include order(1);
     }
   {% endif %}
 }
@@ -58,12 +73,28 @@ section.description {
           "id":"subheading",
           "label":"Subheading",
           "default":""
-        },
+        }
+      ]
+    },
+    {
+      "label":"Text",
+      "settings":[
+        {
+          "type":"richtext",
+          "id":"body",
+          "label":"",
+          "default":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p>"
+        }
+      ]
+    },
+    {
+      "label":"Content Alignment",
+      "settings":[
         {
           "type":"radio",
-          "id":"heading_alignment",
-          "label":"Alignment",
-          "description":"Headings will inherit the same alignment",
+          "id":"content_alignment",
+          "label":"",
+          "description":"",
           "default":"left",
           "options":[
             {
@@ -79,17 +110,6 @@ section.description {
               "label":"Right"
             }
           ]
-        }
-      ]
-    },
-    {
-      "label":"Text",
-      "settings":[
-        {
-          "type":"richtext",
-          "id":"body",
-          "label":"",
-          "default":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p>"
         }
       ]
     },
