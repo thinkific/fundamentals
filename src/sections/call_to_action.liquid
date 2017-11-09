@@ -24,7 +24,7 @@
       {% if section.blocks != empty %}
       <ul class="section__button-group">
         {% for block in section.blocks %}
-          {% if block.settings.price != nil %}
+          {% if block.settings.price.links.add_to_cart != empty %}
             <li><a class="button button-primary" href="{{ block.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
           {% else %}
             <li><a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
@@ -92,7 +92,7 @@ section.call-to-action {
 
 {% schema %}
 {
-  "label":"Call To Action",
+  "label":"Call to action",
   "settings":[
     {
       "label":"Heading",
@@ -245,15 +245,7 @@ section.call-to-action {
         ]
       }
     ],
-    "defaults":[
-      {
-        "type":"button",
-        "values":{
-          "button_text":"View Courses",
-          "button_url":"/collections/courses"
-        }
-      }
-    ]
+    "defaults":[]
   }
 }
 {% endschema %}
