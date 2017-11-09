@@ -7,6 +7,7 @@
   .section__headings {
     @include screen-md-max {
       margin: 0 0 $gutter-width;
+      text-align: center;
 
       .section__heading,
       .section__subheading {
