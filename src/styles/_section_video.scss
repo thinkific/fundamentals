@@ -3,6 +3,9 @@
 
 .video {
   position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 
   &:after {
     position: absolute;
@@ -29,7 +32,18 @@
   }
 
   .section__thumbnail {
+    @include screen-sm-min {
+      height: 280px;
+    }
+    @include screen-md-min {
+      height: 360px;
+    }
+    @include screen-lg-min {
+      height: 420px;
+    }
+
     position: relative;
+    height: 160px;
 
     &:active,
     &:focus,

@@ -1,9 +1,7 @@
-{% if section.settings.video.frame != blank %}
+{% if section.settings.video.url != blank %}
   <section class="video" data-preview-item="video">
     <article class="section__content">
-      <section class="section__thumbnail">
-        <img src="{{ section.settings.video_thumbnail }}" class="img-responsive" alt="{{ section.settings.video.url }}" title="{{ section.settings.video.url }}" />
-      </section>
+      <section class="section__thumbnail"></section>
       {% if section.settings.video.popover != blank %}
         <section class="section__video--trigger">
           {{ section.settings.video.popover }}
@@ -21,8 +19,10 @@
 
 {% style %}
 
-{% if section.settings.video_overlay_color != blank %}
-  .video {
+section.video {
+
+  {% if section.settings.video_overlay_color != blank %}
+    background-image: url({{ section.settings.video.oembed.thumbnail_url }});
 
     &:after {
       background-color: {{ section.settings.video_overlay_color }};
@@ -30,8 +30,9 @@
         opacity: {{ section.settings.video_overlay_opacity }} * 0.01;
       {% endif %}
     }
-  }
-{% endif %}
+  {% endif %}
+
+}
 
 {% endstyle %}
 
