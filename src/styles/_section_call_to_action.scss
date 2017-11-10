@@ -8,7 +8,15 @@
   }
 
   .section__button-group {
+    @include button-group;
+
     text-align: inherit;
+
+    .button {
+      @include screen-sm-max {
+        margin-bottom: $gutter-width / 2;
+      }
+    }
   }
 }
 

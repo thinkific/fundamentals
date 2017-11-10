@@ -49,11 +49,19 @@ section.call-to-action {
       margin-right: auto;
       margin-left: auto;
     }
+
+    .section__button-group {
+      @include justify-content(center);
+    }
   {% endif %}
 
   {% if section.settings.content_alignment == "right" %}
     .section__subheading:before {
       margin-left: auto;
+    }
+
+    .section__button-group {
+      @include justify-content(flex-end);
     }
   {% endif %}
 
