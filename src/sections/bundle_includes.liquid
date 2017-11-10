@@ -12,6 +12,7 @@
       </header>
     {% endif %}
     <article class="section__content">
+      {% assign bundle = page.bundle %}
       {% include 'bundle_courses' with bundle %}
     </article>
   </div>
