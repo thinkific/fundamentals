@@ -1,7 +1,7 @@
-{% if section.settings.video.url != blank %}
+{% if section.settings.video.frame != blank and section.settings.video_thumbnail != blank %}
   <section class="video" data-preview-item="video">
     <article class="section__content">
-      <section class="section__thumbnail"></section>
+      <span class="video__play-button"><i class="fa fa-play"></i></span>
       {% if section.settings.video.popover != blank %}
         <section class="section__video--trigger">
           {{ section.settings.video.popover }}
@@ -11,8 +11,8 @@
   </section>
 
   <script>
-    $('.video').find('.section__thumbnail').on('click', function(e) {
-      $(this).next('.section__video--trigger').find('a.venobox').trigger('click');
+    $('.video').find('.video__play-button').on('click', function(e) {
+      $(this).next('.section__video--trigger').find('.btn')[0].click();
     });
   </script>
 {% endif %}
@@ -22,7 +22,7 @@
 section.video {
 
   {% if section.settings.video_overlay_color != blank %}
-    background-image: url({{ section.settings.video.oembed.thumbnail_url }});
+    background-image: url({{ section.settings.video_thumbnail }});
 
     &:after {
       background-color: {{ section.settings.video_overlay_color }};
