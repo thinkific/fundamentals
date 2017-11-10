@@ -13,7 +13,25 @@
     {% endif %}
     <article class="section__content">
       {% assign bundle = page.bundle %}
-      {% include 'bundle_courses' with bundle %}
+      <ul class="bundle-includes__list">
+        {% for course in bundle.courses limit: initial_courses %}
+          <li class="bundle-includes__list-item">
+            {% include 'course_card' with course %}
+          </li>
+        {% endfor %}
+        {% for course in bundle.courses offset: initial_courses %}
+          <li class="bundle-includes--hidden hidden">
+            {% include 'course_card' with course %}
+          </li>
+        {% endfor %}
+      </ul>
+      {% if bundle.courses.size > initial_courses %}
+        <div id="see-more" class="bundle-includes__see-more">
+          <a href="#see-more" class="bundle-includes__see-all-button button button-primary">
+            {{ 'liquid.views.bundle_landing_page.link_view_all' | translate }} {{ page.bundle_num_of_courses }} {{ 'liquid.views.bundle_landing_page.link_courses' | translate }}
+          </a>
+        </div>
+      {% endif %}
     </article>
   </div>
 </section>
