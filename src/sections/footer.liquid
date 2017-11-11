@@ -1,41 +1,24 @@
 <footer class="footer hidden-print" data-preview-item="footer">
   <div class="footer__container">
     <article class="section__content">
-      {% if section.settings.show_navigation %}
-        <ul class="footer__nav-site">
-          <li class="footer__nav-item">
-            <a href="{{ site.home_url }}">
-              {{ 'liquid.partials.footer.link_home' | translate }}
-            </a>
-          </li>
-          <li class="footer__nav-item">
-            <a data-uv-trigger="true" href="mailto:{{ site.support_email }}">
-              {{ 'liquid.partials.footer.link_support' | translate }}
-            </a>
-          </li>
-          {% if site.has_terms %}
+      <ul class="footer__nav-site">
+        {% for block in section.blocks %}
+          {% case block.type %}
+          {% when 'nav_link' %}
             <li class="footer__nav-item">
-              <a href="{{ site.terms_url }}">
-                {{ 'liquid.partials.footer.link_terms' | translate }}
-              </a>
+              <a href="{{ block.settings.nav_url }}">{{ block.settings.nav_text }}</a>
             </li>
-          {% endif %}
-          {% if site.has_privacy_policy %}
-            <li class="footer__nav-item">
-              <a href="{{ site.privacy_policy_url }}">
-                {{ 'liquid.partials.footer.link_privacy_policy' | translate }}
-              </a>
-            </li>
-          {% endif %}
-        </ul>
-      {% endif %}
-      {% if section.blocks != empty %}
-        <ul class="footer__nav-social">
-          {% for block in section.blocks %}
-            <li class="footer__nav-item"><a href="{{ block.settings.social_url }}"><i class="fa {{ block.settings.social_icon }}"></i></a></li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+          {% endcase %}
+        {% endfor %}
+      </ul>
+      <ul class="footer__nav-social">
+        {% for block in section.blocks %}
+          {% case block.type %}
+          {% when 'social_link' %}
+          <li class="footer__nav-item"><a href="{{ block.settings.social_url }}"><i class="fa {{ block.settings.social_icon }}"></i></a></li>
+          {% endcase %}
+        {% endfor %}
+      </ul>
       <span class="section__divide"></span>
       {% if section.settings.show_copyright %}
         <aside class="footer__copyright">
@@ -84,23 +67,28 @@ footer.footer {
           "default":""
         }
       ]
-    },
-    {
-      "label":"Navigation",
-      "settings":[
-        {
-          "type":"checkbox",
-          "id":"show_navigation",
-          "label":"Show navigation",
-          "default":true
-        }
-      ]
     }
   ],
   "blocks":{
-    "label":"Social networks",
-    "limit":6,
+    "label":"Links",
+    "limit":20,
     "types":[
+      {
+        "type":"nav_link",
+        "label":"Navigation Link",
+        "settings":[
+          {
+            "type":"text",
+            "id":"nav_text",
+            "label":"Text"
+          },
+          {
+            "type":"page_picker",
+            "id":"nav_url",
+            "label":"URL"
+          }
+        ]
+      },
       {
         "type":"social_link",
         "label":"Social link",
