@@ -1,6 +1,9 @@
 <section class="richtext
 {% if section.settings.background_color_preset != blank %}
  {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}
+{% if section.settings.section_height_preset != blank %}
+ {{ section.settings.section_height_preset | prepend: 'section-height__' }}
 {% endif %}" data-preview-item="richtext">
   <div class="richtext__container">
     <div class="richtext__wrapper">
@@ -107,6 +110,32 @@ section.richtext {
             {
               "value":"tertiary",
               "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Section height",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height preset",
+          "description":"",
+          "default":"medium",
+          "options":[
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
             }
           ]
         }

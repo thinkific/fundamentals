@@ -2,7 +2,6 @@
 // ======================================
 
 .richtext {
-  @include section-height(section-height-preset(large));
 
   .section__headings {
     @include make-col(12);

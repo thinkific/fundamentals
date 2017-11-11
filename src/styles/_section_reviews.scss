@@ -2,8 +2,6 @@
 // ======================================
 
 .reviews {
-  @include section-height(section-height-preset(large));
-
   overflow: hidden;
 
   .section__headings {

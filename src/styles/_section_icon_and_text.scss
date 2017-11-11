@@ -2,7 +2,10 @@
 // ======================================
 
 .text-icon {
-  @include section-height(section-height-preset(medium));
+
+  .section__headings {
+    margin: 0 0 $gutter-width * 2;
+  }
 }
 
 .text-icon__container {

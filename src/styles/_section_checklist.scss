@@ -2,7 +2,6 @@
 // ======================================
 
 .checklist {
-  @include section-height(section-height-preset(large));
 
   .section__headings {
     @include screen-lg-min {
