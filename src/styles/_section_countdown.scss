@@ -65,7 +65,7 @@
 
   li {
     @include screen-sm-min {
-      font-size: 3rem;
+      font-size: 2rem;
     }
     @include screen-md-min {
       min-width: 100px;
