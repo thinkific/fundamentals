@@ -176,6 +176,14 @@
   }
 }
 
+// Background
+@mixin full-width-background {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
 // Cards
 @mixin card {
   @include display(flex);
@@ -185,6 +193,7 @@
   border: $interface__border;
   background-color: $interface__background-color;
 }
+
 // Container
 @mixin make-container {
   @include screen-md-min {

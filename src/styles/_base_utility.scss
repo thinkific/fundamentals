@@ -90,10 +90,7 @@
 
 // Full-Width Backgrounds
 .full-width-background {
-  position: relative;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  @include full-width-background;
 }
 
 // Section Background Presets
