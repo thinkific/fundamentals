@@ -3,22 +3,15 @@
 {% endcomment %}
 
 <script>
-  $(function(){
-    var buyButton = $('.button-purchase');
-    var seeAllCoursesButton = $('#see-more');
-    var additionalCoursesArea = $('.bundle-includes--hidden.hidden');
+$(document).ready(function() {
+  var buyButton = $('.button-purchase');
 
-    ThinkificAnalytics.track('Bundle Landing Page', { 'Bundle Name': '{{ page.bundle_name }}' });
+  ThinkificAnalytics.track('Bundle Landing Page', { 'Bundle Name': '{{ page.bundle_name }}' });
 
-    buyButton.on('click', function(e){
-      ThinkificAnalytics.track('Buy Bundle Btn Clicked', { 'Bundle Name': '{{ page.bundle_name }}' });
-    });
-
-    seeAllCoursesButton.on('click', function(e) {
-      additionalCoursesArea.removeClass('hidden');
-      $(this).addClass('hidden');
-    });
+  buyButton.on('click', function(e){
+    ThinkificAnalytics.track('Buy Bundle Btn Clicked', { 'Bundle Name': '{{ page.bundle_name }}' });
   });
+});
 </script>
 
 {{ page.landing_page_code }}

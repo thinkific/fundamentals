@@ -16,6 +16,9 @@
     {% endif %}
     <article class="section__content">
       {% assign bundle = page.bundle %}
+      {% if bundle.courses.size > 0 %}
+        {% assign initial_courses = 6 %}
+      {% endif %}
       <ul class="bundle-includes__list">
         {% for course in bundle.courses limit: initial_courses %}
           <li class="bundle-includes__list-item">
@@ -23,21 +26,34 @@
           </li>
         {% endfor %}
         {% for course in bundle.courses offset: initial_courses %}
-          <li class="bundle-includes--hidden hidden">
+          <li class="bundle-includes__list-item bundle-includes--hidden hidden">
             {% include 'course_card' with course %}
           </li>
         {% endfor %}
       </ul>
       {% if bundle.courses.size > initial_courses %}
-        <div id="see-more" class="bundle-includes__see-more">
-          <a href="#see-more" class="bundle-includes__see-all-button button button-primary">
+        <section id="see-more" class="section__button-group">
+          <a href="#see-more" class="button button-primary bundle-includes__see-all-button">
             {{ 'liquid.views.bundle_landing_page.link_view_all' | translate }} {{ page.bundle_num_of_courses }} {{ 'liquid.views.bundle_landing_page.link_courses' | translate }}
           </a>
-        </div>
+        </section>
       {% endif %}
     </article>
   </div>
 </section>
+
+<script>
+$(document).ready(function() {
+  var $seeAllCoursesButton = $('#see-more'),
+      $additionalCoursesArea = $('.bundle-includes--hidden.hidden');
+
+  $seeAllCoursesButton.on('click', function(e) {
+    $additionalCoursesArea.removeClass('hidden');
+    $(this).addClass('hidden');
+  });
+});
+
+</script>
 
 {% style %}
 

@@ -6,6 +6,10 @@
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
+
+  .section__button-group {
+    text-align: right;
+  }
 }
 
 .bundle-includes__container {
