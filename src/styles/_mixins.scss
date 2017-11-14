@@ -248,10 +248,6 @@
 }
 
 @mixin make-col($size, $add-gutter: true, $columns: $grid-columns) {
-  @include screen-legacy-max {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
   @include column($add-gutter);
 
   flex: 0 0 percentage($size / $columns);
