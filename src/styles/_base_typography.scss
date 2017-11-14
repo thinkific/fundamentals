@@ -11,6 +11,7 @@ body {
   text-shadow: 0 0 1px transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  word-break: break-word;
 }
 
 form,
@@ -65,10 +66,6 @@ h2 {
 
     font-size: modular-scale(2);
   }
-}
-
-.section__headings {
-  word-break: break-word;
 }
 
 .section__heading {
