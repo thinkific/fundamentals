@@ -3,10 +3,8 @@
 {% endcomment %}
 
 <section class="course-card course-card__public {{ course.status }}" data-card-url="{{ course.links.landing_page_url }}" tabindex="0">
-  <header class="course-card__img-container">
-    <a href="{{ course.links.landing_page_url }}" tabindex="-1">
-      <img src="{{ course.card_image_url }}" alt="{{ course.name }}" title="{{ course.name }}" class="course-card__img img-responsive" />
-    </a>
+  <header class="course-card__img-container" style="background-image:url({{ course.card_image_url }};">
+    <a href="{{ bundle.links.landing_page_url }}" tabindex="-1"></a>
   </header>
   <div class="course-card__body">
     {% if course.is_public %}

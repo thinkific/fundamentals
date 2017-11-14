@@ -3,7 +3,7 @@
 {% endcomment %}
 
 <section class="course-card course-card__dashboard">
-  <header class="course-card__img">
+  <header class="course-card__img" style="background-image: url({{ card.image_url }});">
     <h3>{{ card.name_truncated }}</h3>
     <a href="{{ card.resume_course_url }}" class="button button-primary" tabindex="-1">
       {{ 'liquid.partials.dashboard_course_card.link_resume_course' | translate }}
@@ -52,11 +52,3 @@
     {% endif %}
   </footer>
 </section>
-
-{% style %}
-
-.course-card__img {
-  background-image: url({{ card.image_url }});
-}
-
-{% endstyle %}

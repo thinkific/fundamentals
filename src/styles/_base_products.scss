@@ -9,11 +9,9 @@
 .course-card__dashboard {
 
 	.course-card__img {
-		position: relative;
+		@include full-width-background;
+
 		height: 200px;
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		overflow: hidden;
 
 		&:after {
@@ -118,6 +116,10 @@
 }
 
 .course-card__img-container {
+	@include full-width-background;
+
+	height: 200px;
+	overflow: hidden;
 
 	a {
 		display: block;
