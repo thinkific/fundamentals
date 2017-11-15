@@ -279,8 +279,8 @@
 
 		display: inline-block;
 		padding: 10px;
-		border-top: 1px solid gray-scale(1);
-		border-right: 1px solid gray-scale(1);
+		border-top: $interface__border;
+		border-right: $interface__border;
 		border-bottom: 0;
 		color: $body__font-color;
 		font-size: 0.875rem;
@@ -304,7 +304,7 @@
 		text-decoration: none;
 
 		&:first-child {
-			border-right: 1px solid gray-scale(1);
+			border-right: $interface__border;
 		}
 
 		&:active,

@@ -74,7 +74,7 @@
     display: inline-block;
     width: 25%;
     padding: $gutter-width / 2;
-    border: 1px solid gray-scale(1);
+    border: $interface__border;
     background: $interface__background-color;
     font-family: $heading__font-family;
     font-size: 1.5rem;

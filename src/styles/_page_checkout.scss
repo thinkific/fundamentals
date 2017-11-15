@@ -87,8 +87,8 @@
 .checkout__product-details {
   margin: 0 0 $gutter-width;
   padding: $gutter-width 0;
-  border-top: 1px solid gray-scale(1);
-  border-bottom: 1px solid gray-scale(1);
+  border-top: $interface__border;
+  border-bottom: $interface__border;
 
   h3 {
     margin: 0;
@@ -136,7 +136,7 @@
   width: 100%;
   margin: $gutter-width 0;
   padding: $gutter-width 0 0;
-  border-top: 1px solid gray-scale(1);
+  border-top: $interface__border;
   font-weight: bold;
   line-height: 1;
 }
@@ -178,7 +178,7 @@
     display: block;
     width: 100%;
     padding: $button__padding;
-    border: 1px solid gray-scale(1);
+    border: $interface__border;
     background-color: $white;
     text-align: center;
     text-decoration: none;

@@ -69,7 +69,7 @@
 
       ul {
         border: 0;
-        border-bottom: 1px solid gray-scale(1);
+        border-bottom: $interface__border;
         font-size: 0;
       }
 
@@ -80,15 +80,15 @@
         &:first-child {
 
           a {
-            border-left: 1px solid gray-scale(1);
+            border-left: $interface__border;
           }
         }
 
         a {
           position: relative;
           top: 1px;
-          border-top: 1px solid gray-scale(1);
-          border-right: 1px solid gray-scale(1);
+          border-top: $interface__border;
+          border-right: $interface__border;
           background-color: gray-scale(0);
           font-size: 1rem;
 
