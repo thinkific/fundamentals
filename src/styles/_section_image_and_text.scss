@@ -30,7 +30,10 @@
 }
 
 .text-image__image {
+  @include full-width-background;
   @include make-col(12);
+
+  min-height: 420px !important;
 
   .text-image__body + & {
     @include make-col(6);

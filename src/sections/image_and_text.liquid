@@ -18,12 +18,7 @@
         </section>
       {% endif %}
       {% if section.settings.image != blank %}
-        <figure class="text-image__image">
-          {% if section.settings.image_caption_toggle %}
-            <figcaption>{{ section.settings.image_caption }}</figcaption>
-          {% endif %}
-          <img src="{{ section.settings.image }}" alt="{{ image_caption }}" title="{{ image_caption }}" />
-        </figure>
+        <section class="text-image__image" style="background-image: url({{ section.settings.image }});"></section>
       {% endif %}
     </article>
   </div>
@@ -138,19 +133,6 @@ section.text-image {
               "label":"Right"
             }
           ]
-        },
-        {
-          "type":"text",
-          "id":"image_caption",
-          "label":"Caption",
-          "description":"The caption will also be applied to the image <strong>alt</strong> and <strong>title</strong> attributes for Screen reader accessibility",
-          "default":""
-        },
-        {
-          "type":"checkbox",
-          "id":"image_caption_toggle",
-          "label":"Show caption",
-          "default":false
         }
       ]
     },
