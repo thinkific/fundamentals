@@ -4,17 +4,15 @@
 
 <section class="products__search">
   <form action="{{ site.collections_url }}" method="get" id="search-form" class="products__search-form">
-    <div class="form__group">
+    <ul class="products__collections-list">
       {% for collection in site.collections %}
-        <label for="collection_id-{{ collection.id }}" class="form__collection-link-label">
-          {% if page.current_collection_id != nil and page.current_collection_id == collection.id %}
-            <input id="collection_id-{{ collection.id }}" name="collection_id" type="radio" value="{{ collection.id }}" checked tabindex="0"><span>{{ collection.name }}</span>
-          {% else %}
-            <input id="collection_id-{{ collection.id }}" name="collection_id" type="radio" value="{{ collection.id }}" tabindex="0"><span>{{ collection.name }}</span>
-          {% endif %}
-        </label>
+        {% if page.current_collection_id != nil and page.current_collection_id == collection.id %}
+          <li class="products__collections-list-item"><a href="{{ collection.url }}" class="active">{{ collection.name }}</a></li>
+        {% else %}
+          <li class="products__collections-list-item"><a href="{{ collection.url }}">{{ collection.name }}</a></li>
+        {% endif %}
       {% endfor %}
-    </div>
+    </ul>
     <div class="products__search-box">
       <label for="q" class="form__search-label">
         <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" />
@@ -22,10 +20,3 @@
     </div>
   </form>
 </section>
-<script>
-$(document).ready(function() {
-  $('input[name=collection_id]').change(function(){
-    $('#search-form').submit();
-  });
-});
-</script>
