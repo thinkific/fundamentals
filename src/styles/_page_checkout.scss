@@ -69,7 +69,7 @@
 }
 
 .checkout__product-overview {
-  background-color: gray-scale(0);
+  background-color: $interface__background-color--active;
 
   h2,
   h3 {
@@ -152,7 +152,6 @@
   padding: 8px;
   border: $interface__border;
   border-radius: 0;
-  background-color: $interface__background-color;
   font-size: 1rem;
 
   &::-webkit-input-placeholder {
@@ -175,13 +174,10 @@
 .thinkific__checkout__coupon-code__check-container {
 
   a {
+    @include button;
+    @include button-primary;
     display: block;
     width: 100%;
-    padding: $button__padding;
-    border: $interface__border;
-    background-color: $white;
-    text-align: center;
-    text-decoration: none;
   }
 }
 
@@ -238,9 +234,14 @@
   }
 }
 
+.thinkific__checkout__coupon-code__input {
+  background-color: $interface__background-color;
+}
+
 .StripeElement {
   position: relative;
   margin: 0 0 $gutter-width;
+  background-color: $white;
 
   &:before {
     @include form-label;
