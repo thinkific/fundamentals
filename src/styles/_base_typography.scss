@@ -40,7 +40,15 @@ h6 {
 
 @each $size in 1, 2, 3, 4, 5, 6 {
   h#{$size} {
-    font-size: modular-scale(6 - $size, $modular-scale-base-md);
+    font-size: modular-scale(6 - $size, $modular-scale-base-sm);
+  }
+}
+
+@include screen-md-min {
+  @each $size in 1, 2, 3, 4, 5, 6 {
+    h#{$size} {
+      font-size: modular-scale(6 - $size, $modular-scale-base-md);
+    }
   }
 }
 
@@ -62,8 +70,6 @@ h2 {
     @include screen-md-min {
       font-size: modular-scale(4);
     }
-    @include heading;
-
     font-size: modular-scale(2);
   }
 }
