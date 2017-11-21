@@ -21,3 +21,15 @@
 .button-secondary {
   @include button-secondary;
 }
+
+.button--linkedin {
+  border-color: $linked-in;
+  background-color: $linked-in;
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    color: $white;
+  }
+}

@@ -7,6 +7,15 @@
   @include page-padding;
 }
 
+.sign-in,
+.sign-up {
+
+  .page__heading {
+    margin-bottom: $gutter-width;
+    text-align: center;
+  }
+}
+
 .sign-in__container,
 .sign-up__container,
 .express-sign-in__container {
@@ -47,5 +56,38 @@
   a {
     color: $body__font-color;
     font-size: .875rem;
+  }
+}
+
+.remote-sign-in__vendor-logins {
+  position: relative;
+  text-align: center;
+}
+
+.remote-sign-in__divider {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-top: $gutter-width;
+  color: transparentize($subheading__font-color, 0.5);
+  font-size: modular-scale(1);
+  text-align: center;
+  text-transform: lowercase;
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 45%;
+    height: 1px;
+    border-top: 1px solid transparentize($subheading__font-color, 0.8);
+    content: "";
+    z-index: 0;
+  }
+
+  &:before {
+    right: 0;
+    left: auto;
   }
 }
