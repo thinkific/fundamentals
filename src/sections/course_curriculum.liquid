@@ -25,12 +25,6 @@
                 <h5 class="course-curriculum__chapter-title">{{ chapter.name }}
                   <i class="course-curriculum__chapter-collapse fa"></i>
                 </h5>
-                {% if chapter.duration_in_seconds > 0 %}
-                  <span class="course-curriculum__chapter-time">
-                    <i class="fa fa-clock-o"></i>
-                    {{ chapter.duration_in_seconds_as_time }}
-                  </span>
-                {% endif %}
               </header>
               <ul class="course-curriculum__chapter-content" id="chapter-{{ index + 1 }}">
                 {% for content in chapter.contents %}

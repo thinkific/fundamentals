@@ -108,15 +108,6 @@
     }
   }
 
-  .course-curriculum__chapter-time {
-    display: block;
-    padding-top: $gutter-width / 2;
-
-    .fa {
-      margin: 0 5px 0 0;
-    }
-  }
-
   .course-curriculum__chapter-content {
     @include transition(opacity 400ms ease);
 

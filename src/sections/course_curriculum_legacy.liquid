@@ -19,11 +19,6 @@
             <header class="course-curriculum-legacy__chapter-header">
               <span class="course-curriculum-legacy__chapter-number">{{ index }}</span>
               <h5 class="course-curriculum-legacy__chapter-title">{{ chapter.name }}
-                {% if chapter.duration_in_seconds > 0 %}
-                  <span class="course-curriculum-legacy__chapter-time">
-                    {{ chapter.duration_in_seconds_as_time }}
-                  </span>
-                {% endif %}
                 <i class="course-curriculum-legacy__chapter-collapse"></i>
               </h5>
             </header>
