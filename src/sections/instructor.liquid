@@ -51,10 +51,11 @@
 <script>
 $(window).load(function() {
   var $instructorCarousel = $('.instructor__list').addClass('owl-carousel'),
+      looped = ($('.instructor__list .instructor__list-item').length <= 1) ? false : true,
       instructorOwlOptions = {
         center: false,
         dots: true,
-        loop: true,
+        loop: looped,
         margin: 0,
         nav: true,
         navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
