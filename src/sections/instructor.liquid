@@ -18,7 +18,7 @@
     {% endif %}
     <article class="section__content">
       {% if section.blocks != empty %}
-        <ul class="instructor__list">
+        <ul class="instructor__list section__body">
           {% for block in section.blocks %}
           {% assign instructor = block.settings.instructor %}
             <li class="instructor__profile">

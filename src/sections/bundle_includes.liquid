@@ -21,7 +21,7 @@
       {% if bundle.courses.size > 0 %}
         {% assign initial_courses = 6 %}
       {% endif %}
-      <ul class="bundle-includes__list">
+      <ul class="bundle-includes__list section__body">
         {% for course in bundle.courses limit: initial_courses %}
           <li class="bundle-includes__list-item">
             {% include 'course_card' with course %}

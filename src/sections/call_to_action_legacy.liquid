@@ -12,9 +12,9 @@
     <div class="call-to-action-legacy__wrapper">
       <article class="section__content">
         {% if section.settings.description_text != blank %}
-          <div class="section__body">
+          <section class="section__body">
             {{ section.settings.description_text }}
-          </div>
+          </section>
         {% endif %}
         {% if section.settings.price != blank %}
           {% assign button_href = section.settings.price.links.add_to_cart %}

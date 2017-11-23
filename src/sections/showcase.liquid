@@ -18,7 +18,7 @@
     {% endif %}
     <article class="section__content">
       {% if section.blocks != empty %}
-        <ul class="showcase__list">
+        <ul class="showcase__list section__body">
           {% for block in section.blocks %}
             <li class="showcase__list-item">
               <img src="{{ block.settings.showcase_image }}" alt="{{ block.settings.showcase_name }}" title="{{ block.settings.showcase_name }}" class="img-responsive" />

@@ -19,7 +19,7 @@
       {% endif %}
       {% if section.blocks != empty %}
         <article class="section__content">
-          <ul class="checklist__list">
+          <ul class="checklist__list section__body">
             {% for block in section.blocks %}
               <li class="checklist__list-item">
                 <h4><i class="fa {{ block.settings.item_icon }}"></i>{{ block.settings.item_name }}</h4>

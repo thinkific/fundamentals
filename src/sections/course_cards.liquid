@@ -17,7 +17,7 @@
       </header>
     {% endif %}
     <article class="section__content">
-      <ul class="course-cards__list">
+      <ul class="course-cards__list section__body">
         {% for product in section.settings.course_cards %}
           {% if product.is_course %}
             {% assign course = product.course %}

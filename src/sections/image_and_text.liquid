@@ -16,7 +16,9 @@
               {% endif %}
             </header>
           {% endif %}
-          {{ section.settings.body }}
+          <div class="section__body">
+            {{ section.settings.body }}
+          </div>
         </section>
       {% endif %}
       {% if section.settings.image != blank %}
