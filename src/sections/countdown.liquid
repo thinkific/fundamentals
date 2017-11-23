@@ -25,10 +25,10 @@
       {% endif %}
       <article class="section__countdown">
         <ul id="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
-          <li id="clock-days" class="clock-interval">00</li>
-          <li id="clock-hours" class="clock-interval">00</li>
-          <li id="clock-minutes" class="clock-interval">00</li>
-          <li id="clock-seconds" class="clock-interval">00</li>
+          <li id="clock-days" class="clock-interval"><span class="chrono">00</span><strong>Days</strong></li>
+          <li id="clock-hours" class="clock-interval"><span class="chrono">00</span><strong>Hours</strong></li>
+          <li id="clock-minutes" class="clock-interval"><span class="chrono">00</span><strong>Minutes</strong></li>
+          <li id="clock-seconds" class="clock-interval"><span class="chrono">00</span><strong>Seconds</strong></li>
         </ul>
       </article>
     </div>
@@ -58,16 +58,16 @@ $(document).ready(function() {
     }
     function initializeClock(id, endtime) {
       var clock = document.getElementById(id);
-      var daysSpan = clock.querySelector('#clock-days');
-      var hoursSpan = clock.querySelector('#clock-hours');
-      var minutesSpan = clock.querySelector('#clock-minutes');
-      var secondsSpan = clock.querySelector('#clock-seconds');
+      var daysSpan = clock.querySelector('#clock-days .chrono');
+      var hoursSpan = clock.querySelector('#clock-hours .chrono');
+      var minutesSpan = clock.querySelector('#clock-minutes .chrono');
+      var secondsSpan = clock.querySelector('#clock-seconds .chrono');
       function updateClock() {
         var t = getTimeRemaining(endtime);
-        daysSpan.innerHTML = t.days + "<span>Days</span>";
-        hoursSpan.innerHTML = ('0' + t.hours).slice(-2) + "<span>Hours</span>";
-        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2) + "<span>Minutes</span>";
-        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2) + "<span>Seconds</span>";
+        daysSpan.innerHTML = t.days;
+        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
         if (t.total <= 0) {
           clearInterval(timeinterval);
         }

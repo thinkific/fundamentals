@@ -72,7 +72,7 @@
     }
 
     display: inline-block;
-    width: 25%;
+    min-width: 25%;
     padding: $gutter-width / 2;
     border: $interface__border;
     background: $interface__background-color;
@@ -81,12 +81,13 @@
     font-weight: 800;
     line-height: 1;
     text-align: center;
+    word-break: normal;
 
     &:not(:first-child) {
       border-left: 0;
     }
 
-    span {
+    strong {
       display: block;
       padding: 5px 0 0;
       font-family: $body__font-family;
