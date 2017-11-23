@@ -146,7 +146,7 @@
 	position: absolute;
 	top: -1rem;
 	padding: $gutter-width / 4 $gutter-width / 2;
-	border: 2px solid $heading__font-color;
+	border: 2px solid $body__font-color;
 	background-color: $interface__background-color;
 	font-size: .875rem;
 	font-weight: bold;
@@ -284,7 +284,6 @@
 		border-top: $interface__border;
 		border-right: $interface__border;
 		border-bottom: 0;
-		color: $body__font-color;
 		font-size: 0.875rem;
 		font-weight: 600;
 		line-height: 1.4rem;

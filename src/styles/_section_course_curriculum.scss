@@ -35,10 +35,11 @@
 
   .course-curriculum__chapter-number {
     padding: 0 $gutter-width;
-    color: transparentize($heading__font-color, .8);
+    color: inherit;
     font-family: $heading__font-family;
     font-size: modular-scale(4);
     font-weight: bold;
+    opacity: 0.8;
   }
 
   .course-curriculum__chapter-content-wrapper {
@@ -101,7 +102,7 @@
     z-index: z-index(element--middleground);
 
     &:after {
-      color: $heading__font-color;
+      color: inherit;
       font-family: $icon__font-family;
       font-style: normal;
       content: "\f068";
@@ -166,7 +167,8 @@
   list-style: none;
 
   a {
-    color: $heading__font-color;
+    @include section-preset-color-override(color);
+
     text-decoration: none;
 
     &:active,
@@ -186,10 +188,23 @@
 .course-curriculum__chapter-lesson--free {
   display: inline-block;
   padding: 5px;
-  background-color: $heading__font-color;
-  color: dynamic-text-color($heading__font-color);
   font-size: .875rem;
   font-weight: bold;
   line-height: 1;
   text-transform: uppercase;
+
+  .section-color-preset__primary & {
+    background-color: $primary-text-color;
+    color: dynamic-text-color($primary-text-color);
+  }
+
+  .section-color-preset__secondary & {
+    background-color: $secondary-text-color;
+    color: dynamic-text-color($secondary-text-color);
+  }
+
+  .section-color-preset__tertiary & {
+    background-color: $tertiary-text-color;
+    color: dynamic-text-color($tertiary-text-color);
+  }
 }

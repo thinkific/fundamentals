@@ -108,6 +108,7 @@ $gray-scale: (
 
 // Shadows
 $shadow-button: 0 4px 8px 0 rgba(0, 0, 0, 0.15) !default;
+$shadow-card: 0 8px 22px rgba(0, 0, 0, 0.15) !default;
 $shadow-interface: 1px 1px 0 rgba(0, 0, 0, 0.05) !default;
 $shadow-menu: 0 2px 8px 0 rgba(0, 0, 0, 0.05) !default;
 $shadow-1: 0 2px 4px 0 rgba(0, 0, 0, 0.05) !default;
@@ -122,19 +123,17 @@ $linked-in: #4875B4 !default;
 
 // Body
 $body__background-color: {{ theme.settings.background_color }} !default;
-$body__font-color: {{ theme.settings.body_text_color }} !default;
+$body__font-color: {{ theme.settings.text_color }} !default;
 $body__font-family: '{{ theme.settings.body_font }}', Sans-Serif !default;
 $body__font-size: modular-scale(0) !default;
 $body__font-weight: 400 !default;
 $body__line-height: 2 !default;
 
 // Headings
-$heading__font-color: {{ theme.settings.heading_text_color }} !default;
 $heading__font-family: '{{ theme.settings.heading_font }}', Sans-Serif !default;
 $heading__font-weight: 600 !default;
 $heading__line-height: 1.2 !default;
 
-$subheading__font-color: {{ theme.settings.subheading_text_color }} !default;
 $subheading__font-family: '{{ theme.settings.subheading_font }}', Sans-Serif !default;
 $subheading__font-weight: 400 !default;
 

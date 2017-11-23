@@ -69,10 +69,10 @@
   position: relative;
   width: 100%;
   margin-top: $gutter-width;
-  color: transparentize($subheading__font-color, 0.5);
   font-size: modular-scale(1);
   text-align: center;
   text-transform: lowercase;
+  opacity: 0.5;
 
   &:before,
   &:after {
@@ -81,8 +81,9 @@
     left: 0;
     width: 45%;
     height: 1px;
-    border-top: 1px solid transparentize($subheading__font-color, 0.8);
+    border-top: $interface__border;
     content: "";
+    opacity: 0.8;
     z-index: 0;
   }
 

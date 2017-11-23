@@ -75,7 +75,6 @@
     display: inline-block;
     position: relative;
     margin: 0;
-    color: $heading__font-color;
     font-size: modular-scale(0);
     font-weight: 600;
     line-height: 1.5;
@@ -91,12 +90,12 @@
 
       &:before,
       &:after {
+        @include section-preset-color-override(background-color);
         @include transition(all 0.25s ease);
 
         position: absolute;
         width: 3px;
         height: 9px;
-        background-color: $heading__font-color;
         content: "";
       }
 

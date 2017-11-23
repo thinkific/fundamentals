@@ -58,7 +58,7 @@
       position: absolute;
       width: 3px;
       height: 9px;
-      background-color: $heading__font-color;
+      background-color: inherit;
       content: "";
     }
 
@@ -86,7 +86,7 @@
   list-style: none;
 
   a {
-    color: $heading__font-color;
+    color: $body__font-color;
     text-decoration: none;
 
     &:active,
@@ -110,7 +110,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background-color: $heading__font-color;
+      background-color: $body__font-color;
       content: "";
 
     }
@@ -122,10 +122,23 @@
   margin-left: 5px;
   padding: 5px;
   border-radius: 3px;
-  background-color: $heading__font-color;
-  color: dynamic-text-color($heading__font-color);
   font-size: .875rem;
   font-weight: bold;
   line-height: 1;
   text-transform: uppercase;
+
+  .section-color-preset__primary & {
+    background-color: $primary-text-color;
+    color: dynamic-text-color($primary-text-color);
+  }
+
+  .section-color-preset__secondary & {
+    background-color: $secondary-text-color;
+    color: dynamic-text-color($secondary-text-color);
+  }
+
+  .section-color-preset__tertiary & {
+    background-color: $tertiary-text-color;
+    color: dynamic-text-color($tertiary-text-color);
+  }
 }
