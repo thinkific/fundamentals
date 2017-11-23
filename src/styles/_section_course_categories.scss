@@ -39,9 +39,32 @@
 }
 
 .course-category-card__img-container {
+  @include full-width-background;
+
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    line-height: 200px;
+    text-align: center;
+    content: "";
+    opacity: 0.4;
+    z-index: z-index(element--middleground);
+  }
+
   a {
     display: block;
     position: relative;
+    height: 100%;
   }
 
   h3 {
@@ -83,7 +106,6 @@
 		border-top: $interface__border;
 		border-right: $interface__border;
 		border-bottom: 0;
-		color: $body__font-color;
 		font-size: 0.875rem;
 		font-weight: 600;
 		line-height: 1.4rem;

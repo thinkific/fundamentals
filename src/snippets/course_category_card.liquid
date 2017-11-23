@@ -2,9 +2,8 @@
   This is the card representation of your course categories.
 {% endcomment %}
 <section class="course-category-card" data-card-url="{{ collection.url }}" tabindex="0">
-  <header class="course-category-card__img-container">
+  <header class="course-category-card__img-container" style="background-image:url({{ collection.card_image_url }});">
     <a href="{{ collection.url }}" tabindex="-1">
-      <img src="{{ collection.url }}" alt="{{ collection.name }}" title="{{ collection.name }}" class="course-category-card__img img-responsive" />
       <h3>{{ collection.name }}</h3>
     </a>
   </header>
