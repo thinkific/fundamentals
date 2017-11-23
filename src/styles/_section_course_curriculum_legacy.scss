@@ -25,9 +25,9 @@
   @include make-row(false);
 
   position: relative;
-  cursor: pointer;
   margin-bottom: $gutter-width / 2;
   border-bottom: 1px solid $gray-1;
+  cursor: pointer;
 
   &.collapse {
 
