@@ -65,20 +65,28 @@
 }
 
 .testimonials__list-item {
-  @include card;
+  @include display(flex);
+  @include flex-direction(column);
   @include screen-md-min {
     padding: $gutter-width * 1.5 $gutter-width * 1.5 $gutter-width;
   }
 
+  height: 100%;
   padding: $gutter-width * 1.5 $gutter-width $gutter-width;
+  border: $interface__border;
+  background-color: $interface__background-color;
 
   img {
     display: inline-block;
-    width: 32px;
     height: 32px;
     margin: 0 $gutter-width / 2 0 0;
     border-radius: 50%;
+    overflow: hidden;
     vertical-align: middle;
+
+    .owl-carousel .owl-item & {
+      width: 32px;
+    }
   }
 
   p {
