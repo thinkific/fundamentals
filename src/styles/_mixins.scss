@@ -112,8 +112,8 @@
   &:hover {
     @include transition(all 300ms ease, box-shadow 600ms ease);
 
-    box-shadow: $shadow-button;
     color: $link__color;
+    box-shadow: $shadow-button;
   }
 }
 
