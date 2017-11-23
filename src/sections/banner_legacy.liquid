@@ -19,9 +19,11 @@
         </section>
       {% endif %}
       <article class="section__content">
-        {% if section.settings.title != blank %}
+        {% if section.settings.title != blank section.settings.subtitle != blank %}
           <header class="section__headings">
-            <h1 class="section__heading">{{ section.settings.title }}</h1>
+            {% if section.settings.title != blank %}
+              <h1 class="section__heading">{{ section.settings.title }}</h1>
+            {% endif %}
             {% if section.settings.subtitle != blank %}
               <h2 class="section__subheading">{{ section.settings.subtitle }}</h2>
             {% endif %}

@@ -7,9 +7,11 @@
 {% endif %}" data-preview-item="countdown">
   <div class="countdown__container">
     <div class="countdown__wrapper">
-      {% if section.settings.heading != blank %}
+      {% if section.settings.heading != blank or section.settings.subheading != blank %}
         <header class="section__headings">
-          <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% if section.settings.heading != blank %}
+            <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% endif %}
           {% if section.settings.subheading != blank %}
             <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
           {% endif %}

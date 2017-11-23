@@ -7,9 +7,11 @@
 {% endif %}" data-preview-item="richtext">
   <div class="richtext__container">
     <div class="richtext__wrapper">
-      {% if section.settings.heading != blank %}
+      {% if section.settings.heading != blank or section.settings.subheading != blank %}
         <header class="section__headings">
-          <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% if section.settings.heading != blank %}
+            <h3 class="section__heading">{{ section.settings.heading }}</h3>
+          {% endif %}
           {% if section.settings.subheading != blank %}
             <p class="section__subheading">{{ section.settings.subheading }}</p>
           {% endif %}
