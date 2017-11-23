@@ -299,8 +299,9 @@
 	}
 
 	a {
-		@include transition(box-shadow 400ms ease);
+		@include transition(background-color 400ms ease, box-shadow 400ms ease);
 
+		background-color: $interface__background-color;
 		text-decoration: none;
 
 		&:first-child {
@@ -310,8 +311,9 @@
 		&:active,
 		&:focus,
 		&:hover {
-			@include transition(box-shadow 400ms ease);
+			@include transition(background-color 400ms ease, box-shadow 400ms ease);
 
+			background-color: $interface__background-color--active;
 			color: $accent__color;
 			box-shadow: $shadow-button;
 		}
