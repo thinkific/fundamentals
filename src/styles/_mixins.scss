@@ -459,6 +459,21 @@
   }
 }
 
+@mixin section-color-preset__text-color {
+
+  .section-color-preset__primary & {
+    color: $primary-text-color;
+  }
+
+  .section-color-preset__secondary & {
+    color: $secondary-text-color;
+  }
+
+  .section-color-preset__tertiary & {
+    color: $tertiary-text-color;
+  }
+}
+
 // Section Height
 @mixin section-height($padding-top: $section-height__large, $padding-bottom: $padding-top) {
 
