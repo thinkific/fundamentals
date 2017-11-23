@@ -189,10 +189,21 @@
 @mixin card {
   @include display(flex);
   @include flex-direction(column);
+  @include transition(transform 400ms ease, background-color 400ms ease, box-shadow 400ms ease);
 
   height: 100%;
   border: $interface__border;
   background-color: $interface__background-color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    @include transition(transform 400ms ease, background-color 400ms ease, box-shadow 400ms ease);
+    @include transform(translateY(-2%));
+
+    background-color: $interface__background-color--active;
+    box-shadow: $shadow-card;
+  }
 }
 
 // Container
