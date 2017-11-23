@@ -1,0 +1,3 @@
+{% if section.settings.background_color_preset != blank %}
+  {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
+{% endif %}

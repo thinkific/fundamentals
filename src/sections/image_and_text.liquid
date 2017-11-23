@@ -1,7 +1,5 @@
 <section class="text-image
-{% if section.settings.background_color_preset != blank %}
- {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
-{% endif %}" data-preview-item="text-image">
+{% include 'section_color_preset' %}" data-preview-item="text-image">
   <div class="text-image__container">
     <article class="section__content">
       {% if section.settings.body != blank %}

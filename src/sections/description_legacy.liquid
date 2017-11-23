@@ -1,7 +1,5 @@
 <section class="description-legacy
-{% if section.settings.background_color_preset != blank %}
- {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
-{% endif %}" data-preview-item="description-legacy">
+{% include 'section_color_preset' %}" data-preview-item="description-legacy">
   <div class="description-legacy__container">
     <div class="description-legacy__wrapper">
       {% if section.settings.heading != blank or section.settings.subheading != blank %}

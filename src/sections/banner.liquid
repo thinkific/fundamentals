@@ -1,13 +1,7 @@
 <section class="banner
-{% if section.settings.background_image != blank or theme.settings.banner_background_promo_image != blank %}
- full-width-background
-{% endif %}
-{% if section.settings.background_color_preset != blank %}
- {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
-{% endif %}
-{% if section.settings.section_height_preset != blank %}
- {{ section.settings.section_height_preset | prepend: 'section-height__' }}
-{% endif %}" data-preview-item="banner">
+{% include 'full_width_background_banner' %}
+{% include 'section_color_preset' %}
+{% include 'section_height_preset' %}" data-preview-item="banner">
   <div class="banner__container">
     <div class="banner__wrapper">
       <article class="section__content">

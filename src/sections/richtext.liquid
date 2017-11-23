@@ -1,10 +1,6 @@
 <section class="richtext
-{% if section.settings.background_color_preset != blank %}
- {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
-{% endif %}
-{% if section.settings.section_height_preset != blank %}
- {{ section.settings.section_height_preset | prepend: 'section-height__' }}
-{% endif %}" data-preview-item="richtext">
+{% include 'section_color_preset' %}
+{% include 'section_height_preset' %}" data-preview-item="richtext">
   <div class="richtext__container">
     <div class="richtext__wrapper">
       {% if section.settings.heading != blank or section.settings.subheading != blank %}

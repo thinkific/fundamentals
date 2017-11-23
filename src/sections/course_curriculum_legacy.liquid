@@ -1,7 +1,5 @@
 <section class="course-curriculum-legacy
-{% if section.settings.background_color_preset != blank %}
- {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
-{% endif %}" data-preview-item="course-curriculum">
+{% include 'section_color_preset' %}" data-preview-item="course-curriculum">
   <div class="course-curriculum-legacy__container">
     {% if section.settings.heading != blank or section.settings.subheading != blank %}
       <header class="section__headings">
