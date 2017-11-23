@@ -1,6 +1,6 @@
 <section class="upsells
 {% if section.settings.background_color_preset != blank %}
- {{ section.settings.background_color_preset | append: '-section-color-preset' }}
+ {{ section.settings.background_color_preset | prepend: 'section-color-preset__' }}
 {% endif %}
 {% if section.settings.section_height_preset != blank %}
  {{ section.settings.section_height_preset | prepend: 'section-height__' }}
