@@ -20,7 +20,7 @@
       </header>
       {% if instructor.bio != blank %}
         <section class="instructor-legacy__bio">
-          {% if section.settings.heading != blank %}
+          {% if section.settings.heading != blank or section.settings.subheading != blank %}
             <h3 class="section__heading">{{ section.settings.heading }}</h3>
           {% endif %}
           {{ instructor.bio }}
