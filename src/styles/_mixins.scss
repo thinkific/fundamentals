@@ -487,18 +487,18 @@
   }
 }
 
-@mixin section-color-preset__text-color {
+@mixin section-preset-color-override($property) {
 
   .section-color-preset__primary & {
-    color: $primary-text-color;
+    #{$property}: $primary-text-color;
   }
 
   .section-color-preset__secondary & {
-    color: $secondary-text-color;
+    #{$property}: $secondary-text-color;
   }
 
   .section-color-preset__tertiary & {
-    color: $tertiary-text-color;
+    #{$property}: $tertiary-text-color;
   }
 }
 
