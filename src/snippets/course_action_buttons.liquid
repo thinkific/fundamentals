@@ -27,10 +27,9 @@
         <a href="{{ course.links.enroll_free_trial }}" class="button{% unless course.user_can_purchase %} button-primary{% else %} button-secondary{% endunless %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_free_trial' | translate }}</a>
       {% endif %}
     {% else %}
-      <p class="product__private-title">
+      <p class="product-action-button--private">
         <i class="fa fa-lock"></i>
-        {{ 'liquid.partials.course_landing_page_action_buttons.text_email_us' | translate }}
-        {{ site.support_email }}
+        <a href="mailto:{{ site.support_email }}" target="_blank">{{ 'liquid.partials.course_landing_page_action_buttons.text_email_us' | translate }} {{ site.support_email }}</a>
       </p>
     {% endif %}
   {% endunless %}

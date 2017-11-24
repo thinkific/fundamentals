@@ -454,7 +454,7 @@
 }
 
 // Section Presets
-@mixin section-background-preset($background-color: $white, $heading-color: $black, $subheading-color: gray-scale(4), $text-color: gray-scale(4)) {
+@mixin section-color-preset($background-color: $white, $heading-color: $black, $subheading-color: gray-scale(7), $text-color: gray-scale(7)) {
   background-color: $background-color;
 
   .section__heading {
@@ -477,17 +477,13 @@
       color: $text-color;
     }
   }
-
-  .product-action-button--private {
-
-    &,
-    .fa {
-      color: $text-color;
-    }
-  }
 }
 
-@mixin section-preset-color-override($property) {
+@mixin section-color-preset-override($property) {
+
+  .section-color-preset__banner & {
+    #{$property}: $banner-text-color;
+  }
 
   .section-color-preset__primary & {
     #{$property}: $primary-text-color;

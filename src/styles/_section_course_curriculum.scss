@@ -167,7 +167,7 @@
   list-style: none;
 
   a {
-    @include section-preset-color-override(color);
+    @include section-color-preset-override(color);
 
     text-decoration: none;
 

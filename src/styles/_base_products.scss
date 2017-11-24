@@ -442,6 +442,22 @@
 	}
 }
 
+.product-action-button--private {
+
+	a {
+		text-decoration: none;
+	}
+
+	.fa {
+		margin-right: $gutter-width / 8;
+	}
+
+	a,
+	.fa {
+		@include section-color-preset-override(color);
+	}
+}
+
 .products__search {
 	margin: 0 0 $gutter-width;
 }
