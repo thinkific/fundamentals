@@ -34,6 +34,10 @@ textarea {
   &:-moz-placeholder {
     color: gray-scale(5);
   }
+
+  &:focus {
+    border-color: $accent__color;
+  }
 }
 
 .form__group {
