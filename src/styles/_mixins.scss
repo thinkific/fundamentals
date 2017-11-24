@@ -417,22 +417,6 @@
   background-color: $interface__background-color;
   font-size: 1rem;
 
-  &::-webkit-input-placeholder {
-    color: transparent;
-  }
-
-  &::-moz-placeholder {
-    color: transparent;
-  }
-
-  &:-ms-input-placeholder {
-    color: transparent;
-  }
-
-  &:-moz-placeholder {
-    color: transparent;
-  }
-
   &[readonly] {
     background-color: $form__input-background-disabled;
   }
