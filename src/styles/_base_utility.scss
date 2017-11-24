@@ -95,7 +95,7 @@
 
 // Section Background Presets
 .section-color-preset__banner {
-  @include section-background-preset($banner-background-color, $banner-heading-color, $banner-subheading-color, $banner-text-color);
+  @include section-color-preset($banner-background-color, $banner-heading-color, $banner-subheading-color, $banner-text-color);
 
   .button-secondary {
     border-color: $button__primary-background;
@@ -111,15 +111,15 @@
 }
 
 .section-color-preset__primary {
-  @include section-background-preset($primary-background-color, $primary-heading-color, $primary-subheading-color, $primary-text-color);
+  @include section-color-preset($primary-background-color, $primary-heading-color, $primary-subheading-color, $primary-text-color);
 }
 
 .section-color-preset__secondary {
-  @include section-background-preset($secondary-background-color, $secondary-heading-color, $secondary-subheading-color, $secondary-text-color);
+  @include section-color-preset($secondary-background-color, $secondary-heading-color, $secondary-subheading-color, $secondary-text-color);
 }
 
 .section-color-preset__tertiary {
-  @include section-background-preset($tertiary-background-color, $tertiary-heading-color, $tertiary-subheading-color, $tertiary-text-color);
+  @include section-color-preset($tertiary-background-color, $tertiary-heading-color, $tertiary-subheading-color, $tertiary-text-color);
 }
 
 // Section Height Presets
