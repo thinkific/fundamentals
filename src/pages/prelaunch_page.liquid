@@ -1,0 +1,29 @@
+{% layout 'prelaunch' %}
+
+<main class="prelaunch" id="main-content" role="main">
+  <div class="prelaunch__container">
+    <div class="prelaunch__wrapper">
+      <article class="prelaunch__form">
+        <h1 class="prelaunch__heading">Course site coming soon!</h1>
+        <p class="prelaunch__subheading">
+          There's some great course content in the works!
+          Make sure to sign up now by email to get notified once this site goes live.
+        </p>
+        {% form 'new_lead' %}
+          {% if errors.size > 0 %}
+            {% include 'form_errors' %}
+          {% endif %}
+          {% assign field = fields.email %}
+          <div class="form__group">
+            <label for"{{ field.name }}" class="form__label">{{ field.label }}
+              <input type="email" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus {% if field.required %}required{% endif %} class="form__control" />
+            </label>
+            <div class="form__button-group">
+              <input type="submit" value="{{ fields.submit.label }}" class="button button-primary" />
+            </div>
+          </div>
+        {% endform %}
+      </article>
+    </div>
+  </div>
+</main>
