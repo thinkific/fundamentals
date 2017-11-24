@@ -23,25 +23,18 @@
 			bottom: 0;
 			left: 0;
 			width: 100%;
-			max-height: 0;
-			background-color: $black;
+			height: 100%;
+			background-color: $interface__background-color;
 			line-height: 200px;
 			text-align: center;
 			content: "";
-			opacity: 0;
+			opacity: 0.6;
 			overflow: hidden;
-			z-index: z-index(element--middleground);
+			z-index: z-index(element--background);
 		}
 
 		&:hover,
 		&:focus {
-
-			&:after {
-				@include transition(max-height 400ms ease-in, opacity 300ms ease-in);
-
-				max-height: 1000px;
-				opacity: 0.4;
-			}
 
 			a {
 				top: 40%;
@@ -56,8 +49,9 @@
 			width: 100%;
 			margin: 0;
 			padding: $gutter-width / 2;
+			color: dynamic-text-color($interface__background-color);
 			text-align: center;
-			z-index: z-index(element--background);
+			z-index: z-index(element--middleground);
 		}
 
 		a {
@@ -146,7 +140,7 @@
 	position: absolute;
 	top: -1rem;
 	padding: $gutter-width / 4 $gutter-width / 2;
-	border: 2px solid $body__font-color;
+	border: 2px solid $interface__border-color;
 	background-color: $interface__background-color;
 	font-size: .875rem;
 	font-weight: bold;
@@ -194,7 +188,8 @@
 		margin-top:  ($progress__circle-size - $progress__inset-size)/2;
 		margin-left: ($progress__circle-size - $progress__inset-size)/2;
 		border-radius: 50%;
-		background-color: $white;
+		background-color: $interface__background-color;
+		color: dynamic-text-color($interface__background-color);
 		line-height: $progress__inset-size;
 		text-align: center;
 
@@ -363,7 +358,6 @@
 	padding: $gutter-width;
 }
 
-// Product List
 .products__list {
 	@include make-row(true);
 }
