@@ -9,10 +9,10 @@
   background-color: $nav__background-color;
   z-index: z-index(navigation--background);
 
-  .home_landing_page &,
-  .course_landing_page &,
-  .bundle_landing_page &,
-  .page_template & {
+  .home-landing-page &,
+  .course-landing-page &,
+  .bundle-landing-page &,
+  .page-template & {
     border-bottom: 0;
 
     &[class="header floating"] {
@@ -119,19 +119,19 @@
   &:hover {
     color: $nav__link-color;
 
-    .home_landing_page header[class="header floating"] & {
+    .home-landing-page header[class="header floating"] & {
       color: $nav__floating-link-color;
     }
 
-    .course_landing_page header[class="header floating"] & {
+    .course-landing-page header[class="header floating"] & {
       color: $nav__floating-link-color;
     }
 
-    .bundle_landing_page header[class="header floating"] & {
+    .bundle-landing-page header[class="header floating"] & {
       color: $nav__floating-link-color;
     }
 
-    .page_template header[class="header floating"] & {
+    .page-template header[class="header floating"] & {
       color: $nav__floating-link-color;
     }
   }
@@ -297,19 +297,19 @@
         color: $nav__link-color--active;
       }
 
-      .home_landing_page header[class="header floating"] & {
+      .home-landing-page header[class="header floating"] & {
         color: $nav__floating-link-color;
       }
 
-      .course_landing_page header[class="header floating"] & {
+      .course-landing-page header[class="header floating"] & {
         color: $nav__floating-link-color;
       }
 
-      .bundle_landing_page header[class="header floating"] & {
+      .bundle-landing-page header[class="header floating"] & {
         color: $nav__floating-link-color;
       }
 
-      .page_template header[class="header floating"] & {
+      .page-template header[class="header floating"] & {
         color: $nav__floating-link-color;
       }
     }
@@ -440,10 +440,10 @@
       }
     }
 
-    .home_landing_page header[class="header floating"] &,
-    .course_landing_page header[class="header floating"] &,
-    .bundle_landing_page header[class="header floating"] &,
-    .page_template header[class="header floating"] & {
+    .home-landing-page header[class="header floating"] &,
+    .course-landing-page header[class="header floating"] &,
+    .bundle-landing-page header[class="header floating"] &,
+    .page-template header[class="header floating"] & {
       background-color: $nav__floating-link-color;
 
       &:before,

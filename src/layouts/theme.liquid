@@ -1,5 +1,5 @@
 {% comment %}
-  This document defines the base html.
+  This layout defines the theme pages
 {% endcomment %}
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     {% include 'page_wide_css' %}
     {% include 'theme_wide_css' %}
   </head>
-  <body class="{{ page.page_identifier | kebab_filter }} {{ theme.preset_name | kebab_filter }}">
+  <body class="{{ page.page_identifier | kebab_case }} {{ theme.preset_name | kebab_case }}">
     <div id="skip-link">
       <a href="#main-content" tabindex="0">Skip to main content</a>
     </div>

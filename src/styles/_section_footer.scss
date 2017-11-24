@@ -8,9 +8,9 @@
   color: $footer__text-color;
 
   // TODO: BEM selectors for page_identifier
-  .home_landing_page &,
-  .course_landing_page &,
-  .bundle_landing_page & {
+  .home-landing-page &,
+  .course-landing-page &,
+  .bundle-landing-page & {
     border-top: 0;
   }
 
