@@ -7,7 +7,7 @@
     <div class="express-sign-in__wrapper">
       <article class="express-sign-in__form">
         <h1 class="page__heading">{{ 'liquid.views.express_sign_in_page.thinkific_express_signin' | translate }}</h1>
-        <h3>{{ 'liquid.views.express_sign_in_page.set_password' | translate }}</h3>
+        <p class="page__subheading">{{ 'liquid.views.express_sign_in_page.set_password' | translate }}</p>
         {% form 'express_sign_in' %}
         {% if errors.size > 0 %}
           {% include 'form_errors' %}
