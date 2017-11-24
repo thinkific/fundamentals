@@ -19,22 +19,6 @@ output {
 input,
 textarea {
 
-  &::-webkit-input-placeholder {
-    color: gray-scale(5);
-  }
-
-  &::-moz-placeholder {
-    color: gray-scale(5);
-  }
-
-  &:-ms-input-placeholder {
-    color: gray-scale(5);
-  }
-
-  &:-moz-placeholder {
-    color: gray-scale(5);
-  }
-
   &:focus {
     border-color: $accent__color;
   }
@@ -47,10 +31,18 @@ textarea {
 .form__button-group {
 
   .form__label + & {
+    @include screen-sm-min {
+      width: 25%;
+      padding-top: 0;
+    }
     @include align-self(flex-end);
+
+    width: 100%;
+    padding-top: $gutter-width / 2;
   }
 
   .button {
+    width: 100%;
     padding: $gutter-width / 2;
   }
 }
@@ -145,4 +137,24 @@ select {
 
 :focus {
   outline: 1px solid $accent__color;
+}
+
+::-webkit-input-placeholder {
+  color: gray-scale(5);
+}
+
+::-moz-placeholder {
+  color: gray-scale(5);
+}
+
+:-ms-input-placeholder {
+  color: gray-scale(5);
+}
+
+:-moz-placeholder {
+  color: gray-scale(5);
+}
+
+::placeholder {
+  color: gray-scale(5);
 }
