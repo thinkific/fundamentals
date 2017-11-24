@@ -17,7 +17,7 @@
         <div class="form__group">
           {% assign field = fields.password %}
           <label for="{{ field.name }}" class="form__label">{{ field.label }}
-            <input type="password" id="{{ field.name }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form__control" />
+            <input type="password" id="{{ field.name }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus class="form__control" />
           </label>
         </div>
         <div class="form__group">
