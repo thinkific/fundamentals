@@ -103,7 +103,7 @@
   font-family: $button__font-family;
   font-size: $button__font-size;
   font-weight: $button__font-weight;
-  line-height: 1;
+  line-height: normal;
   text-align: center;
   text-decoration: none;
 
@@ -416,6 +416,7 @@
   border-radius: 0;
   background-color: $interface__background-color;
   font-size: 1rem;
+  line-height: normal;
 
   &[readonly] {
     background-color: $form__input-background-disabled;
@@ -425,16 +426,12 @@
 // Page Padding
 @mixin page-padding($padding-top: $gutter-width * 2, $padding-bottom: $gutter-width * 2) {
   @include screen-md-min {
-    padding-top: $padding-top / 2;
-    padding-bottom: $padding-bottom / 2;
-  }
-  @include screen-lg-min {
     padding-top: $padding-top;
     padding-bottom: $padding-bottom;
   }
 
-  padding-top: $padding-top / 4;
-  padding-bottom: $padding-bottom / 4;
+  padding-top: $padding-top / 2;
+  padding-bottom: $padding-bottom / 2;
 }
 
 // Section Presets
