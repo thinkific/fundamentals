@@ -44,6 +44,17 @@ textarea {
   @include form-group;
 }
 
+.form__button-group {
+
+  .form__label + & {
+    @include align-self(flex-end);
+  }
+
+  .button {
+    padding: $gutter-width / 2;
+  }
+}
+
 .form__label {
   @include form-label;
 }
