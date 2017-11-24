@@ -67,9 +67,6 @@ h2 {
     @include screen-sm-min {
       font-size: modular-scale(3);
     }
-    @include screen-md-min {
-      font-size: modular-scale(4);
-    }
     font-size: modular-scale(2);
   }
 }
