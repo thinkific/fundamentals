@@ -22,7 +22,6 @@ table {
   td {
     padding: $gutter-width / 3;
     border-top: $interface__border;
-    vertical-align: top;
   }
 
   thead {
@@ -41,9 +40,10 @@ table {
     }
 
     tr {
+      @include transition(background-color 400ms ease);
 
       &:nth-of-type(odd) {
-        background-color: gray-scale(0);
+        background-color: lighten($interface__background-color, 10%);
       }
 
       &:active,
@@ -51,7 +51,7 @@ table {
       &:hover {
         @include transition(background-color 400ms ease);
 
-        background-color: tint($accent__color, 90%);
+        background-color: $interface__background-color--active;
       }
     }
   }
