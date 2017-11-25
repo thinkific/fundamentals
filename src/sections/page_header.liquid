@@ -59,10 +59,10 @@
         </ul>
       </nav>
       <a class="header__mobile-button" aria-expanded="true" tabindex="0">
-        <span class="sr-only">{{ 'liquid.partials.header_with_links.button_menu' | translate }}</span>
         <span class="header__mobile-button__toggle-icon">
           <span>toggle menu</span>
         </span>
+        <span class="header__mobile-button__label {% if section.settings.show_menu_label == false %}sr-only{% endif %}">{{ 'liquid.partials.header_with_links.button_menu' | translate }}</span>
       </a>
     </div>
   </div>
@@ -211,6 +211,12 @@ $(document).ready(function() {
               "label":"Overlay"
             }
           ]
+        },
+        {
+          "type":"checkbox",
+          "id":"show_menu_label",
+          "label":"Show mobile menu label",
+          "default":true
         }
       ]
     }

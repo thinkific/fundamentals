@@ -370,6 +370,21 @@
   @include screen-md-min {
     display: none;
   }
+
+  position: relative;
+}
+
+.header__mobile-button__label {
+  @include transform(translatex(-50%));
+
+  position: absolute;
+  left: 50%;
+  width: 3em;
+  color: $nav__floating-link-color;
+  font-size: .6em;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .header__mobile-button__toggle-icon {
