@@ -111,7 +111,6 @@ $(document).ready(function() {
       e.preventDefault();
       e.stopPropagation();
       $header.attr('data-menu', $header.attr('data-menu') == 'open' ? 'closed' : 'open');
-      $('body').toggleClass('noscroll');
       $mobileButton.toggleClass('open');
       $navigation.focus();
     }
