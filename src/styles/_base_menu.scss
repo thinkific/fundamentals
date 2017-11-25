@@ -89,7 +89,7 @@
           top: 1px;
           border-top: $interface__border;
           border-right: $interface__border;
-          background-color: gray-scale(0);
+          background-color: $interface__background-color;
           font-size: 1rem;
 
           &:before {
@@ -98,7 +98,7 @@
 
           &.active {
             border-bottom: 1px solid $interface__background-color;
-            background: $interface__background-color;
+            background: $interface__background-color--active;
           }
         }
       }

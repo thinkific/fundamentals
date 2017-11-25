@@ -13,7 +13,7 @@ option,
 datalist,
 keygen,
 output {
-  color: $body__font-color;
+  color: $form__input-color;
 }
 
 input,
@@ -139,22 +139,10 @@ select {
   outline: 1px solid $accent__color;
 }
 
-::-webkit-input-placeholder {
-  color: gray-scale(5);
-}
-
-::-moz-placeholder {
-  color: gray-scale(5);
-}
-
-:-ms-input-placeholder {
-  color: gray-scale(5);
-}
-
-:-moz-placeholder {
-  color: gray-scale(5);
-}
-
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
 ::placeholder {
-  color: gray-scale(5);
+  color: $form__input-color-placeholder;
 }

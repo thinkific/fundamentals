@@ -246,7 +246,7 @@
 			left: 0;
 			width: 100%;
 			height: 3px;
-			background-color: gray-scale(2);
+			background-color: dynamic-contrast-color($interface__background-color--active);
 			content: "";
 			z-index: z-index(default);
 		}

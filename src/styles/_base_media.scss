@@ -18,7 +18,7 @@ figcaption {
   left: 0;
   width: 100%;
   padding: $gutter-width / 4 $gutter-width / 2;
-  background-color: gray-scale(0);
+  background-color: $interface__background-color;
   font-size: modular-scale(-1);
   font-style: italic;
   opacity: 0.7;

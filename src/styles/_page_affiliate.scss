@@ -52,7 +52,7 @@
 
   display: inline-block;
   width: auto;
-  background-color: gray-scale(0);
+  background-color: $form__input-background-disabled;
   line-height: 1;
 }
 
@@ -65,7 +65,7 @@
     display: inline-block;
     width: auto;
     min-width: 10rem;
-    background-color: gray-scale(0);
+    background-color: $form__input-background-disabled;
     line-height: 1;
   }
 }

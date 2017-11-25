@@ -184,10 +184,10 @@ $cursor-disabled: not-allowed !default;
 // ======================================
 
 $form__control-padding: 10px 15px !default;
-$form__input-background: $white !default;
-$form__input-color-placeholder: gray-scale(1) !default;
-$form__input-background-disabled: gray-scale(0) !default;
 $form__input-color: $body__text-color !default;
+$form__input-background: $interface__background-color !default;
+$form__input-color-placeholder: tint($form__input-color, 50%) !default;
+$form__input-background-disabled: shade($interface__background-color, 3%) !default;
 $form__input-height: calc($body__font-size * $body__line-height) + ($gutter-width) !default;
 
 // Review Stars

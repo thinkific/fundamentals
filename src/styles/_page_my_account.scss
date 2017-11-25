@@ -137,7 +137,7 @@
   p {
     @include form-control;
 
-    background-color: gray-scale(0);
+    background-color: $interface__background-color;
     line-height: 1;
   }
 

@@ -176,14 +176,14 @@
       @include transition(color 400ms ease);
 
       position: absolute;
-      color: gray-scale(3);
+      color: $interface__background-color;
       font-size: modular-scale(1);
       z-index: z-index(element--middleground);
 
       &:active,
       &:focus,
       &:hover {
-        color: gray-scale(6);
+        color: $interface__background-color--active;
       }
     }
 
