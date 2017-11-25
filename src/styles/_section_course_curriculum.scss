@@ -136,7 +136,7 @@
       padding: 5px 8px;
       border-radius: 5px;
       background-color: $accent__color;
-      color: dynamic-text-color($accent__color);
+      color: dynamic-contrast-color($accent__color);
       font-size: modular-scale(-2);
     }
 
@@ -195,16 +195,16 @@
 
   .section-color-preset__primary & {
     background-color: $primary-text-color;
-    color: dynamic-text-color($primary-text-color);
+    color: dynamic-contrast-color($primary-text-color);
   }
 
   .section-color-preset__secondary & {
     background-color: $secondary-text-color;
-    color: dynamic-text-color($secondary-text-color);
+    color: dynamic-contrast-color($secondary-text-color);
   }
 
   .section-color-preset__tertiary & {
     background-color: $tertiary-text-color;
-    color: dynamic-text-color($tertiary-text-color);
+    color: dynamic-contrast-color($tertiary-text-color);
   }
 }

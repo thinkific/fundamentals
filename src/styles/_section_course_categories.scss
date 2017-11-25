@@ -73,7 +73,7 @@
     position: absolute;
     top: 50%;
     width: 100%;
-    color: dynamic-text-color($interface__background-color);
+    color: dynamic-contrast-color($interface__background-color);
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.25;

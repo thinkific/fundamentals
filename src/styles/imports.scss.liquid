@@ -6,7 +6,7 @@
 // Functions
 // ======================================
 
-@function dynamic-text-color($color: $body__background-color) {
+@function dynamic-contrast-color($color: $body__background-color) {
   @if (lightness($color) > 85) {
     @return $black;
   } @else {
