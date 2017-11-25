@@ -93,6 +93,19 @@
 
 .my-account__avatar-label {
   display: block;
+  cursor: pointer;
+
+  img {
+    margin: 0 auto $gutter-width / 2;
+  }
+
+  .button-upload {
+    font-family: $heading__font-family;
+    font-size: modular-scale(-1);
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+  }
 }
 
 .my-account__form-contents {
