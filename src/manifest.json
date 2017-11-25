@@ -44,7 +44,7 @@
         {
           "type": "color",
           "id": "link_hover_color",
-          "label": "Hover color",
+          "label": "Link color (Hover)",
           "default": "#2AA0E9"
         }
       ]
