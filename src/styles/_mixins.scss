@@ -347,7 +347,7 @@
 @mixin form-label {
   @include flex-grow(1);
 
-  color: $body__font-color;
+  color: $body__text-color;
   font-size: .75rem;
   font-weight: bold;
   line-height: 2;

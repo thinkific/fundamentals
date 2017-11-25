@@ -86,7 +86,7 @@
   list-style: none;
 
   a {
-    color: $body__font-color;
+    color: $body__text-color;
     text-decoration: none;
 
     &:active,
@@ -110,7 +110,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background-color: $body__font-color;
+      background-color: $body__text-color;
       content: "";
 
     }

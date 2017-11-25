@@ -123,7 +123,7 @@ $linked-in: #4875B4 !default;
 
 // Body
 $body__background-color: {{ theme.settings.background_color }} !default;
-$body__font-color: {{ theme.settings.text_color }} !default;
+$body__text-color: {{ theme.settings.text_color }} !default;
 $body__font-family: '{{ theme.settings.body_font }}', Sans-Serif !default;
 $body__font-size: modular-scale(0) !default;
 $body__font-weight: 400 !default;
@@ -184,10 +184,10 @@ $cursor-disabled: not-allowed !default;
 // ======================================
 
 $form__control-padding: 10px 15px !default;
-$form__input-color: $body__font-color !default;
 $form__input-background: $white !default;
 $form__input-color-placeholder: gray-scale(1) !default;
 $form__input-background-disabled: gray-scale(0) !default;
+$form__input-color: $body__text-color !default;
 $form__input-height: calc($body__font-size * $body__line-height) + ($gutter-width) !default;
 
 // Review Stars
