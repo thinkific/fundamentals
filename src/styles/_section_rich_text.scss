@@ -1,7 +1,7 @@
-// Richtext
+// Rich text
 // ======================================
 
-.richtext {
+.rich-text {
 
   .section__headings {
     @include make-col(12);
@@ -12,10 +12,10 @@
   }
 }
 
-.richtext__container {
+.rich-text__container {
   @include make-container;
 }
 
-.richtext__wrapper {
+.rich-text__wrapper {
   @include make-row(true);
 }

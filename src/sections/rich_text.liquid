@@ -1,8 +1,8 @@
-<section class="richtext
+<section class="rich-text
 {% include 'section_color_preset' %}
-{% include 'section_height_preset' %}" data-preview-item="richtext">
-  <div class="richtext__container">
-    <div class="richtext__wrapper">
+{% include 'section_height_preset' %}" data-preview-item="rich_text">
+  <div class="rich-text__container">
+    <div class="rich-text__wrapper">
       {% if section.settings.heading != blank or section.settings.subheading != blank %}
         <header class="section__headings">
           {% if section.settings.heading != blank %}
@@ -24,7 +24,7 @@
 
 {% style %}
 
-section.richtext {
+section.rich-text {
 
   .section__heading,
   .section__subheading {
