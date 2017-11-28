@@ -2,8 +2,13 @@
 // ======================================
 
 figure {
+  @include screen-sm-max {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
   position: relative;
-  margin: 0;
+  margin: 0 0 $gutter-width / 2;
 
   img {
     display: block;
@@ -18,17 +23,21 @@ figcaption {
   left: 0;
   width: 100%;
   padding: $gutter-width / 4 $gutter-width / 2;
-  background-color: $interface__background-color;
   font-size: modular-scale(-1);
   font-style: italic;
-  opacity: 0.7;
-}
+  z-index: 0;
 
-img {
-
-  .owl-carousel .owl-item & {
-    display: inline-block;
-    width: initial;
+  &:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $interface__background-color;
+    content: "";
+    opacity: 0.7;
+    z-index: -1;
   }
 }
 
@@ -54,5 +63,15 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+
+.section__body {
+
+  img {
+    @include screen-sm-max {
+      display: block;
+      width: 100%;
+    }
   }
 }
