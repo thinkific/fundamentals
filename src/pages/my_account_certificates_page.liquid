@@ -15,7 +15,7 @@
         <h1 class="my-account__heading">{{ 'liquid.views.my_account_certificates_page.header_my_certificates' | translate }}</h1>
         {% if site.current_user.has_certificates %}
           <h5>{{ 'liquid.views.my_account_certificates_page.table.header_certificates' | translate }}</h5>
-          <table class="my-account__certificates">
+          <table class="my-account__certificates table--responsive">
             <thead>
               <tr>
                 <th>{{ 'liquid.views.my_account_certificates_page.table.column_course' | translate }}</th>
@@ -25,9 +25,9 @@
             <tbody>
               {% for enrollment in page.enrollments_with_certificates %}
                 <tr>
-                  <td class="certificate-entry">{{ enrollment.course_name | truncate: 25 }}</td>
-                  <td>{{ enrollment.completed_at | date: '%B %d, %Y %H:%M' }}</td>
-                  <td>
+                  <td class="certificate-entry" data-label="{{ 'liquid.views.my_account_certificates_page.table.column_course' | translate }}">{{ enrollment.course_name | truncate: 25 }}</td>
+                  <td data-label="{{ 'liquid.views.my_account_certificates_page.table.column_completed_at' | translate }}">{{ enrollment.completed_at | date: '%B %d, %Y %H:%M' }}</td>
+                  <td data-label="{{ 'liquid.views.my_account_certificates_page.table.column_certificate' | translate }}">
                     <a href="{{ enrollment.certificate_url }}" target="_blank">
                       {{ 'liquid.views.my_account_certificates_page.table.view' | translate }}
                     </a>

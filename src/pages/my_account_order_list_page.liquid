@@ -11,7 +11,7 @@
       </aside>
       <main class="my-account__content" id="main-content" role="main">
         <h1 class="my-account__heading">{{ 'liquid.views.my_account_orders_index_page.header_orders' | translate }}</h1>
-        <table class="my-account__order-history">
+        <table class="my-account__order-history table--responsive">
           <thead>
             <tr>
               <th>{{ 'liquid.views.my_account_orders_index_page.column_order_number' | translate }}</th>
@@ -26,21 +26,21 @@
             {% if page.has_orders %}
               {% for order in page.orders %}
                 <tr id="order-{{ order.id }}">
-                  <td>
+                  <td data-label="{{ 'liquid.views.my_account_orders_index_page.column_order_number' | translate }}">
                     <a href="{{ site.account_orders_url }}/{{ order.id }}">
                       {{ order.number }}
                     </a>
                   </td>
-                  <td>
+                  <td data-label="{{ 'liquid.views.my_account_orders_index_page.column_product' | translate }}">
                     {% if order.has_subscription %}
                       {{ 'liquid.views.my_account_orders_index_page.link_subscription' | translate }}
                     {% endif %}
                     {{ order.product_name }}
                   </td>
-                  <td>{{ order.created_date }}</td>
-                  <td>{{ order.product_expiry_date }}</td>
-                  <td>{{ order.status_key | translate }}</td>
-                  <td>{{ order.cost }}</td>
+                  <td data-label="{{ 'liquid.views.my_account_orders_index_page.column_date' | translate }}">{{ order.created_date }}</td>
+                  <td data-label="{{ 'liquid.views.my_account_orders_shared.expires' | translate }}">{{ order.product_expiry_date }}</td>
+                  <td data-label="{{ 'liquid.views.my_account_orders_index_page.column_status' | translate }}">{{ order.status_key | translate }}</td>
+                  <td data-label="{{ 'liquid.views.my_account_orders_index_page.column_current_value' | translate }}">{{ order.cost }}</td>
                 </tr>
               {% endfor %}
             {% else %}

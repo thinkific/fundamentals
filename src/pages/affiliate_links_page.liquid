@@ -16,7 +16,7 @@
           <p class="affiliate__links-homepage">{{ page.homepage_link }}</p>
           <h4>{{ 'liquid.views.affiliate_links_page.header_product_links' | translate }}</h3>
           {% if page.has_affiliate_links %}
-            <table class="affiliate__links">
+            <table class="affiliate__links table--responsive">
               <thead>
                 <tr>
                   <th>{{ 'liquid.views.affiliate_links_page.table_header_name' | translate }}</th>
@@ -26,8 +26,8 @@
               <tbody>
                 {% for affiliate_link in page.affiliate_links %}
                   <tr>
-                    <td>{{ affiliate_link.product_name }}</td>
-                    <td>{{ affiliate_link.url }}</td>
+                    <td data-label="{{ 'liquid.views.affiliate_links_page.table_header_name' | translate }}">{{ affiliate_link.product_name }}</td>
+                    <td data-label="{{ 'liquid.views.affiliate_links_page.table_header_link' | translate }}">{{ affiliate_link.url }}</td>
                   </tr>
                 {% endfor %}
               </tbody>
