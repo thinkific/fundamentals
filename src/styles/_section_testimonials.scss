@@ -22,15 +22,19 @@
     }
 
     .owl-item {
+      @include screen-xs-max {
+        opacity: 0;
+      }
       @include screen-sm-min {
         padding-right: $gutter-width;
       }
 
-      padding-right: $gutter-width / 2;
+      //padding-right: $gutter-width / 2;
 
       &.active {
         @include screen-xs-max {
-          padding: 0 $gutter-width;
+          padding: 0 $gutter-width / 2;
+          opacity: 1;
         }
 
         & + .owl-item {
@@ -48,11 +52,11 @@
       }
 
       .owl-prev {
-        left: 0;
+        left: $gutter-width / -2.5;
       }
 
       .owl-next {
-        right: 0;
+        right: $gutter-width / -2.5;
       }
     }
 
@@ -72,7 +76,7 @@
   }
 
   height: 100%;
-  padding: $gutter-width * 1.5 $gutter-width $gutter-width;
+  padding: $gutter-width $gutter-width / 2 $gutter-width;
   border: $interface__border;
   background-color: $interface__background-color;
 
