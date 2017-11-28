@@ -2,11 +2,6 @@
 // ======================================
 
 figure {
-  @include screen-sm-max {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-  }
-
   position: relative;
   margin: 0 0 $gutter-width / 2;
 
@@ -63,15 +58,5 @@ figcaption {
     left: 0;
     width: 100%;
     height: 100%;
-  }
-}
-
-.section__body {
-
-  img {
-    @include screen-sm-max {
-      display: block;
-      width: 100%;
-    }
   }
 }
