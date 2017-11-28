@@ -375,13 +375,12 @@
 }
 
 .header__mobile-button__label {
-  @include transform(translatex(-50%));
-
-  position: absolute;
-  left: 50%;
-  width: 3em;
+  display: block;
+  position: relative;
+  width: auto;
   color: $nav__floating-link-color;
   font-size: .6em;
+  line-height: normal;
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
@@ -392,7 +391,6 @@
 
   display: block;
   position: relative;
-  width: $mobile-menu__width;
   height: $mobile-menu__height;
   margin: 0;
   padding: 0;
