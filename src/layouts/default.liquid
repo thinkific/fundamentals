@@ -1,0 +1,40 @@
+{% comment %}
+  The default theme page layout
+{% endcomment %}
+
+<!DOCTYPE html>
+<!--
+
+               ▄▄█▌         ▄█▄               ▄██         ▄█▄    ▄████▄
+         ██     ██▌          ▀▀                ██         ▀▀    ██
+      ▄█████▌   ██▌▄███▄▄  ▐██▄  ▐██▄▄▄███▄    ██  ▄███▄ ▄██▄ ▄▄███▄▄▄▄▄▌   ▄▄████▄
+        ██      ███▀   ██   ▐██   ▐██▀   ██    ██ ▄██▀    ██▌   ██    ██▌  ██▀   ▐█
+        ██      ██▌    ██   ▐██   ▐█▌    ██    ████▌      ██▌   ██    ▐█▌ ▐██
+        ██      ██▌    ██   ▐██   ▐█▌    ██    ██  ██▄    ██▌   ██    ▐█▌  ██▄
+        ▀██▄█▌ ▄███▄ ▐▄███▄▄███▄ ▄███▄  ▄███▄▐████  ▀███ ▄███▄ ▄███▄ ▄███▄  ▀█████▀
+
+        Need a helping hand? Find an expert. [ https://experts.thinkific.com ]
+
+        Get help where and when you need it from experienced freelancers who know the Thinkific platform.
+
+-->
+<html>
+  <head>
+    {{ required_header_content }}
+    {% include 'meta_tags' %}
+    {% include 'page_wide_css' %}
+    {% include 'theme_wide_css' %}
+  </head>
+  <body class="{{ page.page_identifier | kebab_case }} {{ theme.preset_name | kebab_case }}">
+    <div id="skip-link">
+      <a href="#main-content" tabindex="0">Skip to main content</a>
+    </div>
+    {% section 'page_header' %}
+    {{ content_for_layout }}
+    {% section 'footer' %}
+    {{ required_footer_content }}
+    {% include 'site_wide_script' %}
+    {% include 'theme_wide_script' %}
+    <div class="overlay"></div>
+  </body>
+</html>
