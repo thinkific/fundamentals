@@ -15,7 +15,7 @@
         padding-right: $gutter-width * 2;
       }
 
-      padding-right: $gutter-width;
+      padding-right: $gutter-width / 2;
       padding-left: 0;
     }
   }
@@ -34,7 +34,10 @@
   }
 
   .course-curriculum__chapter-number {
-    padding: 0 $gutter-width;
+    @include screen-md-min {
+      padding: 0 $gutter-width;
+    }
+    padding: 0 $gutter-width / 2;
     color: inherit;
     font-family: $heading__font-family;
     font-size: modular-scale(4);
@@ -55,7 +58,6 @@
 
       .course-curriculum__chapter-title {
         position: relative;
-        white-space: nowrap;
 
         &:after {
           @include transition(opacity 400ms ease);
@@ -88,6 +90,7 @@
     margin: 0;
     padding-top: $gutter-width / 2.5;
     padding-right: $gutter-width;
+    font-size: modular-scale(1);
 
     &:after {
       content: "";
@@ -179,9 +182,12 @@
   }
 
   li {
+    @include screen-md-min {
+      padding-left: $gutter-width;
+    }
+
     position: relative;
     margin-bottom: 1em;
-    padding-left: $gutter-width;
   }
 }
 
