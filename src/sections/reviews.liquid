@@ -13,9 +13,10 @@
       </header>
     {% endif %}
     <article class="section__content">
-      {% if section.settings.reviews.size > 0 %}
+      {% if section.blocks != empty %}
         <ul class="reviews__list section__body">
-          {% for review in section.settings.reviews %}
+          {% for block in section.blocks %}
+          {% for review in block.settings.reviews %}
             <li class="reviews__list-item" data-review-id="{{ forloop.index }}">
               <header>
                 <span class="review__stars">
@@ -48,6 +49,7 @@
                 </div>
               </section>
             </li>
+            {% endfor %}
           {% endfor %}
         </ul>
       {% endif %}
@@ -59,10 +61,14 @@
 $(window).load(function(e) {
   var $showButton = $('a[class*="review__show-"]'),
       $reviewsCarousel = $('.reviews__list').addClass('owl-carousel'),
+      reviewCount = ($('.reviews__list .reviews__list-item').length <= 1),
+      dynamicItemsLg = reviewCount ? 1 : 3,
+      dynamicItemsMd = reviewCount ? 1 : 2,
+      looped = (reviewCount < 3) ? false : true,
       reviewsOwlOptions = {
         center: false,
         dots: true,
-        loop: true,
+        loop: looped,
         margin: 0,
         nav: true,
         navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
@@ -72,10 +78,10 @@ $(window).load(function(e) {
             items: 1
           },
           768: {
-            items: 2
+            items: dynamicItemsMd
           },
           992: {
-            items: 3
+            items: dynamicItemsLg
           }
         }
       };
@@ -163,20 +169,6 @@ section.reviews {
       ]
     },
     {
-      "label":"Reviews",
-      "description":"Include reviews for this course",
-      "settings":[
-        {
-          "type":"reviews_picker",
-          "id":"reviews",
-          "label":"Course reviews",
-          "default":[
-
-          ]
-        }
-      ]
-    },
-    {
       "label":"Background",
       "settings":[
         {
@@ -228,6 +220,24 @@ section.reviews {
         }
       ]
     }
-  ]
+  ],
+  "blocks":{
+    "label":"Reviews",
+    "limit":12,
+    "types":[
+      {
+        "type":"reviews",
+        "label":"Course review",
+        "settings":[
+          {
+            "type":"reviews_picker",
+            "id":"reviews",
+            "label":"Include reviews for this course"
+          }
+        ]
+      }
+    ],
+    "defaults":[]
+  }
 }
 {% endschema %}

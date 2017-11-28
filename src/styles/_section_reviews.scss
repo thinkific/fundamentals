@@ -37,8 +37,10 @@
   .owl-item {
 
     &.active {
-      padding-right: $gutter-width / 2;
-      padding-left: $gutter-width / 2;
+      @include screen-md-min {
+        padding-right: $gutter-width / 2;
+        padding-left: $gutter-width / 2;
+      }
     }
   }
 }

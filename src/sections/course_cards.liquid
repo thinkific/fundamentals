@@ -13,16 +13,20 @@
       </header>
     {% endif %}
     <article class="section__content">
-      <ul class="course-cards__list section__body">
-        {% for product in section.settings.course_cards %}
-          {% if product.is_course %}
-            {% assign course = product.course %}
-            <li class="course-cards__list-item">
-              {% include 'course_card' with course %}
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+      {% if section.blocks != empty %}
+        <ul class="course-cards__list section__body">
+          {% for block in section.blocks %}
+            {% for product in block.settings.course_card %}
+              {% if product.is_course %}
+                {% assign course = product.course %}
+                <li class="course-cards__list-item">
+                  {% include 'course_card' with course %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      {% endif %}
     </article>
   </div>
 </section>
@@ -89,17 +93,6 @@ section.course-cards {
       ]
     },
     {
-      "label":"Add course cards",
-      "settings":[
-        {
-          "type":"products_picker",
-          "id":"course_cards",
-          "label":"",
-          "default":[]
-        }
-      ]
-    },
-    {
       "label":"Background",
       "settings":[
         {
@@ -151,6 +144,24 @@ section.course-cards {
         }
       ]
     }
-  ]
+  ],
+  "blocks":{
+    "label":"Course cards",
+    "limit":12,
+    "types":[
+      {
+        "type":"course_card",
+        "label":"Course card",
+        "settings":[
+          {
+            "type":"products_picker",
+            "id":"course_card",
+            "label":""
+          }
+        ]
+      }
+    ],
+    "defaults":[]
+  }
 }
 {% endschema %}
