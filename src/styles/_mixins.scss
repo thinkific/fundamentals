@@ -411,6 +411,7 @@
 @mixin form-control {
   display: block;
   width: 100%;
+  min-height: 3rem;
   padding: $gutter-width / 2;
   border: $interface__border;
   border-radius: 0;

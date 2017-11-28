@@ -16,23 +16,17 @@ output {
   color: $form__input-color;
 }
 
-input,
-select {
-  min-height: 3rem;
-}
-
 input {
   &[type="text"],
   &[type="email"],
   &[type="password"],
   &[type="search"] {
+    @include appearance(none);
 
     &,
     &:active,
     &:focus,
     &:hover {
-      @include appearance(none);
-
       border-radius: 0;
       -webkit-border-radius: 0;
     }
