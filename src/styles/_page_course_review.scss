@@ -22,7 +22,7 @@
   @include screen-md-min {
     @include make-col(8);
   }
-  @include make-col(10);
+  @include make-col(12);
 }
 
 .course-review__submit {
