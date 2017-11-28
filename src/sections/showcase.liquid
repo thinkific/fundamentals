@@ -26,6 +26,48 @@
   </div>
 </section>
 
+<script>
+$(window).load(function() {
+  var isMobile = window.matchMedia("only screen and (max-width: 767px)"),
+      $showcaseCarousel = $('.showcase__list').addClass('owl-carousel'),
+      showcaseOwlOptions = {
+        center: true,
+        dots: false,
+        loop: true,
+        margin: 0,
+        nav: true,
+        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+        slideBy: 1,
+        responsive: {
+          0: {
+            items: 1
+          },
+          768: {
+            items: 3
+          }
+        }
+      };
+  if (isMobile.matches) {
+    var showcaseOwlActive = $showcaseCarousel.owlCarousel(showcaseOwlOptions);
+  } else {
+    $showcaseCarousel.addClass('off');
+  }
+  $(window).resize(function() {
+    if (isMobile.matches) {
+      if ( $showcaseCarousel.hasClass('off') ) {
+        var showcaseOwlActive = $showcaseCarousel.owlCarousel(showcaseOwlOptions);
+        $showcaseCarousel.removeClass('off');
+      }
+    } else {
+      if ( !$showcaseCarousel.hasClass('off') ) {
+        $showcaseCarousel.addClass('off').trigger('destroy.owl.carousel');
+        $showcaseCarousel.find('.owl-stage-outer').children(':eq(0)').unwrap();
+      }
+    }
+  });
+});
+</script>
+
 {% style %}
 
 section.showcase {

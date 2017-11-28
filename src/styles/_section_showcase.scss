@@ -6,6 +6,19 @@
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
+
+  .owl-carousel {
+    .owl-nav {
+
+      .owl-prev {
+        left: $gutter-width / -3.5;
+      }
+
+      .owl-next {
+        right: $gutter-width / -3.5;
+      }
+    }
+  }
 }
 
 .showcase__container {
@@ -13,11 +26,16 @@
 }
 
 .showcase__list {
-  @include make-row(true);
+  @include make-row(false);
   @include justify-content(center);
 }
 
 .showcase__list-item {
+  @include screen-sm-max {
+    @include transition(opacity 400ms ease);
+
+    opacity: 0;
+  }
   @include screen-md-min {
     @include make-col(4)
   }
@@ -27,4 +45,11 @@
   @include make-col(12);
 
   margin: 0 0 $gutter-width;
+  text-align: center;
+
+  .center & {
+    @include transition(opacity 400ms ease);
+
+    opacity: 1;
+  }
 }
