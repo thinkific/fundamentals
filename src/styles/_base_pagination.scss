@@ -6,6 +6,8 @@
   @include screen-md-min {
     margin: 0 0 $gutter-width;
   }
+
+  width: 100%;
 }
 
 .pagination__overview,
@@ -17,9 +19,6 @@
 }
 
 .pagination__overview {
-  @include screen-md-min {
-    padding-left: 0;
-  }
   @include screen-sm-max {
     @include order(2);
   }
@@ -32,9 +31,6 @@
 }
 
 .pagination__pages {
-  @include screen-md-min {
-    padding-right: 0;
-  }
   @include screen-sm-max {
     @include order(1);
 
