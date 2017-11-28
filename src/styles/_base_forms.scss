@@ -17,17 +17,31 @@ output {
 }
 
 input,
-textarea {
+select {
+  min-height: 3rem;
+}
 
-  &,
-  &:active,
-  &:focus,
-  &:hover {
-    @include appearance(none);
+input {
+  &[type="text"],
+  &[type="email"],
+  &[type="password"],
+  &[type="search"] {
 
-    border-radius: 0;
-    border-color: $accent__color;
-    -webkit-border-radius: 0;
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+      @include appearance(none);
+
+      border-radius: 0;
+      -webkit-border-radius: 0;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      border-color: $accent__color;
+    }
   }
 }
 
