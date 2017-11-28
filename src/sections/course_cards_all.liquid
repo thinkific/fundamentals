@@ -14,7 +14,7 @@
     {% endif %}
     <article class="section__content">
       <ul class="products__list">
-        {% for product in page.products limit: {{section.settings.course_card_limit }} %}
+        {% for product in page.products limit: {{ section.settings.course_card_limit }} %}
           <li class="products__list-item section__body">
             {% if product.is_course %}
               {% assign course = product.course %}
