@@ -140,7 +140,7 @@
 	position: absolute;
 	top: -1rem;
 	padding: $gutter-width / 4 $gutter-width / 2;
-	border: 2px solid $interface__border-color;
+	border: $interface__border;
 	background-color: $interface__background-color;
 	font-size: .875rem;
 	font-weight: bold;
