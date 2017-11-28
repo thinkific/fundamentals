@@ -19,8 +19,15 @@ output {
 input,
 textarea {
 
-  &:focus {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    @include appearance(none);
+
+    border-radius: 0;
     border-color: $accent__color;
+    -webkit-border-radius: 0;
   }
 }
 
@@ -85,12 +92,14 @@ textarea {
   &:after {
     display: inline-block;
     position: absolute;
-    top: .5rem;
+    top: 1rem;
     right: 1rem;
     width: 1rem;
     height: 1rem;
     color: $body__text-color;
     font-family: $icon__font-family;
+    font-size: 1.25rem;
+    line-height: 1;
     text-align: center;
     content: "\f002";
     pointer-events: none;
