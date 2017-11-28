@@ -174,16 +174,19 @@
     .owl-prev,
     .owl-next {
       @include transition(color 400ms ease);
+      @include screen-md-min {
+        font-size: modular-scale(1);
+      }
 
       position: absolute;
-      color: $interface__background-color;
-      font-size: modular-scale(1);
+      color: $accent__color;
+      font-size: modular-scale(2);
       z-index: z-index(element--middleground);
 
       &:active,
       &:focus,
       &:hover {
-        color: $interface__background-color--active;
+        color: darken($accent__color, 5%);
       }
     }
 
