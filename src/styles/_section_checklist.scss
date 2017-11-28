@@ -13,6 +13,11 @@
     }
   }
 
+  .section__subheading {
+    font-size: modular-scale(0);
+    line-height: 2;
+  }
+
   .section__content {
     @include screen-lg-min {
       @include make-col(6);
