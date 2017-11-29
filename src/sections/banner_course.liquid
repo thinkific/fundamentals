@@ -1,0 +1,135 @@
+{% assign course = page.course %}
+
+<section class="banner-course
+{% include 'section_color_preset' %}
+{% include 'section_height_preset' %}" data-preview-item="banner-course">
+  <div class="banner-course__container">
+    <div class="banner-course__wrapper">
+      <header class="section__headings" style="background-image:url({{ course.card_image_url }});">
+        <a href="{{ course.links.landing_page_url }}" tabindex="-1"></a>
+      </header>
+      <article class="section__content section__body">
+        {% if course.name != blank %}
+          <h1 class="section__heading">{{ course.name }}</h1>
+        {% endif %}
+        {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
+          <span class="review__stars">
+            {% assign rating = course.reviews.average_rating | ceil %}
+            {% for index in (1..5) %}
+              <input type="radio" name="rating" value="{{ index }}" tabindex="-1"/>
+              {% if index <= rating %}
+                {% include 'star' %}
+              {% endif %}
+            {% endfor %}
+          </span>
+        {% endif %}
+        <div class="banner-course__description">{{ course.course_card_text }}</div>
+        {% if course.chapters.size != empty OR course.lesson_hours != empty %}
+          <footer class="banner-course__details">
+            {% assign lesson_count = 0 %}
+            {% for chapter in course.chapters %}
+              {% capture lesson_count %}
+              {{ chapter.contents.size }}
+              {% endcapture %}
+            {% endfor %}
+            {{ lesson_count }}
+            <span class="banner-course__chapter-count"><strong>{{ lesson_count }}</strong> Lessons</span>
+            <span class="banner-course__chapter-count"><strong>{{ course.chapters.size }}</strong> Chapters</span>
+            <span class="banner-course__lesson-time">{{ course.lesson_hours }}</span>
+          </footer>
+          {% endif %}
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "label":"Banner (Course)",
+  "settings":[
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Choose color set",
+          "description":"Color sets can be configured in the Design area.",
+          "default":"primary",
+          "options":[
+            {
+              "value":"banner",
+              "label":"Banner"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Section height",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height preset",
+          "description":"",
+          "default":"banner",
+          "options":[
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
+            },
+            {
+              "value":"banner",
+              "label":"Banner"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "blocks":{
+    "label":"Buttons",
+    "limit":2,
+    "types":[
+      {
+        "type":"banner_button",
+        "label":"Button",
+        "settings":[
+          {
+            "type":"text",
+            "id":"button_text",
+            "label":"Text"
+          },
+          {
+            "type":"page_picker",
+            "id":"button_url",
+            "label":"URL"
+          }
+        ]
+      }
+    ],
+    "defaults":[]
+  }
+}
+{% endschema %}

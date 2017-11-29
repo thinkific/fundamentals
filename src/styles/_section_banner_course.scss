@@ -1,0 +1,22 @@
+// Banner (Course)
+// ======================================
+
+.banner-course {
+
+  .section__content {
+    @include make-col(12);
+  }
+
+  .section__heading {
+    font-family: $body__font-family;
+    font-weight: 400;
+  }
+}
+
+.banner-course__container {
+  @include make-container;
+}
+
+.banner-course__wrapper {
+  @include make-row(true);
+}
