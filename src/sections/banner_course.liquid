@@ -5,43 +5,74 @@
 {% include 'section_height_preset' %}" data-preview-item="banner-course">
   <div class="banner-course__container">
     <div class="banner-course__wrapper">
-      <header class="section__headings" style="background-image:url({{ course.card_image_url }});">
-        <a href="{{ course.links.landing_page_url }}" tabindex="-1"></a>
-      </header>
+      <header class="banner-course__img-container" style="background-image:url({{ course.card_image_url }});"></header>
       <article class="section__content section__body">
-        {% if course.name != blank %}
-          <h1 class="section__heading">{{ course.name }}</h1>
-        {% endif %}
-        {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
-          <span class="review__stars">
-            {% assign rating = course.reviews.average_rating | ceil %}
-            {% for index in (1..5) %}
-              <input type="radio" name="rating" value="{{ index }}" tabindex="-1"/>
-              {% if index <= rating %}
-                {% include 'star' %}
-              {% endif %}
-            {% endfor %}
-          </span>
-        {% endif %}
-        <div class="banner-course__description">{{ course.course_card_text }}</div>
-        {% if course.chapters.size != empty OR course.lesson_hours != empty %}
-          <footer class="banner-course__details">
-            {% assign lesson_count = 0 %}
-            {% for chapter in course.chapters %}
-              {% capture lesson_count %}
-              {{ chapter.contents.size }}
-              {% endcapture %}
-            {% endfor %}
-            {{ lesson_count }}
-            <span class="banner-course__chapter-count"><strong>{{ lesson_count }}</strong> Lessons</span>
-            <span class="banner-course__chapter-count"><strong>{{ course.chapters.size }}</strong> Chapters</span>
-            <span class="banner-course__lesson-time">{{ course.lesson_hours }}</span>
-          </footer>
+        <div class="section__content__wrapper">
+          {% if course.name != blank %}
+            <h1 class="section__heading">{{ course.name }}</h1>
           {% endif %}
+          {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
+            <section class="banner-course__reviews">
+              <span class="review__stars">
+                {% assign rating = course.reviews.average_rating | ceil %}
+                {% for index in (1..5) %}
+                  <input type="radio" name="rating" value="{{ index }}" tabindex="-1"/>
+                  {% if index <= rating %}
+                    {% include 'star' %}
+                  {% endif %}
+                {% endfor %}
+              </span>
+              <span class="review__stars-count">({{ course.reviews.approved_count }})</span>
+            </section>
+          {% endif %}
+          <section class="banner-course__description">{{ course.course_card_text }}</section>
+          <div class="banner-course__wrapper">
+            {% if course.additional_prices != empty %}
+              <section class="banner-course__action-buttons
+              {% if course.has_free_trial %}
+                banner-course__action-buttons--block
+              {% endif %}">
+                <label for="{{ course.name | kebab_case }}" class="form__select-no-label">
+                  <select id="{{ course.name | kebab_case }}" name="{{ course.display_price }}" class="form__control banner-course__prices">
+                    {% if !course.is_free %}
+                      <option value="{{ course.links.buy }}" selected>{{ course.display_price }}</option>
+                    {% endif %}
+                    {% for price in course.additional_prices %}
+                      <option value="{{ price.links.add_to_cart }}">{{ price.display_price }} {{ price.price_name }}</option>
+                    {% endfor %}
+                  </select>
+                </label>
+              </section>
+            {% endif %}
+            <section class="banner-course__button-group">
+              <a href="{{ course.links.buy }}" class="button button-primary button-purchase">Purchase</a>
+              {% if course.has_free_trial %}
+                {% assign enroll_free_text = 'liquid.partials.course_landing_page_action_buttons.link_free_trial' | translate %}
+                <a href="{{ course.links.enroll_free_trial }}" class="button button-secondary">{{ enroll_free_text }}</a>
+              {% endif %}
+            </section>
+          </div>
+        </div>
+        <footer class="banner-course__details">
+          <span class="banner-course__lesson-count"><strong></strong> Lessons</span>
+          <span class="banner-course__chapter-count"><strong>{{ course.chapters.size }}</strong> Chapters</span>
+          <span class="banner-course__lesson-time">{{ course.lesson_count }}</span>
+        </footer>
       </article>
     </div>
   </div>
 </section>
+
+<script>
+$(document).ready(function() {
+  var $priceList = $('.banner-course__prices'),
+      $buttonPurchase = $('.button-purchase');
+  $priceList.on('change', function() {
+    console.log($(this).val());
+    $buttonPurchase.attr('href', $(this).val());
+  });
+});
+</script>
 
 {% schema %}
 {
@@ -85,7 +116,7 @@
           "id":"section_height_preset",
           "label":"Height preset",
           "description":"",
-          "default":"banner",
+          "default":"small",
           "options":[
             {
               "value":"small",
@@ -107,29 +138,6 @@
         }
       ]
     }
-  ],
-  "blocks":{
-    "label":"Buttons",
-    "limit":2,
-    "types":[
-      {
-        "type":"banner_button",
-        "label":"Button",
-        "settings":[
-          {
-            "type":"text",
-            "id":"button_text",
-            "label":"Text"
-          },
-          {
-            "type":"page_picker",
-            "id":"button_url",
-            "label":"URL"
-          }
-        ]
-      }
-    ],
-    "defaults":[]
-  }
+  ]
 }
 {% endschema %}

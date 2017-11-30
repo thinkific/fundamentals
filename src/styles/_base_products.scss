@@ -553,3 +553,15 @@
 		}
   }
 }
+
+.review__stars-count {
+	@include transform(translatey(-40%));
+
+	position: absolute;
+	top: 40%;
+	margin-left: $gutter-width / 4;
+	font-size: modular-scale(-1);
+	letter-spacing: 1px;
+	line-height: 1;
+	opacity: 0.5;
+}
