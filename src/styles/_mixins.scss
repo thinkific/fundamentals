@@ -411,16 +411,15 @@
 @mixin form-control {
   display: block;
   width: 100%;
-  min-height: 3rem;
-  padding: $gutter-width / 2;
+  padding: $form__control-padding;
   border: $interface__border;
   border-radius: 0;
-  background-color: $interface__background-color;
+  background-color: $form__input-background-color;
   font-size: 1rem;
   line-height: normal;
 
   &[readonly] {
-    background-color: $form__input-background-disabled;
+    background-color: $form__input-disabled;
   }
 }
 

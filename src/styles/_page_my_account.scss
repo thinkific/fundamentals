@@ -137,7 +137,7 @@
   p {
     @include form-control;
 
-    background-color: $form__input-background-disabled;
+    background-color: $form__input-disabled;
     line-height: 1;
   }
 
