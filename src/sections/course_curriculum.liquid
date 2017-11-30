@@ -61,11 +61,11 @@ $(document).ready(function() {
 
       if($content.is(":visible")) {
         $content.slideUp(350);
-        $header.addClass('collapse');
+        $(this).addClass('collapse');
       }
       else {
         $content.slideDown(350);
-        $header.removeClass('collapse');
+        $(this).removeClass('collapse');
       }
     }
   });
