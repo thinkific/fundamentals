@@ -8,10 +8,14 @@
   <div class="checkout__container">
     <div class="checkout__wrapper">
       <section class="checkout__thank-you">
-        <h1 class="checkout__heading">{{ 'liquid.views.checkout_thankyou_page.title_thank_you' | translate }}</h1>
-        {% for item in page.items %}
-          {{ item.name }}
-        {% endfor %}
+        <h6 class="checkout__heading">{{ 'liquid.views.checkout_thankyou_page.title_thank_you' | translate }},</h6>
+        <ul>
+          {% for item in page.items %}
+          <li>
+            <h3>{{ item.name }}</h3>
+          </li>
+          {% endfor %}
+        </ul>
       </section>
       <section class="checkout__order-receipt">
         <p>
@@ -27,14 +31,18 @@
             {{ 'liquid.views.checkout_thankyou_page.link_start_learning' | translate }}
           </a>
         {% else %}
-          {% for bundled_course in page.bundled_courses %}
-            <div class="checkout__start-learning--bundle">
-              <h3>{{ bundled_course.name }}</h3>
-              <a class="button" href="{{ bundled_course.links.resume }}">
-                {{ 'liquid.views.checkout_thankyou_page.link_start_learning' | translate }}
-              </a>
-            </div>
-          {% endfor %}
+          <div class="checkout__bundle-list">
+            {% for bundled_course in page.bundled_courses %}
+              <div class="checkout__bundle-list-item">
+                <div class="checkout__product-details">
+                  <strong>{{ bundled_course.name }}</strong>
+                  <a class="button button-primary" href="{{ bundled_course.links.resume }}">
+                    {{ 'liquid.views.checkout_thankyou_page.link_start_learning' | translate }}
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
           {% if page.has_more_bundled_courses %}
             <div class="checkout__bundle-additional-courses">
               {{ page.remaining_bundle_courses_message }}

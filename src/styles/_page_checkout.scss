@@ -16,6 +16,12 @@
   @include make-row(true);
 }
 
+.checkout__thank-you,
+.checkout__order-receipt,
+.checkout__start-learning {
+  @include make-col(12);
+}
+
 .progress-bar {
   @include make-col(12);
 
@@ -68,6 +74,81 @@
   }
 }
 
+.checkout__thank-you {
+  margin-bottom: $gutter-width;
+
+  h3 {
+    margin: 0;
+  }
+
+  .checkout__heading {
+    margin: 0;
+  }
+}
+
+.checkout__order-receipt {
+  margin-bottom: $gutter-width;
+
+  p {
+    margin: 0;
+  }
+}
+
+.checkout__bundle-list {
+  @include make-row(false);
+}
+
+.checkout__bundle-list-item {
+  @include make-col(12, false);
+
+  &:last-child,
+  &:only-child {
+
+    .checkout__product-details {
+      border-bottom: $interface__border;
+    }
+  }
+
+  .checkout__product-details {
+
+    strong {
+      @include screen-sm-max {
+        margin-bottom: $gutter-width / 1.5;
+      }
+      @include screen-md-min {
+        @include make-col(8);
+      }
+      @include make-col(12);
+    }
+
+    a {
+      @include screen-md-min {
+        margin-right: 0;
+        margin-left: auto;
+      }
+      margin: 0 auto;
+    }
+  }
+}
+
+.checkout__bundle-additional-courses {
+  padding-top: $gutter-width / 2;
+  padding-bottom: $gutter-width / 2;
+  font-size: modular-scale(-1);
+  text-align: center;
+}
+
+.checkout__product-list-item {
+
+  &:last-child,
+  &:only-child {
+
+    .checkout__product-details {
+      border-bottom: $interface__border;
+    }
+  }
+}
+
 .checkout__product-overview {
   background-color: $interface__background-color--active;
 }
@@ -75,10 +156,8 @@
 .checkout__product-details {
   @include make-row(false);
 
-  margin: 0 0 $gutter-width;
-  padding: $gutter-width / 2 0;
+  padding: $gutter-width / 1.5 0;
   border-top: $interface__border;
-  border-bottom: $interface__border;
 }
 
 .checkout__product-image {
@@ -111,6 +190,41 @@
   text-align: right;
 }
 
+.checkout__footer {
+  padding-top: $gutter-width;
+  font-size: modular-scale(-1);
+}
+
+.checkout__footer-info,
+.checkout__footer-help {
+  @include screen-md-min {
+    @include make-col(6);
+  }
+  @include make-col(12);
+
+  a {
+    display: inline-block;
+  }
+
+  strong,
+  p {
+    padding-left: $gutter-width / 2;
+  }
+
+  strong {
+    position: relative;
+  }
+
+  .fa {
+    @include transform(translatey(-50%));
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-right: $gutter-width / 4;
+  }
+}
+
 
 // In-App Checkout Form (Thinkific)
 .thinkific__checkout__cart-item__title,
@@ -119,12 +233,6 @@
   @include make-col(6);
 
   padding: 0;
-}
-
-.checkout__thank-you,
-.checkout__order-receipt,
-.checkout__start-learning {
-  @include make-col(12);
 }
 
 .thinkific__checkout__coupon-code__submit-container,

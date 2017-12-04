@@ -122,11 +122,28 @@
         </section>
       </article>
       <aside class="checkout__product-overview">
-        <div class="checkout__product-details">
-          <img src="{{ page.product.card_image_url }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" class="checkout__product-image" />
-          <span class="checkout__product-name">{{ page.product.name }}</span>
-          <span class="checkout__product-price">{{ page.product.display_price }}</span>
+        <h4>Your Order</h4>
+        <div class="checkout__product-list">
+          <div class="checkout__product-list-item">
+            <div class="checkout__product-details">
+              <img src="{{ page.product.card_image_url }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" class="checkout__product-image" />
+              <span class="checkout__product-name">{{ page.product.name }}</span>
+              <span class="checkout__product-price">{{ page.product.display_price }}</span>
+            </div>
+          </div>
         </div>
+        <footer class="checkout__footer">
+          <div class="checkout__wrapper">
+            <section class="checkout__footer-info">
+              <strong><i class="fa fa-lock"></i>Secure Checkout</strong>
+              <p>100% secure checkout powered by Stripe.</p>
+            </section>
+            <section class="checkout__footer-help">
+              <strong><i class="fa fa-question-circle"></i>Help</strong>
+              <p>Need help replacing your order? <a href="mailto:{{ site.support_email }}" target="_blank">Contact us</a>.</p>
+            </section>
+          </div>
+        </footer>
       </aside>
     </div>
   </div>
