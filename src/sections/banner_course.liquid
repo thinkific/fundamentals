@@ -8,6 +8,15 @@
       <header class="banner-course__img-container" style="background-image:url({{ course.card_image_url }});"></header>
       <article class="section__content section__body">
         <div class="section__content__wrapper">
+          <span class="section__subheading">Category:
+            {% for collection in course.collections %}
+              {% if forloop.last == false %}
+                {{ collection.name | append: ", " }}
+              {% else %}
+                {{ collection.name }}
+              {% endif %}
+            {% endfor %}
+          </span>
           <h1 class="section__heading">{{ course.name }}</h1>
           {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
             <section class="banner-course__reviews">

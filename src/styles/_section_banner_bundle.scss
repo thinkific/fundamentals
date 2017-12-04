@@ -12,14 +12,28 @@
     border-left: 1px solid transparent;
   }
 
+  .section-heading,
+  .section-subheading {
+    font-family: $heading__font-family;
+  }
+
   .section__heading {
-    font-family: $body__font-family;
     font-weight: 400;
+  }
+
+  .section__subheading {
+    font-size: modular-scale(-1);
+    text-transform: lowercase;
+    opacity: 0.6;
+
+    .fa {
+      margin-right: $gutter-width / 4;
+    }
   }
 
   .section__content__wrapper {
     @include screen-md-min {
-      padding: $gutter-width $gutter-width * 1.5 $gutter-width * 1.5;
+      padding: $gutter-width / 2 $gutter-width * 1.5 $gutter-width * 1.5;
     }
 
     padding: $gutter-width / 2 0;
