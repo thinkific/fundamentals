@@ -84,15 +84,14 @@ $(document).ready(function() {
 
   var adminBarHeight = $adminBar.outerHeight(),
       beforeHeaderHeight = $body.find('>*').nextUntil('.header').outerHeight(),
-      headerTop = $header.offset().top;
+      headerTop = $header.offset().top,
+      isMobile = window.matchMedia("only screen and (max-width: 767px)");
 
       dynamicHeaderHeight();
 
   $(window).resize(function() {
     dynamicHeaderHeight();
   });
-
-  var isMobile = window.matchMedia("only screen and (max-width: 767px)");
 
   if(adminBarHeight != NaN) {
     $body.css({
@@ -115,6 +114,11 @@ $(document).ready(function() {
       $navigation.focus();
     }
   });
+  {% if section.settings.header_style == "floating" %}
+    $main.find('section').eq(0).css({
+      'padding-top': headerHeight
+    });
+  {% endif %}
   {% if section.settings.menu_fixed %}
     $(window).bind('scroll', function (e) {
       if(!isMobile.matches) {
