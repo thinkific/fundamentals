@@ -79,8 +79,8 @@ input {
 }
 
 .form__forgot-password {
-  @include flex-grow(1);
-
+  margin-right: 0;
+  margin-left: auto;
   text-align: right;
 }
 
