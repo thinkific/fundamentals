@@ -98,9 +98,11 @@ input {
   position: relative;
 
   &:after {
+    @include transform(translatey(-50%));
+
     display: inline-block;
     position: absolute;
-    top: 1rem;
+    top: 50%;
     right: 1rem;
     width: 1rem;
     height: 1rem;

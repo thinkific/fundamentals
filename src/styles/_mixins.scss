@@ -377,9 +377,11 @@
   position: relative;
 
   &:after {
+    @include transform(translatey(-50%));
+
     display: block;
     position: absolute;
-    top: $gutter-width;
+    top: 50%;
     right: 14px;
     width: 8px;
     height: 8px;
@@ -396,9 +398,11 @@
   position: relative;
 
   &:after {
+    @include transform(translatey(-50%));
+    
     display: block;
     position: absolute;
-    top: .5rem;
+    top: 50%;
     right: 14px;
     font-family: $icon__font-family;
     font-size: 1rem;
