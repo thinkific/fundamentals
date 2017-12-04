@@ -38,6 +38,18 @@
           border-top: $interface__border;
         }
       }
+
+      &:nth-child(even) {
+
+        &:nth-child(2) {
+          border-top: $interface__border;
+        }
+      }
+
+      &:nth-child(even),
+      &:nth-child(odd) {
+        border-top: 0;
+      }
     }
     @include make-col(12);
     @include display(flex);
