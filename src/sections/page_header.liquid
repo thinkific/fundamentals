@@ -82,16 +82,12 @@ $(document).ready(function() {
       $mobileButton = $('.header__mobile-button'),
       $navigation = $('.header__nav');
 
+      dynamicHeaderHeight();
+
   var adminBarHeight = $adminBar.outerHeight(),
       beforeHeaderHeight = $body.find('>*').nextUntil('.header').outerHeight(),
       headerTop = $header.offset().top,
       isMobile = window.matchMedia("only screen and (max-width: 767px)");
-
-      dynamicHeaderHeight();
-
-  $(window).resize(function() {
-    dynamicHeaderHeight();
-  });
 
   if(adminBarHeight != NaN) {
     $body.css({
@@ -114,11 +110,6 @@ $(document).ready(function() {
       $navigation.focus();
     }
   });
-  {% if section.settings.header_style == "floating" %}
-    $main.find('section').eq(0).css({
-      'padding-top': headerHeight
-    });
-  {% endif %}
   {% if section.settings.menu_fixed %}
     $(window).bind('scroll', function (e) {
       if(!isMobile.matches) {
@@ -146,6 +137,19 @@ $(document).ready(function() {
       }
     });
   {% endif %}
+  {% if section.settings.header_style == "floating" %}
+    $main.find('section').eq(0).css({
+      'padding-top': headerHeight
+    });
+  {% endif %}
+  $(window).resize(function() {
+    dynamicHeaderHeight();
+    {% if section.settings.header_style == "floating" %}
+      $main.find('section').eq(0).css({
+        'padding-top': headerHeight
+      });
+    {% endif %}
+  });
 });
 </script>
 
