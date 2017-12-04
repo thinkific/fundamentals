@@ -52,9 +52,15 @@
           </div>
         </div>
         <footer class="banner-course__details">
-          <span class="banner-course__lesson-count"><strong></strong> Lessons</span>
-          <span class="banner-course__chapter-count"><strong>{{ course.chapters.size }}</strong> Chapters</span>
-          <span class="banner-course__lesson-time">{{ course.lesson_count }}</span>
+          {% if course.lesson_count != blank %}
+            <span class="banner-course__lesson-count"><strong>{{ course.lesson_count }}</strong> Lessons</span>
+          {% endif %}
+          {% if course.chapters.size != empty %}
+            <span class="banner-course__chapter-count"><strong>{{ course.chapters.size }}</strong> Chapters</span>
+          {% endif %}
+          {% if course.course_hours != blank %}
+            <span class="banner-course__course-hours"><strong>{{ course.course_hours }}</strong> Hours</span>
+          {% endif %}
         </footer>
       </article>
     </div>

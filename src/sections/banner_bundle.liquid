@@ -15,9 +15,15 @@
           </section>
         </div>
         <footer class="banner-bundle__details">
-          <span class="banner-bundle__lesson-count"><strong>{{ bundle.courses.size }}</strong> Courses</span>
-          <span class="banner-bundle__chapter-count"><strong>{{ bundle.chapters.size }}</strong> Chapters</span>
-          <span class="banner-bundle__lesson-time">{{ bundle.lesson_count }}</span>
+          {% if bundle.courses.size != empty %}
+            <span class="banner-bundle__course-count"><strong>{{ bundle.courses.size }}</strong> Courses</span>
+          {% endif %}
+          {% if bundle.lesson_count != blank %}
+            <span class="banner-bundle__lesson-count"><strong>{{ bundle.lesson_count }}</strong> Lessons</span>
+          {% endif %}
+          {% if bundle.enrollment_count != blank %}
+            <span class="banner-bundle__enrollment-count"><strong>{{ bundle.enrollment_count }}</strong> Students</span>
+          {% endif %}
         </footer>
       </article>
     </div>
