@@ -23,6 +23,21 @@
   .course-curriculum__chapter {
     @include screen-lg-min {
       @include make-col(6);
+
+      &:nth-child(odd) {
+        border-right: 0;
+
+        &:last-child {
+          @include make-col(12);
+
+          border-top: 0;
+          border-right: $interface__border;
+        }
+
+        &:first-child {
+          border-top: $interface__border;
+        }
+      }
     }
     @include make-col(12);
     @include display(flex);
