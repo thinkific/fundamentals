@@ -18,10 +18,10 @@
         {{ page.checkout_form }}
       </section>
       <section class="checkout__product-overview">
-        <h2>Your Order</h2>
         <div class="checkout__product-details">
-          <img src="{{ page.product.card_image_url }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" class="img-responsive" />
-          <h3 class="checkout__product-description">{{ page.checkout_description }}</h3>
+          <img src="{{ page.product.card_image_url }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" class="checkout__product-image" />
+          <span class="checkout__product-name">{{ page.course_name }}</span>
+          <span class="checkout__product-price">{{ page.course_price }}</span>
         </div>
       </section>
     </div>

@@ -52,10 +52,10 @@
   @include screen-lg-min {
     @include make-col(6);
 
-    padding: $gutter-width * 2;
+    padding: $gutter-width;
   }
 
-  padding: $gutter-width;
+  padding: $gutter-width $gutter-width / 2;
 }
 
 .checkout__sign-in,
@@ -70,29 +70,45 @@
 
 .checkout__product-overview {
   background-color: $interface__background-color--active;
-
-  h2,
-  h3 {
-    font-family: $body__font-family;
-  }
-
-  img {
-
-    &.img-responsive {
-      margin-bottom: $gutter-width / 2;
-    }
-  }
 }
 
 .checkout__product-details {
+  @include make-row(false);
+
   margin: 0 0 $gutter-width;
-  padding: $gutter-width 0;
+  padding: $gutter-width / 2 0;
   border-top: $interface__border;
   border-bottom: $interface__border;
+}
 
-  h3 {
-    margin: 0;
+.checkout__product-image {
+  @include screen-md-min {
+    @include make-col(4, false);
   }
+  @include make-col(12, false);
+  @include align-self(flex-start);
+}
+
+.checkout__product-name {
+  @include screen-sm-max {
+    padding-left: 0;
+  }
+  @include screen-md-min {
+    @include make-col(6);
+  }
+  @include make-col(9);
+
+  font-weight: 600;
+}
+
+.checkout__product-price {
+  @include screen-sm-min {
+    @include make-col(2, false);
+  }
+  @include make-col(3, false);
+
+  font-weight: 600;
+  text-align: right;
 }
 
 
