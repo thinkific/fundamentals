@@ -41,9 +41,9 @@
               {% endif %}">
                 <label for="{{ course.name | kebab_case }}" class="form__select-no-label">
                   <select id="{{ course.name | kebab_case }}" name="{{ course.display_price }}" class="form__control banner-course__prices">
-                    <option value="{{ course.links.buy }}" selected>{{ course.display_price }}</option>
+                    <option value="{{ course.links.buy }}" selected>Regular - {{ course.display_price }}</option>
                     {% for price in course.additional_prices %}
-                      <option value="{{ price.links.add_to_cart }}">{{ price.display_price }} {{ price.price_name }}</option>
+                      <option value="{{ price.links.add_to_cart }}">{{ price.name }} - {{ price.display_price }}</option>
                     {% endfor %}
                   </select>
                 </label>
