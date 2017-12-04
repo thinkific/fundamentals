@@ -122,8 +122,11 @@
         </section>
       </article>
       <aside class="checkout__product-overview">
-        <img src="{{ page.product.card_image_url }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" class="img-responsive" />
-        <h3>{{ page.checkout_description }}</h3>
+        <div class="checkout__product-details">
+          <img src="{{ page.product.card_image_url }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" class="checkout__product-image" />
+          <span class="checkout__product-name">{{ page.product.name }}</span>
+          <span class="checkout__product-price">{{ page.product.display_price }}</span>
+        </div>
       </aside>
     </div>
   </div>
