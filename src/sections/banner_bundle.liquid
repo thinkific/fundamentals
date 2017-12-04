@@ -1,0 +1,93 @@
+{% assign bundle = page.bundle %}
+
+<section class="banner-bundle
+{% include 'section_color_preset' %}
+{% include 'section_height_preset' %}" data-preview-item="banner-bundle">
+  <div class="banner-bundle__container">
+    <div class="banner-bundle__wrapper">
+      <header class="banner-bundle__img-container" style="background-image:url({{ bundle.card_image_url }});"></header>
+      <article class="section__content section__body">
+        <div class="section__content__wrapper">
+          <h1 class="section__heading">{{ bundle.name }}</h1>
+          <section class="banner-bundle__description">{{ bundle.tagline }}</section>
+          <section class="banner-bundle__button-group">
+            <a href="{{ bundle.links.buy }}" class="button button-primary button-purchase">{{ bundle.buy_button_text }}</a>
+          </section>
+        </div>
+        <footer class="banner-bundle__details">
+          <span class="banner-bundle__lesson-count"><strong>{{ bundle.courses.size }}</strong> Courses</span>
+          <span class="banner-bundle__chapter-count"><strong>{{ bundle.chapters.size }}</strong> Chapters</span>
+          <span class="banner-bundle__lesson-time">{{ bundle.lesson_count }}</span>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "label":"Banner (Bundle)",
+  "settings":[
+    {
+      "label":"Background",
+      "settings":[
+        {
+          "type":"select",
+          "id":"background_color_preset",
+          "label":"Choose color set",
+          "description":"Color sets can be configured in the Design area.",
+          "default":"banner",
+          "options":[
+            {
+              "value":"banner",
+              "label":"Banner"
+            },
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            },
+            {
+              "value":"tertiary",
+              "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Section height",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height preset",
+          "description":"",
+          "default":"medium",
+          "options":[
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
+            },
+            {
+              "value":"banner",
+              "label":"Banner"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
