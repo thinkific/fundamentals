@@ -8,9 +8,7 @@
       <header class="banner-course__img-container" style="background-image:url({{ course.card_image_url }});"></header>
       <article class="section__content section__body">
         <div class="section__content__wrapper">
-          {% if course.name != blank %}
-            <h1 class="section__heading">{{ course.name }}</h1>
-          {% endif %}
+          <h1 class="section__heading">{{ course.name }}</h1>
           {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
             <section class="banner-course__reviews">
               <span class="review__stars">
@@ -86,7 +84,7 @@ $(document).ready(function() {
           "id":"background_color_preset",
           "label":"Choose color set",
           "description":"Color sets can be configured in the Design area.",
-          "default":"primary",
+          "default":"banner",
           "options":[
             {
               "value":"banner",
@@ -116,7 +114,7 @@ $(document).ready(function() {
           "id":"section_height_preset",
           "label":"Height preset",
           "description":"",
-          "default":"small",
+          "default":"medium",
           "options":[
             {
               "value":"small",

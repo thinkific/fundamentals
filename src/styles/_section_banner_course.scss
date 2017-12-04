@@ -4,9 +4,6 @@
 .banner-course {
 
   .section__content {
-    @include screen-md-min {
-      @include make-col(8, false);
-    }
     @include screen-lg-min {
       @include make-col(6, false);
     }
@@ -18,6 +15,14 @@
   .section__heading {
     font-family: $body__font-family;
     font-weight: 400;
+  }
+
+  .section__content__wrapper {
+    @include screen-md-min {
+      padding: $gutter-width $gutter-width * 1.5 $gutter-width * 1.5;
+    }
+
+    padding: $gutter-width / 2 0;
   }
 }
 
@@ -32,18 +37,10 @@
   overflow: hidden;
 }
 
-.section__content__wrapper {
-  padding: $gutter-width $gutter-width * 1.5 $gutter-width * 1.5;
-  background-color: $interface__background-color;
-}
-
 .banner-course__img-container {
   @include full-width-background;
-  @include screen-sm-max {
+  @include screen-md-max {
     height: 200px;
-  }
-  @include screen-md-min {
-    @include make-col(4);
   }
   @include screen-lg-min {
     @include make-col(6);
@@ -71,11 +68,13 @@
 }
 
 .banner-course__action-buttons {
-  @include screen-sm-max {
+  @include screen-lg-max {
     margin-bottom: $gutter-width / 2;
   }
   @include screen-md-min {
     @include make-col(6, false);
+
+    padding-right: $gutter-width / 2;
   }
   @include make-col(12, false);
 
@@ -93,11 +92,11 @@
 .banner-course__button-group {
   @include make-col(12, false);
 
+  font-size: 0;
+
   .banner-course__action-buttons + & {
     @include screen-md-min {
       @include make-col(6, false);
-
-      padding-left: $gutter-width / 4;
 
       .button {
         width: auto;
@@ -109,6 +108,13 @@
     @include screen-lg-max {
       @include make-col(12, false);
     }
+
+    .button {
+
+      &:only-child {
+        width: 100%;
+      }
+    }
   }
 
   .button {
@@ -117,12 +123,10 @@
       margin-bottom: $gutter-width / 2;
     }
 
-    &:first-child {
-      margin-right: $gutter-width / 4;
-    }
+    font-size: 1rem;
 
-    &:only-child {
-      width: 100%;
+    &:first-child {
+      margin-right: $gutter-width / 2;
     }
   }
 }
@@ -135,10 +139,6 @@
 
     display: inline-block;
     padding: 10px;
-    border-top: 1px solid $body__background-color;
-    border-right: 1px solid $body__background-color;
-    border-bottom: 0;
-    background-color: $interface__background-color;
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.4rem;
