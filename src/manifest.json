@@ -379,7 +379,7 @@
           "type": "color",
           "id": "banner_background_color",
           "label": "Background color",
-          "default": "#2AA0E9"
+          "default": "#68717A"
         },
         {
           "type": "color",
@@ -555,7 +555,7 @@
         "footer_text_color": "#68717A",
         "footer_link_color": "#68717A",
         "footer_link_hover_color": "#68717A",
-        "banner_background_color": "#2AA0E9",
+        "banner_background_color": "#68717A",
         "banner_heading_text_color": "#FFFFFF",
         "banner_subheading_text_color": "#FFFFFF",
         "banner_text_color": "#FFFFFF",
