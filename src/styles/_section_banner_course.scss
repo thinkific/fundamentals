@@ -5,11 +5,12 @@
 
   .section__content {
     @include screen-lg-min {
+      @include make-col(8, false);
+    }
+    @include screen-xl-min {
       @include make-col(6, false);
     }
     @include make-col(12, false);
-
-    border-left: 1px solid transparent;
   }
 
   .section-heading,
@@ -31,7 +32,7 @@
       padding: $gutter-width / 2 $gutter-width * 1.5 $gutter-width * 1.5;
     }
 
-    padding: $gutter-width / 2 0;
+    padding: $gutter-width / 2;
   }
 }
 
@@ -42,8 +43,10 @@
 .banner-course__wrapper {
   @include make-row(false);
 
-  border-radius: $base__border-radius;
-  overflow: hidden;
+  .banner-course__container > & {
+    border-radius: $base__border-radius;
+    overflow: hidden;
+  }
 }
 
 .banner-course__img-container {
@@ -52,6 +55,9 @@
     height: 200px;
   }
   @include screen-lg-min {
+    @include make-col(4);
+  }
+  @include screen-xl-min {
     @include make-col(6);
   }
   @include make-col(12);
@@ -99,6 +105,12 @@
 }
 
 .banner-course__button-group {
+  @include screen-sm-max {
+    @include display(flex);
+    @include justify-content(center);
+
+    padding: $gutter-width / 2 0;
+  }
   @include make-col(12, false);
 
   font-size: 0;
@@ -110,7 +122,12 @@
       .button {
         width: auto;
       }
+
+      .button-primary {
+        margin-bottom: $gutter-width / 2;
+      }
     }
+    @include make-col(12, false);
   }
 
   .banner-course__action-buttons--block + & {
@@ -128,8 +145,7 @@
 
   .button {
     @include screen-md-max {
-      width: 100%;
-      margin-bottom: $gutter-width / 2;
+      width: auto;
     }
 
     font-size: 1rem;
@@ -153,33 +169,8 @@
     line-height: 1.4rem;
     text-align: center;
 
-    &:only-child,
-    &:last-child {
-      border-right: 0;
-    }
-
     &:only-child {
       @include make-col(12);
-    }
-
-    .section-color-preset__banner & {
-      border-top-color: $banner-background-color;
-      border-right-color: $banner-background-color;
-    }
-
-    .section-color-preset__primary & {
-      border-top-color: $primary-background-color;
-      border-right-color: $primary-background-color;
-    }
-
-    .section-color-preset__secondary & {
-      border-top-color: $secondary-background-color;
-      border-right-color: $secondary-background-color;
-    }
-
-    .section-color-preset__tertiary & {
-      border-top-color: $tertiary-background-color;
-      border-right-color: $tertiary-background-color;
     }
   }
 }
