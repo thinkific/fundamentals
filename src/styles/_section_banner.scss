@@ -35,21 +35,3 @@
 .banner__wrapper {
   @include make-row(true);
 }
-
-.banner__read-more {
-  display: inline-block;
-  position: relative;
-  margin-bottom: $gutter-width;
-  color: $link__color;
-  font-size: .875rem;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  .fa {
-    margin: 0 10px 0 0;
-    padding: 4px;
-    border: 1px solid $link__color;
-    font-size: .875rem;
-    line-height: .875rem;
-  }
-}

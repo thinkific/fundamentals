@@ -26,28 +26,10 @@
         {% else %}
           {% include 'product_action_buttons' %}
         {% endif %}
-        {% if section.settings.read_more_show %}
-          {% if section.settings.read_more != blank %}
-            {% assign read_more = section.settings.read_more %}
-          {% else %}
-            {% assign read_more = 'Read More' %}
-          {% endif %}
-          <a href="#read-more" class="banner__read-more">
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>{{ read_more }}
-          </a>
-        {% endif %}
       </article>
     </div>
   </div>
 </section>
-
-<script>
-$(document).ready(function() {
-  // This returns an array of all sibling sections and applies the ID "read-more"
-  // dynamically to the first instance.
-  $('.banner').nextAll('section').eq(0).attr('id','read-more');
-});
-</script>
 
 {% style %}
 
@@ -104,17 +86,6 @@ section.banner {
   &.full-width-background {
     @include background-image($background...);
   }
-
-  .banner__read-more {
-    &,
-    .fa {
-      color: {{ section.settings.read_more_color }};
-    }
-
-    .fa {
-      border-color: {{ section.settings.read_more_color }};
-    }
-  }
 }
 
 {% endstyle %}
@@ -137,24 +108,6 @@ section.banner {
           "id":"subtitle",
           "label":"Subtitle",
           "default":"Get more detailed about your course here!"
-        },
-        {
-          "type":"text",
-          "id":"read_more",
-          "label":"Read more text",
-          "default":"Read more"
-        },
-        {
-          "type":"checkbox",
-          "id":"read_more_show",
-          "label":"Show read more",
-          "default":true
-        },
-        {
-          "type":"color",
-          "id":"read_more_color",
-          "label":"Read more color",
-          "default":"#FFFFFF"
         }
       ]
     },
