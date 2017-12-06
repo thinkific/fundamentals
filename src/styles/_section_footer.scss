@@ -2,7 +2,8 @@
 // ======================================
 
 .footer {
-  padding-top: 30px;
+  padding-top: $gutter-width;
+  padding-bottom: $gutter-width / 2;
   border-top: $interface__border;
   background-color: $footer__background-color;
   color: $footer__text-color;

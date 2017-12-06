@@ -57,7 +57,9 @@ input {
   }
 
   .button {
-    width: 100%;
+    @include screen-xs-max {
+      width: 100%;
+    }
   }
 }
 

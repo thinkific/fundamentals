@@ -322,13 +322,6 @@
 
   margin: 0 0 $gutter-width / 2;
 
-  .button {
-    @include screen-sm-max {
-      display: block;
-      width: 100%;
-    }
-  }
-
   label {
     @include screen-sm-max {
       width: 100%;
@@ -346,6 +339,17 @@
       margin-right: 0;
       margin-bottom: 0;
     }
+  }
+
+  .button {
+    @include screen-sm-max {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .form__notice {
+    margin: 0;
   }
 }
 
