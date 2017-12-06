@@ -14,7 +14,8 @@
     {% endif %}
     <article class="section__content">
       <ul class="products__list">
-        {% for product in page.products limit: {{ section.settings.course_card_limit }} %}
+        {% assign card_limit = section.settings.course_card_limit %}
+        {% for product in page.products limit: card_limit %}
           <li class="products__list-item section__body">
             {% if product.is_course %}
               {% assign course = product.course %}
@@ -102,26 +103,26 @@ section.course-cards-all {
           "id":"course_card_limit",
           "label":"Card limit",
           "description":"Maximum number of courses to show",
-          "default":"6",
+          "default":3,
           "options":[
             {
-              "value":"3",
+              "value":3,
               "label":"3"
             },
             {
-              "value":"6",
+              "value":6,
               "label":"6"
             },
             {
-              "value":"9",
+              "value":9,
               "label":"9"
             },
             {
-              "value":"12",
+              "value":12,
               "label":"12"
             },
             {
-              "value":"15",
+              "value":15,
               "label":"15"
             }
           ]
