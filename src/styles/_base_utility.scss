@@ -151,7 +151,7 @@
       width: 11px;
       height: 11px;
       margin: 0 10px 0 0;
-      border: 1px solid $accent__color;
+      border: 1px solid $brand__color;
       border-radius: 50%;
 
       &:last-of-type {
@@ -159,7 +159,7 @@
       }
 
       &.active {
-        background-color: $accent__color;
+        background-color: $brand__color;
       }
     }
   }
@@ -179,14 +179,14 @@
       }
 
       position: absolute;
-      color: $accent__color;
+      color: $brand__color;
       font-size: modular-scale(2);
       z-index: z-index(element--middleground);
 
       &:active,
       &:focus,
       &:hover {
-        color: darken($accent__color, 5%);
+        color: darken($brand__color, 5%);
       }
     }
 

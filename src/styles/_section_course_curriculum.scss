@@ -165,15 +165,15 @@
       right: 0;
       padding: 5px 8px;
       border-radius: 5px;
-      background-color: $accent__color;
-      color: dynamic-contrast-color($accent__color);
+      background-color: $brand__color;
+      color: dynamic-contrast-color($brand__color);
       font-size: modular-scale(-2);
     }
 
     i {
       display: inline-block;
       margin-right: 5px;
-      color: $accent__color;
+      color: $brand__color;
       font-size: modular-scale(1);
       vertical-align: sub;
     }
