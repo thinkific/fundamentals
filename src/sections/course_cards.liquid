@@ -22,6 +22,11 @@
                 <li class="course-cards__list-item">
                   {% include 'course_card' with course %}
                 </li>
+              {% else %}
+                {% assign bundle = product.bundle %}
+                <li class="course-cards__list-item">
+                {% include 'bundle_card' with bundle %}
+                </li>
               {% endif %}
             {% endfor %}
           {% endfor %}

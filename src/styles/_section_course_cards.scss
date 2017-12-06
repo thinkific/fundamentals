@@ -14,6 +14,7 @@
 
 .course-cards__list {
   @include make-row(true);
+  @include justify-content(center);
 }
 
 .course-cards__list-item {
@@ -29,6 +30,10 @@
 }
 
 .course-cards-all {
+
+  .products__list {
+    @include justify-content(center);
+  }
 
   .section__button-group {
     text-align: center;
