@@ -51,7 +51,7 @@
             </label>
             <a href="{{ page.forgot_password_url }}" class="form__forgot-password">{{ 'liquid.views.sign_in_page.forgot_password' | translate }}</a>
           </div>
-          <div class="form__group">
+          <div class="form__button-group">
             <input type="submit" value="{{ fields.submit.label }}" class="button button-primary" id="signin" />
           </div>
           {% endform %}
@@ -115,7 +115,7 @@
               </label>
             </div>
           {% endif %}
-          <div class="form__group">
+          <div class="form__button-group">
             <input type="submit" value="{{ fields.submit.label }}" class="button button-primary" id="signup" />
           </div>
           {% endform %}

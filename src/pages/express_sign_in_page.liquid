@@ -26,7 +26,7 @@
             <input type="password" name="{{ field.name }}" placeholder="{{ field.placeholder }}" id="user_password_confirmation" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form__control" />
           </label>
         </div>
-        <div class="form__group">
+        <div class="form__button-group">
           <input type="submit" name="commit" value="{{ fields.submit.label }}" class="button button-primary" id="sign-in">
         </div>
         {% endform %}
