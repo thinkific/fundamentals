@@ -31,11 +31,6 @@
 }
 
 .showcase__list-item {
-  @include screen-sm-max {
-    @include transition(opacity 400ms ease);
-
-    opacity: 0;
-  }
   @include screen-md-min {
     @include make-col(4)
   }
@@ -46,10 +41,4 @@
 
   margin: 0 0 $gutter-width;
   text-align: center;
-
-  .center & {
-    @include transition(opacity 400ms ease);
-
-    opacity: 1;
-  }
 }
