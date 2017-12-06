@@ -35,15 +35,17 @@ $(window).load(function() {
         dots: false,
         loop: true,
         margin: 0,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
+        nav: false,
         slideBy: 1,
         responsive: {
           0: {
-            items: 1
+            items: 1.25
+          },
+          640: {
+            items: 3
           },
           768: {
-            items: 3
+            items: 5
           }
         }
       };
