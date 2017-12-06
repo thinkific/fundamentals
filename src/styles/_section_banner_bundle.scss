@@ -60,6 +60,9 @@
     height: 200px;
   }
   @include screen-lg-min {
+    @include make-col(4);
+  }
+  @include screen-xl-min {
     @include make-col(6);
   }
   @include make-col(12);

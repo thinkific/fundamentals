@@ -4,7 +4,7 @@
 .banner {
 
   .section__content {
-    @include make-col(12);
+    @include make-col(6);
   }
 
   .section__heading {
