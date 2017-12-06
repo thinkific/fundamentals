@@ -333,6 +333,10 @@
     @include screen-sm-max {
       width: 100%;
       margin-right: 0;
+
+      &:first-child {
+        margin-bottom: $gutter-width / 2;
+      }
     }
 
     margin-right: $gutter-width / 2;
@@ -340,6 +344,7 @@
     &:only-of-type {
       width: auto;
       margin-right: 0;
+      margin-bottom: 0;
     }
   }
 }
@@ -399,7 +404,7 @@
 
   &:after {
     @include transform(translatey(-50%));
-    
+
     display: block;
     position: absolute;
     top: 50%;
