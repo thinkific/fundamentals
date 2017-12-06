@@ -228,6 +228,12 @@
       "description": "This is where you select the typography",
       "settings": [
         {
+          "type": "text",
+          "id": "root_font_size",
+          "label": "Font size",
+          "default": "16px" 
+        },
+        {
           "type": "select",
           "id": "heading_font",
           "label": "Heading font",
