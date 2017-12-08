@@ -6,7 +6,7 @@
   <form action="{{ site.collections_url }}" method="get" id="search-form" class="products__search-form">
     <ul class="products__collections-list">
       {% for collection in site.collections %}
-        {% if page.current_collection_id != nil and page.current_collection_id == collection.id %}
+        {% if page.collection.id != nil and page.collection.id == collection.id %}
           <li class="products__collections-list-item"><a href="{{ collection.url }}" class="active">{{ collection.name }}</a></li>
         {% else %}
           <li class="products__collections-list-item"><a href="{{ collection.url }}">{{ collection.name }}</a></li>
