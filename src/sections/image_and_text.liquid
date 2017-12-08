@@ -1,24 +1,23 @@
 <section class="text-image
-{% include 'section_color_preset' %}" data-preview-item="text-image">
+{% include 'section_color_preset' %}
+{% include 'section_height_preset' %}" data-preview-item="text-image">
   <div class="text-image__container">
     <article class="section__content">
-      {% if section.settings.body != blank %}
-        <section class="text-image__body {% if section.settings.body != blank %}has-image{% endif %}">
-          {% if section.settings.heading != blank or section.settings.subheading != blank %}
-            <header class="section__headings">
-              {% if section.settings.heading != blank %}
-                <h3 class="section__heading">{{ section.settings.heading }}</h3>
-              {% endif %}
-              {% if section.settings.subheading != blank %}
-                <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
-              {% endif %}
-            </header>
-          {% endif %}
-          <div class="section__body">
-            {{ section.settings.body }}
-          </div>
-        </section>
-      {% endif %}
+      <section class="text-image__body {% if section.settings.body != blank %}has-image{% endif %}">
+        {% if section.settings.heading != blank or section.settings.subheading != blank %}
+          <header class="section__headings">
+            {% if section.settings.heading != blank %}
+              <h3 class="section__heading">{{ section.settings.heading }}</h3>
+            {% endif %}
+            {% if section.settings.subheading != blank %}
+              <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
+            {% endif %}
+          </header>
+        {% endif %}
+        <div class="section__body">
+          {{ section.settings.body }}
+        </div>
+      </section>
       {% if section.settings.image != blank %}
         <section class="text-image__image" style="background-image: url({{ section.settings.image }});"></section>
       {% endif %}
@@ -144,10 +143,10 @@ section.text-image {
       "settings":[
         {
           "type":"select",
-          "id":"background_color",
+          "id":"background_color_preset",
           "label":"Choose color set",
           "description":"Color sets can be configured in the Design area.",
-          "default":"secondary",
+          "default":"primary",
           "options":[
             {
               "value":"primary",
@@ -160,6 +159,32 @@ section.text-image {
             {
               "value":"tertiary",
               "label":"Tertiary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Section height",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height preset",
+          "description":"",
+          "default":"medium",
+          "options":[
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
             }
           ]
         }
