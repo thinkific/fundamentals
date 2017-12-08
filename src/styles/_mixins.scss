@@ -92,7 +92,7 @@
 
 // Buttons
 @mixin button {
-  @include transition(all 400ms ease);
+  @include transition(all 400ms ease, font-size 200ms ease);
 
   display: inline-block;
   padding: $button__padding;

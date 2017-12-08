@@ -13,23 +13,39 @@
           {% endif %}
         </header>
       {% endif %}
-      <ul class="upsells__list section__body">
-        {% for upsell in section.settings.upsells %}
-        <li class="upsells__list-item">
-          <span class="upsells__price">
-            {{ upsell.display_price }}
-          </span>
-          <span class="upsells__title">
-            {{ upsell.product.name }}
-          </span>
-          <span class="upsells__buy">
-            <a href="{{ upsell.links.add_to_cart }}" class="button button-primary">
-              {{ upsell.buy_button_text }}
-            </a>
-          </span>
-        </li>
-        {% endfor %}
-      </ul>
+      {% if section.blocks != empty %}
+        <ul class="upsells__list section__body">
+          {% for block in section.blocks %}
+            {% assign upsell = block.settings %}
+            {% assign price = upsell.price %}
+            <li class="upsells__list-item">
+              {% if upsell.icon != blank %}
+                <i class="fa {{ upsell.icon }}"></i>
+              {% endif %}
+              <div class="upsells__details">
+                {% if price != blank %}
+                  <h4 class="upsells__price">
+                    {{ price.display_price }}
+                  </h4>
+                {% endif %}
+                <section class="upsells__details__wrapper">
+                  <h4 class="upsells__title"><span class="upsells__title__price">{{ price.display_price }}</span>{{ price.name }}</h4>
+                  <div class="upsells__description">
+                    {{ upsell.body }}
+                  </div>
+                </section>
+              </div>
+              {% if price != blank %}
+                <span class="upsells__buy">
+                  <a href="{{ price.links.add_to_cart }}" class="button">
+                    {{ price.buy_button_text }}
+                  </a>
+                </span>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </article>
   </div>
 </section>
@@ -152,6 +168,38 @@ section.upsells {
         }
       ]
     }
-  ]
+  ],
+  "blocks":{
+    "label":"Upsell",
+    "limit":12,
+    "types":[
+      {
+        "type":"upsell",
+        "label":"Upsell",
+        "settings":[
+          {
+            "type":"icon",
+            "id":"icon",
+            "label":"",
+            "description":"",
+            "default":"fa-calendar-o"
+          },
+          {
+            "type":"price_picker",
+            "id":"price",
+            "label":"",
+            "description":""
+          },
+          {
+            "type":"textarea",
+            "id":"body",
+            "label":"Description",
+            "description":""
+          }
+        ]
+      }
+    ],
+    "defaults":[]
+  }
 }
 {% endschema %}
