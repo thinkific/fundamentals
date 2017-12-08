@@ -16,19 +16,18 @@
       {% if section.blocks != empty %}
         <ul class="course-cards__list section__body">
           {% for block in section.blocks %}
-            {% for product in block.settings.course_card %}
-              {% if product.is_course %}
-                {% assign course = product.course %}
-                <li class="course-cards__list-item">
-                  {% include 'course_card' with course %}
-                </li>
-              {% else %}
-                {% assign bundle = product.bundle %}
-                <li class="course-cards__list-item">
-                {% include 'bundle_card' with bundle %}
-                </li>
-              {% endif %}
-            {% endfor %}
+            {% assign product = block.settings.course_card %}
+            {% if product.is_course %}
+              {% assign course = product.course %}
+              <li class="course-cards__list-item">
+                {% include 'course_card' with course %}
+              </li>
+            {% else %}
+              {% assign bundle = product.bundle %}
+              <li class="course-cards__list-item">
+              {% include 'bundle_card' with bundle %}
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       {% endif %}
@@ -159,7 +158,7 @@ section.course-cards {
         "label":"Course card",
         "settings":[
           {
-            "type":"products_picker",
+            "type":"product_picker",
             "id":"course_card",
             "label":""
           }

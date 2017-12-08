@@ -16,7 +16,7 @@
       {% if section.blocks != empty %}
         <ul class="reviews__list section__body">
           {% for block in section.blocks %}
-          {% for review in block.settings.reviews %}
+            {% assign review = block.settings.review %}
             <li class="reviews__list-item" data-review-id="{{ forloop.index }}">
               <header>
                 <span class="review__stars">
@@ -49,7 +49,6 @@
                 </div>
               </section>
             </li>
-            {% endfor %}
           {% endfor %}
         </ul>
       {% endif %}
@@ -230,8 +229,8 @@ section.reviews {
         "label":"Course review",
         "settings":[
           {
-            "type":"reviews_picker",
-            "id":"reviews",
+            "type":"review_picker",
+            "id":"review",
             "label":"Include reviews for this course"
           }
         ]
