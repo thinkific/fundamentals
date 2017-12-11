@@ -17,8 +17,8 @@
     {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
       <span class="review__stars">
         {% assign rating = course.reviews.average_rating | ceil %}
-        {% for index in (1..5) %}
-          <input type="radio" name="rating" value="{{ index }}" tabindex="-1"/>
+        {% for index in (1..rating) %}
+          <label><input type="radio" name="rating" value="{{ index }}" tabindex="-1" /></label>
           {% if index <= rating %}
             {% include 'star' %}
           {% endif %}

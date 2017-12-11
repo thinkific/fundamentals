@@ -508,6 +508,24 @@
           "id": "interface_border_color",
           "label": "Border color",
           "default": "#ECEEEF"
+        },
+        {
+          "type": "icon",
+          "id": "review_star_icon",
+          "label": "Review star icon",
+          "default": "fa-star"
+        },
+        {
+          "type": "color",
+          "id": "review_star_empty_color",
+          "label": "Review star (empty)",
+          "default": "#ECEEEF"
+        },
+        {
+          "type": "color",
+          "id": "review_star_filled_color",
+          "label": "Review star (filled)",
+          "default": "#FDC909"
         }
       ]
     }
