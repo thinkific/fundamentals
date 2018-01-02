@@ -44,7 +44,7 @@
       ]
     },
     {
-      "label": "Navigation",
+      "label": "Page Header",
       "description": "This is where you style the navigation",
       "settings": [
         {
@@ -98,7 +98,7 @@
       ]
     },
     {
-      "label": "Navigation (Mobile)",
+      "label": "Page Header (Mobile)",
       "description": "This is where you style the mobile navigation",
       "settings": [
         {
@@ -184,13 +184,7 @@
           "id": "primary_button_text_hover_color",
           "label": "Text color (Hover)",
           "default": "#FFFFFF"
-        }
-      ]
-    },
-    {
-      "label": "Button (Secondary)",
-      "description": "This is where you style the secondary button",
-      "settings": [
+        },
         {
           "type": "color",
           "id": "secondary_button_background_color",
