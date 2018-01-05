@@ -23,3 +23,20 @@
 .call-to-action__container {
   @include make-container;
 }
+
+.call-to-action__section-link {
+  display: block;
+  text-decoration: none;
+
+  .section-height__large & {
+    @include section-height(section-height-preset(large));
+  }
+
+  .section-height__medium & {
+    @include section-height(section-height-preset(medium));
+  }
+
+  .section-height__small & {
+    @include section-height(section-height-preset(small));
+  }
+}

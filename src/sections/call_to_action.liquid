@@ -2,6 +2,9 @@
 {% include 'full_width_background' %}
 {% include 'section_color_preset' %}
 {% include 'section_height_preset' %}" data-preview-item="call-to-action">
+{% if section.settings.button_show and section.settings.button_url != null %}
+  <a href="{{ section.settings.button_url }}" class="call-to-action__section-link">
+{% endif %}
   <div class="call-to-action__container">
     <article class="section__content">
       {% if section.settings.heading != blank or section.settings.subheading != blank %}
@@ -17,19 +20,16 @@
       {% if section.settings.body != blank %}
         <section class="section__body">{{ section.settings.body }}</section>
       {% endif %}
-      {% if section.blocks != empty %}
-      <ul class="section__button-group">
-        {% for block in section.blocks %}
-          {% if block.settings.price.links.add_to_cart != empty %}
-            <li><a class="button button-primary" href="{{ block.settings.price.links.add_to_cart }}">{{ block.settings.button_text }}</a></li>
-          {% else %}
-            <li><a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a></li>
-          {% endif %}
-        {% endfor %}
+      {% if section.settings.button_show != true and section.settings.button_text != empty and section.settings.button_url != null %}
+        <ul class="section__button-group">
+          <li><a class="button button-primary" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a></li>
         </ul>
       {% endif %}
     </article>
   </div>
+{% if section.settings.button_show and section.settings.button_url != null %}
+  </a>
+{% endif %}
 </section>
 
 {% style %}
@@ -116,33 +116,50 @@ section.call-to-action {
       ]
     },
     {
-      "label":"Text",
+      "label":"Settings",
       "settings":[
         {
           "type":"textarea",
           "id":"body",
-          "label":"",
+          "label":"Text",
           "default":""
-        }
-      ]
-    },
-    {
-      "type":"radio",
-      "id":"content_alignment",
-      "label":"Content alignment",
-      "default":"center",
-      "options":[
-        {
-          "value":"left",
-          "label":"Left"
         },
         {
-          "value":"center",
-          "label":"Center"
+          "type":"radio",
+          "id":"content_alignment",
+          "label":"Content alignment",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
         },
         {
-          "value":"right",
-          "label":"Right"
+          "type":"text",
+          "id":"button_text",
+          "label":"Button text",
+          "default":"Buy Now"
+        },
+        {
+          "type":"page_picker",
+          "id":"button_url",
+          "label":"Button / Call to action URL"
+        },
+        {
+          "type":"checkbox",
+          "id":"button_show",
+          "label":"Hide button and make entire section clickable",
+          "default":false
         }
       ]
     },
@@ -222,34 +239,6 @@ section.call-to-action {
         }
       ]
     }
-  ],
-  "blocks":{
-    "label":"Add Button",
-    "limit":2,
-    "types":[
-      {
-        "type":"button",
-        "label":"Button",
-        "settings":[
-          {
-            "type":"text",
-            "id":"button_text",
-            "label":"Text"
-          },
-          {
-            "type":"price_picker",
-            "id":"price",
-            "label":"Attach a course"
-          },
-          {
-            "type":"page_picker",
-            "id":"button_url",
-            "label":"Custom URL"
-          }
-        ]
-      }
-    ],
-    "defaults":[]
-  }
+  ]
 }
 {% endschema %}
