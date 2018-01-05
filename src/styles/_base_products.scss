@@ -1,6 +1,5 @@
 // Products
 // ======================================
-
 // Course Card
 .course-card {
 	@include card;
@@ -33,9 +32,8 @@
 			z-index: z-index(element--background);
 		}
 
-		&:hover,
-		&:focus {
-
+		&:focus,
+		&:hover {
 			a {
 				top: 40%;
 			}
@@ -143,7 +141,7 @@
 	padding: $gutter-width / 4 $gutter-width / 2;
 	border: $interface__border;
 	background-color: $interface__background-color;
-	font-size: .875rem;
+	font-size: 0.875rem;
 	font-weight: bold;
 	line-height: 1;
 }
@@ -154,7 +152,7 @@
 	position: absolute;
 	top: -($progress__circle-size/2);
 	left: 50%;
-	width:  $progress__circle-size;
+	width: $progress__circle-size;
 	height: $progress__circle-size;
 	margin: 0 auto;
 	text-align: left;
@@ -162,10 +160,11 @@
 
 	.circle {
 
-		.mask,
-		.fill {
+		.fill,
+		.mask {
 			@include backface-visibility(hidden);
 			@include transition($progress__transition);
+
 			position: absolute;
 			width: $progress__circle-size;
 			height: $progress__circle-size;
@@ -186,7 +185,7 @@
 		position: absolute;
 		width: $progress__inset-size;
 		height: $progress__inset-size;
-		margin-top:  ($progress__circle-size - $progress__inset-size)/2;
+		margin-top: ($progress__circle-size - $progress__inset-size)/2;
 		margin-left: ($progress__circle-size - $progress__inset-size)/2;
 		border-radius: 50%;
 		background-color: $interface__background-color;
@@ -214,8 +213,8 @@
 
 			.circle {
 
-				.mask.full,
-				.fill {
+				.fill,
+				.mask.full {
 					@include transition-delay(1s);
 					@include transform(rotate($increment * $i));
 				}
@@ -238,7 +237,7 @@
 		position: relative;
 		margin: 0 0 $gutter-width / 2;
 		font-size: 2rem;
-    font-weight: 400;
+		font-weight: 400;
 
 		&:after {
 			display: block;
@@ -285,8 +284,8 @@
 		line-height: 1.4rem;
 		text-align: center;
 
-		&:only-child,
-		&:last-child {
+		&:last-child,
+		&:only-child {
 			border-right: 0;
 		}
 
@@ -309,7 +308,6 @@
 		&:focus,
 		&:hover {
 			@include transition(background-color 400ms ease, box-shadow 400ms ease);
-
 			background-color: $interface__background-color--active;
 			color: $brand__color;
 			box-shadow: $shadow-button;
@@ -323,7 +321,7 @@
 
 .course-card__lesson-count,
 .course-card__lesson-time {
-	font-size: .875rem;
+	font-size: 0.875rem;
 	font-weight: 400;
 	line-height: 1;
 
@@ -340,7 +338,7 @@
 	padding-left: $gutter-width / 2;
 
 	& > a {
-		font-size: .875rem;
+		font-size: 0.875rem;
 		font-weight: 600;
 		text-decoration: none;
 
@@ -365,10 +363,10 @@
 
 .products__list-item {
 	@include screen-md-min {
-		@include make-col(6);
+		 @include make-col(6);
 	}
 	@include screen-lg-min {
-		@include make-col(4);
+		 @include make-col(4);
 	}
 	@include make-col(12);
 
@@ -377,12 +375,13 @@
 
 .products__collections-list {
 	@include make-row(false);
-  @include align-items(center);
+	@include align-items(center);
 
-  margin: 0 0 $gutter-width / 2;
+	margin: 0 0 $gutter-width / 2;
 }
 
 .products__collections-list-item {
+
 	@include screen-md-min {
 		display: inline-block;
 		width: auto;
@@ -429,7 +428,6 @@
 		&:active,
 		&:focus,
 		&:hover {
-
 			&:after {
 				content: "";
 			}
@@ -447,8 +445,8 @@
 		margin-right: $gutter-width / 8;
 	}
 
-	a,
-	.fa {
+	.fa,
+	a {
 		@include section-color-preset-override(color);
 	}
 }
@@ -476,87 +474,116 @@
 	@include align-self(center);
 
 	display: inline-block;
-  position: relative;
-  width: 90px;
-  height: 18px;
-	margin: 0 0 $gutter-width / 2;
-  background: $review-star__empty-star;
-  background-size: contain;
-  font-size: 0;
-  white-space: nowrap;
+	position: relative;
+	width: auto;
+	line-height: 1;
+	white-space: nowrap;
 	overflow: hidden;
 
-  .review__star {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20%;
-    height: 100%;
-    opacity: 1;
+	.review__star {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $review-star__size;
+		height: $review-star__size;
+		color: $review-star__filled-color;
+		font-size: $review-star__size;
+		line-height: normal;
+		opacity: 1;
 		z-index: z-index(element--background);
-  }
+	}
 
-  input {
+	input {
 		@include appearance(none);
 
-    display: inline-block;
-    position: relative;
-    width: 20%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    z-index: z-index(element--middleground);
-  }
+		display: inline-block;
+		position: relative;
+		width: $review-star__size;
+		height: $review-star__size;
+		margin: 0;
+		padding: 0;
+		z-index: z-index(element--middleground);
 
-  .review__star ~ .review__star {
-    left: 18px;
-  }
+		&:active,
+		&:focus,
+		&:hover {
+			outline: 0;
+		}
+	}
 
-  .review__star ~ .review__star ~ .review__star {
-    left: 36px;
-  }
+	label {
+		display: inline-block;
+		position: relative;
+		width: $review-star__size;
+		height: $review-star__size;
+	}
 
-  .review__star ~ .review__star ~ .review__star ~ .review__star {
-    left: 54px;
-  }
+	.review__star ~ .review__star {
+		left: $review-star__size * 1.25;
+	}
 
-  .review__star ~ .review__star ~ .review__star ~ .review__star ~ .review__star {
-    left: 72px;
-  }
+	.review__star ~ .review__star ~ .review__star {
+		left: $review-star__size * 2.5;
+	}
+
+	.review__star ~ .review__star ~ .review__star ~ .review__star {
+		left: $review-star__size * 3.75;
+	}
+
+	.review__star ~ .review__star ~ .review__star ~ .review__star ~ .review__star {
+		left: $review-star__size * 5;
+	}
 }
 
 .review__stars-input {
-  .review__star {
-    opacity: 1;
-  }
+	cursor: pointer;
 
-  input {
-    position: relative;
+	&:before {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		color: $review-star__empty-color;
+		font-family: $icon__font-family;
+		font-size: $review-star__size;
+		letter-spacing: 5px;
+		line-height: 1;
+		content: "\f006 \f006 \f006 \f006 \f006";
+	}
 
-    &:checked + .review__star ~ .review__star {
-      opacity: 0;
-    }
-  }
+	.review__star {
+		cursor: pointer;
+		opacity: 1;
+	}
 
-  &:hover {
+	input {
+		position: relative;
+		cursor: pointer;
 
-    .review__star {
-      opacity: 1 !important;
-    }
+		&:checked + .review__star ~ .review__star {
+			opacity: 0;
+		}
+	}
 
-    input {
+	&:hover {
+
+		.review__star {
+			opacity: 1 !important;
+		}
+
+		input {
 
 			&:hover + .review__star ~ .review__star {
 				opacity: 0 !important;
 			}
 		}
-  }
+	}
 }
 
 .review__stars-count {
 	@include transform(translatey(-40%));
-
 	position: absolute;
 	top: 40%;
 	margin-left: $gutter-width / 4;

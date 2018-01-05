@@ -496,6 +496,30 @@
           "id": "interface_border_color",
           "label": "Border color",
           "default": "#ECEEEF"
+        },
+        {
+          "type": "icon",
+          "id": "review_star_icon",
+          "label": "Review star icon (filled)",
+          "default": "fa-star"
+        },
+        {
+          "type": "icon",
+          "id": "review_star_empty_icon",
+          "label": "Review star icon (empty)",
+          "default": "fa-star-o"
+        },
+        {
+          "type": "color",
+          "id": "review_star_empty_color",
+          "label": "Review star (empty)",
+          "default": "#ECEEEF"
+        },
+        {
+          "type": "color",
+          "id": "review_star_filled_color",
+          "label": "Review star (filled)",
+          "default": "#FDC909"
         }
       ]
     }
@@ -560,7 +584,11 @@
         "tertiary_text_color": "#68717A",
         "interface_background_color": "#FFFFFF",
         "interface_hover_background_color": "#FFFFFF",
-        "interface_border_color": "#ECEEEF"
+        "interface_border_color": "#ECEEEF",
+        "review_star_icon": "fa-star",
+        "review_star_empty_icon": "fa-star-o",
+        "review_star_empty_color": "ECEEEF",
+        "review_star_filled_color": "#FDC909"
       }
     }
   }
