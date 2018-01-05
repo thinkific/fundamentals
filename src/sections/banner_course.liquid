@@ -77,9 +77,8 @@
 <script>
 $(document).ready(function() {
   var $priceList = $('.banner-course__prices'),
-      $buttonPurchase = $('.button-purchase');
+      $buttonPurchase = $('.banner-course__button-group button-purchase');
   $priceList.on('change', function() {
-    console.log($(this).val());
     $buttonPurchase.attr('href', $(this).val());
   });
 });
