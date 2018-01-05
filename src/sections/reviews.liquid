@@ -21,7 +21,7 @@
               <header>
                 <span class="review__stars">
                   {% for index in (1..review.rating) %}
-                    <input type="radio" name"rating" value="{{ index }}"  />
+                    <input type="radio" name"rating" value="{{ index }}" tabindex="-1" />
                     {% include 'star' %}
                   {% endfor %}
                 </span>
