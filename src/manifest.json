@@ -578,7 +578,10 @@
         "tertiary_text_color": "#68717A",
         "interface_background_color": "#FFFFFF",
         "interface_hover_background_color": "#FFFFFF",
-        "interface_border_color": "#ECEEEF"
+        "interface_border_color": "#ECEEEF",
+        "review_star_icon": "fa-star",
+        "review_star_empty_color": "ECEEEF",
+        "review_star_filled_color": "#FDC909"
       }
     }
   }
