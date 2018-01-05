@@ -364,12 +364,6 @@
       "label": "Section - Background preset (Banner)",
       "settings": [
         {
-          "type": "image",
-          "id": "banner_background_promo_image",
-          "label": "Promo image",
-          "default": ""
-        },
-        {
           "type": "color",
           "id": "banner_background_color",
           "label": "Background color",
