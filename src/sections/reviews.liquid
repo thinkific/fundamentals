@@ -20,11 +20,9 @@
             <li class="reviews__list-item" data-review-id="{{ forloop.index }}">
               <header>
                 <span class="review__stars">
-                  {% for index in (1..5) %}
+                  {% for index in (1..review.rating) %}
                     <input type="radio" name"rating" value="{{ index }}"  />
-                    {% if index <= review.rating %}
-                      {% include 'star' %}
-                    {% endif %}
+                    {% include 'star' %}
                   {% endfor %}
                 </span>
                 <h4 class="review__title">

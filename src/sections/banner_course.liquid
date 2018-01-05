@@ -22,11 +22,11 @@
             <section class="banner-course__reviews">
               <span class="review__stars">
                 {% assign rating = course.reviews.average_rating | ceil %}
-                {% for index in (1..5) %}
-                  <input type="radio" name="rating" value="{{ index }}" tabindex="-1"/>
-                  {% if index <= rating %}
+                {% for index in (1..rating) %}
+                  <label>
+                    <input type="radio" name="rating" value="{{ index }}" tabindex="-1"/>
                     {% include 'star' %}
-                  {% endif %}
+                  </label>
                 {% endfor %}
               </span>
               <span class="review__stars-count">({{ course.reviews.approved_count }})</span>
