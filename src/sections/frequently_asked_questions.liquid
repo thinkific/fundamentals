@@ -17,7 +17,7 @@
       <ul class="faq__list section__body">
         {% for block in section.blocks %}
           <li class="faq__list-item">
-            <input type="checkbox" checked="checked" />
+            <input type="checkbox" {% if !section.settings.show_collapsed %} checked="checked" {% endif %}/>
             <strong>{{ block.settings.faq_question }}<i></i></strong>
             <p>{{ block.settings.faq_answer }}</p>
           </li>
@@ -29,9 +29,11 @@
 </section>
 
 <script>
-$(document).ready(function() {
-  var $faq = $('.faq__list-item input');
-  $faq.first().attr("checked", false);
+$(window).load(function() {
+  {% if section.settings.show_collapsed %}
+    var $faq = $('.faq__list-item input');
+    $faq.first().attr("checked", false);
+  {% endif %}
 });
 </script>
 

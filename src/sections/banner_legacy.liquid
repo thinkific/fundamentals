@@ -1,5 +1,5 @@
 <section class="banner-legacy
-{% include 'full_width_background_banner' %}
+{% include 'full_width_background' %}
 {% include 'section_color_preset' %}
 {% include 'section_height_preset' %}
 {% include 'section_has_video' %}" data-preview-item="banner-legacy">
@@ -58,8 +58,6 @@ section.banner-legacy {
 
   {% if section.settings.background_image != blank %}
     $background-image: '{{ section.settings.background_image }}';
-  {% elsif theme.settings.banner_background_promo_image != blank %}
-    $background-image: '{{ theme.settings.banner_background_promo_image }}';
   {% else %}
     $background-image: null;
   {% endif %}

@@ -38,7 +38,7 @@
               {% if price != blank %}
                 <span class="upsells__buy">
                   <a href="{{ price.links.add_to_cart }}" class="button">
-                    {{ price.buy_button_text }}
+                    {% if upsell.button_text != empty %} {{ upsell.button_text }} {% else %} {{ price.buy_button_text }} {% endif %}
                   </a>
                 </span>
               {% endif %}
@@ -101,18 +101,6 @@ section.upsells {
               "label":"Right"
             }
           ]
-        }
-      ]
-    },
-    {
-      "label":"Upsells",
-      "settings":[
-        {
-          "type": "prices_picker",
-          "id": "upsells",
-          "label": "Product prices",
-          "default": [],
-          "tooltip": "Select both a product and a price to upsell your products"
         }
       ]
     },
@@ -183,6 +171,12 @@ section.upsells {
             "label":"",
             "description":"",
             "default":"fa-calendar-o"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text",
+            "default": "Buy Now"
           },
           {
             "type":"price_picker",

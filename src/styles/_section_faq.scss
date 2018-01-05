@@ -51,6 +51,8 @@
 
     &:checked {
       & ~ p {
+        @include transition(max-height 200ms ease, padding 400ms ease, opacity 400ms ease);
+
         max-height: 0;
         padding: 0;
         opacity: 0;
@@ -110,7 +112,7 @@
   }
 
   p {
-    @include transition(max-height 600ms ease, opacity 600ms ease);
+    @include transition(max-height 200ms ease, padding 400ms ease, opacity 400ms ease);
 
     max-height: 1000px;
     margin: 0;

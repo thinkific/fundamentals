@@ -1,7 +1,9 @@
-{% if section.settings.video.frame != blank and section.settings.video_thumbnail != blank %}
+
   <section class="video" data-preview-item="video">
     <article class="section__content">
-      <span class="video__play-button"><i class="fa fa-play"></i></span>
+      {% if section.settings.video.frame != blank %}
+        <span class="video__play-button"><i class="fa fa-play"></i></span>
+      {% endif %}
       {% if section.settings.video.popover != blank %}
         <section class="section__video--trigger">
           {{ section.settings.video.popover }}
@@ -15,21 +17,25 @@
       $(this).next('.section__video--trigger').find('.btn')[0].click();
     });
   </script>
-{% endif %}
+
 
 {% style %}
 
 section.video {
 
-  {% if section.settings.video_overlay_color != blank %}
+  {% if section.settings.video_thumbnail != blank %}
     background-image: url({{ section.settings.video_thumbnail }});
 
-    &:after {
-      background-color: {{ section.settings.video_overlay_color }};
-      {% if section.settings.video_overlay_opacity != blank %}
-        opacity: {{ section.settings.video_overlay_opacity }} * 0.01;
-      {% endif %}
-    }
+    {% if section.settings.video_overlay_color != blank %}
+      &:after {
+        background-color: {{ section.settings.video_overlay_color }};
+        {% if section.settings.video_overlay_opacity != blank %}
+          opacity: {{ section.settings.video_overlay_opacity }} * 0.01;
+        {% endif %}
+      }
+    {% endif %}
+  {% else %}
+    background-color: gray-scale(1);
   {% endif %}
 
 }
