@@ -1,0 +1,63 @@
+<div class="student-dashboard__container">
+  <section class="student-dashboard__form">
+    <form action="{{ site.student_dashboard_url }}" method="get" id="search-form">
+      <div class="form__group">
+        <h1 class="student-dashboard__heading">My Courses</h1>
+        <div class="products__search-box">
+          <label for="q" class="form__search-label">
+            <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" />
+          </label>
+        </div>
+      </div>
+      <div class="form__group">
+        <a href='{{ site.collections_url }}'>{{ 'liquid.views.student_dashboard.link_view_more_courses' | translate }}</a>
+        <label class="form__label form__select-no-label">
+          <select name="status" id="status" class="form__control">
+            {% for type in page.status_types %}
+            <option value="{{type[0]}}">{{type[1]}}</option>
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+    </form>
+  </section>
+  {% if page.has_search_query %}
+    {% include 'products_search_query' %}
+  {% endif %}
+  {% comment %}
+    Display the course and bundle cards
+  {% endcomment %}
+  {% if page.enrolled_cards != empty %}
+    <ul class="products__list">
+      {% assign cards = page.enrolled_cards | sort: 'last_accessed' | reverse %}
+      {% paginate cards by 6 %}
+      {% for card in paginate.collection %}
+        {% unless card.is_hidden %}
+          <li class="products__list-item">
+            {% include 'dashboard_course_card' with card %}
+          </li>
+        {% endunless %}
+      {% endfor %}
+      {% include 'pagination' with paginate %}
+      {% endpaginate %}
+    </ul>
+  {% else %}
+    <p class="student-dashboard__no-enrollments">
+      {{ 'liquid.views.student_dashboard.text_no_courses_found' | translate }}
+    </p>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "label":"Student Dashboard",
+  "settings":[
+    {
+      "type":"checkbox",
+      "id":"dashboard_option",
+      "label":"HELLO WORLD",
+      "default":true
+    }
+  ]
+}
+{% endschema %}
