@@ -27,6 +27,18 @@
     opacity: 0.6;
   }
 
+  .section__button-group {
+    @include button-group;
+
+    margin-bottom: $gutter-width;
+
+    .button {
+      @include screen-sm-max {
+        margin-bottom: $gutter-width / 2;
+      }
+    }
+  }
+
   .section__content__wrapper {
     @include screen-md-min {
       padding: $gutter-width / 2 $gutter-width * 1.5 $gutter-width * 1.5;

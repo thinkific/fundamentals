@@ -33,30 +33,7 @@
             </section>
           {% endif %}
           <section class="banner-course__description">{{ course.course_card_text }}</section>
-          <div class="banner-course__wrapper">
-            {% if course.additional_prices != empty %}
-              <section class="banner-course__action-buttons
-              {% if course.has_free_trial %}
-                banner-course__action-buttons--block
-              {% endif %}">
-                <label for="{{ course.name | kebab_case }}" class="form__select-no-label">
-                  <select id="{{ course.name | kebab_case }}" name="{{ course.display_price }}" class="form__control banner-course__prices">
-                    <option value="{{ course.links.buy }}" selected>Regular - {{ course.display_price }}</option>
-                    {% for price in course.additional_prices %}
-                      <option value="{{ price.links.add_to_cart }}">{{ price.name }} - {{ price.display_price }}</option>
-                    {% endfor %}
-                  </select>
-                </label>
-              </section>
-            {% endif %}
-            <section class="banner-course__button-group">
-              <a href="{{ course.links.buy }}" class="button button-primary button-purchase">Purchase</a>
-              {% if course.has_free_trial %}
-                {% assign enroll_free_text = 'liquid.partials.course_landing_page_action_buttons.link_free_trial' | translate %}
-                <a href="{{ course.links.enroll_free_trial }}" class="button button-secondary">{{ enroll_free_text }}</a>
-              {% endif %}
-            </section>
-          </div>
+          {% include 'product_action_buttons' %}
         </div>
         <footer class="banner-course__details">
           {% if course.lesson_count != blank %}
@@ -73,16 +50,6 @@
     </div>
   </div>
 </section>
-
-<script>
-$(document).ready(function() {
-  var $priceList = $('.banner-course__prices'),
-      $buttonPurchase = $('.banner-course__button-group button-purchase');
-  $priceList.on('change', function() {
-    $buttonPurchase.attr('href', $(this).val());
-  });
-});
-</script>
 
 {% schema %}
 {
