@@ -55,6 +55,7 @@
 $(window).load(function() {
   var $priceList = $('.course-action-buttons__additional-prices'),
       $buttonPurchase = $('.course-action-buttons .button-purchase');
+  $buttonPurchase.attr('href', $priceList.val());
   $priceList.on('change', function() {
     $buttonPurchase.attr('href', $(this).val());
   });
