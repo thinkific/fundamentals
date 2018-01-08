@@ -22,6 +22,12 @@
                 <a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
               {% endif %}
             {% endfor %}
+            {% if page.product_is_course %}
+              {% assign course = page.course %}
+              {% if course.has_free_trial %}
+                <a href="{{ course.links.enroll_free_trial }}" class="button{% unless course.user_can_purchase %} button-primary{% else %} button-secondary{% endunless %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_free_trial' | translate }}</a>
+              {% endif %}
+            {% endif %}
           </section>
         {% else %}
           {% include 'product_action_buttons' %}

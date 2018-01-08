@@ -4,7 +4,13 @@
 .banner {
 
   .section__content {
-    @include make-col(6);
+    @include screen-md-min {
+      @include make-col(10);
+    }
+    @include screen-lg-min {
+      @include make-col(6);
+    }
+    @include make-col(12);
   }
 
   .section__heading {

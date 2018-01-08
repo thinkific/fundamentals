@@ -357,6 +357,19 @@
 	padding: $gutter-width;
 }
 
+.course-action-buttons {
+
+	.form__select-no-label {
+		@include screen-sm-min {
+			width: auto;
+			margin-right: $gutter-width / 2;
+		}
+
+		width: 100%;
+		margin-bottom: $gutter-width / 2;
+	}
+}
+
 .products__list {
 	@include make-row(true);
 }
