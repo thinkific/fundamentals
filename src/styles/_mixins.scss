@@ -149,17 +149,6 @@
   @include make-row(false);
   @include align-items(flex-start);
 
-  li {
-    @include screen-sm-min {
-      &:last-child {
-
-        .button {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-
   .button {
     @include screen-sm-min {
       width: auto;
