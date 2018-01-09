@@ -85,8 +85,7 @@
     padding-right: $gutter-width / 2;
   }
 
-  min-width: 12rem;
-  margin-right: 15px;
+  max-width: 12rem;
   line-height: 1;
 
   a {
@@ -109,6 +108,7 @@
 
 .header__school-name {
   display: inline-block;
+  min-width: 12rem;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1;
@@ -391,6 +391,7 @@
 
   display: block;
   position: relative;
+  width: $mobile-menu__width;
   height: $mobile-menu__height;
   margin: 0;
   padding: 0;

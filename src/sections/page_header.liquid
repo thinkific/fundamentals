@@ -1,11 +1,17 @@
-<header class="header{% if section.settings.header_style == 'floating' %} floating{% endif %}" data-preview-item="header" data-menu-type="header__nav--{{ section.settings.menu_mobile_type }}" data-menu>
+{% if section.settings.site_url != null %}
+  {% assign site_url = section.settings.site_url %}
+{% else %}
+  {% assign site_url = site.home_url %}
+{% endif %}
+
+<header class="header{% if section.settings.header_style == 'floating' %} floating{% endif %}" data-preview-item="header" data-menu-type="header__nav--{{ section.settings.menu_mobile_style }}" data-menu>
   <div class="header__container">
     <div class="header__wrapper">
       <section class="header__logo">
-        {% if site.has_logo %}
-          <a href="{{ site.home_url }}"><img src="{{ site.logo_url }}" alt="{{ site.name }}" title="{{ site.name }}" class="img-responsive"></a>
+        {% if section.settings.site_logo != empty %}
+          <a href="{{ site_url }}"><img src="{{ section.settings.site_logo }}" alt="{{ site.name }}" title="{{ site.name }}" class="img-responsive"></a>
         {% else %}
-          <a href="{{ site.home_url }}" class="header__school-name">{{ site.name }}</a>
+          <a href="{{ site_url }}" class="header__school-name">{{ site.name }}</a>
         {% endif %}
       </section>
       <nav class="header__nav
@@ -153,17 +159,60 @@ $(document).ready(function() {
 });
 </script>
 
+{% style %}
+header.header {
+
+  .header__logo {
+
+    img {
+      max-height: none;
+      width: {{ section.settings.site_logo_size | append: '%' }};
+      height: auto;
+    }
+  }
+}
+
+{% endstyle %}
+
 {% schema %}
 {
   "label":"Page header",
   "settings":[
     {
-      "label":"Header",
+      "label":"Logo",
+      "settings":[
+        {
+          "type":"image",
+          "id":"site_logo",
+          "default":"",
+          "label":"",
+          "description": ""
+        },
+        {
+          "type":"number",
+          "min":25,
+          "max":80,
+          "id":"site_logo_size",
+          "default":80,
+          "label":"Logo size",
+          "description":"Image width scaling is percentage (%) based and ranges from 25% to 100%. Keep in mind image ratio to ensure header height does not compromise design integrity."
+        },
+        {
+          "type":"page_picker",
+          "id":"site_url",
+          "label":"Site logo URL",
+          "description":""
+        }
+      ]
+    },
+    {
+      "label":"Settings",
       "settings":[
         {
           "type":"select",
           "id":"header_style",
-          "label":"Position",
+          "label":"Header style",
+          "description":"Configures the visual behaviour of your page header. e.g. Floating headers are transparent and float above the first section of your page.",
           "default":"floating",
           "options":[
             {
@@ -175,16 +224,18 @@ $(document).ready(function() {
               "label":"Top"
             }
           ]
-        }
-      ]
-    },
-    {
-      "label":"Navigation",
-      "settings":[
+        },
+        {
+          "type":"checkbox",
+          "id":"menu_fixed",
+          "label":"Fixed menu",
+          "description":"Attaches the header to the top of the screen when scrolling the page, i.e. 'Always on top'",
+          "default":true
+        },
         {
           "type":"select",
           "id":"menu_position",
-          "label":"Menu position",
+          "label":"Navigation position",
           "default":"right",
           "options":[
             {
@@ -198,15 +249,9 @@ $(document).ready(function() {
           ]
         },
         {
-          "type":"checkbox",
-          "id":"menu_fixed",
-          "label":"Fixed menu",
-          "default":true
-        },
-        {
           "type":"select",
-          "id":"menu_mobile_type",
-          "label":"Mobile menu type",
+          "id":"menu_mobile_style",
+          "label":"Mobile menu style",
           "default":"dropdown",
           "options":[
             {
