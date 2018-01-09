@@ -522,6 +522,17 @@
           "default": "#FDC909"
         }
       ]
+    },
+    {
+      "label": "Favicon & App icon",
+      "settings": [
+        {
+          "type": "image",
+          "id": "site_favicon",
+          "label": "Favicon",
+          "description":"Your favicon will appear on the browser tab next to your site name. A good Favicon generator can be found <a href='http://www.genfavicon.com/' target='_blank'>here</a>."
+        }
+      ]
     }
   ],
   "presets": {
