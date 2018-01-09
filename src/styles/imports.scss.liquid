@@ -6,11 +6,19 @@
 // Functions
 // ======================================
 
-@function dynamic-contrast-color($color: $body__background-color) {
+@function dynamic-contrast-color($color) {
   @if (lightness($color) > 85) {
     @return $black;
   } @else {
     @return $white;
+  }
+}
+
+@function dynamic-hover-color($color) {
+  @if (lightness($color) > 45) {
+    @return darken($color, 15%);
+  } @else {
+    @return lighten($color, 15%);
   }
 }
 
