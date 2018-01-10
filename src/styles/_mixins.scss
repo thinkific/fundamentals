@@ -411,6 +411,8 @@
 }
 
 @mixin form-control {
+  @include transition(border-color 400ms ease, outline 400ms ease);
+  
   display: block;
   width: 100%;
   padding: $form__control-padding;
@@ -422,6 +424,12 @@
 
   &[readonly] {
     background-color: $form__input-disabled;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    @include transition(border-color 400ms ease, outline 400ms ease);
   }
 }
 
