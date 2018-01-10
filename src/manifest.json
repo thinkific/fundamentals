@@ -216,10 +216,28 @@
       "description": "This is where you select the typography",
       "settings": [
         {
-          "type": "text",
+          "type": "select",
           "id": "root_font_size",
           "label": "Font size",
-          "default": "16px"
+          "default": "16px",
+          "options": [
+            {
+              "value": "14px",
+              "label": "14px"
+            },
+            {
+              "value": "16px",
+              "label": "16px"
+            },
+            {
+              "value": "18px",
+              "label": "18px"
+            },
+            {
+              "value": "20px",
+              "label": "20px"
+            }
+          ]
         },
         {
           "type": "select",
