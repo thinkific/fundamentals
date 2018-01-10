@@ -32,6 +32,7 @@ a {
   }
 
   &:focus {
+    outline-offset: -1px;
     outline-style: solid;
   }
 }
