@@ -3,16 +3,26 @@
   an applied coupon (one that was specified in the url)
 {% endcomment %}
 
-<section class="products-coupon">
+<section class="products-coupon
+  {% if page.coupon.is_valid %}
+    products-coupon--valid
+  {% else %}
+    products-coupon--invalid
+  {% endif %}">
   <div class="products-coupon__container">
     {% if page.coupon.is_valid %}
-      <span class="coupon coupon--valid">
-        {{ page.coupon.discounted_amount }} {{ 'liquid.partials.course_landing_page_coupon_block.text_of_price' | translate }} {{ page.coupon.full_price }}
-      </span>
+      {{ page.coupon.discounted_amount }} {{ 'liquid.partials.course_landing_page_coupon_block.text_of_price' | translate }} {{ page.coupon.full_price }}
     {% else %}
-      <span class="coupon coupon--valid">
-        {{ 'liquid.partials.course_landing_page_coupon_block.text_invalid_coupon' | translate }}
-      </span>
+      {{ 'liquid.partials.course_landing_page_coupon_block.text_invalid_coupon' | translate }}
     {% endif %}
   </div>
+  <a class="products-coupon__close" aria-label="Close product coupon code modal">&times;</a>
 </section>
+<script>
+$(window).load(function() {
+  $('.products-coupon__close').on('click', function(e) {
+    e.preventDefault();
+    $('.products-coupon').fadeOut(400, function() { $(this).remove(); });
+  });
+})
+</script>

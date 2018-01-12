@@ -464,6 +464,60 @@
 	}
 }
 
+.products-coupon {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	width: calc(100% - 2rem);
+	padding: 1rem;
+	border-radius: $base__border-radius;
+	color: $white;
+	font-weight: bold;
+	line-height: normal;
+	text-align: center;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+	z-index: z-index(modal);
+
+	&.products-coupon--valid {
+		background-color: $alert--success;
+	}
+
+	&.products-coupon--invalid {
+		background-color: $alert--error;
+	}
+}
+
+.products-coupon__container {
+	@include make-container;
+}
+
+.products-coupon__close {
+	@include screen-sm-min {
+		@include transform(translatey(-50%));
+
+		top: 50%;
+		right: 1rem;
+	}
+
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	color: $white;
+	font-size: modular-scale(2);
+	font-weight: bold;
+	line-height: 0.5;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+
+
+	&,
+	&:active,
+	&:focus,
+	&:hover {
+		color: $white;
+	}
+}
+
 .products__search {
 	margin: 0 0 $gutter-width;
 }
