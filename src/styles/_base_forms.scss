@@ -160,10 +160,22 @@ select {
   outline-offset: -1px;
 }
 
-::-webkit-input-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder,
-:-moz-placeholder,
+::-webkit-input-placeholder {
+  color: $form__input-color-placeholder;
+}
+
+::-moz-placeholder {
+  color: $form__input-color-placeholder;
+}
+
+:-ms-input-placeholder {
+  color: $form__input-color-placeholder;
+}
+
+:-moz-placeholder {
+  color: $form__input-color-placeholder;
+}
+
 ::placeholder {
   color: $form__input-color-placeholder;
 }
