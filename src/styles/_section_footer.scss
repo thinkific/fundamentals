@@ -35,7 +35,7 @@
 .footer__nav-site,
 .footer__nav-social,
 .footer__copyright,
-.footer__white-label  {
+.footer__white-label {
   @include make-col(12);
   @include screen-sm-min {
     @include make-col(6);
@@ -94,7 +94,7 @@
 }
 
 .footer__copyright,
-.footer__white-label  {
+.footer__white-label {
   color: $footer__text-color;
   font-size: 0.875rem;
   text-align: center;

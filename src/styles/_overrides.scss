@@ -3,15 +3,12 @@
 
 // Colors
 $blue: #1d9be9;
-$purple: #6659B0;
+$purple: #6659b0;
 
 // Page Header
 .header__nav-cta {
-
   .button {
-
     header[class="header floating"] & {
-
       border-color: $white;
       background-color: transparent;
       color: $white !important;

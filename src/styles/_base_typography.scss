@@ -62,9 +62,7 @@ h6 {
 
 h1,
 h2 {
-
   &[class*="__heading"] {
-
     @include screen-sm-min {
       font-size: modular-scale(3);
     }
@@ -89,7 +87,6 @@ h2 {
 }
 
 .section__body {
-
   h3 {
     @include screen-sm-min {
       font-size: modular-scale(2) / 1.5;

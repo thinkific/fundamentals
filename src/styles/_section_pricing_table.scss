@@ -2,7 +2,6 @@
 // ======================================
 
 .pricing-table {
-
   .section__headings {
     @include screen-lg-min {
       @include make-col(4);
@@ -30,7 +29,6 @@
 }
 
 .pricing-table__list {
-
   li {
     @include screen-sm-min {
       @include display(flex);

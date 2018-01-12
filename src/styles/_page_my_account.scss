@@ -118,7 +118,7 @@
 .my-account__back-link {
   display: inline-block;
   margin: 0 0 $gutter-width / 2;
-  font-size: .875rem;
+  font-size: 0.875rem;
 }
 
 .my-account__order-overview {
@@ -147,14 +147,10 @@
 }
 
 .my-account__order-summary {
-
   thead,
   tbody {
-
     tr {
-
       & > * {
-
         &:last-child {
           text-align: right;
         }
@@ -166,7 +162,6 @@
 // In-App Credit Card form (Thinkific)
 // TODO: Update Credit Card form HTML
 table {
-
   .btn-primary {
     @include button;
     @include button-primary;

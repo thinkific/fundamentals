@@ -2,7 +2,6 @@
 // ======================================
 
 .checkout {
-
   &.checkout__thankyou {
     @include page-padding;
   }
@@ -32,16 +31,15 @@
 
   li {
     display: inline-block;
-    font-size: .875rem;
+    font-size: 0.875rem;
 
     &:first-child {
-
       &:after {
         display: inline-block;
         position: relative;
         margin: 0 8px;
         font-family: $icon__font-family;
-        font-size: .9rem;
+        font-size: 0.9rem;
         content: "\f0da";
       }
     }
@@ -70,7 +68,7 @@
 
   a {
     color: $body__text-color;
-    font-size: .875rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -103,14 +101,12 @@
 
   &:last-child,
   &:only-child {
-
     .checkout__product-details {
       border-bottom: $interface__border;
     }
   }
 
   .checkout__product-details {
-
     strong {
       @include screen-sm-max {
         margin-bottom: $gutter-width / 1.5;
@@ -139,10 +135,8 @@
 }
 
 .checkout__product-list-item {
-
   &:last-child,
   &:only-child {
-
     .checkout__product-details {
       border-bottom: $interface__border;
     }
@@ -225,7 +219,6 @@
   }
 }
 
-
 // In-App Checkout Form (Thinkific)
 .thinkific__checkout__cart-item__title,
 .thinkific__checkout__cart-item__cost,
@@ -238,7 +231,6 @@
 .thinkific__checkout__coupon-code__submit-container,
 .thinkific__checkout__credit-card-submit-container,
 .thinkific__checkout__enroll-free__container {
-
   .btn {
     @include button;
     @include button-primary;
@@ -296,7 +288,6 @@
 }
 
 .thinkific__checkout__coupon-code__check-container {
-
   a {
     @include button;
     @include button-primary;
@@ -310,14 +301,13 @@
 }
 
 .thinkific__checkout__coupon-code {
-
   &.hide {
     display: none;
   }
 
   label {
     color: $body__text-color;
-    font-size: .75rem;
+    font-size: 0.75rem;
     font-weight: bold;
     line-height: 2;
   }
@@ -332,7 +322,6 @@
 }
 
 #thinkific__checkout__coupon-code__errors-container {
-
   &.visible {
     @include screen-sm-min {
       position: absolute;
@@ -340,18 +329,19 @@
     }
 
     display: inline-block;
-    right: .5rem;
+    right: 0.5rem;
     padding: 3px;
     background-color: $interface__background-color;
     color: $alert--error;
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 1;
 
-    & + .thinkific__checkout__coupon-code__input-container .thinkific__checkout__coupon-code__input {
+    &
+      + .thinkific__checkout__coupon-code__input-container
+      .thinkific__checkout__coupon-code__input {
       border-color: $alert--error;
 
       &:focus {
-
         outline-color: $alert--error;
       }
     }
@@ -383,7 +373,7 @@
 
 .CardField-number {
   color: $body__text-color;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: bold;
   line-height: 2;
 

@@ -20,7 +20,6 @@ table {
 
   &.table--responsive {
     @include screen-md-max {
-
       border: 0;
 
       thead {
@@ -74,7 +73,6 @@ table {
   }
 
   thead {
-
     th {
       border-bottom: $interface__border;
       text-align: left;
@@ -83,7 +81,6 @@ table {
   }
 
   tbody {
-
     & + tbody {
       border-top: $interface__border;
     }

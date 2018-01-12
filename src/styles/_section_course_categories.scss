@@ -2,7 +2,6 @@
 // ======================================
 
 .course-categories {
-
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
@@ -32,10 +31,10 @@
 .course-category-card {
   @include card;
 
-	&:focus,
-	&:hover {
-		cursor: pointer;
-	}
+  &:focus,
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .course-category-card__img-container {
@@ -92,45 +91,45 @@
 }
 
 .course-category-card__details {
-	@include make-row(false);
+  @include make-row(false);
 
-	margin-top: auto;
-	margin-right: 0;
-	margin-left: 0;
-	font-size: 0;
-	line-height: 1;
+  margin-top: auto;
+  margin-right: 0;
+  margin-left: 0;
+  font-size: 0;
+  line-height: 1;
 
-	& > * {
-		@include make-col(6);
+  & > * {
+    @include make-col(6);
 
-		display: inline-block;
-		padding: 10px;
-		border-top: $interface__border;
-		border-right: $interface__border;
-		border-bottom: 0;
-		font-size: 0.875rem;
-		font-weight: 600;
-		line-height: 1.4rem;
-		text-align: center;
+    display: inline-block;
+    padding: 10px;
+    border-top: $interface__border;
+    border-right: $interface__border;
+    border-bottom: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4rem;
+    text-align: center;
 
-		&:only-child,
-		&:last-child {
-			border-right: 0;
-		}
+    &:only-child,
+    &:last-child {
+      border-right: 0;
+    }
 
-		&:only-child {
-			@include make-col(12);
-		}
-	}
+    &:only-child {
+      @include make-col(12);
+    }
+  }
 }
 
 .course-category-card__course-count,
 .course-category-card__lesson-time {
-	font-size: .875rem;
-	font-weight: 400;
-	line-height: 1;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
 
-	strong {
-		display: block;
-	}
+  strong {
+    display: block;
+  }
 }

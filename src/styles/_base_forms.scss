@@ -44,7 +44,6 @@ input {
 }
 
 .form__button-group {
-
   .form__label + & {
     @include screen-sm-min {
       width: 25%;
@@ -73,9 +72,8 @@ input {
 
 .form__remember-me,
 .form__forgot-password {
-
   & {
-    font-size: .75rem;
+    font-size: 0.75rem;
     line-height: 2;
   }
 }
@@ -130,9 +128,7 @@ input {
   }
 }
 
-
 select {
-
   &.form__control {
     @include appearance(none);
 
@@ -143,8 +139,7 @@ select {
 .form__notice,
 .form-error__list {
   width: 100%;
-  font-size: .875rem;
-
+  font-size: 0.875rem;
 }
 
 .form__notice {

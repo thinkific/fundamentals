@@ -14,9 +14,7 @@
 }
 
 .testimonials__list {
-
   &.owl-carousel {
-
     .owl-stage-outer {
       overflow: visible;
     }
@@ -39,7 +37,7 @@
 
         & + .owl-item {
           @include screen-sm-min {
-            opacity: .7;
+            opacity: 0.7;
           }
           opacity: 0;
         }

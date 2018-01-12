@@ -2,7 +2,6 @@
 // ======================================
 
 .banner-bundle {
-
   .section__content {
     @include screen-lg-min {
       @include make-col(8, false);
@@ -67,11 +66,11 @@
   }
   @include make-col(12);
 
-	a {
-		display: block;
-		position: relative;
-		height: 100%;
-	}
+  a {
+    display: block;
+    position: relative;
+    height: 100%;
+  }
 }
 
 .banner-bundle__description {

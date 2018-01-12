@@ -2,7 +2,6 @@
 // ======================================
 
 .banner {
-
   .section__content {
     @include screen-md-min {
       @include make-col(10);

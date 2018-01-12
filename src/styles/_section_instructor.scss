@@ -24,7 +24,6 @@
   margin: 0 auto;
 
   &.owl-carousel {
-
     .owl-item {
       @include screen-sm-min {
         padding: 0 $gutter-width * 1.5;
@@ -42,7 +41,6 @@
 }
 
 .instructor__profile {
-
   header {
     margin: 0 0 $gutter-width;
     text-align: center;

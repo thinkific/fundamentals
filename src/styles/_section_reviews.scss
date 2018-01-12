@@ -13,9 +13,7 @@
   }
 
   .owl-carousel {
-
     .owl-nav {
-
       .owl-prev {
         left: -($gutter-width);
       }
@@ -25,7 +23,6 @@
       }
     }
   }
-
 }
 
 .reviews__container {
@@ -33,9 +30,7 @@
 }
 
 .reviews__list {
-
   .owl-item {
-
     &.active {
       @include screen-md-min {
         padding-right: $gutter-width / 2;
@@ -46,7 +41,6 @@
 }
 
 .reviews__list-item {
-
   header {
     margin: 0 0 $gutter-width / 2;
     border-bottom: $interface__border;
@@ -73,7 +67,7 @@
 
 .review__show-more,
 .review__show-less {
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: bold;
 
   &,

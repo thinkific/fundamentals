@@ -9,7 +9,6 @@
 
 // Skip to Main Content
 #skip-link {
-
   a {
     position: absolute;
     top: auto;
@@ -46,7 +45,6 @@
 }
 
 @media print {
-
   .hidden-print {
     display: none !important;
   }
@@ -60,7 +58,6 @@
 // Admin Notice (Override)
 .admin-notice__bar {
   @include screen-md-max {
-
     a {
       display: block;
     }
@@ -141,7 +138,6 @@
 
 // OwlCarousel
 .owl-carousel {
-
   .owl-dots {
     padding: $gutter-width / 2 0 $gutter-width;
     text-align: center;

@@ -2,7 +2,6 @@
 // ======================================
 
 .call-to-action-legacy {
-
   .section__content {
     @include screen-lg-min {
       @include make-col(8);

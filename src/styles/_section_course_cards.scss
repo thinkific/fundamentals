@@ -2,7 +2,6 @@
 // ======================================
 
 .course-cards {
-
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
@@ -30,7 +29,6 @@
 }
 
 .course-cards-all {
-
   .products__list {
     @include justify-content(center);
   }

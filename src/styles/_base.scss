@@ -10,7 +10,6 @@ html {
 }
 
 * {
-
   &,
   &:before,
   &:after {
@@ -45,7 +44,6 @@ body {
 }
 
 main {
-
   & > section {
     overflow-x: hidden;
   }

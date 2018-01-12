@@ -2,7 +2,6 @@
 // ======================================
 
 .checklist {
-
   .section__headings {
     @include screen-lg-min {
       @include make-col(6);
@@ -44,16 +43,13 @@
 
     &:last-child,
     &:nth-last-child(2) {
-
       h4 {
         border-bottom: 0;
       }
     }
   }
   @include screen-sm-max {
-
     &:last-child {
-
       h4 {
         border-bottom: 0;
       }

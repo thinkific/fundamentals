@@ -2,7 +2,6 @@
 // ======================================
 
 .course-curriculum {
-
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
@@ -40,7 +39,6 @@
       }
 
       &:nth-child(even) {
-
         &:nth-child(2) {
           border-top: $interface__border;
         }
@@ -82,7 +80,6 @@
     margin: 0;
 
     &.collapse {
-
       .course-curriculum__chapter-title {
         position: relative;
 
@@ -100,7 +97,6 @@
       }
 
       .course-curriculum__chapter-collapse {
-
         &:after {
           content: "\f067";
         }
@@ -221,7 +217,7 @@
 .course-curriculum__chapter-lesson--free {
   display: inline-block;
   padding: 5px;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: bold;
   line-height: 1;
   text-transform: uppercase;

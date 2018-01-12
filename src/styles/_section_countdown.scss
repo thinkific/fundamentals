@@ -2,7 +2,6 @@
 // ======================================
 
 .countdown {
-
   .section__headings {
     @include screen-md-max {
       margin: 0 0 $gutter-width;
@@ -91,7 +90,7 @@
       display: block;
       padding: 5px 0 0;
       font-family: $body__font-family;
-      font-size: .8rem;
+      font-size: 0.8rem;
       font-weight: 600;
     }
   }

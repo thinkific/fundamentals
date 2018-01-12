@@ -16,7 +16,6 @@
 }
 
 @mixin sr-only-focusable {
-
   &:active,
   &:focus {
     position: static;
@@ -118,7 +117,8 @@
 }
 
 @mixin button-primary {
-  border: $button__border-width $button__border-style $button__primary-background;
+  border: $button__border-width $button__border-style
+    $button__primary-background;
   background-color: $button__primary-background;
   color: $button__primary-color;
 
@@ -228,7 +228,7 @@
 
   @if $negative-margins == true {
     margin-right: $gutter-width / -2;
-    margin-left:  $gutter-width / -2;
+    margin-left: $gutter-width / -2;
     padding-right: 0;
     padding-left: 0;
   }
@@ -292,7 +292,6 @@
 
 // Floats
 @mixin clearfix {
-
   &:before,
   &:after {
     display: table;
@@ -346,7 +345,7 @@
   @include flex-grow(1);
 
   color: $body__text-color;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: bold;
   line-height: 2;
 
@@ -360,7 +359,6 @@
   }
 
   input {
-
     &[type="checkbox"] {
       display: inline-block;
       width: auto;
@@ -412,7 +410,7 @@
 
 @mixin form-control {
   @include transition(border-color 400ms ease, outline 400ms ease);
-  
+
   display: block;
   width: 100%;
   padding: $form__control-padding;
@@ -471,7 +469,6 @@
 }
 
 @mixin section-color-preset-override($property) {
-
   .section-color-preset__banner & {
     #{$property}: $banner-text-color;
   }
@@ -491,7 +488,6 @@
 
 // Section Height
 @mixin section-height($padding-top: $section-height__large, $padding-bottom: $padding-top) {
-
   & > [class*="__container"] {
     @include screen-lg-min {
       padding-top: $padding-top;
@@ -517,7 +513,7 @@
 // Details: https://github.com/thoughtbot/bourbon/issues/794
 @mixin transition($properties...) {
   @if length($properties) > 1 {
-    $spec:              ();
+    $spec: ();
     @for $i from 1 through length($properties) {
       $spec: append($spec, nth($properties, $i), comma);
     }
@@ -531,7 +527,7 @@
 
 // Typography
 @mixin heading {
-  margin: 0 0 $gutter-width * .785;
+  margin: 0 0 $gutter-width * 0.785;
   font-family: $heading__font-family;
   font-weight: $heading__font-weight;
   line-height: $heading__line-height;

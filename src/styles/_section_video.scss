@@ -35,7 +35,6 @@
     &:active,
     &:focus,
     &:hover {
-
       .video__play-button {
         @include transform(translatex(-50%) translatey(-50%) translateZ(0) translate3d(0, 0, 0) scale(1, 1));
 
@@ -83,7 +82,6 @@
 }
 
 .section__video--trigger {
-
   .btn {
     display: none;
   }

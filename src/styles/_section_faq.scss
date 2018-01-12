@@ -2,7 +2,6 @@
 // ======================================
 
 .faq {
-
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
@@ -59,7 +58,6 @@
       }
 
       & ~ strong i {
-
         &:before {
           @include transform(translate(2px, 2px) rotate(-140deg));
         }

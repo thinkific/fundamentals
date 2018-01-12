@@ -2,7 +2,6 @@
 // ======================================
 
 .bonus {
-
   .section__headings {
     @include screen-lg-min {
       @include make-col(4);

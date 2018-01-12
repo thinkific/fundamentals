@@ -2,9 +2,7 @@
 // ======================================
 
 [class*="__wrapper"] {
-
-  &>[class*="__menu"] {
-
+  & > [class*="__menu"] {
     ul {
       @include screen-sm-max {
         box-shadow: $interface__shadow;
@@ -55,7 +53,6 @@
         &:focus,
         &:hover,
         &.active {
-
           &:before {
             @include transition(width 300ms ease-in-out);
 
@@ -66,7 +63,6 @@
     }
 
     @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
-
       ul {
         border: 0;
         border-bottom: $interface__border;
@@ -78,7 +74,6 @@
         width: auto;
 
         &:first-child {
-
           a {
             border-left: $interface__border;
           }
