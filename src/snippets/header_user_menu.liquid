@@ -34,17 +34,12 @@
     </a>
   </li>
   {% if site.current_user.signed_in %}
-    <li class="dropdown__menu-item header__nav-item--default">
+    <li class="dropdown__menu-item {% if section.settings.show_dashboard_link %} header__nav-item--default {% endif %}">
       <a href="{{ site.student_dashboard_url }}">
         {{ 'liquid.partials.header_with_links.link_my_dashboard' | translate }}
       </a>
     </li>
   {% endif %}
-  <li class="dropdown__menu-item header__nav-item--default">
-    <a href="{{ site.collections_url }}">
-      {{ 'liquid.partials.header_with_links.link_all_courses' | translate }}
-    </a>
-  </li>
   <li class="dropdown__menu-item">
     <a href="mailto:{{ site.support_email }}" target="_blank">
       {{ 'liquid.partials.header_with_links.link_support' | translate }}

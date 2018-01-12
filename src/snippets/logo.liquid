@@ -1,0 +1,7 @@
+<section class="header__logo">
+  {% if section.settings.site_logo != empty %}
+    <a href="{{ site_url }}"><img src="{{ section.settings.site_logo }}" alt="{{ site.name }}" title="{{ site.name }}" class="img-responsive"></a>
+  {% else %}
+    <a href="{{ site_url }}" class="header__school-name">{{ site.name }}</a>
+  {% endif %}
+</section>
