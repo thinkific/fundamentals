@@ -27,6 +27,8 @@
 
 section.call-to-action {
 
+  {% include 'section_heading_order' %}
+
   .section__content {
     text-align: {{ section.settings.content_alignment }};
   }
@@ -103,6 +105,22 @@ section.call-to-action {
           "id":"subheading",
           "label":"Subheading",
           "default":"Get started now!"
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Order",
+          "default":"default",
+          "options":[
+            {
+              "value":"default",
+              "label":"Default"
+            },
+            {
+              "value":"flipped",
+              "label":"Flipped"
+            }
+          ]
         }
       ]
     },

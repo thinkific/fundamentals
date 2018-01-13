@@ -13,6 +13,8 @@
 
 section.course-categories {
 
+  {% include 'section_heading_order' %}
+
   .section__heading,
   .section__subheading {
     text-align: {{ section.settings.heading_alignment }};
@@ -51,7 +53,7 @@ section.course-categories {
           "type":"radio",
           "id":"heading_alignment",
           "label":"Alignment",
-          "description":"Headings will inherit the same alignment",
+          "description":"",
           "default":"center",
           "options":[
             {
@@ -65,6 +67,22 @@ section.course-categories {
             {
               "value":"right",
               "label":"Right"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Order",
+          "default":"default",
+          "options":[
+            {
+              "value":"default",
+              "label":"Default"
+            },
+            {
+              "value":"flipped",
+              "label":"Flipped"
             }
           ]
         }

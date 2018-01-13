@@ -17,6 +17,8 @@
 
 section.description {
 
+  {% include 'section_heading_order' %}
+
   .section__heading,
   .section__subheading {
     text-align: {{ section.settings.content_alignment }};
@@ -65,6 +67,22 @@ section.description {
           "id":"subheading",
           "label":"Subheading",
           "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Order",
+          "default":"default",
+          "options":[
+            {
+              "value":"default",
+              "label":"Default"
+            },
+            {
+              "value":"flipped",
+              "label":"Flipped"
+            }
+          ]
         }
       ]
     },
