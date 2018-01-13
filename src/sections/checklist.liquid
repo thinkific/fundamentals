@@ -3,16 +3,7 @@
 {% include 'section_height_preset' %}" data-preview-item="checklist">
   <div class="checklist__container">
     <div class="checklist__wrapper">
-      {% if section.settings.heading != blank or section.settings.subheading != blank %}
-        <header class="section__headings">
-          {% if section.settings.heading != blank %}
-            <h3 class="section__heading">{{ section.settings.heading }}</h3>
-          {% endif %}
-          {% if section.settings.subheading != blank %}
-            <p class="section__subheading">{{ section.settings.subheading }}</p>
-          {% endif %}
-        </header>
-      {% endif %}
+      {% include 'section_headings' %}
       {% if section.blocks != empty %}
         <article class="section__content">
           <ul class="checklist__list section__body">

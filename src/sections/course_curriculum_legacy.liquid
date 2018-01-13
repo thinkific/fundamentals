@@ -1,16 +1,7 @@
 <section class="course-curriculum-legacy
 {% include 'section_color_preset' %}" data-preview-item="course-curriculum">
   <div class="course-curriculum-legacy__container">
-    {% if section.settings.heading != blank or section.settings.subheading != blank %}
-      <header class="section__headings">
-        {% if section.settings.heading != blank %}
-          <h3 class="section__heading">{{ section.settings.heading }}</h3>
-        {% endif %}
-        {% if section.settings.subheading != blank %}
-          <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
-        {% endif %}
-      </header>
-    {% endif %}
+    {% include 'section_headings' %}
     <article class="section__content">
       <ul class="course-curriculum-legacy__chapter-list section__body">
         {% for chapter in page.course.chapters %}

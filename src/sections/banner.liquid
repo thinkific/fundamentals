@@ -5,13 +5,13 @@
   <div class="banner__container">
     <div class="banner__wrapper">
       <article class="section__content">
-        {% if section.settings.title != blank or section.settings.subtitle != blank %}
+        {% if section.settings.heading != blank or section.settings.subheading != blank %}
           <header class="section__headings">
-            {% if section.settings.title != blank %}
-              <h1 class="section__heading">{{ section.settings.title }}</h1>
+            {% if section.settings.heading != blank %}
+              <h1 class="section__heading">{{ section.settings.heading }}</h1>
             {% endif %}
-            {% if section.settings.subtitle != blank %}
-              <h2 class="section__subheading">{{ section.settings.subtitle }}</h2>
+            {% if section.settings.subheading != blank %}
+              <h2 class="section__subheading">{{ section.settings.subheading }}</h2>
             {% endif %}
           </header>
         {% endif %}
@@ -103,15 +103,37 @@ section.banner {
       "settings":[
         {
           "type":"text",
-          "id":"title",
-          "label":"Title",
+          "id":"heading",
+          "label":"Heading",
           "default":"Your first course"
         },
         {
           "type":"text",
-          "id":"subtitle",
-          "label":"Subtitle",
+          "id":"subheading",
+          "label":"Subheading",
           "default":"Get more detailed about your course here!"
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Order",
+          "default":"default",
+          "options":[
+            {
+              "value":"default",
+              "label":"Default"
+            },
+            {
+              "value":"flipped",
+              "label":"Flipped"
+            }
+          ]
+        },
+        {
+          "type":"checkbox",
+          "id":"show_heading_ornament",
+          "label":"Show ornament",
+          "default":false
         }
       ]
     },
