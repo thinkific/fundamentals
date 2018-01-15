@@ -1,22 +1,21 @@
+<section class="video" data-preview-item="video">
+  <article class="section__content">
+    {% if section.settings.video.frame != blank %}
+      <span class="video__play-button"><i class="fa fa-play"></i></span>
+    {% endif %}
+    {% if section.settings.video.popover != blank %}
+      <section class="section__video--trigger">
+        {{ section.settings.video.popover }}
+      </section>
+    {% endif %}
+  </article>
+</section>
 
-  <section class="video" data-preview-item="video">
-    <article class="section__content">
-      {% if section.settings.video.frame != blank %}
-        <span class="video__play-button"><i class="fa fa-play"></i></span>
-      {% endif %}
-      {% if section.settings.video.popover != blank %}
-        <section class="section__video--trigger">
-          {{ section.settings.video.popover }}
-        </section>
-      {% endif %}
-    </article>
-  </section>
-
-  <script>
-    $('.video').find('.video__play-button').on('click', function(e) {
-      $(this).next('.section__video--trigger').find('.btn')[0].click();
-    });
-  </script>
+<script>
+  $('.video').find('.video__play-button').on('click', function(e) {
+    $(this).next('.section__video--trigger').find('.btn')[0].click();
+  });
+</script>
 
 
 {% style %}
