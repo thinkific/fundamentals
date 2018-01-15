@@ -110,8 +110,8 @@
     height: 42px;
     margin: 0 $gutter-width / 2 0 0;
     border-radius: 50%;
-    background-color: $brand__color;
-    color: dynamic-contrast-color($brand__color);
+    background-color: $accent__color;
+    color: dynamic-contrast-color($accent__color);
     font-size: modular-scale(0);
     line-height: 42px;
     text-align: center;

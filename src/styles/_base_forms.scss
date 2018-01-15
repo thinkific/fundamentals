@@ -34,7 +34,7 @@ input {
     &:active,
     &:focus,
     &:hover {
-      border-color: $brand__color;
+      border-color: $accent__color;
     }
   }
 }
@@ -151,7 +151,7 @@ select {
 }
 
 :focus {
-  outline: 1px solid $brand__color;
+  outline: 1px solid $accent__color;
   outline-offset: -1px;
 }
 

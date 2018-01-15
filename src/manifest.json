@@ -13,8 +13,8 @@
       "settings": [
         {
           "type": "color",
-          "id": "brand_color",
-          "label": "Brand color",
+          "id": "accent_color",
+          "label": "Accent color",
           "default": "#2AA0E9"
         },
         {

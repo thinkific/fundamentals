@@ -46,7 +46,7 @@
       width: 100%;
       margin: 0;
       padding: $gutter-width / 2;
-      color: $brand__color;
+      color: $accent__color;
       font-size: modular-scale(1);
       text-align: center;
       z-index: z-index(element--middleground);
@@ -189,7 +189,7 @@
     margin-left: ($progress__circle-size - $progress__inset-size)/2;
     border-radius: 50%;
     background-color: $interface__background-color;
-    color: $brand__color;
+    color: $accent__color;
     line-height: $progress__inset-size;
     text-align: center;
 
@@ -256,7 +256,7 @@
     position: relative;
     top: -3px;
     height: 3px;
-    background-color: $brand__color;
+    background-color: $accent__color;
     z-index: z-index(element--background);
   }
 }
@@ -308,7 +308,7 @@
     &:hover {
       @include transition(background-color 400ms ease, box-shadow 400ms ease);
       background-color: $interface__background-color--active;
-      color: $brand__color;
+      color: $accent__color;
       box-shadow: $shadow-button;
     }
 
