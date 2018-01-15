@@ -215,6 +215,22 @@
   padding-left: ($gutter-width / 2);
 }
 
+// Headings
+@mixin heading-ornament {
+  position: relative;
+
+  &:before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: $gutter-width / -2;
+    width: 4px;
+    height: 100%;
+    background-color: $accent__color;
+    content: "";
+  }
+}
+
 // Rows
 @mixin make-row($negative-margins: true) {
   @include display(flex);

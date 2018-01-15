@@ -26,6 +26,7 @@
 section.bonus {
 
   {% include 'section_heading_order' %}
+  {% include 'section_heading_ornament' %}
 
   .section__heading,
   .section__subheading {
@@ -97,6 +98,12 @@ section.bonus {
               "label":"Flipped"
             }
           ]
+        },
+        {
+          "type":"checkbox",
+          "id":"show_heading_ornament",
+          "label":"Show ornament",
+          "default":true
         }
       ]
     },

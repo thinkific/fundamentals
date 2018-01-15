@@ -63,6 +63,7 @@ $(window).load(function() {
 section.showcase {
 
   {% include 'section_heading_order' %}
+  {% include 'section_heading_ornament' %}
 
   .section__heading,
   .section__subheading {
@@ -134,6 +135,12 @@ section.showcase {
               "label":"Flipped"
             }
           ]
+        },
+        {
+          "type":"checkbox",
+          "id":"show_heading_ornament",
+          "label":"Show ornament",
+          "default":true
         }
       ]
     },

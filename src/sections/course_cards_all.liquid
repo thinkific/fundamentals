@@ -30,6 +30,7 @@
 section.course-cards-all {
 
   {% include 'section_heading_order' %}
+  {% include 'section_heading_ornament' %}
 
   .section__heading,
   .section__subheading {
@@ -101,6 +102,12 @@ section.course-cards-all {
               "label":"Flipped"
             }
           ]
+        },
+        {
+          "type":"checkbox",
+          "id":"show_heading_ornament",
+          "label":"Show ornament",
+          "default":true
         }
       ]
     },

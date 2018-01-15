@@ -82,6 +82,8 @@ $(document).ready(function() {
 
 section.countdown {
 
+  {% include 'section_heading_ornament' %}
+
   .section__heading,
   .section__subheading {
     text-align: {{ section.settings.heading_alignment }};
@@ -136,6 +138,12 @@ section.countdown {
               "label":"Right"
             }
           ]
+        },
+        {
+          "type":"checkbox",
+          "id":"show_heading_ornament",
+          "label":"Show ornament",
+          "default":true
         }
       ]
     },
