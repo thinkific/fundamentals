@@ -177,9 +177,9 @@
     $formSignUp = $('.checkout__form--sign-up');
 
     if ('{{ page.active_tab }}' === 'signin') {
-      hide($formSignIn);
-    } else {
       hide($formSignUp);
+    } else {
+      hide($formSignIn);
     }
 
     function hide($container) {
@@ -192,7 +192,7 @@
     }
 
     $buttonSignIn.click(function (e) {
-      // display sign in container
+      // Display Sign In container
       e.preventDefault();
       hide($formSignUp);
       show($formSignIn);
@@ -200,7 +200,7 @@
     })
 
     $buttonSignUp.click(function (e) {
-      // display sign in container
+      // Display Sign Up container
       e.preventDefault();
       hide($formSignIn);
       show($formSignUp);
