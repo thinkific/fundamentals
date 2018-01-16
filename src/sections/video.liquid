@@ -24,19 +24,18 @@ section.video {
 
   {% if section.settings.video_thumbnail != blank %}
     background-image: url({{ section.settings.video_thumbnail }});
-
-    {% if section.settings.video_overlay_color != blank %}
-      &:after {
-        background-color: {{ section.settings.video_overlay_color }};
-        {% if section.settings.video_overlay_opacity != blank %}
-          opacity: {{ section.settings.video_overlay_opacity }} * 0.01;
-        {% endif %}
-      }
-    {% endif %}
   {% else %}
     background-color: gray-scale(1);
   {% endif %}
 
+  {% if section.settings.video_overlay_color != blank %}
+    &:after {
+      background-color: {{ section.settings.video_overlay_color }};
+      {% if section.settings.video_overlay_opacity != blank %}
+        opacity: {{ section.settings.video_overlay_opacity }} * 0.01;
+      {% endif %}
+    }
+  {% endif %}
 }
 
 {% endstyle %}
