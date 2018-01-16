@@ -11,37 +11,36 @@
           {% elsif page.product_is_bundle %}
             {% assign product = page.bundle %}
           {% endif %}
-          {% if product.user_can_resume or product.previously_purchased %}
-            <li class="pricing-table__list-item">
-              You have already purchased this item.
-            </li>
-          {% else %}
+          <li class="pricing-table__list-item">
+            <div class="pricing-table__list-item-details">
+              <h4>{{ product.display_price }}</h4>
+              <h5>{{ section.settings.price_name }}</h5>
+            </div>
+            {% if product.is_free %}
+              {% if product.product_is_course %}
+                {% assign enroll_free_text = 'liquid.partials.course_landing_page_action_buttons.link_enroll_free' | translate %}
+              {% elsif product.product_is_bundle %}
+                {% assign enroll_free_text = page.bundle.enroll_free_button_text %}
+              {% endif %}
+              <a href="{{ product.links.enroll_free }}" class="button button-primary">{{ enroll_free_text }}</a>
+            {% else %}
+              {% if product.previously_purchased or product.user_can_resume %}
+                {% assign product_url = product.links.resume %}
+              {% else %}
+                {% assign product_url = product.links.buy %}
+              {% endif %}
+              <a href="{{ product_url }}" class="button button-primary">{% if section.settings.button_text != empty %} {{ section.settings.button_text }} {% else %} Buy Now {% endif %}</a>
+            {% endif %}
+          </li>
+          {% for price in product.additional_prices %}
             <li class="pricing-table__list-item">
               <div class="pricing-table__list-item-details">
-                <h4>{{ product.display_price }}</h4>
-                <h5>{{ section.settings.price_name }}</h5>
+                <h4>{{ price.display_price }}</h4>
+                <h5>{{ price.name }}</h5>
               </div>
-              {% if product.is_free %}
-                {% if product.product_is_course %}
-                  {% assign enroll_free_text = 'liquid.partials.course_landing_page_action_buttons.link_enroll_free' | translate %}
-                {% elsif product.product_is_bundle %}
-                  {% assign enroll_free_text = page.bundle.enroll_free_button_text %}
-                {% endif %}
-                <a href="{{ product.links.enroll_free }}" class="button button-primary">{{ enroll_free_text }}</a>
-              {% else %}
-                <a href="{{ product.links.buy }}" class="button button-primary">{{ product.buy_button_text }}</a>
-              {% endif %}
+              <a href="{{ price.links.add_to_cart }}" class="button button-primary">{{ price.buy_button_text }}</a>
             </li>
-            {% for price in product.additional_prices %}
-              <li class="pricing-table__list-item">
-                <div class="pricing-table__list-item-details">
-                  <h4>{{ price.display_price }}</h4>
-                  <h5>{{ price.name }}</h5>
-                </div>
-                <a href="{{ price.links.add_to_cart }}" class="button button-primary">{{ price.buy_button_text }}</a>
-              </li>
-            {% endfor %}
-          {% endif %}
+          {% endfor %}
         </ul>
       </article>
     </div>
@@ -142,6 +141,12 @@ section.pricing-table {
           "id": "price_name",
           "label": "Default price description",
           "default": "Regular price"
+        },
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Button text",
+          "default":""
         }
       ]
     },
