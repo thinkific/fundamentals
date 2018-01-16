@@ -90,12 +90,12 @@
 
       &:before,
       &:after {
-        @include section-color-preset-override(background-color);
         @include transition(all 0.25s ease);
 
         position: absolute;
         width: 3px;
         height: 9px;
+        background-color: $accent__color;
         content: "";
       }
 
