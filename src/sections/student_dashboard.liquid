@@ -1,3 +1,8 @@
+<section class="student-dashboard__banner">
+  <div class="student-dashboard__container">
+    <h4>{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</h4>
+  </div>
+</section>
 <div class="student-dashboard__container">
   <section class="student-dashboard__form">
     <form action="{{ site.student_dashboard_url }}" method="get" id="search-form">
@@ -48,15 +53,42 @@
   {% endif %}
 </div>
 
+{% style %}
+.student-dashboard__banner {
+  text-align: {{ section.settings.heading_alignment }};
+}
+
+{% endstyle %}
+
 {% schema %}
 {
   "label":"Student Dashboard",
   "settings":[
     {
-      "type":"checkbox",
-      "id":"dashboard_option",
-      "label":"HELLO WORLD",
-      "default":true
+      "label":"Banner",
+      "settings":[
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Heading alignment",
+          "description":"",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

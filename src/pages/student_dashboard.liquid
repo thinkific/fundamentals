@@ -5,11 +5,6 @@
 {% endcomment %}
 
 <main class="student-dashboard" id="main-content" role="main">
-  <section class="student-dashboard__banner">
-    <div class="student-dashboard__container">
-      <h4>{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</h4>
-    </div>
-  </section>
   {% section 'student_dashboard' %}
   {{ content_for_page }}
 </main>
