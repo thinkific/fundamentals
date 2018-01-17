@@ -18,6 +18,10 @@
     }
     @include make-col(12);
   }
+
+  .section__button-group {
+    padding-top: $gutter-width;
+  }
 }
 
 .description__container {
