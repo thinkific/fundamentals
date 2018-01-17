@@ -8,7 +8,8 @@
         {% if section.settings.heading != blank or section.settings.subheading != blank %}
           <header class="section__headings">
             {% if section.settings.heading != blank %}
-              <h1 class="section__heading">{{ section.settings.heading }}</h1>
+              <h1 class="section__heading
+              {% include 'section_utility_heading_ornament' %}">{{ section.settings.heading }}</h1>
             {% endif %}
             {% if section.settings.subheading != blank %}
               <h2 class="section__subheading">{{ section.settings.subheading }}</h2>
