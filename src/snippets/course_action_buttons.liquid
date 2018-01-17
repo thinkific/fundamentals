@@ -13,7 +13,9 @@
         <a href="{{ course.links.resume }}" class="button{% if course.user_can_purchase %} button-secondary{% else %} button-primary{% endif %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_resume_course' | translate }}</a>
       {% endif %}
       {% if course.reviews_enabled %}
-        <a href="{{ course.links.review }}" class="button{% if course.user_enrollment_complete %} button-primary{% else %} button-secondary{% endif %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_rate_course' | translate }}</a>
+        {% unless course.user_can_purchase %}
+          <a href="{{ course.links.review }}" class="button{% if course.user_enrollment_complete %} button-primary{% else %} button-secondary{% endif %}">{{ 'liquid.partials.course_landing_page_action_buttons.link_rate_course' | translate }}</a>
+        {% endunless %}
       {% endif %}
     {% endif %}
     {% if course.is_public %}
