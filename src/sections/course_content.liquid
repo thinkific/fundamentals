@@ -110,21 +110,9 @@
 {% style %}
 
 section.course-content {
-
+  {% include 'section_style_heading_alignment' %}
   {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
-
-  .section__heading,
-  .section__subheading {
-    text-align: {{ section.settings.heading_alignment }};
-  }
-
-  {% if section.settings.heading_alignment == "center" %}
-    .section__subheading:before {
-      margin-right: auto;
-      margin-left: auto;
-    }
-  {% endif %}
 }
 
 {% endstyle %}

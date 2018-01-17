@@ -27,6 +27,7 @@
 
 section.description {
   {% include 'section_style_column_layout' %}
+  {% include 'section_style_heading_alignment' %}
   {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
@@ -51,6 +52,27 @@ section.description {
           "id":"subheading",
           "label":"Subheading",
           "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
         },
         {
           "type":"radio",

@@ -15,13 +15,8 @@
 {% style %}
 
 section.description-legacy {
-
+  {% include 'section_style_heading_alignment' %}
   {% include 'section_style_heading_order' %}
-
-  .section__heading,
-  .section__subheading {
-    text-align: {{ section.settings.heading_alignment }};
-  }
 }
 
 {% endstyle %}

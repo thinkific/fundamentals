@@ -31,14 +31,9 @@ $(window).load(function() {
 {% style %}
 
 section.faq {
-
+  {% include 'section_style_heading_alignment' %}
   {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
-
-  .section__heading,
-  .section__subheading {
-    text-align: {{ section.settings.heading_alignment }};
-  }
 }
 
 {% endstyle %}

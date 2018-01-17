@@ -19,12 +19,17 @@
 {% style %}
 
 section.text-image {
-
+  {% include 'section_style_content_alignment' %}
   {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
-  {% include 'section_style_content_alignment' %}
 
+  {% if section.settings.image_alignment == "left" %}
+    .text-image__image {
+      @include order(1);
+    }
 
+    .text-image__body {
+      @include order(2);
     }
   {% endif %}
 }
