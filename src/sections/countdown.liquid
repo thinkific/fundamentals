@@ -87,18 +87,6 @@ $(document).ready(function() {
 section.countdown {
   {% include 'section_style_column_layout' %}
   {% include 'section_style_heading_ornament' %}
-
-  .section__heading,
-  .section__subheading {
-    text-align: {{ section.settings.heading_alignment }};
-  }
-
-  {% if section.settings.heading_alignment == "center" %}
-    .section__subheading:before {
-      margin-right: auto;
-      margin-left: auto;
-    }
-  {% endif %}
 }
 
 {% endstyle %}
@@ -121,27 +109,6 @@ section.countdown {
           "id":"subheading",
           "label":"Subheading",
           "default":"Expires May 16th"
-        },
-        {
-          "type":"radio",
-          "id":"heading_alignment",
-          "label":"Alignment",
-          "description":"Headings will inherit the same alignment",
-          "default":"left",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
         },
         {
           "type":"checkbox",
