@@ -1,6 +1,6 @@
 <section class="countdown
-{% include 'section_color_preset' %}
-{% include 'section_height_preset' %}" data-preview-item="countdown">
+{% include 'section_utility_color_preset' %}
+{% include 'section_utility_height_preset' %}" data-preview-item="countdown">
   <div class="countdown__container">
     <div class="countdown__wrapper">
       {% if section.settings.heading != blank or section.settings.subheading != blank %}
@@ -82,7 +82,7 @@ $(document).ready(function() {
 
 section.countdown {
 
-  {% include 'section_heading_ornament' %}
+  {% include 'section_style_heading_ornament' %}
 
   .section__heading,
   .section__subheading {

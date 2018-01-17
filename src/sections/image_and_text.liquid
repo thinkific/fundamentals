@@ -1,6 +1,6 @@
 <section class="text-image
-{% include 'section_color_preset' %}
-{% include 'section_height_preset' %}" data-preview-item="text-image">
+{% include 'section_utility_color_preset' %}
+{% include 'section_utility_height_preset' %}" data-preview-item="text-image">
   <div class="text-image__container">
     <article class="section__content">
       <section class="text-image__body {% if section.settings.body != blank %}has-image{% endif %}">
@@ -20,8 +20,8 @@
 
 section.text-image {
 
-  {% include 'section_heading_order' %}
-  {% include 'section_heading_ornament' %}
+  {% include 'section_style_heading_order' %}
+  {% include 'section_style_heading_ornament' %}
 
   .section__content {
     text-align: {{ section.settings.content_alignment }};
