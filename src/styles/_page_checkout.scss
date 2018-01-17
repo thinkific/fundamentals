@@ -279,6 +279,25 @@
 
 .thinkific__checkout__credit-card-container {
   padding-top: $gutter-width;
+
+  #payment-form {
+    position: relative;
+  }
+
+  #local-payment-errors {
+    display: none;
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    padding: $gutter-width / 4;
+    border: 1px solid $alert--error;
+    background-color: $alert--error;
+    color: $white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+    z-index: 1;
+  }
 }
 
 .thinkific__checkout__coupon-code__input,
@@ -343,17 +362,15 @@
 
 #thinkific__checkout__coupon-code__errors-container {
   &.visible {
-    @include screen-sm-min {
-      position: absolute;
-      top: 2.5rem;
-    }
-
     display: inline-block;
-    right: 0.5rem;
-    padding: 3px;
-    background-color: $interface__background-color;
-    color: $alert--error;
+    position: absolute;
+    right: 0;
+    padding: $gutter-width / 4;
+    border: 1px solid $alert--error;
+    background-color: $alert--error;
+    color: $white;
     font-size: 0.875rem;
+    font-weight: 600;
     line-height: 1;
 
     &
@@ -388,6 +405,11 @@
 
   &--focus {
     border: 1px solid $accent__color;
+  }
+
+  &.StripeElement--invalid {
+    border-color: $alert--error;
+    outline-color: $alert--error;
   }
 }
 
