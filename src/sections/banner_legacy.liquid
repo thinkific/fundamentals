@@ -35,28 +35,8 @@
 {% style %}
 
 section.banner-legacy {
-
-  .section__content {
-    text-align: {{ section.settings.content_alignment }};
-  }
-
-  {% if section.settings.content_alignment == "center" %}
-    .section__button-group {
-      @include justify-content(center);
-    }
-    .section__subheading:before {
-      margin-right: auto;
-      margin-left: auto;
-    }
-  {% endif %}
-
-  {% if section.settings.content_alignment == "right" %}
-    .section__button-group {
-      @include justify-content(flex-end);
-    }
-  {% endif %}
-
   {% include 'section_style_background_image_legacy' %}
+  {% include 'section_style_content_alignment' %}
 }
 
 {% endstyle %}

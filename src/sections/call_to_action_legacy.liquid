@@ -24,12 +24,8 @@
 {% style %}
 
 section.call-to-action-legacy {
-
-  .section__content {
-    text-align: {{ section.settings.content_alignment }};
-  }
-
   {% include 'section_style_background_image_legacy' %}
+  {% include 'section_style_content_alignment' %}
 }
 {% endstyle %}
 
