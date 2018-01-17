@@ -4,7 +4,7 @@
 {% endcomment %}
 
 <section class="course-card course-card__dashboard-legacy">
-  <header class="course-card__img-container" style="background-image:url({{ course.card_image_url }});"></header>
+  <header class="course-card__img-container" style="background-image:url({{ card.image.medium }});"></header>
   <article class="course-card__body">
     <h3 title="{{ card.name }}">{{ card.name_truncated }}</h3>
     {% if card.has_enrollment %}
