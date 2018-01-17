@@ -1,5 +1,6 @@
 <section class="countdown
 {% include 'section_utility_color_preset' %}
+{% include 'section_utility_column_layout' %}
 {% include 'section_utility_height_preset' %}" data-preview-item="countdown">
   <div class="countdown__container">
     <div class="countdown__wrapper">
@@ -13,17 +14,19 @@
             <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
           {% endif %}
           {% if section.settings.price != blank %}
-            {% if section.settings.button_text != blank %}
-              {% assign button_text = section.settings.button_text %}
-            {% else %}
-              {% assign button_text = section.settings.price.buy_button_text %}
-            {% endif %}
-            <a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ button_text }}</a>
+            <section class="section__button-group">
+              {% if section.settings.button_text != blank %}
+                {% assign button_text = section.settings.button_text %}
+              {% else %}
+                {% assign button_text = section.settings.price.buy_button_text %}
+              {% endif %}
+              <a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ button_text }}</a>
+            </section>
           {% endif %}
         </header>
       {% endif %}
-      <article class="section__countdown">
-        <ul id="countdown-clock" class="section__body" data-deadline="{{ section.settings.expiry_date }}">
+      <article class="section__countdown section__body">
+        <ul id="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
           <li id="clock-days" class="clock-interval"><span class="chrono">00</span><strong>Days</strong></li>
           <li id="clock-hours" class="clock-interval"><span class="chrono">00</span><strong>Hours</strong></li>
           <li id="clock-minutes" class="clock-interval"><span class="chrono">00</span><strong>Minutes</strong></li>
@@ -82,7 +85,7 @@ $(document).ready(function() {
 {% style %}
 
 section.countdown {
-
+  {% include 'section_style_column_layout' %}
   {% include 'section_style_heading_ornament' %}
 
   .section__heading,
@@ -168,6 +171,28 @@ section.countdown {
           "id":"price",
           "description":"The button will appear once you choose a product.",
           "label":"Attach a course"
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"radio",
+          "id":"column_layout",
+          "label":"",
+          "description":"",
+          "default":"two-column",
+          "options":[
+            {
+              "value":"two-column",
+              "label":"Two Column"
+            },
+            {
+              "value":"one-column",
+              "label":"One Column"
+            }
+          ]
         }
       ]
     },

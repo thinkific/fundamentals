@@ -2,6 +2,25 @@
 // ======================================
 
 .description {
+
+  &.section__column-layout__one-column {
+
+    .description__wrapper {
+      @include justify-content(center);
+    }
+
+    .section__headings,
+    .section__content {
+      @include screen-md-min {
+        @include make-col(9);
+      }
+    }
+
+    .section__headings {
+      margin: 0 0 $gutter-width;
+    }
+  }
+
   .section__headings {
     @include screen-lg-min {
       @include make-col(5);

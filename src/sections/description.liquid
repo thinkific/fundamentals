@@ -1,5 +1,6 @@
 <section class="description
 {% include 'section_utility_color_preset' %}
+{% include 'section_utility_column_layout' %}
 {% include 'section_utility_height_preset' %}" data-preview-item="description">
   <div class="description__container">
     <div class="description__wrapper">
@@ -25,36 +26,9 @@
 {% style %}
 
 section.description {
-
+  {% include 'section_style_column_layout' %}
   {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
-
-  .section__heading,
-  .section__subheading {
-    text-align: {{ section.settings.content_alignment }};
-  }
-
-  {% if section.settings.content_alignment == "center" %}
-    .section__subheading:before {
-      margin-right: auto;
-      margin-left: auto;
-    }
-    .section__headings,
-    .section__content {
-      @include screen-lg-min {
-        @include make-col(12);
-      }
-    }
-  {% endif %}
-
-  {% if section.settings.content_alignment == "right" %}
-    .section__headings {
-      @include order(2);
-    }
-    .section__content {
-      @include order(1);
-    }
-  {% endif %}
 }
 
 {% endstyle %}
@@ -114,26 +88,22 @@ section.description {
       ]
     },
     {
-      "label":"Content alignment",
+      "label":"Layout",
       "settings":[
         {
           "type":"radio",
-          "id":"content_alignment",
+          "id":"column_layout",
           "label":"",
           "description":"",
-          "default":"left",
+          "default":"two-column",
           "options":[
             {
-              "value":"left",
-              "label":"Left"
+              "value":"two-column",
+              "label":"Two Column"
             },
             {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
+              "value":"one-column",
+              "label":"One Column"
             }
           ]
         }

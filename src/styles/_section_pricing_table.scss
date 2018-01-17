@@ -2,6 +2,24 @@
 // ======================================
 
 .pricing-table {
+
+  &.section__column-layout__one-column {
+    .pricing-table__wrapper {
+      @include justify-content(center);
+    }
+
+    .section__headings,
+    .section__content {
+      @include screen-lg-min {
+        @include make-col(9);
+      }
+    }
+
+    .section__headings {
+      margin: 0 0 $gutter-width;
+    }
+  }
+
   .section__headings {
     @include screen-lg-min {
       @include make-col(4);
@@ -38,6 +56,8 @@
 }
 
 .pricing-table__list-item {
+  @include justify-content(space-between);
+
   margin: 0 0 $gutter-width;
   padding: 0 0 $gutter-width;
   border-bottom: $interface__border;

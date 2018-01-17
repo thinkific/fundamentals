@@ -2,14 +2,34 @@
 // ======================================
 
 .bonus {
+
+  &.section__column-layout__one-column {
+    .bonus__wrapper {
+      @include justify-content(center);
+    }
+
+    .section__headings,
+    .section__content {
+      @include screen-lg-min {
+        @include make-col(9);
+      }
+    }
+
+    .section__headings {
+      margin: 0 0 $gutter-width;
+    }
+  }
+
   .section__headings {
     @include screen-lg-min {
       @include make-col(4);
+      margin: 0;
     }
     @include make-col(12);
     @include screen-md-min {
       padding-right: $gutter-width * 2;
     }
+    margin: 0 0 $gutter-width;
   }
 
   .section__content {

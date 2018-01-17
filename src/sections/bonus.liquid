@@ -1,5 +1,6 @@
 <section class="bonus
 {% include 'section_utility_color_preset' %}
+{% include 'section_utility_column_layout' %}
 {% include 'section_utility_height_preset' %}" data-preview-item="bonus">
   <div class="bonus__container">
     <div class="bonus__wrapper">
@@ -24,21 +25,10 @@
 {% style %}
 
 section.bonus {
-
+  {% include 'section_style_column_layout' %}
+  {% include 'section_style_heading_alignment' %}
   {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
-
-  .section__heading,
-  .section__subheading {
-    text-align: {{ section.settings.heading_alignment }};
-  }
-
-  {% if section.settings.heading_alignment == "center" %}
-    .section__subheading:before {
-      margin-right: auto;
-      margin-left: auto;
-    }
-  {% endif %}
 }
 
 {% endstyle %}
@@ -104,6 +94,28 @@ section.bonus {
           "id":"show_heading_ornament",
           "label":"Show ornament",
           "default":false
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"radio",
+          "id":"column_layout",
+          "label":"",
+          "description":"",
+          "default":"two-column",
+          "options":[
+            {
+              "value":"two-column",
+              "label":"Two Column"
+            },
+            {
+              "value":"one-column",
+              "label":"One Column"
+            }
+          ]
         }
       ]
     },

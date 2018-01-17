@@ -1,0 +1,8 @@
+{% if section.settings.column_layout == "one-column" %}
+  .section__headings,
+  .section__content {
+    @include screen-lg-min {
+      @include make-col(12);
+    }
+  }
+{% endif %}
