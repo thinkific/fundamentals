@@ -53,6 +53,8 @@
   .section__content {
     @include screen-lg-min {
       @include make-col(6);
+
+      padding-right: 6rem;
     }
     @include make-col(12);
   }
@@ -72,10 +74,8 @@
 
 .checklist__list-item {
   @include screen-sm-min {
-    @include make-col(6);
 
-    &:last-child,
-    &:nth-last-child(2) {
+    &:last-child {
       h4 {
         border-bottom: 0;
       }
@@ -92,16 +92,18 @@
 
   h4 {
     margin: 0;
-    padding: $gutter-width / 2 0;
+    padding: $gutter-width / 2 0 $gutter-width / 2 $gutter-width * 1.5;
     border-bottom: $interface__border;
     font-family: $body__font-family;
     font-size: modular-scale(0);
     font-weight: 400;
-    line-height: 1;
+    line-height: normal;
   }
 
   .fa {
     display: inline-block;
+    position: absolute;
+    top: 1rem;
     width: 32px;
     height: 32px;
     margin: 0 $gutter-width / 2 0 0;
