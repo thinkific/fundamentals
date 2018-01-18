@@ -20,7 +20,7 @@
           <section class="section__button-group">
             {% for block in section.blocks %}
               {% if block.type == 'banner_button' %}
-                <a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+                <a class="button button-primary" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
               {% endif %}
             {% endfor %}
             {% if page.product_is_course %}
@@ -69,63 +69,22 @@ section.banner {
           "default":"Get more detailed about your course here!"
         },
         {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
+          "type":"color",
+          "id":"text_color",
+          "label":"Text color",
+          "default":"#{$heading__color}"
         }
       ]
     },
     {
-      "label":"Background",
+      "label":"Hero Image",
       "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"banner",
-          "options":[
-            {
-              "value":"banner",
-              "label":"Banner"
-            },
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        },
         {
           "type":"image",
           "id":"background_image",
           "default":"",
           "label":"Image",
-          "description": "<small>Recommended: <strong>1440px x 720px (1MB)</strong></small><br /><small>GIF is also supported for looped background images.</small>"
+          "description": "<small>Recommended: <strong>1440px x 720px (1MB)</strong></small>"
         },
         {
           "type":"color",
@@ -144,37 +103,12 @@ section.banner {
       ]
     },
     {
-      "label":"Content alignment",
-      "settings":[
-        {
-          "type":"radio",
-          "id":"content_alignment",
-          "label":"",
-          "default":"left",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
+      "label":"Size & Alignment",
       "settings":[
         {
           "type":"select",
           "id":"section_height_preset",
-          "label":"Height preset",
+          "label":"Height",
           "description":"",
           "default":"banner",
           "options":[
@@ -195,12 +129,32 @@ section.banner {
               "label":"Banner"
             }
           ]
+        },
+        {
+          "type":"radio",
+          "id":"content_alignment",
+          "label":"Alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
         }
       ]
     }
   ],
   "blocks":{
-    "label":"Buttons",
+    "label":"Add Button",
     "limit":2,
     "types":[
       {
@@ -214,8 +168,8 @@ section.banner {
           },
           {
             "type":"page_picker",
-            "id":"button_url",
-            "label":"URL"
+            "id":"button_link",
+            "label":"Link"
           }
         ]
       }
