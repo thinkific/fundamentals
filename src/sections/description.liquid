@@ -12,8 +12,8 @@
         {% if section.blocks != empty %}
           <section class="section__button-group">
             {% for block in section.blocks %}
-              {% if block.settings.button_url != blank and block.settings.button_text != blank %}
-                <a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+              {% if block.settings.button_link != blank and block.settings.button_text != blank %}
+                <a class="button button-primary" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
               {% endif %}
             {% endfor %}
           </section>
@@ -199,8 +199,8 @@ section.description {
           },
           {
             "type":"page_picker",
-            "id":"button_url",
-            "label":"URL"
+            "id":"button_link",
+            "label":"Link"
           }
         ]
       }

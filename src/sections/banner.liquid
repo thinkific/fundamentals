@@ -20,7 +20,7 @@
           <section class="section__button-group">
             {% for block in section.blocks %}
               {% if block.type == 'banner_button' %}
-                <a class="button button-primary" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+                <a class="button button-primary" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
               {% endif %}
             {% endfor %}
             {% if page.product_is_course %}
@@ -214,8 +214,8 @@ section.banner {
           },
           {
             "type":"page_picker",
-            "id":"button_url",
-            "label":"URL"
+            "id":"button_link",
+            "label":"Link"
           }
         ]
       }

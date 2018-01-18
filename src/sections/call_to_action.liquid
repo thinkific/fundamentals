@@ -2,8 +2,8 @@
 {% include 'section_utility_background_image' %}
 {% include 'section_utility_color_preset' %}
 {% include 'section_utility_height_preset' %}" data-preview-item="call-to-action">
-{% if section.settings.button_show and section.settings.button_url != null %}
-  <a href="{{ section.settings.button_url }}" class="call-to-action__section-link">
+{% if section.settings.button_show and section.settings.button_link != null %}
+  <a href="{{ section.settings.button_link }}" class="call-to-action__section-link">
 {% endif %}
   <div class="call-to-action__container">
     <article class="section__content">
@@ -11,14 +11,14 @@
       {% if section.settings.body != blank %}
         <section class="section__body">{{ section.settings.body }}</section>
       {% endif %}
-      {% if section.settings.button_show != true and section.settings.button_text != empty and section.settings.button_url != null %}
+      {% if section.settings.button_show != true and section.settings.button_text != empty and section.settings.button_link != null %}
         <ul class="section__button-group">
-          <li><a class="button button-primary" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a></li>
+          <li><a class="button button-primary" href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a></li>
         </ul>
       {% endif %}
     </article>
   </div>
-{% if section.settings.button_show and section.settings.button_url != null %}
+{% if section.settings.button_show and section.settings.button_link != null %}
   </a>
 {% endif %}
 </section>
@@ -114,8 +114,8 @@ section.call-to-action {
         },
         {
           "type":"page_picker",
-          "id":"button_url",
-          "label":"Button / Call to action URL"
+          "id":"button_link",
+          "label":"Link"
         },
         {
           "type":"checkbox",
