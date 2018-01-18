@@ -9,7 +9,6 @@
   "settings": [
     {
       "label": "General",
-      "description": "This is where you select the site colors",
       "settings": [
         {
           "type": "color",
@@ -45,7 +44,6 @@
     },
     {
       "label": "Page Header",
-      "description": "This is where you style the navigation",
       "settings": [
         {
           "type": "color",
@@ -99,7 +97,6 @@
     },
     {
       "label": "Page Header (Mobile)",
-      "description": "This is where you style the mobile navigation",
       "settings": [
         {
           "type": "color",
@@ -129,7 +126,6 @@
     },
     {
       "label": "Dropdown menu",
-      "description": "This is where you style the dropdown menu",
       "settings": [
         {
           "type": "color",
@@ -159,7 +155,6 @@
     },
     {
       "label": "Button (Primary)",
-      "description": "This is where you style the primary button",
       "settings": [
         {
           "type": "color",
@@ -213,7 +208,6 @@
     },
     {
       "label": "Typography",
-      "description": "This is where you select the typography",
       "settings": [
         {
           "type": "select",
@@ -350,7 +344,6 @@
     },
     {
       "label": "Footer",
-      "description": "This is where you style the footer",
       "settings": [
         {
           "type": "color",
