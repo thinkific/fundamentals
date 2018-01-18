@@ -6,13 +6,15 @@
   &.section__column-layout__one-column {
 
     .checklist__wrapper {
+      @include flex-direction(column);
       @include justify-content(center);
     }
 
     .section__headings,
     .section__content {
       @include screen-lg-min {
-        @include make-col(9);
+        @include make-col(6);
+        @include align-self(center);
       }
     }
 
@@ -21,15 +23,7 @@
     }
 
     .checklist__list-item {
-      @include screen-lg-min {
-        @include make-col(4);
-
-        &:nth-last-child(3) {
-          h4 {
-            border-bottom: 0;
-          }
-        }
-      }
+      @include make-col(12);
     }
   }
 
@@ -101,9 +95,11 @@
   }
 
   .fa {
+    @include transform(translatey(-50%));
+
     display: inline-block;
     position: absolute;
-    top: 1rem;
+    top: 50%;
     width: 32px;
     height: 32px;
     margin: 0 $gutter-width / 2 0 0;
