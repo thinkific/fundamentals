@@ -60,13 +60,13 @@ section.banner {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"Your first course"
+          "default":"Banner"
         },
         {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":"Get more detailed about your course here!"
+          "default":"Your banner contains a hero image with text overlay. You can also add call to action buttons."
         },
         {
           "type":"color",
@@ -99,6 +99,48 @@ section.banner {
           "default":0,
           "min":0,
           "max":100
+        }
+      ]
+    },
+    {
+      "label":"Social links",
+      "settings":[
+        {
+          "type":"icon",
+          "id":"social_icon",
+          "label":"Social icon one",
+
+          "default":""
+        },
+        {
+          "type":"text",
+          "id":"social_link",
+          "description":"<small>Leave these blank if you do not need social links.</small>",
+          "label":"Link"
+        },
+        {
+          "type":"icon",
+          "id":"social_icon-2",
+          "label":"Social icon two",
+          "default":""
+        },
+        {
+          "type":"text",
+          "id":"social_link-2",
+          "description":"<small>Leave these blank if you do not need social links.</small>",
+          "label":"Link"
+        },
+        {
+          "type":"icon",
+          "id":"social_icon-3",
+          "label":"Social icon three",
+          "default":""
+        },
+        {
+          "type":"text",
+          "id":"social_link-3",
+          "description":"<small>Leave these blank if you do not need social links.</small>",
+          "label":"Link"
         }
       ]
     },
@@ -174,7 +216,15 @@ section.banner {
         ]
       }
     ],
-    "defaults":[]
+    "defaults":[
+      {
+        "type":"banner_button",
+        "values":{
+          "button_text":"Call to action",
+          "button_link":""
+        }
+      }
+    ]
   }
 }
 {% endschema %}
