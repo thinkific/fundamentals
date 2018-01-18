@@ -1,6 +1,5 @@
 <section class="countdown
-{% include 'section_utility_column_layout' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="countdown">
+{% include 'section_utility_column_layout' %}" data-preview-item="countdown">
   <div class="countdown__container">
     <div class="countdown__wrapper">
       {% if section.settings.heading != blank or section.settings.subheading != blank %}
@@ -108,12 +107,6 @@ section.countdown {
           "id":"subheading",
           "label":"Subheading",
           "default":"Expires May 16th"
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
         }
       ]
     },
@@ -151,64 +144,12 @@ section.countdown {
           "default":"two-column",
           "options":[
             {
-              "value":"two-column",
-              "label":"Two Column"
-            },
-            {
               "value":"one-column",
               "label":"One Column"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"primary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
             },
             {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"medium",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
+              "value":"two-column",
+              "label":"Two Column"
             }
           ]
         }

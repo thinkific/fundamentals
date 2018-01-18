@@ -1,6 +1,5 @@
 <section class="checklist
-{% include 'section_utility_column_layout' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="checklist">
+{% include 'section_utility_column_layout' %}" data-preview-item="checklist">
   <div class="checklist__container">
     <div class="checklist__wrapper">
       {% include 'section_headings' %}
@@ -69,28 +68,6 @@ section.checklist {
               "label":"Right"
             }
           ]
-        },
-        {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
         }
       ]
     },
@@ -105,64 +82,12 @@ section.checklist {
           "default":"two-column",
           "options":[
             {
-              "value":"two-column",
-              "label":"Two Column"
-            },
-            {
               "value":"one-column",
               "label":"One Column"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"secondary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
             },
             {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"large",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
+              "value":"two-column",
+              "label":"Two Column"
             }
           ]
         }

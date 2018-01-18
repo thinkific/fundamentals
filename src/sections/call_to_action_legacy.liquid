@@ -52,57 +52,12 @@ section.call-to-action-legacy {
           "id": "price",
           "label": "Button link",
           "description": "Link your Call To Action button to one of your course prices"
-        },
-        {
-          "type":"radio",
-          "id":"content_alignment",
-          "label":"Content alignment",
-          "default":"center",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
         }
       ]
     },
     {
       "label":"Background",
       "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"primary",
-          "options":[
-            {
-              "value":"banner",
-              "label":"Banner"
-            },
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        },
         {
           "type":"image",
           "id":"background_image",
@@ -126,14 +81,14 @@ section.call-to-action-legacy {
       ]
     },
     {
-      "label":"Section height",
+      "label":"Size & Alignment",
       "settings":[
         {
           "type":"select",
           "id":"section_height_preset",
-          "label":"Height preset",
+          "label":"Height",
           "description":"",
-          "default":"large",
+          "default":"banner",
           "options":[
             {
               "value":"small",
@@ -146,6 +101,30 @@ section.call-to-action-legacy {
             {
               "value":"large",
               "label":"Large"
+            },
+            {
+              "value":"banner",
+              "label":"Banner"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"content_alignment",
+          "label":"Content alignment",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
             }
           ]
         }

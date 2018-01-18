@@ -51,28 +51,6 @@ section.call-to-action {
           "id":"subheading",
           "label":"Subheading",
           "default":"Get started now!"
-        },
-        {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
         }
       ]
     },
@@ -84,26 +62,6 @@ section.call-to-action {
           "id":"body",
           "label":"Text",
           "default":""
-        },
-        {
-          "type":"radio",
-          "id":"content_alignment",
-          "label":"Content alignment",
-          "default":"center",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
         },
         {
           "type":"text",
@@ -128,31 +86,6 @@ section.call-to-action {
       "label":"Background",
       "settings":[
         {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"banner",
-          "options":[
-            {
-              "value":"banner",
-              "label":"Banner"
-            },
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        },
-        {
           "type":"image",
           "id":"background_image",
           "default":"",
@@ -175,14 +108,14 @@ section.call-to-action {
       ]
     },
     {
-      "label":"Section Height",
+      "label":"Size & Alignment",
       "settings":[
         {
           "type":"select",
           "id":"section_height_preset",
-          "label":"Height Preset",
+          "label":"Height",
           "description":"",
-          "default":"large",
+          "default":"banner",
           "options":[
             {
               "value":"small",
@@ -195,6 +128,30 @@ section.call-to-action {
             {
               "value":"large",
               "label":"Large"
+            },
+            {
+              "value":"banner",
+              "label":"Banner"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"content_alignment",
+          "label":"Content alignment",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
             }
           ]
         }

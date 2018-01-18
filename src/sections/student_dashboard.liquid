@@ -53,44 +53,9 @@
   {% endif %}
 </div>
 
-{% style %}
-
-.student-dashboard__banner {
-  text-align: {{ section.settings.heading_alignment }};
-}
-
-{% endstyle %}
-
 {% schema %}
 {
-  "label":"Student Dashboard",
-  "settings":[
-    {
-      "label":"Banner",
-      "settings":[
-        {
-          "type":"radio",
-          "id":"heading_alignment",
-          "label":"Heading alignment",
-          "description":"",
-          "default":"left",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "label":"Dashboard [smart section]",
+  "settings":[]
 }
 {% endschema %}
