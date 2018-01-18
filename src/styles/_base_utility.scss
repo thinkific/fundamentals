@@ -90,35 +90,6 @@
   @include full-width-background;
 }
 
-// Section Background Presets
-.section-color-preset__banner {
-  @include section-color-preset($banner-background-color, $banner-heading-color, $banner-subheading-color, $banner-text-color);
-
-  .button-secondary {
-    border-color: $button__primary-background;
-    color: $banner-heading-color;
-
-    &:active,
-    &:focus,
-    &:hover {
-      border-color: $button__primary-background--active;
-      background-color: $button__primary-background--active;
-    }
-  }
-}
-
-.section-color-preset__primary {
-  @include section-color-preset($primary-background-color, $primary-heading-color, $primary-subheading-color, $primary-text-color);
-}
-
-.section-color-preset__secondary {
-  @include section-color-preset($secondary-background-color, $secondary-heading-color, $secondary-subheading-color, $secondary-text-color);
-}
-
-.section-color-preset__tertiary {
-  @include section-color-preset($tertiary-background-color, $tertiary-heading-color, $tertiary-subheading-color, $tertiary-text-color);
-}
-
 // Section Height Presets
 .section-height__banner {
   @include section-height($section-height__large * 2, $section-height__large);

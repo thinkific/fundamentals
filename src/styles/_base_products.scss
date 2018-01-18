@@ -453,11 +453,6 @@
   .fa {
     margin-right: $gutter-width / 8;
   }
-
-  .fa,
-  a {
-    @include section-color-preset-override(color);
-  }
 }
 
 .products-coupon {

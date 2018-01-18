@@ -5,10 +5,10 @@
   & > [class*="__menu"] {
     ul {
       @include screen-sm-max {
-        box-shadow: $interface__shadow;
+        box-shadow: $shadow-interface;
       }
       @include screen-lg-min {
-        box-shadow: $interface__shadow;
+        box-shadow: $shadow-interface;
       }
 
       border: $interface__border;

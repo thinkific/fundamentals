@@ -458,50 +458,6 @@
   padding-bottom: $padding-bottom / 2;
 }
 
-// Section Presets
-@mixin section-color-preset($background-color: $white, $heading-color: $black, $subheading-color: gray-scale(7), $text-color: gray-scale(7)) {
-  background-color: $background-color;
-
-  .section__heading {
-    color: $heading-color;
-  }
-
-  .section__subheading {
-    color: $subheading-color;
-  }
-
-  .section__body {
-    color: $text-color;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: $text-color;
-    }
-  }
-}
-
-@mixin section-color-preset-override($property) {
-  .section-color-preset__banner & {
-    #{$property}: $banner-text-color;
-  }
-
-  .section-color-preset__primary & {
-    #{$property}: $primary-text-color;
-  }
-
-  .section-color-preset__secondary & {
-    #{$property}: $secondary-text-color;
-  }
-
-  .section-color-preset__tertiary & {
-    #{$property}: $tertiary-text-color;
-  }
-}
-
 // Section Height
 @mixin section-height($padding-top: $section-height__large, $padding-bottom: $padding-top) {
   & > [class*="__container"] {

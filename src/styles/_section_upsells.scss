@@ -92,18 +92,6 @@
     width: $gutter-width / 4;
     height: 2px;
     content: "";
-
-    .section-color-preset__primary & {
-      background-color: $primary-text-color;
-    }
-
-    .section-color-preset__secondary & {
-      background-color: $secondary-text-color;
-    }
-
-    .section-color-preset__tertiary & {
-      background-color: $tertiary-text-color;
-    }
   }
 }
 
