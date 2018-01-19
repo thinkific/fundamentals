@@ -7,6 +7,17 @@
   .section__headings {
     margin: 0 0 $gutter-width * 2;
   }
+
+  .owl-carousel {
+
+    .owl-item {
+
+      img {
+        display: inline-block;
+        width: auto;  
+      }
+    }
+  }
 }
 
 .instructor__container {

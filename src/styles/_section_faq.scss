@@ -2,8 +2,17 @@
 // ======================================
 
 .faq {
+
   .section__headings {
     margin: 0 0 $gutter-width * 2;
+  }
+
+  .section__content {
+    @include screen-lg-min {
+      @include make-col(8);
+      @include make-col-offset(2);
+    }
+    @include make-col(12);
   }
 }
 
@@ -12,11 +21,8 @@
 }
 
 .faq__list {
-  @include screen-lg-min {
-    @include make-col(8);
-    @include make-col-offset(2);
-  }
-  @include make-col(12);
+  @include make-row;
+  @include justify-content(center);
 }
 
 .faq__list-item {

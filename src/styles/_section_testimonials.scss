@@ -73,6 +73,7 @@
     padding: $gutter-width * 1.5 $gutter-width * 1.5 $gutter-width;
   }
 
+  position: relative;
   height: 100%;
   padding: $gutter-width $gutter-width / 2 $gutter-width;
   border: $interface__border;

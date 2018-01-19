@@ -78,7 +78,11 @@
   }
 
   .course-card__body {
-    padding: $gutter-width * 1.5 $gutter-width / 2 $gutter-width / 2;
+    padding: $gutter-width * 1.5 $gutter-width / 1.33333 $gutter-width / 2;
+
+    h3 {
+      margin-bottom: $gutter-width / 2;
+    }
   }
 }
 

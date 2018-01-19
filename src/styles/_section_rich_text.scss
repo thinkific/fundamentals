@@ -2,12 +2,13 @@
 // ======================================
 
 .rich-text {
+
   .section__headings {
-    @include make-col(12);
+    @include make-col(8);
   }
 
   .section__content {
-    @include make-col(12);
+    @include make-col(8);
   }
 }
 
@@ -17,4 +18,5 @@
 
 .rich-text__wrapper {
   @include make-row(true);
+  @include justify-content(center);
 }

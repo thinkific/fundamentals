@@ -2,12 +2,16 @@
 // ======================================
 
 .banner {
+
   .section__content {
     @include screen-md-min {
       @include make-col(10);
     }
     @include screen-lg-min {
       @include make-col(7);
+    }
+    @include screen-sm-min {
+      padding-right: $gutter-width * 2;
     }
     @include make-col(12);
   }
@@ -24,10 +28,67 @@
     @include button-group;
 
     margin-bottom: $gutter-width;
+    padding-top: $gutter-width;
 
     .button {
       @include screen-sm-max {
         margin-bottom: $gutter-width / 2;
+      }
+    }
+  }
+
+  .section__social-nav {
+    @include screen-xs-max {
+      @include make-col(12);
+
+      text-align: center;
+    }
+    @include screen-sm-min {
+      position: absolute;
+      right: $gutter-width / 2;
+      bottom: 0;
+    }
+  }
+
+  .social-nav__list-item {
+    @include screen-xs-max {
+      display: inline-block;
+      margin-right: $gutter-width / 2;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    @include screen-sm-min {
+      margin: 0 0 $gutter-width / 2;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    line-height: 1;
+    text-align: center;
+
+    a {
+      @include screen-xs-max {
+        font-size: modular-scale(2);
+      }
+
+      font-size: modular-scale(1);
+      opacity: 0.6;
+
+      &,
+      &:active,
+      &:focus,
+      &:hover {
+        @include transition(opacity 400ms ease);
+      }
+
+      &:active,
+      &:focus,
+      &:hover {
+        opacity: 1;
       }
     }
   }
@@ -39,4 +100,6 @@
 
 .banner__wrapper {
   @include make-row(true);
+
+  position: relative;
 }

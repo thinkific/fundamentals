@@ -73,6 +73,17 @@ h2 {
 .section__headings {
   @include display(flex);
   @include flex-direction(column);
+
+  &--reverse {
+
+    .section__heading {
+      @include order(2);
+    }
+
+    .section__subheading {
+      @include order(1);
+    }
+  }
 }
 
 .section__heading {
@@ -89,9 +100,7 @@ h2 {
 
 .section__subheading {
   @include subheading;
-  @include screen-sm-min {
-    font-size: modular-scale(2);
-  }
+
   font-size: modular-scale(1);
 }
 

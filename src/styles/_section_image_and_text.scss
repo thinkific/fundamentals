@@ -2,9 +2,14 @@
 // ======================================
 
 .text-image {
+  
   .section__content {
     @include make-row(true);
   }
+
+  .section__button-group {
+   padding-top: $gutter-width * 1.5;
+ }
 }
 
 .text-image__container {

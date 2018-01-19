@@ -17,7 +17,7 @@
     }
 
     .section__headings {
-      margin: 0 0 $gutter-width;
+      text-align: center;
     }
   }
 
@@ -26,14 +26,14 @@
       @include make-col(5);
     }
     @include make-col(12);
-    @include screen-md-min {
-      padding-right: $gutter-width * 2;
-    }
   }
 
   .section__content {
     @include screen-lg-min {
       @include make-col(7);
+    }
+    @include screen-md-min {
+      padding-left: $gutter-width * 2;
     }
     @include make-col(12);
   }

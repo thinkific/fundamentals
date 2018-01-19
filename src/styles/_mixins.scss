@@ -499,13 +499,14 @@
 
 // Typography
 @mixin heading {
-  margin: 0 0 $gutter-width * 0.785;
+  margin: 0;
   font-family: $heading__font-family;
   font-weight: $heading__font-weight;
   line-height: $heading__line-height;
 }
 
 @mixin subheading {
+  padding-top: $gutter-width * 0.785;
   font-family: $subheading__font-family;
   font-weight: $subheading__font-weight;
   line-height: $heading__line-height;
