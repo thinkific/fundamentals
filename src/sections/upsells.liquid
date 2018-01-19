@@ -43,7 +43,6 @@
 
 section.upsells {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -60,7 +59,7 @@ section.upsells {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"You may also be interested in..."
+          "default":"Upsells"
         },
         {
           "type":"text",
@@ -88,12 +87,28 @@ section.upsells {
               "label":"Right"
             }
           ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
+            }
+          ]
         }
       ]
     }
   ],
   "blocks":{
-    "label":"Upsell",
+    "label":"Add upsell",
     "limit":12,
     "types":[
       {
@@ -108,15 +123,15 @@ section.upsells {
             "default":"fa-calendar-o"
           },
           {
-            "type": "text",
-            "id": "button_text",
-            "label": "Button text",
-            "default": "Buy Now"
+            "type":"text",
+            "id":"button_text",
+            "label":"Button text",
+            "default":"Buy Now"
           },
           {
             "type":"price_picker",
             "id":"price",
-            "label":"",
+            "label":"Product",
             "description":""
           },
           {

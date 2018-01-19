@@ -109,7 +109,6 @@
 
 section.course-content {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -152,6 +151,22 @@ section.course-content {
             {
               "value":"right",
               "label":"Right"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
             }
           ]
         }

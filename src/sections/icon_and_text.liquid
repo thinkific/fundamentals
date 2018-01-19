@@ -21,7 +21,6 @@
 
 section.text-icon {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -66,6 +65,22 @@ section.text-icon {
               "label":"Right"
             }
           ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
+            }
+          ]
         }
       ]
     }
@@ -91,7 +106,7 @@ section.text-icon {
           {
             "type":"textarea",
             "id":"ti_body",
-            "label":"Text"
+            "label":"Description"
           }
         ]
       }
@@ -100,25 +115,25 @@ section.text-icon {
       {
         "type":"icon_text",
         "values":{
-          "ti_icon":"fa-gears",
-          "ti_name":"Improve your skills",
-          "ti_body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus, nunc ac tincidunt venenatis, mauris elit tempus est, id vulputate ipsum sapien quis nisl. Fusce porta magna mi, eu efficitur velit pulvinar a. Nullam et arcu viverra, tincidunt libero in, efficitur diam."
+          "ti_icon":"fa-asterisk",
+          "ti_name":"Icon & text",
+          "ti_body":"Use an icon and text to communicate the value proposition and share the specific benefits of your offering. What makes it unique in your market?"
         }
       },
       {
         "type":"icon_text",
         "values":{
-          "ti_icon":"fa-certificate",
-          "ti_name":"Expert instructors",
-          "ti_body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus, nunc ac tincidunt venenatis, mauris elit tempus est, id vulputate ipsum sapien quis nisl. Fusce porta magna mi, eu efficitur velit pulvinar a. Nullam et arcu viverra, tincidunt libero in, efficitur diam."
+          "ti_icon":"fa-area-chart",
+          "ti_name":"Icon & text",
+          "ti_body":"Use an icon and text to communicate the value proposition and share the specific benefits of your offering. What makes it unique in your market?"
         }
       },
       {
         "type":"icon_text",
         "values":{
           "ti_icon":"fa-lightbulb-o",
-          "ti_name":"Informative",
-          "ti_body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus, nunc ac tincidunt venenatis, mauris elit tempus est, id vulputate ipsum sapien quis nisl. Fusce porta magna mi, eu efficitur velit pulvinar a. Nullam et arcu viverra, tincidunt libero in, efficitur diam."
+          "ti_name":"Icon & text",
+          "ti_body":"Use an icon and text to communicate the value proposition and share the specific benefits of your offering. What makes it unique in your market?"
         }
       }
     ]

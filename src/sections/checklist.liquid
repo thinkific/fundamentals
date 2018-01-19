@@ -8,7 +8,8 @@
           <ul class="checklist__list section__body">
             {% for block in section.blocks %}
               <li class="checklist__list-item">
-                <h4><i class="fa {{ block.settings.item_icon }}"></i>{{ block.settings.item_name }}</h4>
+                <i class="fa {{ block.settings.item_icon }}"></i>
+                <h4>{{ block.settings.item_name }}</h4>
               </li>
             {% endfor %}
           </ul>
@@ -23,7 +24,6 @@
 section.checklist {
   {% include 'section_style_column_layout' %}
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -40,13 +40,35 @@ section.checklist {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"What you'll learn"
+          "default":"Checklist"
         },
         {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":"Aliquam cursus lectus eget ante suscipit, id lacinia metus ultricies. Phasellus nisl nisi, pretium vitae suscipit a, lacinia eget magna. Sed at molestie metus, et auctor nisl."
+          "default":"Include a list of items to support the central theme of your page. Bulleted lists are a great way to parse information into digestible pieces."
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"radio",
+          "id":"column_layout",
+          "label":"",
+          "description":"",
+          "default":"two-column",
+          "options":[
+            {
+              "value":"one-column",
+              "label":"One Column"
+            },
+            {
+              "value":"two-column",
+              "label":"Two Columns"
+            }
+          ]
         },
         {
           "type":"radio",
@@ -68,26 +90,20 @@ section.checklist {
               "label":"Right"
             }
           ]
-        }
-      ]
-    },
-    {
-      "label":"Layout",
-      "settings":[
+        },
         {
           "type":"radio",
-          "id":"column_layout",
-          "label":"",
-          "description":"",
-          "default":"two-column",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
           "options":[
             {
-              "value":"one-column",
-              "label":"One Column"
+              "value":"normal",
+              "label":"Normal"
             },
             {
-              "value":"two-column",
-              "label":"Two Column"
+              "value":"reverse",
+              "label":"Reverse"
             }
           ]
         }
@@ -95,23 +111,23 @@ section.checklist {
     }
   ],
   "blocks":{
-    "label":"Add item",
+    "label":"Add checklist item",
     "limit":10,
     "types":[
       {
         "type":"item",
-        "label":"Item",
+        "label":"Checklist item",
         "settings":[
           {
-            "type":"text",
+            "type":"icon",
             "id":"item_icon",
-            "label":"",
+            "label":"Icon",
             "default":"fa-check"
           },
           {
             "type":"text",
             "id":"item_name",
-            "label":"Name"
+            "label":"Description"
           }
         ]
       }
@@ -121,42 +137,28 @@ section.checklist {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Management"
+          "item_name":"Checklist"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Marketing"
+          "item_name":"Text length of individual points can be shorter or longer depending on your needs"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Branding"
+          "item_name":"Text length of individual points can be shorter or longer depending on your needs"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Social Media"
-        }
-      },
-      {
-        "type":"item",
-        "values":{
-          "item_icon":"fa-check",
-          "item_name":"Email marketing"
-        }
-      },
-      {
-        "type":"item",
-        "values":{
-          "item_icon":"fa-check",
-          "item_name":"Leadership"
+          "item_name":"Text length of individual points can be shorter or longer depending on your needs"
         }
       }
     ]

@@ -1,5 +1,5 @@
 {% if section.settings.heading != blank or section.settings.subheading != blank %}
-  <header class="section__headings">
+  <header class="section__headings {% include 'section_utility_heading_order' %}">
     {% if section.settings.heading != blank %}
       <h3 class="section__heading
       {% include 'section_utility_heading_ornament' %}">{{ section.settings.heading }}</h3>

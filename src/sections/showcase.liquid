@@ -60,7 +60,6 @@ $(window).load(function() {
 
 section.showcase {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -68,7 +67,7 @@ section.showcase {
 
 {% schema %}
 {
-  "label":"Showcase",
+  "label":"Social proof: logos",
   "settings":[
     {
       "label":"Headings",
@@ -77,7 +76,7 @@ section.showcase {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"As seen in"
+          "default":"Social proof: logos"
         },
         {
           "type":"text",
@@ -105,6 +104,22 @@ section.showcase {
               "label":"Right"
             }
           ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
+            }
+          ]
         }
       ]
     }
@@ -125,7 +140,7 @@ section.showcase {
           {
             "type":"image",
             "id":"showcase_image",
-            "label":"image"
+            "label":"Image"
           }
         ]
       }
@@ -134,36 +149,36 @@ section.showcase {
       {
         "type":"showcase_item",
         "values":{
-          "showcase_name":"Amazon",
-          "showcase_image":"https://placekitten.com/300/150"
+          "showcase_name":"",
+          "showcase_image":"https://cdn.thinkific.com/13/20180118/719a1d048195b12ccd7286b716529896.png"
         }
       },
       {
         "type":"showcase_item",
         "values":{
-          "showcase_name":"Airbnb",
-          "showcase_image":"https://placekitten.com/300/150"
+          "showcase_name":"",
+          "showcase_image":"https://cdn.thinkific.com/13/20180118/719a1d048195b12ccd7286b716529896.png"
         }
       },
       {
         "type":"showcase_item",
         "values":{
-          "showcase_name":"IBM",
-          "showcase_image":"https://placekitten.com/300/150"
+          "showcase_name":"",
+          "showcase_image":"https://cdn.thinkific.com/13/20180118/719a1d048195b12ccd7286b716529896.png"
         }
       },
       {
         "type":"showcase_item",
         "values":{
-          "showcase_name":"HBO",
-          "showcase_image":"https://placekitten.com/300/150"
+          "showcase_name":"",
+          "showcase_image":"https://cdn.thinkific.com/13/20180118/719a1d048195b12ccd7286b716529896.png"
         }
       },
       {
         "type":"showcase_item",
         "values":{
-          "showcase_name":"Fox",
-          "showcase_image":"https://placekitten.com/300/150"
+          "showcase_name":"",
+          "showcase_image":"https://cdn.thinkific.com/13/20180118/719a1d048195b12ccd7286b716529896.png"
         }
       }
     ]

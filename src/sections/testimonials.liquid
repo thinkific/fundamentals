@@ -20,10 +20,12 @@
 <script>
 $(window).load(function() {
   var $testimonialsCarousel = $('.testimonials__list').addClass('owl-carousel'),
+      testimonialCount = ($('.testimonials__list .testimonials__list-item').length <= 1),
+      looped = (testimonialCount < 3) ? false : true,
       testimonialsOwlOptions = {
         center: false,
         dots: true,
-        loop: true,
+        loop: looped,
         margin: 0,
         nav: true,
         navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
@@ -48,7 +50,6 @@ $(window).load(function() {
 
 section.testimonials {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -56,7 +57,7 @@ section.testimonials {
 
 {% schema %}
 {
-  "label":"Testimonials",
+  "label":"Social proof: testimonials",
   "settings":[
     {
       "label":"Headings",
@@ -65,7 +66,7 @@ section.testimonials {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"What customers are saying"
+          "default":"Social proof: testimonials"
         },
         {
           "type":"text",
@@ -91,6 +92,22 @@ section.testimonials {
             {
               "value":"right",
               "label":"Right"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
             }
           ]
         }
@@ -127,41 +144,9 @@ section.testimonials {
       {
         "type":"testimonial",
         "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
-        }
-      },
-      {
-        "type":"testimonial",
-        "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
-        }
-      },
-      {
-        "type":"testimonial",
-        "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
-        }
-      },
-      {
-        "type":"testimonial",
-        "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
-        }
-      },
-      {
-        "type":"testimonial",
-        "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus."
+          "testimonial_author":"Author's name",
+          "testimonial_avatar":"https://cdn.thinkific.com/13/20180118/719a1d048195b12ccd7286b716529896.png",
+          "testimonial_body":"Share testimonials about you, your course, or your content. Don’t be afraid to reach out to your network to get some glowing words about the work you’ve done. Most potential students will look to the opinions of others when making purchase decisions online."
         }
       }
     ]

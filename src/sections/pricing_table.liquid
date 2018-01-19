@@ -37,7 +37,7 @@
                 <h4>{{ price.display_price }}</h4>
                 <h5>{{ price.name }}</h5>
               </div>
-              <a href="{{ price.links.add_to_cart }}" class="button button-primary">{{ price.buy_button_text }}</a>
+              <a href="{{ price.links.add_to_cart }}" class="button button-primary">{% if section.settings.button_text != empty %} {{ section.settings.button_text }} {% else %} Buy Now {% endif %}</a>
             </li>
           {% endfor %}
         </ul>
@@ -51,7 +51,6 @@
 section.pricing-table {
   {% include 'section_style_column_layout' %}
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -59,8 +58,26 @@ section.pricing-table {
 
 {% schema %}
 {
-  "label":"Pricing table",
+  "label":"Pricing options [smart section]",
   "settings":[
+    {
+      "type":"checkbox",
+      "id":"pricing_options_description",
+      "label":"",
+      "description":"<small>This smart section includes all of the pricing options for this product.</small>"
+    },
+    {
+      "type": "text",
+      "id": "price_name",
+      "label": "Default price description",
+      "default": "Regular price"
+    },
+    {
+      "type":"text",
+      "id":"button_text",
+      "label":"Button text",
+      "default":"Get started now"
+    },
     {
       "label":"Headings",
       "settings":[
@@ -74,7 +91,29 @@ section.pricing-table {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":"Pay once, or save money with our payment plans"
+          "default":"Explain how different pricing options might be valuable to different segments of your audience."
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"radio",
+          "id":"column_layout",
+          "label":"",
+          "description":"",
+          "default":"two-column",
+          "options":[
+            {
+              "value":"one-column",
+              "label":"One Column"
+            },
+            {
+              "value":"two-column",
+              "label":"Two Columns"
+            }
+          ]
         },
         {
           "type":"radio",
@@ -96,43 +135,20 @@ section.pricing-table {
               "label":"Right"
             }
           ]
-        }
-      ]
-    },
-    {
-      "label":"Pricing options",
-      "settings": [
-        {
-          "type": "text",
-          "id": "price_name",
-          "label": "Default price description",
-          "default": "Regular price"
         },
         {
-          "type":"text",
-          "id":"button_text",
-          "label":"Button text",
-          "default":""
-        }
-      ]
-    },
-    {
-      "label":"Layout",
-      "settings":[
-        {
           "type":"radio",
-          "id":"column_layout",
-          "label":"",
-          "description":"",
-          "default":"two-column",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
           "options":[
             {
-              "value":"one-column",
-              "label":"One Column"
+              "value":"normal",
+              "label":"Normal"
             },
             {
-              "value":"two-column",
-              "label":"Two Column"
+              "value":"reverse",
+              "label":"Reverse"
             }
           ]
         }

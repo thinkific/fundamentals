@@ -16,9 +16,11 @@
           </li>
         {% endfor %}
       </ul>
-      <section class="section__button-group">
-        <a class="button button-primary" href="{{ site.collections_url }}">{{ 'liquid.views.student_dashboard.link_view_more_courses' | translate }}</a>
-      </section>
+      {% if section.settings.show_button %}
+        <section class="section__button-group">
+          <a class="button button-primary" href="{{ site.collections_url }}">{{ section.settings.button_text }}</a>
+        </section>
+      {% endif %}
     </article>
   </div>
 </section>
@@ -27,7 +29,6 @@
 
 section.course-cards-all {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -35,8 +36,43 @@ section.course-cards-all {
 
 {% schema %}
 {
-  "label":"Course cards (All)",
+  "label":"All products [smart section]",
   "settings":[
+    {
+      "type":"checkbox",
+      "id":"course_cards_all_description",
+      "label":"",
+      "description":"<small>This smart section includes all of your published products that you haven’t set as hidden. <a href='/manage/courses/list/' target='_blank'>Re-order products »</a></small>"
+    },
+    {
+      "type":"select",
+      "id":"course_card_limit",
+      "label":"Max number of cards",
+      "description":"",
+      "default":3,
+      "options":[
+        {
+          "value":3,
+          "label":"3"
+        },
+        {
+          "value":6,
+          "label":"6"
+        },
+        {
+          "value":9,
+          "label":"9"
+        },
+        {
+          "value":12,
+          "label":"12"
+        },
+        {
+          "value":15,
+          "label":"15"
+        }
+      ]
+    },
     {
       "label":"Headings",
       "settings":[
@@ -44,7 +80,7 @@ section.course-cards-all {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"All courses"
+          "default":"Additional products"
         },
         {
           "type":"text",
@@ -72,40 +108,39 @@ section.course-cards-all {
               "label":"Right"
             }
           ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
+            }
+          ]
         }
       ]
     },
     {
-      "label":"Course cards",
+      "label":"Button",
       "settings":[
         {
-          "type":"select",
-          "id":"course_card_limit",
-          "label":"Card limit",
-          "description":"Maximum number of courses to show",
-          "default":3,
-          "options":[
-            {
-              "value":3,
-              "label":"3"
-            },
-            {
-              "value":6,
-              "label":"6"
-            },
-            {
-              "value":9,
-              "label":"9"
-            },
-            {
-              "value":12,
-              "label":"12"
-            },
-            {
-              "value":15,
-              "label":"15"
-            }
-          ]
+          "type":"checkbox",
+          "id":"show_button",
+          "label":"Show link to All Courses page",
+          "default":true
+        },
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Text",
+          "default":"View more courses"
         }
       ]
     }

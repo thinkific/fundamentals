@@ -5,7 +5,7 @@
     <div class="banner__wrapper">
       <article class="section__content">
         {% if section.settings.heading != blank or section.settings.subheading != blank %}
-          <header class="section__headings">
+          <header class="section__headings {% include 'section_utility_heading_order' %}">
             {% if section.settings.heading != blank %}
               <h1 class="section__heading
               {% include 'section_utility_heading_ornament' %}">{{ section.settings.heading }}</h1>
@@ -33,6 +33,23 @@
           {% include 'product_action_buttons' %}
         {% endif %}
       </article>
+      {% if section.settings.social_icon != null and section.settings.social_link != blank or
+            section.settings.social_icon_2 != null and section.settings.social_link_2 != blank or
+            section.settings.social_icon_3 != null and section.settings.social_link_3 != blank %}
+        <section class="section__social-nav">
+          <ul class="social-nav__list">
+            {% if section.settings.social_icon != null and section.settings.social_link != blank %}
+              <li class="social-nav__list-item"><a href="{{ section.settings.social_link }}" target="_blank"><i class="fa {{ section.settings.social_icon }}"></i></a></li>
+            {% endif %}
+            {% if section.settings.social_icon_2 != null and section.settings.social_link_2 != blank %}
+              <li class="social-nav__list-item"><a href="{{ section.settings.social_link_2 }}" target="_blank"><i class="fa {{ section.settings.social_icon_2 }}"></i></a></li>
+            {% endif %}
+            {% if section.settings.social_icon_3 != null and section.settings.social_link_3 != blank %}
+              <li class="social-nav__list-item"><a href="{{ section.settings.social_link_3 }}" target="_blank"><i class="fa {{ section.settings.social_icon_3 }}"></i></a></li>
+            {% endif %}
+          </ul>
+        </section>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -42,7 +59,6 @@
 section.banner {
   {% include 'section_style_background_image' %}
   {% include 'section_style_content_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -108,7 +124,6 @@ section.banner {
           "type":"icon",
           "id":"social_icon",
           "label":"Social icon one",
-
           "default":""
         },
         {
@@ -119,25 +134,25 @@ section.banner {
         },
         {
           "type":"icon",
-          "id":"social_icon-2",
+          "id":"social_icon_2",
           "label":"Social icon two",
           "default":""
         },
         {
           "type":"text",
-          "id":"social_link-2",
+          "id":"social_link_2",
           "description":"<small>Leave these blank if you do not need social links.</small>",
           "label":"Link"
         },
         {
           "type":"icon",
-          "id":"social_icon-3",
+          "id":"social_icon_3",
           "label":"Social icon three",
           "default":""
         },
         {
           "type":"text",
-          "id":"social_link-3",
+          "id":"social_link_3",
           "description":"<small>Leave these blank if you do not need social links.</small>",
           "label":"Link"
         }
@@ -188,6 +203,22 @@ section.banner {
             {
               "value":"right",
               "label":"Right"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
             }
           ]
         }

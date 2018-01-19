@@ -4,7 +4,7 @@
   {% assign site_url = site.home_url %}
 {% endif %}
 
-<header class="header{% if section.settings.header_style == 'floating' %} floating{% endif %}" data-preview-item="header" data-menu-type="header__nav--{{ section.settings.menu_mobile_style }}" data-menu>
+<header class="header{% if section.settings.header_style == 'floating' %} floating{% endif %}" data-preview-item="header" data-menu-type="header__nav--overlay" data-menu>
   <div class="header__container">
     <div class="header__wrapper">
       {% include 'logo' %}
@@ -124,7 +124,7 @@ header.header {
           "type":"image",
           "id":"site_logo",
           "default":"",
-          "label":"",
+          "label":"Image",
           "description": ""
         },
         {
@@ -133,48 +133,63 @@ header.header {
           "max":80,
           "id":"site_logo_size",
           "default":80,
-          "label":"Logo size",
-          "description":"Image width scaling is percentage (%) based and ranges from 25% to 100%. Keep in mind image ratio to ensure header height does not compromise design integrity."
+          "label":"Image size",
+          "description":"<small>Scale your image height from 25% to 100%</small>"
         },
         {
           "type":"page_picker",
           "id":"site_url",
-          "label":"Site logo URL",
-          "description":""
+          "label":"Link",
+          "description":"",
+          "default":""
         }
       ]
     },
     {
-      "label":"Settings",
+      "label":"Size & Alignment",
       "settings":[
         {
           "type":"select",
           "id":"header_style",
-          "label":"Header style",
-          "description":"Configures the visual behaviour of your page header. e.g. Floating headers are transparent and float above the first section of your page.",
+          "label":"Background",
+          "description":"",
           "default":"floating",
           "options":[
             {
               "value":"floating",
-              "label":"Floating"
+              "label":"Transparent"
             },
             {
-              "value":"top",
-              "label":"Top"
+              "value":"solid",
+              "label":"Solid"
             }
           ]
         },
         {
           "type":"checkbox",
           "id":"menu_fixed",
-          "label":"Fixed menu",
-          "description":"Attaches the header to the top of the screen when scrolling the page, i.e. 'Always on top'",
+          "label":"Sticky navigation",
+          "description":"<small>Top level menu remains visible while scrolling</small>",
           "default":true
         },
         {
-          "type":"select",
+          "type":"checkbox",
+          "id":"show_dashboard_link",
+          "label":"Show 'My Dashboard' link",
+          "description":"<small>My Dashboard link will appear in the top level navigation for students that are signed in.</small>",
+          "default":true
+        },
+        {
+          "type":"checkbox",
+          "id":"show_menu_label",
+          "label":"Show 'Menu' label",
+          "description":"<small>For mobile navigation. Recommended for accessibility.</small>",
+          "default":true
+        },
+        {
+          "type":"radio",
           "id":"menu_position",
-          "label":"Navigation position",
+          "label":"Alignment",
           "default":"right",
           "options":[
             {
@@ -186,46 +201,17 @@ header.header {
               "label":"Right"
             }
           ]
-        },
-        {
-          "type":"select",
-          "id":"menu_mobile_style",
-          "label":"Mobile menu style",
-          "default":"dropdown",
-          "options":[
-            {
-              "value":"dropdown",
-              "label":"Dropdown"
-            },
-            {
-              "value":"overlay",
-              "label":"Overlay"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_dashboard_link",
-          "label":"Show 'My Dashboard'",
-          "description":"",
-          "default":true
-        },
-        {
-          "type":"checkbox",
-          "id":"show_menu_label",
-          "label":"Show mobile menu label",
-          "default":true
         }
       ]
     }
   ],
   "blocks":{
-    "label":"Navigation links",
+    "label":"Add link",
     "limit":6,
     "types":[
       {
         "type":"nav_item",
-        "label":"Link item",
+        "label":"Link",
         "settings":[
           {
             "type":"text",
@@ -234,8 +220,8 @@ header.header {
           },
           {
             "type":"page_picker",
-            "id":"nav_url",
-            "label":"URL"
+            "id":"nav_link",
+            "label":"Link"
           },
           {
             "type": "select",
@@ -261,7 +247,7 @@ header.header {
         "type":"nav_item",
         "values":{
           "nav_text":"All Courses",
-          "nav_url":{
+          "nav_link":{
             "type":"url",
             "id":"/collections"
           },

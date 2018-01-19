@@ -46,7 +46,6 @@ $(document).ready(function() {
 
 section.bundle-includes {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -54,8 +53,14 @@ section.bundle-includes {
 
 {% schema %}
 {
-  "label":"Bundle includes",
+  "label":"Bundle includes [smart section]",
   "settings":[
+    {
+      "type":"checkbox",
+      "id":"bundle_includes_description",
+      "label":"",
+      "description":"<small>This smart section includes all of the courses that are included in this bundle. <a href='/manage/courses/bundles/' target='_blank'>Edit Bundles »</a></small>"
+    },
     {
       "label":"Headings",
       "settings":[
@@ -69,7 +74,7 @@ section.bundle-includes {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":""
+          "default":"Here are all the courses that are included in your bundle."
         },
         {
           "type":"radio",
@@ -89,6 +94,22 @@ section.bundle-includes {
             {
               "value":"right",
               "label":"Right"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
             }
           ]
         }

@@ -27,3 +27,11 @@ $img: if($background-image, url('#{$background-image}'), null);
 &.full-width-background {
   @include background-image($background...);
 }
+
+{% if section.settings.text_color != blank %}
+  .section__heading,
+  .section__subheading,
+  .section__body {
+    color: {{ section.settings.text_color }};
+  }
+{% endif %}

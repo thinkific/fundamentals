@@ -15,7 +15,6 @@
 
 section.rich-text {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 }
 
@@ -23,7 +22,7 @@ section.rich-text {
 
 {% schema %}
 {
-  "label":"Rich text",
+  "label":"Text & media",
   "settings":[
     {
       "label":"Headings",
@@ -32,7 +31,7 @@ section.rich-text {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"Rich text"
+          "default":"Text (and so much more)"
         },
         {
           "type":"text",
@@ -60,19 +59,30 @@ section.rich-text {
               "label":"Right"
             }
           ]
+        },
+        {
+          "type":"radio",
+          "id":"heading_order",
+          "label":"Heading Order",
+          "default":"normal",
+          "options":[
+            {
+              "value":"normal",
+              "label":"Normal"
+            },
+            {
+              "value":"reverse",
+              "label":"Reverse"
+            }
+          ]
         }
       ]
     },
     {
-      "label":"Rich text",
-      "settings":[
-        {
-          "type":"richtext",
-          "id":"body",
-          "label":"",
-          "default":"<figure style='float: left; margin-right: 15px;'><img src='http://via.placeholder.com/350x200' alt='placeholder.com' title='placeholder.com' /><figcaption>Example with figure</figcaption></figure><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi. Fusce rhoncus eros in leo rutrum, at lobortis leo sodales. Quisque nibh tellus, rutrum placerat turpis ac, ullamcorper suscipit nisl. Nullam faucibus quam a leo imperdiet, vel blandit nibh iaculis. Duis efficitur ipsum eu eros fermentum, in volutpat erat tincidunt. Curabitur sit amet vulputate sem. Donec vel facilisis est. Morbi vitae mollis massa, sed maximus ex. Duis elit orci, scelerisque ut erat eu, tincidunt euismod erat.</p><p>Maecenas posuere tellus et est elementum, ut ultricies est consectetur. Cras eu pretium mi. Aenean porttitor, leo rutrum auctor varius, nunc magna viverra urna, et semper orci mi luctus nunc. Aenean interdum tincidunt sodales. Etiam non tincidunt nunc. Aliquam iaculis, nibh non tincidunt venenatis, est ipsum molestie turpis, non auctor massa ipsum ac enim. In quis pharetra purus, rhoncus convallis libero.</p><img src='http://via.placeholder.com/350x200' alt='placeholder.com' title='placeholder.com' style='float: right; margin-left: 15px;' /><p>Pellentesque diam odio, facilisis volutpat sem vitae, hendrerit imperdiet urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce viverra semper nulla eu tincidunt. Donec lobortis ipsum quis elementum facilisis. Pellentesque dapibus pellentesque libero vitae commodo. Cras vitae velit nec urna suscipit iaculis. Praesent a lacus eu tellus imperdiet semper quis ut lectus. Nullam velit quam, mollis non semper ut, mattis et libero. Fusce id ipsum tincidunt, condimentum odio quis, tristique sapien. Quisque vulputate eros in nisi bibendum, ut tempus mauris imperdiet. Fusce tincidunt fringilla mi, vel imperdiet nibh cursus sit amet. Fusce id ligula tincidunt, vulputate urna vulputate, dapibus eros. Sed venenatis laoreet sapien eu aliquet. Morbi vitae dapibus arcu. Morbi sagittis libero sed luctus efficitur. Mauris maximus nec sapien a convallis. Suspendisse eget massa nisl. Etiam facilisis mauris feugiat, pulvinar libero vitae, bibendum urna. Nam convallis nisl efficitur efficitur consectetur. Praesent tempor neque eget tellus tincidunt, eget volutpat urna scelerisque.</p>"
-        }
-      ]
+      "type":"richtext",
+      "id":"body",
+      "label":"Content",
+      "default":"The other sections are styled to help you create beautiful, high-converting pages. If you already know exactly what you want, use this section to add text, images, video, audio, etc. and build something completely custom. This is your sandbox — create what you want!"
     }
   ]
 }

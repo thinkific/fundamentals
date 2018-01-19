@@ -15,7 +15,6 @@
 
 section.description-legacy {
   {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
 }
 
 {% endstyle %}
@@ -25,51 +24,25 @@ section.description-legacy {
   "label":"Description",
   "settings":[
     {
-      "label":"Headings",
+      "label":"Text",
       "settings":[
         {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"Course description"
+          "default":"Description"
         },
         {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":""
+          "default":"Include supporting information here."
         },
-        {
-          "type":"radio",
-          "id":"heading_alignment",
-          "label":"Alignment",
-          "description":"",
-          "default":"left",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Text",
-      "settings":[
         {
           "type":"textarea",
           "id":"description_text",
-          "label":"",
-          "default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante vitae nulla vulputate elementum. Maecenas imperdiet malesuada lacinia. Donec sit amet aliquet urna. Nam sit amet eros dapibus, commodo ligula a, imperdiet mi."
+          "label":"Text",
+          "default":"Use this section to explain to potential students the value of your offering. Great copy shows your audience how their life might look after working with you. Start by identifying the problem you’re solving. Next, present how their life will be different with the solution you’re providing. Finally, explain why you’re uniquely positioned to provide this solution."
         }
       ]
     }

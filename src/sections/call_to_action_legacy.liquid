@@ -33,25 +33,36 @@ section.call-to-action-legacy {
   "label": "Call to action",
   "settings": [
     {
-      "label": "Call to action",
+      "label": "Text",
       "settings": [
         {
-          "type": "textarea",
-          "id": "description_text",
-          "label": "Description",
-          "default": "<h3>Use your Call To Action description to encourage students to sign up for your course</h3>"
+          "type":"textarea",
+          "id":"description_text",
+          "label":"Description",
+          "default":"<h2>Call to action</h2><h4>This is where you seal the deal. Sprinkle this section throughout you page to push prospects to purchase!</h4>"
         },
         {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button text",
-          "default": "Sign up now!"
+          "type":"color",
+          "id":"text_color",
+          "label":"Text color",
+          "default":"#{$heading__color}"
+        }
+      ]
+    },
+    {
+      "label":"Call to action",
+      "settings": [
+
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Text",
+          "default":"Get started now"
         },
         {
-          "type": "price_picker",
-          "id": "price",
-          "label": "Button link",
-          "description": "Link your Call To Action button to one of your course prices"
+          "type":"page_picker",
+          "id":"button_url",
+          "label":"Link"
         }
       ]
     },
@@ -107,7 +118,7 @@ section.call-to-action-legacy {
         {
           "type":"radio",
           "id":"content_alignment",
-          "label":"Content alignment",
+          "label":"Alignment",
           "default":"center",
           "options":[
             {

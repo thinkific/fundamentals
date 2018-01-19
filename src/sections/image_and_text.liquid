@@ -6,6 +6,11 @@
         <div class="section__body">
           {{ section.settings.body }}
         </div>
+        {% if section.settings.button_text != empty and section.settings.button_link != empty %}
+          <section class="section__button-group">
+            <a class="button button-primary" href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+          </section>
+        {% endif %}
       </section>
       {% if section.settings.image != blank %}
         <section class="text-image__image" style="background-image: url({{ section.settings.image }});"></section>
@@ -18,7 +23,6 @@
 
 section.text-image {
   {% include 'section_style_content_alignment' %}
-  {% include 'section_style_heading_order' %}
   {% include 'section_style_heading_ornament' %}
 
   {% if section.settings.image_alignment == "left" %}
@@ -36,32 +40,33 @@ section.text-image {
 
 {% schema %}
 {
-  "label":"Image & text",
+  "label":"Image & text (with CTA)",
   "settings":[
     {
-      "label":"Headings",
+      "label":"Text",
       "settings":[
         {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":""
+          "default":"Image & text"
         },
         {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
           "default":""
-        }
-      ]
-    },
-    {
-      "label":"Content alignment",
-      "settings":[
+        },
+        {
+          "type":"textarea",
+          "id":"body",
+          "label":"Description",
+          "default":"Use this area to describe the image or provide supporting information."
+        },
         {
           "type":"radio",
           "id":"content_alignment",
-          "label":"",
+          "label":"Alignment",
           "default":"left",
           "options":[
             {
@@ -81,23 +86,12 @@ section.text-image {
       ]
     },
     {
-      "label":"Text",
-      "settings":[
-        {
-          "type":"textarea",
-          "id":"body",
-          "label":"",
-          "default":""
-        }
-      ]
-    },
-    {
       "label":"Image",
       "settings":[
         {
           "type":"image",
           "id":"image",
-          "label":"",
+          "label":"Image",
           "default":""
         },
         {
@@ -115,6 +109,23 @@ section.text-image {
               "label":"Right"
             }
           ]
+        }
+      ]
+    },
+    {
+      "label":"Button",
+      "settings":[
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Text",
+          "default":"Call to action"
+        },
+        {
+          "type":"page_picker",
+          "id":"button_link",
+          "label":"Link",
+          "default":""
         }
       ]
     }

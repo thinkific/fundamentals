@@ -6,7 +6,7 @@
 {% if section.blocks != empty %}
   {% for block in section.blocks %}
     <li class="header__nav-item">
-      <a href="{{ block.settings.nav_url }}" target="{{ block.settings.nav_target }}">{{ block.settings.nav_text }}</a>
+      <a href="{{ block.settings.nav_link }}" target="{{ block.settings.nav_target }}">{{ block.settings.nav_text }}</a>
     </li>
   {% endfor %}
 {% endif %}

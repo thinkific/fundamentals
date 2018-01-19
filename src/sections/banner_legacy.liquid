@@ -51,38 +51,19 @@ section.banner-legacy {
           "type":"text",
           "id":"title",
           "label":"Title",
-          "default":"Your first course"
+          "default":"Banner"
         },
         {
           "type":"text",
           "id":"subtitle",
           "label":"Subtitle",
-          "default":"Get more detailed about your course here!"
-        }
-      ]
-    },
-    {
-      "label":"Content alignment",
-      "settings":[
+          "default":"Your banner contains a hero image with text overlay. You can also add call to action buttons."
+        },
         {
-          "type":"radio",
-          "id":"content_alignment",
-          "label":"",
-          "default":"left",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
+          "type":"color",
+          "id":"text_color",
+          "label":"Text color",
+          "default":"#{$heading__color}"
         }
       ]
     },
@@ -93,7 +74,7 @@ section.banner-legacy {
           "type":"video",
           "id":"video",
           "label":"Video",
-          "description":"Navigate to the <a href='/manage/videos' target='_blank'>Video Library</a> section of your Dashboard to add additional videos",
+          "description":"<small>Upload videos to your Thinkific site in the <a href='/manage/videos' target='_blank'>Video Library</a>.</small>",
           "default":{
             "id":false,
             "type":"",
@@ -102,45 +83,19 @@ section.banner-legacy {
             "frame":"",
             "popover":"",
             "oembed":false
-          },
-          "description":"Include an intro video beside your course title"
+          }
         }
       ]
     },
     {
-      "label":"Background",
+      "label":"Hero Image",
       "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"banner",
-          "options":[
-            {
-              "value":"banner",
-              "label":"Banner"
-            },
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        },
         {
           "type":"image",
           "id":"background_image",
-          "default":"",
+          "default":"https://cdn.thinkific.com/13/20180118/36f8ac8164b76893395884088321023a.png",
           "label":"Image",
-          "description": "Suggested dimensions: 1440x500px"
+          "description":"<small>Recommended: <strong>1440px x 720px (1MB)</strong></small>"
         },
         {
           "type":"color",
@@ -159,12 +114,12 @@ section.banner-legacy {
       ]
     },
     {
-      "label":"Section height",
+      "label":"Size & Alignment",
       "settings":[
         {
           "type":"select",
           "id":"section_height_preset",
-          "label":"Height preset",
+          "label":"Height",
           "description":"",
           "default":"banner",
           "options":[
@@ -183,6 +138,26 @@ section.banner-legacy {
             {
               "value":"banner",
               "label":"Banner"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"content_alignment",
+          "label":"Alignment",
+          "default":"left",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
             }
           ]
         }
