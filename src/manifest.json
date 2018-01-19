@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "Back to Basics",
+    "name": "Back to the Basics",
     "author": "Thinkific",
     "version": "0.0.0",
     "documentation_url": "https://help.thinkific.com/",
@@ -11,46 +11,58 @@
       "label": "Colors",
       "settings": [
         {
+          "type": "header",
+          "label": "Background"
+        },
+        {
           "type": "color",
           "id": "background_color",
           "label": "Background",
-          "default": "#FFFFFF"
+          "default": "#ffffff"
         },
         {
           "type": "color",
           "id": "card_background_color",
           "label": "Card background",
-          "default": "#FFFFFF"
+          "default": "#fafafa"
         },
         {
           "type": "color",
           "id": "card_background_hover_color",
           "label": "Card background (Hover)",
-          "default": "#FFFFFF"
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "label": "Text"
         },
         {
           "type": "color",
           "id": "heading_color",
           "label": "Heading",
-          "default": "#68717A"
+          "default": "#68717a"
         },
         {
           "type": "color",
           "id": "text_color",
           "label": "Body",
-          "default": "#68717A"
+          "default": "#68717a"
+        },
+        {
+          "type": "header",
+          "label": "Actions"
         },
         {
           "type": "color",
           "id": "primary_button_background_color",
           "label": "Primary button background",
-          "default": "#36C69C"
+          "default": "#68717a"
         },
         {
           "type": "color",
           "id": "primary_button_text_color",
           "label": "Primary button text",
-          "default": "#FFFFFF"
+          "default": "#ffffff"
         },
         {
           "type": "color",
@@ -62,19 +74,23 @@
           "type": "color",
           "id": "secondary_button_text_color",
           "label": "Secondary button text",
-          "default": "#36C69C"
+          "default": "#68717a"
         },
         {
           "type": "color",
           "id": "link_color",
           "label": "Links",
-          "default": "#2AA0E9"
+          "default": "#68717a"
+        },
+        {
+          "type": "header",
+          "label": "Accents"
         },
         {
           "type": "color",
           "id": "accent_color",
           "label": "Primary Accent",
-          "default": "#2AA0E9"
+          "default": "#68717a"
         }
       ]
     },
@@ -85,7 +101,7 @@
           "type": "select",
           "id": "root_font_size",
           "label": "Font size",
-          "default": "16px",
+          "default": "14px",
           "options": [
             {
               "value": "14px",
@@ -231,21 +247,22 @@
     }
   ],
   "presets": {
-    "starter": {
-      "title": "Starter",
-      "description": "Default theme starter style configuration",
+    "back_to_the_basics": {
+      "title": "Back to the Basics",
+      "description": "It's a process, you feel me?",
       "settings": {
-        "background_color": "#FFFFFF",
-        "card_background_color": "#FFFFFF",
-        "card_background_hover_color": "#FFFFFF",
-        "heading_color": "#68717A",
-        "text_color": "#68717A",
-        "primary_button_background_color": "#36C69C",
-        "primary_button_text_color": "#FFFFFF",
+        "background_color": "#ffffff",
+        "card_background_color": "#fafafa",
+        "card_background_hover_color": "#ffffff",
+        "heading_color": "#68717a",
+        "text_color": "#68717a",
+        "primary_button_background_color": "#68717a",
+        "primary_button_text_color": "#ffffff",
         "secondary_button_background_color": "transparent",
-        "secondary_button_text_color": "#36C69C",
-        "link_color": "#2AA0E9",
-        "accent_color": "#2AA0E9",
+        "secondary_button_text_color": "#68717a",
+        "link_color": "#68717a",
+        "accent_color": "#68717a",
+        "root_font_size":"14px",
         "heading_font": "Open Sans",
         "subheading_font": "Open Sans",
         "body_font": "Open Sans",

@@ -1,4 +1,4 @@
-ZIP_OUTPUT=back-to-basics
+ZIP_OUTPUT=back-to-the-basics
 INCLUDE_FILES=./build/* ./build/.version
 
 # Zip (.version | manifest.json | *.liquid)
