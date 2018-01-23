@@ -208,3 +208,37 @@
     z-index: z-index(overlay);
   }
 }
+
+.tooltip {
+
+  &:before {
+    @include transform(translate3d(-50%, -1rem, 0));
+    @include transform-origin(top);
+    @include transition(400ms all ease-out);
+
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    max-width: 100%;
+    padding: 4px 8px;
+    border: 4px;
+    border-radius: $base__border-radius;
+    background: $body__background-color;
+    color: $body__text-color;
+    font-size: 0.875rem;
+    line-height: normal;
+    content: attr(data-tooltip);
+    opacity: 0;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+
+    &:before {
+      @include transform(translate3d(-50%, -10px, 0));
+
+      opacity: 1;
+    }
+  }
+}
