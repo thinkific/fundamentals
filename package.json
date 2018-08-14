@@ -1,12 +1,12 @@
 {
   "name": "Fundamentals",
-  "version": "0.0.0",
-  "description": "Starter theme package for Site Builder",
+  "version": "1.0.0",
+  "description": "Build package for the Fundamentals starter theme",
   "main": "index.js",
   "scripts": {
     "start": "cd server && node app.js",
-    "build:css": "node-sass",
-    "watch:css": "npm run build:css && npm run build:css -- -w"
+    "build": "gulp",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -19,17 +19,22 @@
   },
   "homepage": "https://github.com/thinkific/fundamentals#readme",
   "devDependencies": {
-    "cz-conventional-changelog": "^2.0.0",
+    "cz-conventional-changelog": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-copy": "^1.0.1",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "gulp-zip": "^4.1.0",
+    "standard-version": "^4.3.0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
   }
 }

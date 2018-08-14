@@ -2,7 +2,7 @@
 Starter theme package for Site Builder
 
 ## To compile into zip file
-1. Run `make` in the terminal
+1. Run `npm run build` or `yarn build` in the terminal
 
 ## Git Tagging Process
 1. Merge your pull request into master
