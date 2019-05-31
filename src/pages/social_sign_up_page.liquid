@@ -1,0 +1,20 @@
+<main class="social-sign-up" id="{{ theme.settings.main_content_id }}">
+  {% section 'social_signup_form' %}
+  {{ content_for_page }}
+</main>
+
+{% schema %}
+{
+  "sections":{
+    "options":[
+      "banner",
+      "course_cards",
+      "frequently_asked_questions",
+      "call_to_action",
+      "countdown",
+      "video"
+    ],
+    "defaults":[]
+  }
+}
+{% endschema %}

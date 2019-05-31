@@ -1,0 +1,79 @@
+<section class="course-categories-all" data-preview-item="course-categories-all">
+  <ul>
+    {% for collection in site.collections %}
+      <li>
+        {% include 'product__card__category' with collection %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% schema %}
+{
+  "label":"All categories [smart section]",
+  "description":"This smart section automatically populates based on your categories. <a href='/manage/collections/' target='_blank'>Edit categories »</a>",
+  "settings":[
+    {
+      "type":"checkbox",
+      "id":"show_category_name",
+      "label":"Show category name",
+      "default":true
+    },
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Categories"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"heading_alignment",
+          "label":"Alignment",
+          "description":"",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
+          "default":false
+        },
+        {
+          "type":"checkbox",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
+          "default":false
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

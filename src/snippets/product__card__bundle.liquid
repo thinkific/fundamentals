@@ -1,0 +1,30 @@
+<a class="{{ bundle.status }}" href="{{ bundle.links.landing_page_url }}">
+  <header>
+    <img src="{{ bundle.image.original }}" alt="{{ bundle.name }}" title="{{ bundle.name }}" aria-hidden="true" />
+    <span>
+      {{ bundle.courses.size }} {{ 'liquid.partials.bundle_card.details_courses' | translate }}
+    </span>
+  </header>
+  <h2>
+    {% for collection in bundle.collections %}
+      {% if forloop.last == false %}
+        {{ collection.name | append: ", " }}
+      {% else %}
+        {{ collection.name }}
+      {% endif %}
+    {% endfor %}
+  </h2>
+  <h3>{{ bundle.name }}</h3>
+  {% if bundle.display_price %}
+    <footer>
+      {% if bundle.is_public %}
+        <strong>{{ bundle.display_price }}</strong>
+      {% endif %}
+    </footer>
+  {% endif %}
+  {% if bundle.image.medium != blank %}
+    {% assign product_image = bundle.image.medium %}
+  {% else %}
+    {% assign product_image = bundle.image.original %}
+  {% endif %}
+</a>

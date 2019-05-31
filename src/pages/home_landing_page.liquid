@@ -1,8 +1,4 @@
-{% comment %}
-  This is the site landing page.
-{% endcomment %}
-
-<main class="home" id="main-content" role="main">
+<main class="home" id="{{ theme.settings.main_content_id }}">
   {{ content_for_page }}
 </main>
 
@@ -10,33 +6,33 @@
 {
   "sections":{
     "options":[
-      "banner",
-      "description",
       "course_cards",
       "course_cards_all",
-      "course_categories",
-      "course_curriculum",
-      "course_content",
-      "instructor",
-      "reviews",
-      "frequently_asked_questions",
+      "banner",
       "bonus",
       "call_to_action",
+      "course_categories_all",
+      "course_categories",
       "checklist",
       "countdown",
-      "showcase",
-      "testimonials",
+      "frequently_asked_questions",
       "icon_and_text",
       "image_and_text",
+      "gallery",
+      "instructor",
+      "lead_capture",
+      "pricing_options",
+      "description",
       "rich_text",
+      "reviews",
+      "showcase",
+      "testimonials",
       "upsells",
       "video"
     ],
     "defaults":[
       "banner",
-      "course_cards_all",
-      "call_to_action",
-      "course_categories"
+      "course_cards_all"
     ]
   }
 }

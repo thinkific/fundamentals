@@ -1,28 +1,18 @@
-{% comment %}
-  This is page that is displayed to the buyer after going through the PayPal
-  Express Checkout process.
-{% endcomment %}
-
-<main class="paypal-express-checkout" id="main-content" role="main">
-  <div class="paypal-express-checkout__container">
-    <div class="paypal-express-checkout__wrapper">
-      <ul class="progress-bar">
-        <li class="active">{{ 'liquid.views.paypal_confirm_page.list_account_setup' | translate }}</li>
-        <li class="active">{{ 'liquid.views.paypal_confirm_page.list_paypal_confirmation' | translate }}</li>
-      </ul>
-      <section class="paypal-express-checkout__form">
-        <h1 class="paypal-express-checkout__heading">
-          <img src="{{ page.product.image.small }}" alt="{{ page.product.name }}" class="checkout-form__purchase-img" />
-          {{ 'liquid.views.paypal_confirm_page.header_1' | translate }}
-          {{ page.product.name }}
-          {{ 'liquid.views.paypal_confirm_page.header_2' | translate }}
-          {{ page.product_display_price }}
-        </h1>
-        {{ page.paypal_confirmation_form }}
-      </section>
-      <section class="paypal-express-checkout__order-security">
-        <img src="{{ page.secure_payment_badge_url }}" />
-      </section>
-    </div>
-  </div>
+<main class="checkout checkout__paypal-express" id="{{ theme.settings.main_content_id }}">
+  <ul>
+    <li class="active">{{ 'liquid.views.paypal_confirm_page.list_account_setup' | translate }}</li>
+    <li class="active">{{ 'liquid.views.paypal_confirm_page.list_paypal_confirmation' | translate }}</li>
+  </ul>
+  <section>
+    {% if page.product.image.small != blank %}
+      {% assign product_image = page.product.image.small %}
+    {% else %}
+      {% assign product_image = page.product.image.original %}
+    {% endif %}
+    <img src="{{ product_image }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" />
+    <h3>{{ page.product.name }}</span>
+    <h4>{{ page.product_display_price }}</span>
+    {{ page.paypal_confirmation_form }}
+  </section>
+  <img src="{{ page.secure_payment_badge_url }}" alt="Paypal secure badge" title="Paypal secure badge" />
 </main>

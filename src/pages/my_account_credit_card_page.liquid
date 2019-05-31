@@ -1,22 +1,10 @@
-{% comment %}
-  This is the edit credit card page.
-  Specifically, this is the page where a user would edit their credit card
-  number for new purchases or subscription renewals
-
-  Note that you cannot edit the actual form, however the surrounding content
-  of the page may be modified.
-{% endcomment %}
-
 <div class="my-account">
-  <div class="my-accountcontainer">
-    <div class="my-account__wrapper">
-      <aside class="my-account__menu hidden-print">
-        {% include 'my_account_menu' %}
-      </aside>
-      <main class="my-account__content" id="main-content" role="main">
-        <h1 class="my-account__heading">{{ 'liquid.views.my_account_credit_card_page.header_title' | translate }}</h1>
-        {{ page.my_account_credit_card_form }}
-      </main>
-    </div>
-  </div>
+  {% include 'my_account__banner' %}
+  <aside>
+    {% include 'my_account__menu' %}
+  </aside>
+  <main id="{{ theme.settings.main_content_id }}">
+    <h1>{{ 'liquid.views.my_account_credit_card_page.header_title' | translate }}</h1>
+    {{ page.my_account_credit_card_form }}
+  </main>
 </div>

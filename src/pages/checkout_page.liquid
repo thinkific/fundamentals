@@ -1,48 +1,6 @@
-{% comment %}
-  This is the checkout page.
-  Specifically, this is the page where a user would type in their credit
-  card number, apply a coupon or checkout with PayPal
-  Note that you cannot edit the actual form, however the surrounding content
-  of the page may be modified.
-{% endcomment %}
-
-<main class="checkout" id="main-content" role="main">
-  <div class="checkout__container">
-    <div class="checkout__wrapper">
-      <section class="checkout__form">
-        <ul class="progress-bar">
-          <li>{{ 'checkouts.new.list_item_1' | translate }}</li>
-          <li class="active">{{ 'checkouts.new.list_item_2' | translate }}</li>
-        </ul>
-        <h1 class="page__heading">Complete your purchase</h1>
-        {{ page.checkout_form }}
-      </section>
-      <section class="checkout__product-overview">
-        <h4>Your Order</h4>
-        <div class="checkout__product-list">
-          <div class="checkout__product-list-item">
-            <div class="checkout__product-details">
-              <img src="{{ page.product.image.small }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" class="checkout__product-image" />
-              <span class="checkout__product-name">{{ page.product.name }}</span>
-              <span class="checkout__product-price">{{ page.course_price }}</span>
-            </div>
-          </div>
-        </div>
-        <footer class="checkout__footer">
-          <div class="checkout__wrapper">
-            <section class="checkout__footer-info">
-              <strong><i class="fa fa-lock"></i>Secure Checkout</strong>
-              <p>100% secure checkout powered by Stripe.</p>
-            </section>
-            <section class="checkout__footer-help">
-              <strong><i class="fa fa-question-circle"></i>Help</strong>
-              <p>Need help replacing your order? <a href="mailto:{{ site.support_email }}" target="_blank">Contact us</a>.</p>
-            </section>
-          </div>
-        </footer>
-      </section>
-    </div>
-  </div>
+<main class="checkout" id="{{ theme.settings.main_content_id }}">
+  {% section 'checkout_form' %}
+  {% section 'checkout_overview' %}
   {{ content_for_page }}
 </main>
 

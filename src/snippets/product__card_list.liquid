@@ -1,0 +1,17 @@
+{% paginate page.products by 6 %}
+  <ul>
+    {% for product in paginate.collection %}
+      <li>
+        {% if product.is_course %}
+          {% assign course = product.course %}
+          {% include 'product__card__course' with course %}
+        {% else %}
+          {% assign bundle = product.bundle %}
+          {% include 'product__card__bundle' with bundle %}
+        {% endif %}
+      </li>
+      {% assign product_count = forloop.length %}
+    {% endfor %}
+  </ul>
+  {% include 'products__pagination' with paginate %}
+{% endpaginate %}

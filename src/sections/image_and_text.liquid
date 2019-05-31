@@ -1,53 +1,29 @@
-<section class="text-image
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="text-image">
-  <div class="text-image__container">
-    <article class="section__content">
-      <section class="text-image__body {% if section.settings.body != blank %}has-image{% endif %}">
-        {% include 'section_headings' %}
-        <div class="section__body">
-          {{ section.settings.body }}
-        </div>
-      </section>
-      {% if section.settings.image != blank %}
-        <section class="text-image__image" style="background-image: url({{ section.settings.image }});"></section>
-      {% endif %}
+<section class="image-and-text" data-preview-item="image-and-text">
+  <article>
+    {{ section.settings.body }}
+    {% if section.settings.button_text != empty and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+    {% endif %}
+  </article>
+  {% if section.settings.image != blank %}
+    <article>
+      <img src="{{ section.settings.image }}" alt="{{ section.settings.image_alt }}" title="{{ section.settings.image_alt }}" />
     </article>
-  </div>
-</section>
-
-{% style %}
-
-section.text-image {
-  {% include 'section_style_content_alignment' %}
-  {% include 'section_style_heading_order' %}
-  {% include 'section_style_heading_ornament' %}
-
-  {% if section.settings.image_alignment == "left" %}
-    .text-image__image {
-      @include order(1);
-    }
-
-    .text-image__body {
-      @include order(2);
-    }
   {% endif %}
-}
-
-{% endstyle %}
+</section>
 
 {% schema %}
 {
-  "label":"Image & text",
+  "label":"Image & text (with CTA)",
   "settings":[
     {
-      "label":"Headings",
+      "label":"Text",
       "settings":[
         {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":""
+          "default":"Image & text (with CTA)"
         },
         {
           "type":"text",
@@ -56,36 +32,92 @@ section.text-image {
           "default":""
         },
         {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
+          "type":"textarea",
+          "id":"body",
+          "label":"Description",
+          "default":"Use this area to describe the image or provide supporting information."
         }
       ]
     },
     {
-      "label":"Content alignment",
+      "label":"Image",
       "settings":[
+        {
+          "type":"image",
+          "id":"image",
+          "label":"",
+          "default":"https://cdn.thinkific.com/13/20180205/2fe50a485eaf445b855d83b153605d08.png"
+        },
+        {
+          "type":"text",
+          "id":"image_alt",
+          "label":"Image alt text",
+          "description":"<small>Describe your image for the visually impaired.</small>"
+        },
+        {
+          "type":"number",
+          "min":50,
+          "max":150,
+          "id":"image_size",
+          "default":100,
+          "label":"Image size",
+          "description":"<small>Scale your image width from 50% to 150%</small>"
+        }
+      ]
+    },
+    {
+      "label":"Button",
+      "settings":[
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Text",
+          "default":"Call to action"
+        },
+        {
+          "type":"page_picker",
+          "id":"button_link",
+          "label":"Link",
+          "default":""
+        },
+        {
+          "type":"radio",
+          "id":"button_type",
+          "label":"Type",
+          "description":"",
+          "default":"primary",
+          "options":[
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
+          "default":false
+        },
+        {
+          "type":"checkbox",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
+          "default":false
+        },
         {
           "type":"radio",
           "id":"content_alignment",
-          "label":"",
+          "label":"Content alignment",
           "default":"left",
           "options":[
             {
@@ -101,33 +133,11 @@ section.text-image {
               "label":"Right"
             }
           ]
-        }
-      ]
-    },
-    {
-      "label":"Text",
-      "settings":[
-        {
-          "type":"textarea",
-          "id":"body",
-          "label":"",
-          "default":""
-        }
-      ]
-    },
-    {
-      "label":"Image",
-      "settings":[
-        {
-          "type":"image",
-          "id":"image",
-          "label":"",
-          "default":""
         },
         {
           "type":"radio",
           "id":"image_alignment",
-          "label":"Alignment",
+          "label":"Image alignment",
           "default":"right",
           "options":[
             {
@@ -137,59 +147,6 @@ section.text-image {
             {
               "value":"right",
               "label":"Right"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "description":"",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"primary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"medium",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
             }
           ]
         }

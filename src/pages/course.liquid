@@ -1,13 +1,8 @@
-{% comment %}
-  If a user enters a coupon URL ( yoursite.com?coupon=100) they
-  will see a small section that displays details about the coupon.
-{% endcomment %}
-
 {% if page.course.coupon_supported and page.coupon_code_provided %}
-  {% include 'product_landing_page_coupon_block' %}
+  {% include 'product__coupon' %}
 {% endif %}
 
-<main class="course" id="main-content" role="main">
+<main class="course" id="{{ theme.settings.main_content_id }}">
   {{ content_for_page }}
 </main>
 
@@ -15,38 +10,37 @@
 {
   "sections":{
     "options":[
-      "banner_course",
-      "pricing_table",
-      "banner",
-      "description",
       "course_cards",
-      "course_cards_all",
-      "course_categories",
-      "course_curriculum",
-      "course_content",
-      "instructor",
-      "reviews",
-      "frequently_asked_questions",
+      "banner_course",
       "bonus",
       "call_to_action",
       "checklist",
+      "course_categories_all",
+      "course_categories",
+      "course_curriculum",
       "countdown",
+      "frequently_asked_questions",
+      "gallery",
+      "image_and_text",
+      "instructor",
+      "lead_capture",
+      "pricing_options",
+      "pricing_table",
+      "reviews",
       "showcase",
       "testimonials",
       "icon_and_text",
-      "image_and_text",
+      "description",
       "rich_text",
       "upsells",
       "video"
     ],
     "defaults":[
-      "banner",
-      "description",
-      "pricing_table",
-      "instructor"
+      "banner_course",
+      "course_curriculum"
     ]
   }
 }
 {% endschema %}
 
-{% include 'course_footer_scripts' %}
+{{ page.landing_page_code }}

@@ -1,41 +1,22 @@
-<section class="bonus
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_column_layout' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="bonus">
-  <div class="bonus__container">
-    <div class="bonus__wrapper">
-      {% include 'section_headings' %}
-      <article class="section__content">
-        {% if section.blocks != empty %}
-          <ul class="bonus__list section__body">
-            {% for block in section.blocks %}
-              <li class="bonus__list-item">
-                <h4>{{ block.settings.bonus_name }}</h4>
-                <h5>{{ block.settings.bonus_value }}</h5>
-                <p>{{ block.settings.bonus_body }}</p>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </article>
-    </div>
-  </div>
+<section class="bonus" data-preview-item="bonus">
+  <article>
+    {% if section.blocks != empty %}
+      <ul>
+        {% for block in section.blocks %}
+          <li>
+            <i class="fa {{ block.settings.bonus_icon }}" aria-hidden="true"></i>
+            <h3>{{ block.settings.bonus_name }}</h3>
+            <p>{{ block.settings.bonus_body }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </article>
 </section>
-
-{% style %}
-
-section.bonus {
-  {% include 'section_style_column_layout' %}
-  {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
-  {% include 'section_style_heading_ornament' %}
-}
-
-{% endstyle %}
 
 {% schema %}
 {
-  "label":"Bonus",
+  "label":"Bonus material",
   "settings":[
     {
       "label":"Headings",
@@ -50,14 +31,14 @@ section.bonus {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":"Still not convinced? Here's some free stuff."
+          "default":"Include additional content to your course curriculum to provide further value to your students."
         },
         {
           "type":"radio",
           "id":"heading_alignment",
           "label":"Alignment",
           "description":"",
-          "default":"left",
+          "default":"center",
           "options":[
             {
               "value":"left",
@@ -72,102 +53,50 @@ section.bonus {
               "label":"Right"
             }
           ]
+        }
+      ]
+    },
+    {
+      "label":"Background & layout",
+      "settings":[
+        {
+          "type":"image",
+          "id":"background_image",
+          "default":"https://cdn.thinkific.com/13/20180205/7e57f4d425ca1d31db8380c97d3f6771.png",
+          "label":"Image",
+          "description":"<small>Recommended: <strong>1440px x 720px (1MB)</strong></small>"
         },
         {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
+          "type":"image_origin",
+          "id":"background_image_origin",
+          "default": "center center",
+          "label":"Image focal point"
+        },
+        {
+          "type":"color",
+          "id":"overlay_color",
+          "label":"Overlay color",
+          "default":"#000000"
+        },
+        {
+          "type":"number",
+          "id":"overlay_opacity",
+          "label":"Overlay opacity",
+          "default":30,
+          "min":0,
+          "max":100
         },
         {
           "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
           "default":false
-        }
-      ]
-    },
-    {
-      "label":"Layout",
-      "settings":[
+        },
         {
-          "type":"radio",
-          "id":"column_layout",
-          "label":"",
-          "description":"",
-          "default":"two-column",
-          "options":[
-            {
-              "value":"two-column",
-              "label":"Two Column"
-            },
-            {
-              "value":"one-column",
-              "label":"One Column"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"primary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"medium",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
-            }
-          ]
+          "type":"checkbox",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
+          "default":false
         }
       ]
     }
@@ -181,14 +110,14 @@ section.bonus {
         "label":"Bonus",
         "settings":[
           {
-            "type":"text",
-            "id":"bonus_name",
-            "label":"Name"
+            "type":"icon",
+            "id":"bonus_icon",
+            "label":"Icon"
           },
           {
             "type":"text",
-            "id":"bonus_value",
-            "label":"Value"
+            "id":"bonus_name",
+            "label":"Name"
           },
           {
             "type":"textarea",
@@ -202,17 +131,25 @@ section.bonus {
       {
         "type":"bonus",
         "values":{
-          "bonus_name":"Free LinkedIn certification",
-          "bonus_value":"$100 value",
-          "bonus_body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus, nunc ac tincidunt venenatis, mauris elit tempus est, id vulputate ipsum sapien quis nisl. Fusce porta magna mi, eu efficitur velit pulvinar a. Nullam et arcu viverra, tincidunt libero in, efficitur diam."
+          "bonus_icon":"fa-file-text-o",
+          "bonus_name":"Bonus material",
+          "bonus_body":"Explain the value your additional content will bring to a student’s overall learning experience. Use this opportunity to sell potential students on the extra benefits your bonus material provides."
         }
       },
       {
         "type":"bonus",
         "values":{
-          "bonus_name":"Free digital marketing E-book",
-          "bonus_value":"500 pages of expertise",
-          "bonus_body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus, nunc ac tincidunt venenatis, mauris elit tempus est, id vulputate ipsum sapien quis nisl. Fusce porta magna mi, eu efficitur velit pulvinar a. Nullam et arcu viverra, tincidunt libero in, efficitur diam."
+          "bonus_icon":"fa-clock-o",
+          "bonus_name":"Bonus material",
+          "bonus_body":"Explain the value your additional content will bring to a student’s overall learning experience. Use this opportunity to sell potential students on the extra benefits your bonus material provides."
+        }
+      },
+      {
+        "type":"bonus",
+        "values":{
+          "bonus_icon":"fa-user",
+          "bonus_name":"Bonus material",
+          "bonus_body":"Explain the value your additional content will bring to a student’s overall learning experience. Use this opportunity to sell potential students on the extra benefits your bonus material provides."
         }
       }
     ]

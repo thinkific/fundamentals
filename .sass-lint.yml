@@ -21,7 +21,7 @@ options:
 rules:
   bem-depth:
     - 0
-    - max-depth: 1
+    - max-depth: 3
   border-zero:
     - 1
     - convention: 0
@@ -41,7 +41,7 @@ rules:
   extends-before-declarations: 1
   extends-before-mixins: 1
   final-newline:
-    - 1
+    - 0
     - include: true
   force-attribute-nesting: 1
   force-element-nesting: 0

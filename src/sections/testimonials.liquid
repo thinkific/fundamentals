@@ -1,64 +1,21 @@
-<section class="testimonials
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="testimonials">
-  <div class="testimonials__container">
-    {% include 'section_headings' %}
-    <article class="section__content">
-      {% if section.blocks != empty %}
-        <section class="testimonials__list section__body">
-          {% for block in section.blocks %}
-            <div class="testimonials__list-item">
-              <i class="fa fa-quote-left"></i>
-              <p>&ldquo;{{ block.settings.testimonial_body }}&rdquo;</p>
-              <span><img src="{{ block.settings.testimonial_avatar }}" alt="{{ block.settings.testimonial_author }}" title="{{ block.settings.testimonial_author }}" />{{ block.settings.testimonial_author }}</span>
-            </div>
-          {% endfor %}
-        </section>
-      {% endif %}
-    </article>
-  </div>
+<section class="testimonials" data-preview-item="testimonials">
+  {% if section.blocks != empty %}
+    <ul>
+      {% for block in section.blocks %}
+        <li>
+          <img src="{{ block.settings.testimonial_avatar }}" alt="{{ block.settings.testimonial_author }}" title="{{ block.settings.testimonial_author }}" />
+          <h3>{{ block.settings.testimonial_title }}</h3>
+          <h4>{{ block.settings.testimonial_author }}</h4>
+          {{ block.settings.testimonial_body }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </section>
-
-<script>
-$(window).load(function() {
-  var $testimonialsCarousel = $('.testimonials__list').addClass('owl-carousel'),
-      testimonialsOwlOptions = {
-        center: false,
-        dots: true,
-        loop: true,
-        margin: 0,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
-        slideBy: 1,
-        responsive: {
-          0: {
-            items: 1
-          },
-          768: {
-            items: 1.15
-          },
-          992: {
-            items: 1.85
-          }
-        }
-      };
-  $testimonialsCarousel.owlCarousel(testimonialsOwlOptions);
-});
-</script>
-
-{% style %}
-
-section.testimonials {
-  {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
-  {% include 'section_style_heading_ornament' %}
-}
-
-{% endstyle %}
 
 {% schema %}
 {
-  "label":"Testimonials",
+  "label":"Social proof: testimonials",
   "settings":[
     {
       "label":"Headings",
@@ -67,7 +24,7 @@ section.testimonials {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"What customers are saying"
+          "default":"Social proof: testimonials"
         },
         {
           "type":"text",
@@ -95,80 +52,23 @@ section.testimonials {
               "label":"Right"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
         {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
+          "type":"checkbox",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
+          "default":false
         },
         {
           "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
           "default":false
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"secondary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"medium",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
-            }
-          ]
         }
       ]
     }
@@ -183,13 +83,19 @@ section.testimonials {
         "settings":[
           {
             "type":"text",
+            "id":"testimonial_title",
+            "label":"Testimonial title"
+          },
+          {
+            "type":"text",
             "id":"testimonial_author",
-            "label":"Author"
+            "label":"Author's name"
           },
           {
             "type":"image",
             "id":"testimonial_avatar",
-            "label":"Avatar"
+            "label":"Avatar",
+            "default":"https://cdn.thinkific.com/13/20180205/39756c0116e7c268ccc233356a72736d.png"
           },
           {
             "type":"textarea",
@@ -203,41 +109,10 @@ section.testimonials {
       {
         "type":"testimonial",
         "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
-        }
-      },
-      {
-        "type":"testimonial",
-        "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
-        }
-      },
-      {
-        "type":"testimonial",
-        "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
-        }
-      },
-      {
-        "type":"testimonial",
-        "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus, vel ultricies urna pulvinar vitae. Donec diam risus, facilisis id facilisis ac, porta nec enim. Proin non porta augue. Integer neque nibh, tempor at fermentum ut, fermentum porttitor sapien. Mauris massa turpis, dictum id mauris sed, imperdiet porttitor ex."
-        }
-      },
-      {
-        "type":"testimonial",
-        "values":{
-          "testimonial_author":"Customer Name",
-          "testimonial_avatar":"",
-          "testimonial_body":"Nam commodo ornare lectus."
+          "testimonial_title":"Testimonial title",
+          "testimonial_author":"by Author's name",
+          "testimonial_avatar":"https://cdn.thinkific.com/13/20180205/39756c0116e7c268ccc233356a72736d.png",
+          "testimonial_body":"Share testimonials about you, your course, or your content. Don’t be afraid to reach out to your network to get some glowing words about the work you’ve done. Most potential students will look to the opinions of others when making purchase decisions online."
         }
       }
     ]

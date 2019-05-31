@@ -1,62 +1,35 @@
-<section class="bundle-includes
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="bundle-includes">
-  <div class="bundle-includes__container">
-    {% include 'section_headings' %}
-    <article class="section__content">
-      {% assign bundle = page.bundle %}
-      {% if bundle.courses.size > 0 %}
-        {% assign initial_courses = 6 %}
-      {% endif %}
-      <ul class="bundle-includes__list section__body">
-        {% for course in bundle.courses limit: initial_courses %}
-          <li class="bundle-includes__list-item">
-            {% include 'course_card' with course %}
-          </li>
-        {% endfor %}
-        {% for course in bundle.courses offset: initial_courses %}
-          <li class="bundle-includes__list-item bundle-includes--hidden hidden">
-            {% include 'course_card' with course %}
-          </li>
-        {% endfor %}
-      </ul>
-      {% if bundle.courses.size > initial_courses %}
-        <section id="see-more" class="section__button-group">
-          <a href="#see-more" class="button button-primary bundle-includes__see-all-button">
-            {{ 'liquid.views.bundle_landing_page.link_view_all' | translate }} {{ page.bundle_num_of_courses }} {{ 'liquid.views.bundle_landing_page.link_courses' | translate }}
-          </a>
-        </section>
-      {% endif %}
-    </article>
-  </div>
+<section class="bundle-includes" data-preview-item="bundle-includes">
+  <article>
+    {% assign bundle = page.bundle %}
+    {% if bundle.courses.size > 0 %}
+      {% assign initial_courses = 6 %}
+    {% endif %}
+    <ul>
+      {% for course in bundle.courses limit: initial_courses %}
+        <li>
+          {% include 'product__card__course' with course %}
+        </li>
+      {% endfor %}
+      {% for course in bundle.courses offset: initial_courses %}
+        <li>
+          {% include 'product__card__course' with course %}
+        </li>
+      {% endfor %}
+    </ul>
+    {% if bundle.courses.size > initial_courses %}
+      <section id="see-more">
+        <a href="#see-more">
+          {{ 'liquid.views.bundle_landing_page.link_view_all' | translate }} {{ page.bundle_num_of_courses }} {{ 'liquid.views.bundle_landing_page.link_courses' | translate }}
+        </a>
+      </section>
+    {% endif %}
+  </article>
 </section>
-
-<script>
-$(document).ready(function() {
-  var $seeAllCoursesButton = $('#see-more'),
-      $additionalCoursesArea = $('.bundle-includes--hidden.hidden');
-
-  $seeAllCoursesButton.on('click', function(e) {
-    $additionalCoursesArea.removeClass('hidden');
-    $(this).addClass('hidden');
-  });
-});
-
-</script>
-
-{% style %}
-
-section.bundle-includes {
-  {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
-  {% include 'section_style_heading_ornament' %}
-}
-
-{% endstyle %}
 
 {% schema %}
 {
-  "label":"Bundle includes",
+  "label":"Bundle includes [smart section]",
+  "description":"This smart section automatically includes all of the courses included in this bundle. <a href='/manage/courses/bundles/' target='_blank'>Edit Bundles »</a>",
   "settings":[
     {
       "label":"Headings",
@@ -71,14 +44,31 @@ section.bundle-includes {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":""
+          "default":"Here are all the courses that are included in your bundle."
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
+          "default":false
+        },
+        {
+          "type":"checkbox",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
+          "default":false
         },
         {
           "type":"radio",
-          "id":"heading_alignment",
-          "label":"Alignment",
+          "id":"card_alignment",
+          "label":"Card alignment",
           "description":"",
-          "default":"left",
+          "default":"center",
           "options":[
             {
               "value":"left",
@@ -96,75 +86,22 @@ section.bundle-includes {
         },
         {
           "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"primary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
+          "id":"heading_alignment",
+          "label":"Heading alignment",
           "description":"",
-          "default":"medium",
+          "default":"center",
           "options":[
             {
-              "value":"small",
-              "label":"Small"
+              "value":"left",
+              "label":"Left"
             },
             {
-              "value":"medium",
-              "label":"Medium"
+              "value":"center",
+              "label":"Center"
             },
             {
-              "value":"large",
-              "label":"Large"
+              "value":"right",
+              "label":"Right"
             }
           ]
         }

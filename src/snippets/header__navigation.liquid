@@ -1,0 +1,46 @@
+<nav>
+  <ul>
+    {% include 'header__links' %}
+    {% include 'header__default-links' %}
+    {% if site.current_user.signed_in %}
+      <li>
+        <button type="button">
+          {{ site.current_user.first_name_last_initial }}
+          <img src="{{ site.current_user.avatar }}" alt="User avatar" title="User avatar" aria-hidden="true" />
+        </button>
+        {% include 'header__user-menu' %}
+      </li>
+    {% else %}
+      <li>
+        <a href='{{ site.sign_in_url }}'>
+          {{ 'liquid.partials.header_with_links.link_sign_in' | translate }}
+        </a>
+      </li>
+    {% endif %}
+    {% if page.product_is_course %}
+      {% assign course = page.course %}
+      {% unless course.is_draft %}
+        {% if course.is_public %}
+        {% if section.settings.hide_default_buttons == false %}
+        {% if course.user_can_purchase %}
+          <li>
+            <a href="{{ course.links.buy }}">{{ section.settings.button_text }}</a>
+          </li>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+      {% endunless %}
+    {% elsif page.product_is_bundle %}
+      {% assign bundle = page.bundle %}
+      {% unless bundle.previously_purchased %}
+        {% unless bundle.is_free %}
+          {% if section.settings.hide_default_buttons == false %}
+            <li>
+              <a href="{{ bundle.links.buy }}">{{ section.settings.button_text }}</a>
+            </li>
+          {% endif %}
+        {% endunless %}
+      {% endunless %}
+    {% endif %}
+  </ul>
+</nav>

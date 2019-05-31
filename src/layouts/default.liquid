@@ -1,38 +1,22 @@
-{% comment %}
-  The default theme page layout
-{% endcomment %}
-
 <!DOCTYPE html>
-<!--
-
-               ▄▄█▌         ▄█▄               ▄██         ▄█▄    ▄████▄
-         ██     ██▌          ▀▀                ██         ▀▀    ██
-      ▄█████▌   ██▌▄███▄▄  ▐██▄  ▐██▄▄▄███▄    ██  ▄███▄ ▄██▄ ▄▄███▄▄▄▄▄▌   ▄▄████▄
-        ██      ███▀   ██   ▐██   ▐██▀   ██    ██ ▄██▀    ██▌   ██    ██▌  ██▀   ▐█
-        ██      ██▌    ██   ▐██   ▐█▌    ██    ████▌      ██▌   ██    ▐█▌ ▐██
-        ██      ██▌    ██   ▐██   ▐█▌    ██    ██  ██▄    ██▌   ██    ▐█▌  ██▄
-        ▀██▄█▌ ▄███▄ ▐▄███▄▄███▄ ▄███▄  ▄███▄▐████  ▀███ ▄███▄ ▄███▄ ▄███▄  ▀█████▀
-
-        Everything you need to create and launch courses on your own site [ https://www.thinkific.com ]
-
--->
-<html>
+<html lang="{{ site.locale }}">
   <head>
     {{ required_header_content }}
-    {% include 'meta_tags' %}
-    {% include 'page_wide_css' %}
-    {% include 'theme_wide_css' %}
+    {% include 'theme__meta_tags' %}
+    {% include 'theme__font_loader' %}
+    {% include 'theme__css' %}
   </head>
-  <body class="{{ page.page_identifier | kebab_case }} {{ theme.preset_name | kebab_case }}">
-    <div id="skip-link">
-      <a href="#main-content" tabindex="0">Skip to main content</a>
-    </div>
-    {% section 'page_header' %}
+  <body class="{{ page.page_identifier | kebab_case }} {{ theme.preset_name | kebab_case }} no-js">
+    {% if theme.settings.enable_high_contrast == true %}
+      {% include 'theme__high_contrast' %}
+    {% endif %}
+    {% include 'theme__settings' %}
+    {% include 'theme__skip_link' %}
+    {% section 'header' %}
     {{ content_for_layout }}
     {% section 'footer' %}
     {{ required_footer_content }}
-    {% include 'site_wide_script' %}
-    {% include 'theme_wide_script' %}
-    <div class="overlay"></div>
+    {% include 'theme__site_footer_code' %}
+    {% include 'theme__script' %}
   </body>
 </html>

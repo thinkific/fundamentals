@@ -1,8 +1,4 @@
-{% comment %}
-  This template is used to host your custom pages
-{% endcomment %}
-
-<main class="custom" id="main-content" role="main">
+<main class="custom" id="{{ theme.settings.main_content_id }}">
   {{ content_for_page }}
 </main>
 
@@ -10,29 +6,32 @@
 {
   "sections":{
     "options":[
-      "banner",
-      "description",
       "course_cards",
-      "course_cards_all",
-      "course_categories",
-      "course_curriculum",
-      "course_content",
-      "instructor",
-      "reviews",
-      "frequently_asked_questions",
+      "banner",
       "bonus",
+      "course_categories_all",
+      "course_categories",
       "call_to_action",
       "checklist",
       "countdown",
-      "showcase",
-      "testimonials",
+      "frequently_asked_questions",
+      "gallery",
       "icon_and_text",
       "image_and_text",
+      "instructor",
+      "lead_capture",
+      "pricing_options",
+      "reviews",
+      "showcase",
+      "testimonials",
+      "description",
       "rich_text",
       "upsells",
       "video"
     ],
-    "defaults":[]
+    "defaults":[
+      "banner"
+    ]
   }
 }
 {% endschema %}

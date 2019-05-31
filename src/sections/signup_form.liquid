@@ -1,0 +1,84 @@
+<article class="sign-up__form">
+  <h1>
+    {% if page.is_social_sign_up_step_two %}
+      {{ 'liquid.views.sign_up_page.header_complete_social_sign_up' | translate }}
+    {% else %}
+      {{ 'liquid.views.sign_up_page.header_create_account' | translate }}
+    {% endif %}
+  </h1>
+  {% form 'sign_up' %}
+    {% if errors.size > 0 %}
+      {% include 'form__errors' %}
+    {% endif %}
+
+    {% if fields.first_name || fields.last_name %}
+      {% assign field = fields.first_name %}
+      <label for="{{ field.name }}">{{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus />
+      </label>
+
+      {% assign field = fields.last_name %}
+      <label for="{{ field.name }}">{{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" />
+      </label>
+    {% endif %}
+
+    {% if fields.email %}
+      {% assign field = fields.email %}
+      <label for="{{ field.name }}">{{ field.label }}
+        <input type="email" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" />
+      </label>
+    {% endif %}
+
+    {% if fields.password %}
+      {% assign field = fields.password %}
+      <label for="{{ field.name }}">{{ field.label }}
+        <input type="password" id="{{ field.name }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" />
+      </label>
+    {% endif %}
+
+    {% for field in custom_signup_fields %}
+      {{ field.hidden_input }}
+      <label for="{{ field.name }}">{{ field.label }}
+        {% if field.type_is_country %}
+          <select id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %}>
+            {{ field.country_options }}
+          </select>
+        {% else %}
+          <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.label }}" {% if field.required %}required{% endif %} />
+        {% endif %}
+      </label>
+    {% endfor %}
+
+    {% if fields.terms != blank %}
+      {% assign field = fields.terms %}
+      <label for="{{ field.name }}">
+        <input type="hidden" name="{{ field.name }}" value="0" />
+        <input type="checkbox" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" required />
+        {{ field.label }}
+      </label>
+    {% endif %}
+
+    {% if site.invisible_recaptcha_enabled %}
+      {% include 'form__recaptcha' %}
+    {% else %}
+      <input type="submit" value="{{ fields.submit.label }}" id="sign-up" />
+    {% endif %}
+  {% endform %}
+  {% include 'form__remote_sign_in' %}
+</article>
+{% unless page.is_social_sign_up_step_two %}
+  <aside>
+    <a href='{{ page.sign_in_url }}'>
+      {{ 'liquid.views.sign_up_page.link_sign_in' | translate }}
+    </a>
+  </aside>
+{% endunless %}
+
+{% schema %}
+{
+  "label":"Default",
+  "description":"This is a default section — the foundation of your Thinkific site.  While this section is not editable, you can customize this page by adding new sections.",
+  "settings":[]
+}
+{% endschema %}

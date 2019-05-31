@@ -1,50 +1,25 @@
-// Base
-// ======================================
-
 html {
-  font-size: $root__font-size;
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-* {
-  &,
-  &:before,
-  &:after {
-    box-sizing: inherit;
-  }
+  font-size: 16px;
 }
 
 a {
-  @include transition(color 300ms ease);
+  color: #265C83;
 
-  color: $link__color;
-
-  &:active,
-  &:hover,
-  &:focus {
-    @include transition(color 300ms ease);
-
-    color: $link__color--active;
+  &,
+  &:active {
+    transition: color 300ms ease;
   }
 
-  &:focus {
-    outline-offset: -1px;
-    outline-style: solid;
+  &:link,
+  &:visited {
+    color: #265C83;
   }
-}
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: $body__background-color;
-  color: $body__text-color;
-}
+  &:active {
+    color: #007BE6;
+  }
 
-main {
-  & > section {
-    overflow-x: hidden;
+  &:hover {
+    color: #7FDBFF;
   }
 }

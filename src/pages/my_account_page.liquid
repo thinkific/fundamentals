@@ -1,104 +1,91 @@
-{% comment %}
-  This is the 'my account profile' page.
-  Here, a user can view and edit their profile.
-{% endcomment %}
-
 <div class="my-account">
-  <div class="my-account__container">
-    <div class="my-account__wrapper">
-      <aside class="my-account__menu hidden-print">
-        {% include 'my_account_menu' %}
-      </aside>
-      <main class="my-account__content" id="main-content" role="main">
-        <h1 class="my-account__heading">{{ 'liquid.views.my_account_page.header_your_profile' | translate }}</h1>
-        {% form 'my_account' %}
-        {% if errors.size > 0 %}
-          {% include 'form_errors' %}
-        {% endif %}
-        <div class="my-account__profile__wrapper">
-          <section class="my-account__avatar">
-            <div class="account-content-profile-img">
-              {% assign field = fields.avatar %}
-              <label for="{{ field.name }}" class="my-account__avatar-label" tabindex="0">
-                <img src="{{ site.current_user.avatar }}" alt="{{ site.current_user.name }}" title="{{ site.current_user.name }}" class="img-responsive">
-                <span class="button-upload">{{ field.label }}</span>
-                <input type="file" id="{{ field.name }}" name="{{ field.name }}" class="image" />
-              </label>
-              <p id="feedback-area" class="form__feedback"></p>
-            </div>
-          </section>
-          <section class="my-account__form-contents">
-            <div class="form__group">
-              {% assign field = fields.email %}
-              <label for="{{ field.name }}" class="form__label">{{ field.label }}
-                <input type="email" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" class="form__control" />
-              </label>
-            </div>
-            <div class="form__group">
-              {% assign field = fields.first_name %}
-              <label for="{{ field.name }}" class="form__label">{{ field.label }}
-                <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" class="form__control" />
-              </label>
-              {% assign field = fields.last_name %}
-              <label for="{{ field.name }}" class="form__label">{{ field.label }}
-                <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" class="form__control" />
-              </label>
-            </div>
-            <div class="form__group">
-              {% assign field = fields.company_name %}
-              <label for="{{ field.name }}" class="form__label">{{ field.label }}
-                <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" class="form__control" />
-              </label>
-            </div>
-            <div class="form__group">
-              {% assign field = fields.headline %}
-              <label for="{{ field.name }}" class="form__label">{{ field.label }}
-                <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" class="form__control" />
-              </label>
-            </div>
-            <div class="form__group">
-              {% assign field = fields.timezone %}
-              <label for="{{ field.name }}" class="form__label form__select-label">{{ field.label }}
-                <select id="{{ field.name }}" name="{{ field.name }}" class="form__control">
-                  <option value="">{{ field.placeholder }}</option>
-                  {% for timezone in page.timezone_options %}
-                    <option value="{{ timezone.value }}" {% if timezone.value == field.value %}selected="selected"{% endif %}>{{ timezone.label }}</option>
-                  {% endfor %}
-                </select>
-              </label>
-            </div>
-            {% if page.has_student_locale_selection_enabled %}
-            <div class="form__group">
-              {% assign field = fields.site_locale %}
-              <label for="{{ field.name }}" class="form__label form__select-label">{{ field.label }}
-                <select id="{{ field.name }}" name="{{ field.name }}" class="form__control">
-                  <option value="">{{ field.placeholder }}</option>
-                  {% for site_locale in page.site_locale_options %}
-                    <option value="{{ site_locale.value }}" {% if site_locale.value == field.value %}selected="selected"{% endif %}>{{ site_locale.label }}</option>
-                  {% endfor %}
-                </select>
-              </label>
-            </div>
-            {% endif %}
-            {% for field in custom_signup_fields %}
-              <div class="form__group">
-                {{ field.hidden_input }}
-                <label for="{{ field.name }}" class="form__label form__select-label">{{ field.label }}</label>
-                {% if field.type_is_country %}
-                  <select id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %} class="form__control">
-                    {{ field.country_options }}
-                  </select>
-                {% else %}
-                  <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" {% if field.required %}required{% endif %} class="form__control" />
-                {% endif %}
-              </div>
+  {% include 'my_account__banner' %}
+  <aside class="my-account__menu">
+    {% include 'my_account__menu' %}
+  </aside>
+  <main id="{{ theme.settings.main_content_id }}">
+    {% form 'my_account' %}
+      {% if errors.size > 0 %}
+        {% include 'form__errors' %}
+      {% endif %}
+      {% assign field = fields.avatar %}
+      <label for="{{ field.name }}">
+        <img src="{{ site.current_user.avatar }}" alt="{{ site.current_user.name }}" title="{{ site.current_user.name }}" />
+        <span>{{ field.label }}</span>
+        <input type="file" id="{{ field.name }}" name="{{ field.name }}" />
+      </label>
+
+      <p id="feedback-area"></p>
+
+      {% assign field = fields.email %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="email" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" />
+      </label>
+
+      {% assign field = fields.first_name %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" />
+      </label>
+
+      {% assign field = fields.last_name %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" />
+      </label>
+
+      {% assign field = fields.company_name %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" />
+      </label>
+
+      {% assign field = fields.headline %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" />
+      </label>
+
+      {% assign field = fields.timezone %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <select id="{{ field.name }}" name="{{ field.name }}">
+          <option value="">{{ field.placeholder }}</option>
+          {% for timezone in page.timezone_options %}
+            <option value="{{ timezone.value }}" {% if timezone.value == field.value %}selected="selected"{% endif %}>{{ timezone.label }}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      {% if page.has_student_locale_selection_enabled %}
+        {% assign field = fields.site_locale %}
+        <label for="{{ field.name }}">
+          {{ field.label }}
+          <select id="{{ field.name }}" name="{{ field.name }}">
+            <option value="">{{ field.placeholder }}</option>
+            {% for site_locale in page.site_locale_options %}
+              <option value="{{ site_locale.value }}" {% if site_locale.value == field.value %}selected="selected"{% endif %}>{{ site_locale.label }}</option>
             {% endfor %}
-            <div class="form__button-group">
-              <input type="submit" value="{{ fields.submit.label }}" class="button button-primary" />
-            </div>
-          </div>
-        {% endform %}
-      </main>
-    </div>
-  </div>
+          </select>
+        </label>
+      {% endif %}
+
+      {% for field in custom_signup_fields %}
+        {{ field.hidden_input }}
+        <label for="{{ field.name }}">
+          {{ field.label }}
+          {% if field.type_is_country %}
+            <select id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %}>
+              {{ field.country_options }}
+            </select>
+          {% else %}
+            <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" {% if field.required %}required{% endif %} />
+          {% endif %}
+        </label>
+      {% endfor %}
+
+      <input type="submit" value="{{ fields.submit.label }}" />
+    {% endform %}
+  </main>
 </div>

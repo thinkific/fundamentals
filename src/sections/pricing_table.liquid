@@ -1,68 +1,63 @@
-<section class="pricing-table
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_column_layout' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="pricing-table">
-  <div class="pricing-table__container">
-    <div class="pricing-table__wrapper">
-      {% include 'section_headings' %}
-      <article class="section__content">
-        <ul class="pricing-table__list section__body">
-          {% if page.product_is_course %}
-            {% assign product = page.course %}
-          {% elsif page.product_is_bundle %}
-            {% assign product = page.bundle %}
-          {% endif %}
-          <li class="pricing-table__list-item">
-            <div class="pricing-table__list-item-details">
-              <h4>{{ product.display_price }}</h4>
-              <h5>{{ section.settings.price_name }}</h5>
-            </div>
-            {% if product.is_free %}
-              {% if product.product_is_course %}
-                {% assign enroll_free_text = 'liquid.partials.course_landing_page_action_buttons.link_enroll_free' | translate %}
-              {% elsif product.product_is_bundle %}
-                {% assign enroll_free_text = page.bundle.enroll_free_button_text %}
-              {% endif %}
-              <a href="{{ product.links.enroll_free }}" class="button button-primary">{{ enroll_free_text }}</a>
-            {% else %}
-              {% if product.previously_purchased or product.user_can_resume %}
-                {% assign product_url = product.links.resume %}
-              {% else %}
-                {% assign product_url = product.links.buy %}
-              {% endif %}
-              <a href="{{ product_url }}" class="button button-primary">{% if section.settings.button_text != empty %} {{ section.settings.button_text }} {% else %} Buy Now {% endif %}</a>
-            {% endif %}
-          </li>
-          {% for price in product.additional_prices %}
-            <li class="pricing-table__list-item">
-              <div class="pricing-table__list-item-details">
-                <h4>{{ price.display_price }}</h4>
-                <h5>{{ price.name }}</h5>
-              </div>
-              <a href="{{ price.links.add_to_cart }}" class="button button-primary">{{ price.buy_button_text }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </article>
-    </div>
-  </div>
+<section class="pricing-table" data-preview-item="pricing-table">
+  <ul>
+    {% if page.course %}
+      {% assign product = page.course %}
+      {% if product.is_free %}
+        {% assign enroll_free_text = 'liquid.partials.course_landing_page_action_buttons.link_enroll_free' | translate %}
+      {% endif %}
+    {% elsif page.bundle %}
+      {% assign product = page.bundle %}
+      {% if product.is_free %}
+        {% assign enroll_free_text = product.enroll_free_button_text %}
+      {% endif %}
+    {% endif %}
+    {% if section.settings.button_text != empty %}
+      {% assign button_text = section.settings.button_text %}
+    {% else %}
+      {% assign button_text = "Buy Now" %}
+    {% endif %}
+    <li>
+      <h3>{{ product.display_price }}</h3>
+      {% if section.settings.price_name != empty %}
+        <p>{{ section.settings.price_name }}</p>
+      {% endif %}
+      {% if product.is_free %}
+        <a href="{{ product.links.enroll_free }}">
+          {% if section.settings.button_text != empty %}{{ button_text }}{% else %}{{ enroll_free_text }}{% endif %}
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </a>
+      {% else %}
+        {% assign product_url = product.links.buy %}
+        <a href="{{ product_url }}">
+          {{ button_text }}
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+    </li>
+    {% for price in product.additional_prices %}
+      <li>
+        <h3>{{ price.display_price }}</h3>
+        <p>{{ price.name }}</p>
+        <a href="{{ price.links.add_to_cart }}">
+          {{ button_text }}
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </section>
-
-{% style %}
-
-section.pricing-table {
-  {% include 'section_style_column_layout' %}
-  {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
-  {% include 'section_style_heading_ornament' %}
-}
-
-{% endstyle %}
 
 {% schema %}
 {
-  "label":"Pricing table",
+  "label":"All pricing options [smart section]",
+  "description":"This smart section includes all of the pricing options for this product.",
   "settings":[
+    {
+      "type": "text",
+      "id": "price_name",
+      "label": "Default price description",
+      "default": "Regular price"
+    },
     {
       "label":"Headings",
       "settings":[
@@ -76,12 +71,74 @@ section.pricing-table {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":"Pay once, or save money with our payment plans"
+          "default":"Explain how different pricing options might be valuable to different segments of your audience."
+        }
+      ]
+    },
+    {
+      "label":"Button",
+      "settings":[
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Text",
+          "default":"Get started now"
+        },
+        {
+          "type":"radio",
+          "id":"button_type",
+          "label":"Type",
+          "description":"",
+          "default":"primary",
+          "options":[
+            {
+              "value":"primary",
+              "label":"Primary"
+            },
+            {
+              "value":"secondary",
+              "label":"Secondary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
+          "default":false
+        },
+        {
+          "type":"checkbox",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
+          "default":false
+        },
+        {
+          "type":"radio",
+          "id":"column_layout",
+          "label":"Layout",
+          "description":"",
+          "default":"two-column",
+          "options":[
+            {
+              "value":"one-column",
+              "label":"One Column"
+            },
+            {
+              "value":"two-column",
+              "label":"Two Columns"
+            }
+          ]
         },
         {
           "type":"radio",
           "id":"heading_alignment",
-          "label":"Alignment",
+          "label":"Heading alignment",
           "description":"",
           "default":"left",
           "options":[
@@ -96,119 +153,6 @@ section.pricing-table {
             {
               "value":"right",
               "label":"Right"
-            }
-          ]
-        },
-        {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
-        }
-      ]
-    },
-    {
-      "label":"Pricing options",
-      "settings": [
-        {
-          "type": "text",
-          "id": "price_name",
-          "label": "Default price description",
-          "default": "Regular price"
-        },
-        {
-          "type":"text",
-          "id":"button_text",
-          "label":"Button text",
-          "default":""
-        }
-      ]
-    },
-    {
-      "label":"Layout",
-      "settings":[
-        {
-          "type":"radio",
-          "id":"column_layout",
-          "label":"",
-          "description":"",
-          "default":"two-column",
-          "options":[
-            {
-              "value":"two-column",
-              "label":"Two Column"
-            },
-            {
-              "value":"one-column",
-              "label":"One Column"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"secondary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"medium",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
             }
           ]
         }

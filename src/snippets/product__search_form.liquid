@@ -1,0 +1,16 @@
+<section class="product__search-form">
+  <form action="{{ site.collections_url }}" method="get" id="search-form">
+    <ul>
+      {% for collection in site.collections %}
+        {% if page.collection.id != nil and page.collection.id == collection.id %}
+          <li><a href="{{ collection.url }}" class="active">{{ collection.name }}</a></li>
+        {% else %}
+          <li><a href="{{ collection.url }}">{{ collection.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <label for="search-query">
+      <input type="search" id="search-query" name="search-query" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" />
+    </label>
+  </form>
+</section>

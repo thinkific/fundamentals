@@ -1,0 +1,25 @@
+{% assign bundle = page.bundle %}
+{% if bundle.previously_purchased %}
+  <a href="{{ bundle.links.resume }}">
+    {{ bundle.enroll_free_button_text }}
+  </a>
+{% else %}
+  {% if bundle.additional_prices != empty %}
+    <label for="{{ bundle.name | kebab_case }}">
+      <select id="{{ bundle.name | kebab_case }}" name="{{ bundle.display_price }}">
+        <option value="{{ bundle.links.buy }}" selected>{{ bundle.display_price }}</option>
+        {% for price in bundle.additional_prices %}
+          <option value="{{ price.links.add_to_cart }}">{{ price.display_price }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  {% endif %}
+
+  <a href="{{ bundle.links.buy }}">
+    {% if bundle.additional_prices != empty %}
+      {{ 'liquid.partials.course_landing_page_action_buttons.buy_button_multiple_prices' | translate }}
+    {% else %}
+      {{ bundle.buy_button_text }}
+    {% endif %}
+  </a>
+{% endif %}

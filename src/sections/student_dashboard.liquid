@@ -1,93 +1,76 @@
-<section class="student-dashboard__banner">
-  <div class="student-dashboard__container">
-    <h4>{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</h4>
-  </div>
-</section>
-<div class="student-dashboard__container">
-  <section class="student-dashboard__form">
+<section class="student-dashboard">
+  <p>{{ 'liquid.views.student_dashboard.header_dashboard' | translate }}, {{ site.current_user.first_name_last_initial }}</p>
+  <aside class="student-dashboard__form">
     <form action="{{ site.student_dashboard_url }}" method="get" id="search-form">
-      <div class="form__group">
-        <h1 class="student-dashboard__heading">My Courses</h1>
-        <div class="products__search-box">
-          <label for="q" class="form__search-label">
-            <input type="search" name="q" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" class="form__control form__control-search" />
-          </label>
-        </div>
-      </div>
-      <div class="form__group">
-        <a href='{{ site.collections_url }}'>{{ 'liquid.views.student_dashboard.link_view_more_courses' | translate }}</a>
-        <label class="form__label form__select-no-label">
-          <select name="status" id="status" class="form__control">
-            {% for type in page.status_types %}
-            <option value="{{type[0]}}">{{type[1]}}</option>
-            {% endfor %}
-          </select>
-        </label>
-      </div>
+      <h1>{{ 'liquid.partials.student_dashboard.header_my_courses' | translate }}</h1>
+      <label for="search-query">
+        <input type="search" name="search-query" placeholder="{{ 'liquid.partials.product_search.search_placeholder' | translate }}" value="{{ page.search_query }}" />
+      </label>
+      <a href='{{ site.collections_url }}'>{{ 'liquid.views.student_dashboard.link_view_more_courses' | translate }}</a>
+      <label for="product-status">
+        <select name="product-status" id="product-status" aria-label="product-status">
+          {% for type in page.status_types %}
+          <option value="{{type[0]}}">{{type[1]}}</option>
+          {% endfor %}
+        </select>
+      </label>
     </form>
-  </section>
+  </aside>
+    
   {% if page.has_search_query %}
-    {% include 'products_search_query' %}
+    {% include 'product__search-results' %}
   {% endif %}
-  {% comment %}
-    Display the course and bundle cards
-  {% endcomment %}
+  
   {% if page.enrolled_cards != empty %}
-    <ul class="products__list">
+    <ul>
       {% assign cards = page.enrolled_cards | sort: 'last_accessed' | reverse %}
       {% paginate cards by 6 %}
       {% for card in paginate.collection %}
         {% unless card.is_hidden %}
-          <li class="products__list-item">
-            {% include 'dashboard_course_card' with card %}
+          <li>
+            {% include 'product__card__student_dashboard' with card %}
           </li>
         {% endunless %}
       {% endfor %}
-      {% include 'pagination' with paginate %}
+      {% include 'product__card_pagination' with paginate %}
       {% endpaginate %}
     </ul>
   {% else %}
-    <p class="student-dashboard__no-enrollments">
+    <p>
       {{ 'liquid.views.student_dashboard.text_no_courses_found' | translate }}
     </p>
   {% endif %}
-</div>
-
-{% style %}
-
-.student-dashboard__banner {
-  text-align: {{ section.settings.heading_alignment }};
-}
-
-{% endstyle %}
+</section>
 
 {% schema %}
 {
-  "label":"Student Dashboard",
+  "label":"Default",
+  "description":"This is a default section — the foundation of your Thinkific site.  While this section is not editable, you can customize this page by adding new sections.",
   "settings":[
     {
-      "label":"Banner",
-      "settings":[
+      "type":"checkbox",
+      "id":"show_course_title",
+      "label":"Show course title",
+      "default":true
+    },
+    {
+      "type":"radio",
+      "id":"card_alignment",
+      "label":"Card alignment",
+      "description":"",
+      "default":"left",
+      "options":[
         {
-          "type":"radio",
-          "id":"heading_alignment",
-          "label":"Heading alignment",
-          "description":"",
-          "default":"left",
-          "options":[
-            {
-              "value":"left",
-              "label":"Left"
-            },
-            {
-              "value":"center",
-              "label":"Center"
-            },
-            {
-              "value":"right",
-              "label":"Right"
-            }
-          ]
+          "value":"left",
+          "label":"Left"
+        },
+        {
+          "value":"center",
+          "label":"Center"
+        },
+        {
+          "value":"right",
+          "label":"Right"
         }
       ]
     }

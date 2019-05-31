@@ -1,0 +1,7 @@
+{% if section.blocks != empty %}
+  {% for block in section.blocks %}
+    <li>
+      <a href="{{ block.settings.nav_link }}" target="{{ block.settings.nav_target }}">{{ block.settings.nav_text }}</a>
+    </li>
+  {% endfor %}
+{% endif %}

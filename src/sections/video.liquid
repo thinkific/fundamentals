@@ -1,48 +1,40 @@
 <section class="video" data-preview-item="video">
-  <article class="section__content">
-    {% if section.settings.video.frame != blank %}
-      <span class="video__play-button"><i class="fa fa-play"></i></span>
-    {% endif %}
-    {% if section.settings.video.popover != blank %}
-      <section class="section__video--trigger">
-        {{ section.settings.video.popover }}
-      </section>
-    {% endif %}
-  </article>
+  <button aria-label="Play video">
+    <i class="fa fa-play" aria-hidden="true"></i>
+    <span>Play Video</span>
+  </button>
+  {% if section.settings.video.popover != blank %}
+    {{ section.settings.video.popover }}
+  {% endif %}
 </section>
-
-<script>
-  $('.video').find('.video__play-button').on('click', function(e) {
-    $(this).next('.section__video--trigger').find('.btn')[0].click();
-  });
-</script>
-
-
-{% style %}
-
-section.video {
-  {% if section.settings.video_thumbnail != blank %}
-    background-image: url({{ section.settings.video_thumbnail }});
-  {% else %}
-    background-color: gray-scale(1);
-  {% endif %}
-
-  {% if section.settings.video_overlay_color != blank %}
-    &:after {
-      background-color: {{ section.settings.video_overlay_color }};
-      {% if section.settings.video_overlay_opacity != blank %}
-        opacity: {{ section.settings.video_overlay_opacity }} * 0.01;
-      {% endif %}
-    }
-  {% endif %}
-}
-
-{% endstyle %}
 
 {% schema %}
 {
   "label":"Video",
   "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Video"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":""
+        },
+        {
+          "type":"color",
+          "id":"text_color",
+          "label":"Text color override",
+          "default":"#ffffff"
+        }
+      ]
+    },
     {
       "label":"Video",
       "settings":[
@@ -50,7 +42,7 @@ section.video {
           "type":"video",
           "id":"video",
           "label":"",
-          "description":"Navigate to the <a href='/manage/videos' target='_blank'>Video Library</a> section of your Dashboard to add additional videos",
+          "description":"<small>Upload videos to your Thinkific site in the <a href='/manage/videos' target='_blank'>Video Library</a>.</small>",
           "default":{
             "id":false,
             "type":"",
@@ -64,28 +56,84 @@ section.video {
       ]
     },
     {
-      "label":"Video thumbnail",
+      "label":"Background image",
       "settings":[
         {
           "type":"image",
-          "id":"video_thumbnail",
-          "default":"",
+          "id":"background_image",
+          "default":"https://cdn.thinkific.com/13/20180213/143ed2743d1154788b239e3da77d598a.jpg",
           "label":"Image",
-          "description": ""
+          "description":"<small>Recommended: <strong>1440px x 720px (1MB)</strong></small>"
+        },
+        {
+          "type":"image_origin",
+          "id":"background_image_origin",
+          "default": "center center",
+          "label":"Image focal point"
         },
         {
           "type":"color",
-          "id":"video_overlay_color",
+          "id":"overlay_color",
           "label":"Overlay color",
-          "default":"#D9DEE2"
+          "default":"#000000"
         },
         {
           "type":"number",
-          "id":"video_overlay_opacity",
+          "id":"overlay_opacity",
           "label":"Overlay opacity",
-          "default":0,
+          "default":30,
           "min":0,
           "max":100
+        }
+      ]
+    },
+    {
+      "label":"Size & alignment",
+      "settings":[
+        {
+          "type":"select",
+          "id":"section_height_preset",
+          "label":"Height",
+          "description":"",
+          "default":"medium",
+          "options":[
+            {
+              "value":"small",
+              "label":"Small"
+            },
+            {
+              "value":"medium",
+              "label":"Medium"
+            },
+            {
+              "value":"large",
+              "label":"Large"
+            },
+            {
+              "value":"xlarge",
+              "label":"Extra large"
+            }
+          ]
+        },
+        {
+          "type":"radio",
+          "id":"content_alignment",
+          "label":"Alignment",
+          "default":"center",
+          "options":[
+            {
+              "value":"left",
+              "label":"Left"
+            },
+            {
+              "value":"center",
+              "label":"Center"
+            },
+            {
+              "value":"right",
+              "label":"Right"
+            }
+          ]
         }
       ]
     }

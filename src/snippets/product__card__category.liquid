@@ -1,0 +1,13 @@
+<a href="{{ collection.url }}">
+  {% if collection.image.medium != blank %}
+    {% assign category_image = collection.image.medium %}
+  {% else %}
+    {% assign category_image = collection.image.original %}
+  {% endif %}
+
+  <img src="{{ category_image }}" alt="{{ category.name }}" title="{{ category.name }}" />
+
+  {% if section.settings.show_category_name %}
+    <h3>{{ collection.name }}</h3>
+  {% endif %}
+</a>

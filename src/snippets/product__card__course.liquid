@@ -1,0 +1,53 @@
+<a class="{{ course.status }}" href="{{ course.links.landing_page_url }}">
+  <header>
+    <img src="{{ product_image }}" alt="{{ course.name }}" title="{{ course.name }}" />
+  </header>
+  <h2>
+    {% for collection in course.collections %}
+      {% if forloop.last == false %}
+        {{ collection.name | append: ", " }}
+      {% else %}
+        {{ collection.name }}
+      {% endif %}
+    {% endfor %}
+  </h2>
+  <h3>{{ course.name }}</h3>
+  {% if course.reviews_enabled and course.reviews.approved_count > 0 %}
+    <span>
+      {% assign rating = course.reviews.average_rating | ceil %}
+      {% for index in (1..rating) %}
+        <label>
+          <input type="radio" name="rating" value="{{ index }}" aria-hidden="true" />
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </label>
+      {% endfor %}
+    </span>
+    <span>({{ course.reviews.approved_count }})</span>
+  {% endif %}
+  {% if course.chapters.size != empty OR course.lesson_hours != empty %}
+  <footer>
+    {% if course.chapters.size != blank %}
+      <span>
+        <strong>
+          {{ course.lesson_count }} {{ 'liquid.partials.course_card.details_lessons' | translate }}
+        </strong>
+      </span>
+    {% endif %}
+    {% if course.lesson_hours != blank %}
+      <span>
+        <strong>{{ course.lesson_hours }}</strong>
+      </span>
+    {% endif %}
+    {% if course.is_public %}
+      <span>
+        <strong>{{ course.display_price }}</strong>
+      </span>
+    {% endif %}
+  </footer>
+  {% endif %}
+  {% if course.image.medium != blank %}
+    {% assign product_image = course.image.medium %}
+  {% else %}
+    {% assign product_image = course.image.original %}
+  {% endif %}
+</a>

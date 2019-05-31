@@ -1,0 +1,34 @@
+<article class="{{ bundle.status }}">
+  <header>
+    <a href="{{ bundle.links.landing_page_url }}">
+      <img src="{{ bundle.image.original }}" alt="{{ bundle.name }}" title="{{ bundle.name }}" />
+    </a>
+  </header>
+  <h4>
+    {% for collection in bundle.collections %}
+      {% if forloop.last == false %}
+        {{ collection.name | append: ", " }}
+      {% else %}
+        {{ collection.name }}
+      {% endif %}
+    {% endfor %}
+  </h4>
+  <h3>{{ bundle.name }}</h3>
+  <p>{{ bundle.description | truncate: 250 }}</p>
+  {% if bundle.courses.size != blank OR bundle.lesson_hours != blank %}
+    <footer>
+      {% if bundle.courses.size != blank %}
+        <span>
+          <strong>{{ bundle.courses.size }}</strong>
+          {{ 'liquid.partials.bundle_card.details_courses' | translate }}
+        </span>
+      {% endif %}
+      {% if bundle.lesson_hours != blank %}
+        <span>{{ bundle.lesson_hours }}</span>
+      {% endif %}
+      {% if bundle.is_public %}
+        <span>{{ bundle.display_price }}</span>
+      {% endif %}
+    </footer>
+  {% endif %}
+</article>

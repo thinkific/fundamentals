@@ -1,0 +1,128 @@
+<article class="checkout__form">
+  {% unless page.cart.is_free or page.cart.is_free_trial %}
+    <ul>
+      <li class="active">{{ 'checkouts.new.list_item_1' | translate }}</li>
+      <li>{{ 'checkouts.new.list_item_2' | translate }}</li>
+    </ul>
+  {% endunless %}
+  <section>
+    <h1>{{ 'liquid.views.sign_in_page.header_welcome_back' | translate }}</h1>
+    <aside>
+      <a id="button__sign-up" href="#">{{ 'liquid.views.sign_in_page.link_create_account' | translate }}</a>
+    </aside>
+    {% form 'checkout_sign_in' %}
+    {% if errors.size > 0 %}
+      {% include 'form__errors' %}
+    {% endif %}
+    {% assign field = fields.email %}
+    <label for="{{ field.name }}">{{ field.label }}
+      <input type="email" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" {% if field.required %}required{% endif %} autofocus />
+    </label>
+    {% assign field = fields.password %}
+    <label for="user[sign-in][email]">{{ field.label }}
+      <input type="password" id="user[sign-in][email]" name="{{ field.name }}" placeholder="{{ field.placeholder }}" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" {% if field.required %}required{% endif %} />
+    </label>
+    {% assign field = fields.remember_me %}
+    {% comment %}
+      This hidden input is necessary so that things behave correctly when the checkbox is left unticked.
+    {% endcomment %}
+    <label for="{{ field.name }}">
+      <input type="hidden" name="{{ field.name }}" value="0" />
+      <input type="checkbox" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" />
+      {{ field.label }}
+    </label>
+    <a href="{{ page.forgot_password_url }}">{{ 'liquid.views.sign_in_page.forgot_password' | translate }}</a>
+    {% if site.invisible_recaptcha_enabled %}
+      {% include 'form__recaptcha__checkout', submitName: 'submitSignin', formSelector: 'sign-in' %}
+    {% else %}
+      <input type="submit" value="{{ fields.submit.label }}" id="signin" />
+    {% endif %}
+    {% endform %}
+    {% include 'form__remote_sign_in' %}
+  </section>
+  <section>
+    <h1>
+      {% if page.is_social_sign_up_step_two %}
+        {{ 'liquid.views.sign_up_page.header_complete_social_sign_up' | translate }}
+      {% else %}
+        {{ 'liquid.views.sign_up_page.header_create_account' | translate }}
+      {% endif %}
+    </h1>
+    <aside>
+      <a id="button__sign-in" href="#">{{ 'liquid.views.sign_up_page.link_sign_in' | translate }}</a>
+    </aside>
+    {% form 'checkout_sign_up' %}
+    {% if errors.size > 0 %}
+      {% include 'form__errors' %}
+    {% endif %}
+
+    {% if fields.first_name || fields.last_name %}
+      {% assign field = fields.first_name %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus />
+      </label>
+      {% assign field = fields.last_name %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" />
+      </label>
+    {% endif %}
+
+    {% if fields.email %}
+      {% assign field = fields.email %}
+      <label for="user[sign-up][email]">
+        {{ field.label }}
+        <input type="email" id="user[sign-up][email]" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" />
+      </label>
+    {% endif %}
+
+    {% if fields.password %}
+      {% assign field = fields.password %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="password" id="{{ field.name }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" />
+      </label>
+    {% endif %}
+
+    {% for field in custom_signup_fields %}
+      {{ field.hidden_input }}
+      <label for="{{ field.name }}">{{ field.label }}
+        {% if field.type_is_country %}
+          <select id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %}>
+            {{ field.country_options }}
+          </select>
+        {% else %}
+          <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.label }}" {% if field.required %}required{% endif %} />
+        {% endif %}
+      </label>
+    {% endfor %}
+
+    {% if fields.terms != blank %}
+      {% assign field = fields.terms %}
+      <label for="sign_up_terms">
+        {% comment %}
+          This hidden input is necessary so that things behave correctly when the checkbox is left unticked.
+        {% endcomment %}
+        <input type="hidden" name="{{ field.name }}" value="0" />
+        <input type="checkbox" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" required />
+        {{ field.label }}
+      </label>
+    {% endif %}
+    {% if site.invisible_recaptcha_enabled %}
+      {% include 'form__recaptcha__checkout', submitName: 'submitSignup', formSelector: 'sign-up' %}
+    {% else %}
+      <input type="submit" value="{{ fields.submit.label }}" id="signup" />
+    {% endif %}
+    {% endform %}
+    {% include 'form__remote_sign_in' %}
+  </section>
+</article>
+
+{% schema %}
+{
+  "label":"Default",
+  "description":"This is a default section — the foundation of your Thinkific site.  While this section is not editable, you can customize this page by adding new sections.",
+  "settings":[]
+}
+{% endschema %}

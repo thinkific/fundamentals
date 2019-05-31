@@ -1,0 +1,49 @@
+{% assign course = page.course %}
+{% unless course.is_draft %}
+  {% if course.user_can_resume %}
+    {% if course.user_enrollment_complete %}
+      <a href="{{ course.links.resume }}">{{ 'liquid.partials.course_landing_page_action_buttons.link_review_course' | translate }}</a>
+    {% else %}
+      <a href="{{ course.links.resume }}">{{ 'liquid.partials.course_landing_page_action_buttons.link_resume_course' | translate }}</a>
+    {% endif %}
+    {% if course.reviews_enabled %}
+      {% unless course.user_can_purchase %}
+        <a href="{{ course.links.review }}">{{ 'liquid.partials.course_landing_page_action_buttons.link_rate_course' | translate }}</a>
+      {% endunless %}
+    {% endif %}
+  {% endif %}
+  {% if course.is_public %}
+    {% if course.is_free %}
+      <a href="{{ course.links.enroll_free }}">{{ 'liquid.partials.course_landing_page_action_buttons.link_enroll_free' | translate }}</a>
+    {% endif %}
+    {% if course.user_can_purchase %}
+      {% if course.additional_prices != empty %}
+        <label for="{{ course.name | kebab_case }}">
+          <select id="{{ course.name | kebab_case }}" name="{{ course.display_price }}">
+            <option value="{{ course.links.buy }}" selected>{{ course.display_price }}</option>
+            {% for price in course.additional_prices %}
+              <option value="{{ price.links.add_to_cart }}">{{ price.display_price }}</option>
+            {% endfor %}
+          </select>
+        </label>
+      {% endif %}
+      <a href="{{ course.links.buy }}">
+        {% if course.additional_prices != empty %}
+          {{ 'liquid.partials.course_landing_page_action_buttons.buy_button_multiple_prices' | translate }}
+        {% else %}
+          {{ course.buy_button_text }}
+        {% endif %}
+      </a>
+      {% if course.has_free_trial %}
+        <a href="{{ course.links.enroll_free_trial }}">{{ 'liquid.partials.course_landing_page_action_buttons.link_free_trial' | translate }}</a>
+      {% endif %}
+  {% endif %}
+  {% else %}
+    {% if course.user_can_resume == false %}
+      <p>
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <a href="mailto:{{ site.support_email }}" target="_blank">{{ 'liquid.partials.course_landing_page_action_buttons.private_course_cta_text' | translate: site_support_email: site.support_email }}</a>
+      </p>
+    {% endif %}
+  {% endif %}
+{% endunless %}

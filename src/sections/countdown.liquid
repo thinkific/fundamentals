@@ -1,100 +1,51 @@
-<section class="countdown
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_column_layout' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="countdown">
-  <div class="countdown__container">
-    <div class="countdown__wrapper">
-      {% if section.settings.heading != blank or section.settings.subheading != blank %}
-        <header class="section__headings">
-          {% if section.settings.heading != blank %}
-            <h3 class="section__heading
-            {% include 'section_utility_heading_ornament' %}">{{ section.settings.heading }}</h3>
-          {% endif %}
-          {% if section.settings.subheading != blank %}
-            <h4 class="section__subheading">{{ section.settings.subheading }}</h4>
-          {% endif %}
-          {% if section.settings.price != blank %}
-            <section class="section__button-group">
-              {% if section.settings.button_text != blank %}
-                {% assign button_text = section.settings.button_text %}
-              {% else %}
-                {% assign button_text = section.settings.price.buy_button_text %}
-              {% endif %}
-              <a class="button button-primary" href="{{ section.settings.price.links.add_to_cart }}">{{ button_text }}</a>
-            </section>
-          {% endif %}
-        </header>
+<section class="countdown" data-preview-item="countdown">
+  {% if section.settings.heading != blank or section.settings.subheading != blank %}
+    <header>
+      {% if section.settings.heading != blank %}
+        <h1>{{ section.settings.heading }}</h1>
       {% endif %}
-      <article class="section__countdown section__body">
-        <ul id="countdown-clock" data-deadline="{{ section.settings.expiry_date }}">
-          <li id="clock-days" class="clock-interval"><span class="chrono">00</span><strong>Days</strong></li>
-          <li id="clock-hours" class="clock-interval"><span class="chrono">00</span><strong>Hours</strong></li>
-          <li id="clock-minutes" class="clock-interval"><span class="chrono">00</span><strong>Minutes</strong></li>
-          <li id="clock-seconds" class="clock-interval"><span class="chrono">00</span><strong>Seconds</strong></li>
-        </ul>
-      </article>
-    </div>
-  </div>
+      {% if section.settings.subheading != blank %}
+        <h2>{{ section.settings.subheading }}</h2>
+      {% endif %}
+    </header>
+  {% endif %}
+  <article>
+    <ul data-deadline="{{ section.settings.expiry_date }}" aria-live="polite">
+      <li>
+        <span>00</span> {{ 'liquid.partials.countdown.days' | translate }}
+      </li>
+      <li>
+        <span>00</span> {{ 'liquid.partials.countdown.hours' | translate }}
+      </li>
+      <li>
+        <span>00</span> {{ 'liquid.partials.countdown.minutes' | translate }}
+      </li>
+      <li>
+        <span>00</span> {{ 'liquid.partials.countdown.seconds' | translate }}
+      </li>
+    </ul>
+  </article>
+  {% if section.settings.button_text != blank %}
+    <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+  {% endif %}
 </section>
-
-<script>
-$(document).ready(function() {
-  var dueDate = document.querySelector('#countdown-clock');
-
-  if (dueDate) {
-    var deadline = dueDate.dataset.deadline;
-    function getTimeRemaining(endtime) {
-      var t = Date.parse(endtime) - Date.parse(new Date().toISOString());
-      var negativeDate = t < 0;
-      var seconds = negativeDate ? 0 : Math.floor((t / 1000) % 60);
-      var minutes = negativeDate ? 0 : Math.floor((t / 1000 / 60) % 60);
-      var hours = negativeDate ? 0 : Math.floor((t / (1000 * 60 * 60)) % 24);
-      var days = negativeDate ? 0 : Math.floor(t / (1000 * 60 * 60 * 24));
-      return {
-        'total': t,
-        'days': days,
-        'hours': hours,
-        'minutes': minutes,
-        'seconds': seconds
-      };
-    }
-    function initializeClock(id, endtime) {
-      var clock = document.getElementById(id);
-      var daysSpan = clock.querySelector('#clock-days .chrono');
-      var hoursSpan = clock.querySelector('#clock-hours .chrono');
-      var minutesSpan = clock.querySelector('#clock-minutes .chrono');
-      var secondsSpan = clock.querySelector('#clock-seconds .chrono');
-      function updateClock() {
-        var t = getTimeRemaining(endtime);
-        daysSpan.innerHTML = t.days;
-        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-        if (t.total <= 0) {
-          clearInterval(timeinterval);
-        }
-      }
-      updateClock();
-      var timeinterval = setInterval(updateClock, 1000);
-    }
-    initializeClock('countdown-clock', deadline);
-  }
-});
-</script>
-
-{% style %}
-
-section.countdown {
-  {% include 'section_style_column_layout' %}
-  {% include 'section_style_heading_ornament' %}
-}
-
-{% endstyle %}
 
 {% schema %}
 {
   "label":"Countdown timer",
   "settings":[
+    {
+      "type":"checkbox",
+      "id":"section_background_decoration",
+      "label":"Show styled background",
+      "default":true
+    },
+    {
+      "type":"datetime",
+      "id":"expiry_date",
+      "label":"Expiry date and time (UTC)",
+      "default":"2018-12-31T18:00:00.000Z"
+    },
     {
       "label":"Headings",
       "settings":[
@@ -102,76 +53,36 @@ section.countdown {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"Take <strong>50% off</strong> Digital Marketing Mastery"
+          "default":"Countdown timer"
         },
         {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":"Expires May 16th"
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
+          "default":"Use this section to create urgency for your offer."
         }
       ]
     },
     {
-      "label":"Settings",
+      "label":"Button",
       "settings":[
-        {
-          "type":"datetime",
-          "id":"expiry_date",
-          "label":"Expiry date and time (UTC)",
-          "description":"<small>Information about Coordinated Universal Time (UTC) can be <a href='https://www.timeanddate.com/time/aboututc.html' target='_blank'>found here</a>.</small>",
-          "default":"2018-12-31T18:00:00.000Z"
-        },
         {
           "type": "text",
           "id": "button_text",
-          "label": "Button text",
-          "default": "Enroll now"
+          "label": "Text",
+          "default": "Call to action"
         },
         {
-          "type":"price_picker",
-          "id":"price",
-          "description":"The button will appear once you choose a product.",
-          "label":"Attach a course"
-        }
-      ]
-    },
-    {
-      "label":"Layout",
-      "settings":[
+          "type":"page_picker",
+          "id":"button_link",
+          "label":"Link",
+          "default":""
+        },
         {
           "type":"radio",
-          "id":"column_layout",
-          "label":"",
+          "id":"button_type",
+          "label":"Type",
           "description":"",
-          "default":"two-column",
-          "options":[
-            {
-              "value":"two-column",
-              "label":"Two Column"
-            },
-            {
-              "value":"one-column",
-              "label":"One Column"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
           "default":"primary",
           "options":[
             {
@@ -181,36 +92,6 @@ section.countdown {
             {
               "value":"secondary",
               "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"medium",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
             }
           ]
         }

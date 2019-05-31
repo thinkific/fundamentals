@@ -1,16 +1,15 @@
 {
-  "name": "Fundamentals",
-  "version": "1.0.0",
-  "description": "Build package for the Fundamentals starter theme",
+  "name": "fundamentals",
+  "version": "0.0.0",
+  "description": "Build package for the Fundamentals theme",
   "main": "index.js",
   "scripts": {
     "start": "cd server && node app.js",
-    "build": "gulp",
-    "release": "standard-version"
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thinkific/fundamentals.git"
+    "url": "git://github.com/thinkific/fundamentals.git"
   },
   "author": "Thinkific Labs, Inc",
   "license": "UNLICENSED",
@@ -25,6 +24,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-copy": "^1.0.1",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.0",
     "gulp-zip": "^4.1.0",
     "standard-version": "^4.3.0"
@@ -35,6 +35,8 @@
     }
   },
   "dependencies": {
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/exec": "^3.3.2",
     "lodash": "^4.17.5"
   }
 }

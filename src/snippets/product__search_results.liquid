@@ -1,0 +1,6 @@
+{% if page.has_search_query %}
+  {{ 'liquid.partials.products_search_query.header_search_result' | translate }}
+  {{ page.search_query }}
+{% else %}
+  {{ 'liquid.partials.products_search_query.header_all' | translate }}
+{% endif %}

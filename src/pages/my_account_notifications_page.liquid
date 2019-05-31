@@ -1,45 +1,33 @@
-{% comment %}
-  This is the 'my account notifications' page.
-  Here, a user can opt-in/out of notification emails.
-{% endcomment %}
-
 <div class="my-account">
-  <div class="my-account__container">
-    <div class="my-account__wrapper">
-      <aside class="my-account__menu hidden-print">
-        {% include 'my_account_menu' %}
-      </aside>
-      <main class="my-account__content" id="main-content" role="main">
-        {% form 'my_account_notifications' %}
-        {% if errors.size > 0 %}
-          {% include 'form_errors' %}
-        {% endif %}
-        <h1 class="my-account__heading">{{ 'liquid.views.my_account_notifications_page.header_notifications' | translate }}</h1>
-        {% if page.allow_weekly_email_reminders %}
-          <div class="form__group">
-            {% assign field = fields.notify_on_weekly_reminder %}
-            <label for="{{ field.name }}" class="form__label form__label-checkbox">
-              <input name="{{ field.name }}" type="hidden" value="0">
-              <input type="checkbox" id="{{ field.name }}" name="{{ field.name }}" value="1" {% if field.value %}checked="checked"{% endif %} class="form__control" />
-              {{ field.label }}
-            </label>
-          </div>
-        {% endif %}
-        {% if page.allow_discussion_question_answered_email %}
-          <div class="form__group">
-            {% assign field = fields.notify_on_my_discussion_question_answered %}
-            <label for="{{ field.name }}" class="form__label form__label-checkbox">
-              <input name="{{ field.name }}" type="hidden" value="0">
-              <input type="checkbox" id="{{ field.name }}" name="{{ field.name }}" value="1" {% if field.value %}checked="checked"{% endif %} class="form__control" />
-              {{ field.label }}
-            </label>
-          </div>
-        {% endif %}
-        <div class="form__button-group">
-          <input type="submit" name="commit" value="{{ fields.submit.label }}" class="button button-primary">
-        </div>
-        {% endform %}
-      </main>
-    </div>
-  </div>
+  {% include 'my_account__banner' %}
+  <aside>
+    {% include 'my_account__menu' %}
+  </aside>
+  <main id="{{ theme.settings.main_content_id }}">
+    {% form 'my_account_notifications' %}
+      {% if errors.size > 0 %}
+        {% include 'form__errors' %}
+      {% endif %}
+      <h1>{{ 'liquid.views.my_account_notifications_page.header_notifications' | translate }}</h1>
+      {% if page.allow_weekly_email_reminders %}
+        {% assign field = fields.notify_on_weekly_reminder %}
+        <label for="{{ field.name }}">
+          <input name="{{ field.name }}" type="hidden" value="0">
+          <input type="checkbox" id="{{ field.name }}" name="{{ field.name }}" value="1" {% if field.value %}checked="checked"{% endif %} />
+          {{ field.label }}
+        </label>
+      {% endif %}
+
+      {% if page.allow_discussion_question_answered_email %}
+        {% assign field = fields.notify_on_my_discussion_question_answered %}
+        <label for="{{ field.name }}">
+          <input name="{{ field.name }}" type="hidden" value="0">
+          <input type="checkbox" id="{{ field.name }}" name="{{ field.name }}" value="1" {% if field.value %}checked="checked"{% endif %} />
+          {{ field.label }}
+        </label>
+      {% endif %}
+
+      <input type="submit" name="commit" value="{{ fields.submit.label }}" />
+    {% endform %}
+  </main>
 </div>

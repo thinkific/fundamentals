@@ -1,76 +1,69 @@
-<section class="instructor
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="instructor">
-  <div class="instructor__container">
-    {% include 'section_headings' %}
-    <article class="section__content">
-      {% if section.blocks != empty %}
-        <ul class="instructor__list section__body">
-          {% for block in section.blocks %}
-          {% assign instructor = block.settings.instructor %}
-            <li class="instructor__profile">
-              <header>
-                {% if instructor.avatar != blank %}
-                  <img class="instructor__avatar" src="{{ instructor.avatar }}" alt="{{ instructor.full_name }}" title="{{ instructor.full_name }}"  />
-                {% endif %}
-                  <h4 class="instructor__name">
-                    {{ instructor.full_name }}
-                  </h4>
-                {% if instructor.title != blank %}
-                  <h4 class="instructor__title">
-                    {{ instructor.title }}
-                  </h4>
-                {% endif %}
-              </header>
-              {% if instructor.bio != blank %}
-                <section class="instructor__bio">
-                  {{ instructor.bio }}
-                </section>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </article>
-  </div>
+<section class="instructor" data-preview-item="instructor">
+  {% if section.blocks != empty %}
+    <ul>
+      {% for block in section.blocks %}
+        {% assign instructor = block.settings.instructor %}
+        <li>
+          {% if instructor.avatar != blank %}
+            <img src="{{ instructor.image.original }}" alt="{{ instructor.full_name }}" title="{{ instructor.full_name }}" />
+          {% endif %}
+          <header>
+            {% if instructor.title != blank %}
+              <h3>
+                {{ instructor.title }}
+              </h3>
+            {% endif %}
+            <h4>
+              {{ instructor.full_name }}
+            </h4>
+          </header>
+          {% if instructor.bio != blank %}
+          <article>
+            {{ instructor.bio }}
+          </article>
+          <ul>
+            {% if block.settings.social_icon != null and block.settings.social_link != blank and block.settings.social_text != blank %}
+              <li>
+                <a href="{{ block.settings.social_link }}">
+                  <i class="fa {{ block.settings.social_icon }}" aria-label="{{ block.settings.social_link }}"></i>
+                  {{ block.settings.social_text }}
+                </a>
+              </li>
+            {% endif %}
+            {% if block.settings.social_icon_2 != null and block.settings.social_link_2 != blank and block.settings.social_text_2 != blank %}
+              <li>
+                <a href="{{ block.settings.social_link_2 }}">
+                  <i class="fa {{ block.settings.social_icon_2 }}" aria-label="{{ block.settings.social_link_2 }}"></i>
+                  {{ block.settings.social_text_2 }}
+                </a>
+              </li>
+            {% endif %}
+            {% if instructor.email != blank and section.settings.show_email == true %}
+              <li>
+                <a href="mailto:{{ instructor.email }}">
+                  <i class="fa fa-envelope" aria-hidden="true"></i> Email
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </section>
-
-<script>
-$(window).load(function() {
-  var $instructorCarousel = $('.instructor__list').addClass('owl-carousel'),
-      looped = ($('.instructor__list .instructor__list-item').length <= 1) ? false : true,
-      instructorOwlOptions = {
-        center: false,
-        dots: true,
-        loop: looped,
-        margin: 0,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left"></i>','<i class="fa fa-chevron-right"></i>'],
-        slideBy: 1,
-        responsive: {
-          0: {
-            items: 1
-          }
-        }
-      };
-  $instructorCarousel.owlCarousel(instructorOwlOptions);
-});
-</script>
-
-{% style %}
-
-section.instructor {
-  {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
-  {% include 'section_style_heading_ornament' %}
-}
-
-{% endstyle %}
 
 {% schema %}
 {
-  "label":"Instructor",
+  "label":"Instructor(s)",
+  "description":"Select which Instructor bio(s) will appear in this section. <a href='/manage/instructors/' target='_blank'>Manage your Instructor bios »</a>",
   "settings":[
+    {
+      "type":"checkbox",
+      "id":"show_email",
+      "label":"Show instructor email",
+      "default":true
+    },
     {
       "label":"Headings",
       "settings":[
@@ -78,7 +71,7 @@ section.instructor {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"About the instructor"
+          "default":"Instructor(s)"
         },
         {
           "type":"text",
@@ -106,96 +99,39 @@ section.instructor {
               "label":"Right"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
         {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
+          "type":"checkbox",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
+          "default":false
         },
         {
           "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
           "default":false
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"secondary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"medium",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
-            }
-          ]
         }
       ]
     }
   ],
   "blocks":{
-    "label":"Add instructor",
+    "label":"Add instructor bio",
     "limit":3,
     "types":[
       {
         "type":"instructor",
-        "label":"Instructor",
+        "label":"Instructor bio",
         "settings":[
           {
             "type":"instructor_picker",
             "id":"instructor",
-            "label":"Select course instructor"
+            "label":"Instructor"
           }
         ]
       }

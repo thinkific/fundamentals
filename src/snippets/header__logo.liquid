@@ -1,0 +1,7 @@
+{% if section.settings.site_logo != empty %}
+  <a href="{{ site_url }}" aria-label="{{ site.name }}">
+    <img src="{{ section.settings.site_logo }}" alt="{{ site.name }}" title="{{ site.name }}" aria-hidden="true" />
+  </a>
+{% else %}
+  <a href="{{ site_url }}">{{ site.name }}</a>
+{% endif %}

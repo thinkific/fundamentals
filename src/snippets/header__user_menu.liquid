@@ -1,0 +1,46 @@
+<ul>
+  {% if site.current_user.signed_in %}
+    {% if site.current_user.is_site_owner or site.current_user.is_site_admin or site.current_user.is_thinkific_system %}
+      <li>
+        <a href="{{ site.dashboard_url }}">
+          {{ 'liquid.partials.header_user_menu.link_admin' | translate }}
+        </a>
+      </li>
+    {% else %}
+      {% if site.current_user.is_course_admin %}
+        <li>
+          <a href="{{ site.course_administrator_dashboard_url }}">
+            {{ 'liquid.partials.header_user_menu.link_admin' | translate }}
+          </a>
+        </li>
+      {% endif %}
+    {% endif %}
+    <li>
+      <a href="{{ site.student_dashboard_url }}">
+        {{ 'liquid.partials.header_with_links.link_my_dashboard' | translate }}
+      </a>
+    </li>
+    {% if site.current_user.is_affiliate %}
+      <li>
+        <a href="{{ site.affiliate_dashboard_url }}">
+          {{ 'liquid.partials.header_user_menu.link_affiliate' | translate }}
+        </a>
+      </li>
+    {% endif %}
+  {% endif %}
+  <li>
+    <a href="{{ site.current_user.account_url }}">
+      {{ 'liquid.partials.header_with_links.link_my_account' | translate }}
+    </a>
+  </li>
+  <li>
+    <a href="mailto:{{ site.support_email }}" target="_blank">
+      {{ 'liquid.partials.header_with_links.link_support' | translate }}
+    </a>
+  </li>
+  <li>
+    <a href="{{ site.sign_out_url }}">
+      {{ 'liquid.partials.header_with_links.link_sign_out' | translate }}
+    </a>
+  </li>
+</ul>

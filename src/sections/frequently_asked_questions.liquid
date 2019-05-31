@@ -1,42 +1,18 @@
-<section class="faq
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="faq">
-  <div class="faq__container">
-    {% include 'section_headings' %}
-    <article class="section__content">
-      {% if section.blocks != empty %}
-      <ul class="faq__list section__body">
-        {% for block in section.blocks %}
-          <li class="faq__list-item">
-            <input type="checkbox" {% if !section.settings.show_collapsed %} checked="checked" {% endif %}/>
-            <strong>{{ block.settings.faq_question }}<i></i></strong>
-            <p>{{ block.settings.faq_answer }}</p>
-          </li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </article>
-  </div>
-</section>
-
-<script>
-$(window).load(function() {
-  {% if section.settings.show_collapsed %}
-    var $faq = $('.faq__list-item input');
-    $faq.first().attr("checked", false);
+<section class="faq" data-preview-item="faq">
+  {% if section.blocks != empty %}
+    <ul>
+      {% for block in section.blocks %}
+        <li>
+          <input type="checkbox" {% if !section.settings.show_collapsed %} checked="checked" {% endif %} aria-label="Expand or collapse"/>
+          <strong>
+            {{ block.settings.faq_question }}
+          </strong>
+          <p>{{ block.settings.faq_answer }}</p>
+        </li>
+      {% endfor %}
+    </ul>
   {% endif %}
-});
-</script>
-
-{% style %}
-
-section.faq {
-  {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
-  {% include 'section_style_heading_ornament' %}
-}
-
-{% endstyle %}
+</section>
 
 {% schema %}
 {
@@ -49,7 +25,7 @@ section.faq {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"Frequently asked questions"
+          "default":"FAQ"
         },
         {
           "type":"text",
@@ -62,7 +38,7 @@ section.faq {
           "id":"heading_alignment",
           "label":"Alignment",
           "description":"",
-          "default":"center",
+          "default":"left",
           "options":[
             {
               "value":"left",
@@ -77,97 +53,35 @@ section.faq {
               "label":"Right"
             }
           ]
-        },
-        {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
         }
       ]
     },
     {
-      "label":"Accordion",
+      "label":"Layout",
       "settings":[
+        {
+          "type":"checkbox",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
+          "default":false
+        },
+        {
+          "type":"checkbox",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
+          "default":false
+        },
         {
           "type":"checkbox",
           "id":"show_collapsed",
           "label":"Collapsed by default",
-          "default":true
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"secondary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"medium",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
-            }
-          ]
+          "default":false
         }
       ]
     }
   ],
   "blocks":{
-    "label":"Add FAQ item",
+    "label":"Add FAQ",
     "limit":9,
     "types":[
       {
@@ -187,7 +101,29 @@ section.faq {
         ]
       }
     ],
-    "defaults":[]
+    "defaults":[
+      {
+        "type":"faq",
+        "values":{
+          "faq_question":"Include questions a potential student may have before purchase.",
+          "faq_answer":"Address common questions ahead of time to save yourself an email."
+        }
+      },
+      {
+        "type":"faq",
+        "values":{
+          "faq_question":"Include questions a potential student may have before purchase.",
+          "faq_answer":"Address common questions ahead of time to save yourself an email."
+        }
+      },
+      {
+        "type":"faq",
+        "values":{
+          "faq_question":"Include questions a potential student may have before purchase.",
+          "faq_answer":"Address common questions ahead of time to save yourself an email."
+        }
+      }
+    ]
   }
 }
 {% endschema %}

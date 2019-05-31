@@ -1,43 +1,34 @@
-{% comment %}
-  This is the edit course rating page.
-  Here, a user can edit an existing course review.
-{% endcomment %}
+<main class="course-review" id="{{ theme.settings.main_content_id }}">
+  <section>
+    <h1>{{ 'liquid.views.edit_course_review_page.custom_tell_us_what_you_thought_text' | translate }}</h1>
+    <h2>{{ page.course_review.course.name }}</h2>
+    {% form 'edit_course_review' %}
+      {% if errors.size > 0 %}
+        {% include 'form__errors' %}
+      {% endif %}
+      {% assign field = fields.title %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" {% if field.required %}required{% endif %} />
+      </label>
 
-<main class="course-review" id="main-content" role="main">
-  <div class="course-review__container">
-    <div class="course-review__wrapper">
-      <article class="course-review__form">
-        <h1 class="page__heading">{{ 'liquid.views.edit_course_review_page.custom_tell_us_what_you_thought_text' | translate }}</h1>
-        <h3>{{ page.course_review.course.name }}</h3>
-        {% form 'edit_course_review' %}
-        {% if errors.size > 0 %}
-          {% include 'form_errors' %}
-        {% endif %}
-        <div class="form__group">
-          {% assign field = fields.title %}
-          <label for="{{ field.name }}" class="form__label">{{ field.label }}
-            <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" {% if field.required %}required{% endif %} class="form__control" />
-          </label>
-        </div>
-        <div class="form__group">
-          {% assign field = fields.review_text %}
-          <label for="{{ field.name }}" class="form__label">{{ field.label }}
-            <textarea id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %} class="form__control">{{ field.value }}</textarea>
-          </label>
-        </div>
-        {% assign field = fields.rating %}
-        <label for="{{ field.name }}" class="form__label form__review-stars-label">{{ field.label }}</label>
-        <span class="review__stars review__stars-input">
+      {% assign field = fields.review_text %}
+      <label for="{{ field.name }}">
+        {{ field.label }}
+        <textarea id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %}>{{ field.value }}</textarea>
+      </label>
+
+      {% assign field = fields.rating %}
+      <label id="stars" for="{{ field.name }}">{{ field.label }}<br>
+        <span>
           {% for i in (1..5) %}
             <input type="radio" value="{{ i }}" name="{{ field.name }}" {% if field.value == i %}checked="checked"{% endif %} />
-            {% include 'star' %}
+            <i class="fa fa-star" aria-hidden="true"></i>
           {% endfor %}
         </span>
-        <aside class="form__button-group course-review__submit">
-          <input type="submit" value="{{ fields.submit.label }}" class="button button-primary" />
-        </aside>
-        {% endform %}
-      </article>
-    </div>
-  </div>
+      </label>
+
+      <input type="submit" value="{{ fields.submit.label }}" />
+    {% endform %}
+  </section>
 </main>

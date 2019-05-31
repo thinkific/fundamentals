@@ -1,24 +1,6 @@
-{% comment %}
-  Shows a list of all your courses, and lets you search and filter by category.
-  This is the course and/or bundle catalog page with no filtering or categories
-  applied.
-{% endcomment %}
-
-<main class="collections" id="main-content" role="main">
-  <div class="collections__container">
-    <h1 class="collections__heading">Courses</h1>
-    {% include 'products_search' %}
-    {% if page.has_search_query %}
-      {% include 'products_search_query' %}
-    {% endif %}
-    {% if page.has_products %}
-      {% include 'products_card_list' %}
-    {% else %}
-      <p class="products__list-no-results">
-        {{ 'liquid.views.collections_index.text_no_results' | translate }}
-      </p>
-    {% endif %}
-  </div>
+<main class="collections" id="{{ theme.settings.main_content_id }}">
+  <h1>{{ 'liquid.views.collections_landing_page.header_courses' | translate }}</h1>
+  {% section 'collections' %}
   {{ content_for_page }}
 </main>
 

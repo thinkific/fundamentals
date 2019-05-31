@@ -1,0 +1,55 @@
+<aside class="checkout__overview">
+  <div>
+    {% if page.product.image.small != blank %}
+    {% assign product_image = page.product.image.small %}
+    {% else %}
+    {% assign product_image = page.product.image.original %}
+    {% endif %}
+    <img src="{{ product_image }}" alt="{{ page.product.name }}" title="{{ page.product.name }}" />
+    <div>
+      <span>{{ page.product.name }}</span>
+      {% if page.product.productable.description != blank %}
+        <span>{{ page.product.productable.description }}</span>
+      {% endif %}
+    </div>
+  </div>
+  <footer>
+    {% unless page.product.course.is_free or page.product.bundle.is_free %}
+      <div>
+        <img width="94" height="30" id="secure-badge" alt="Credit Card - 100% Secured Checkout" title="Credit Card - 100% Secured Checkout" src="https://assets.thinkific-staging.com/assets/tenant/defaults/secure-badge-0e958932e283b99e2c2c1313d6d011e7.png" />
+        {% if page.stripe_checkout_is_allowed %}
+          <img width="119" height="26" id="stripe-badge" alt="Powered by Stripe" title="Powered by Stripe" src="https://assets.thinkific-staging.com/assets/tenant/defaults/stripe-badge-210c07e73c09a37fde5c18f0ea418caa.png" />
+        {% endif %}
+      </div>
+      {% if page.stripe_checkout_is_allowed %}
+        <section>
+          <strong>
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            {{ 'liquid.partials.checkout_overview.footer_secure_checkout' | translate }}
+          </strong>
+          <p>{{ 'liquid.partials.checkout_overview.footer_powered_by_stripe' | translate }}</p>
+        </section>
+      {% endif %}
+    {% endunless %}
+    <section>
+      <strong>
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+        {{ 'liquid.partials.checkout_overview.footer_help' | translate }}
+      </strong>
+      <p>
+        {{ 'liquid.partials.checkout_overview.footer_need_help' | translate }}
+        <a href="mailto:{{ site.support_email }}" target="_blank">
+          {{ 'liquid.partials.checkout_overview.footer_contact_us' | translate }}
+        </a>.
+      </p>
+    </section>
+  </footer>
+</aside>
+
+{% schema %}
+{
+  "label":"Default",
+  "description":"This is a default section — the foundation of your Thinkific site.  While this section is not editable, you can customize this page by adding new sections.",
+  "settings":[]
+}
+{% endschema %}

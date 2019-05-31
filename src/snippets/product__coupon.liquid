@@ -1,0 +1,12 @@
+<article
+  class="product__coupon product__coupon{% if page.coupon.is_valid %}--valid{% else %}--invalid{% endif %}"
+  aria-label="Coupon code banner">
+  {% if page.coupon.is_valid %}
+    {{ page.coupon.applied_text }}
+  {% else %}
+    {{ 'liquid.partials.course_landing_page_coupon_block.text_invalid_coupon' | translate }}
+  {% endif %}
+  <a title="Click to close the coupon code banner" aria-label="Click to close the coupon code banner">
+    &times;
+  </a>
+</article>

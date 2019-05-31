@@ -1,0 +1,85 @@
+<section class="lead-capture" data-preview-item="lead-capture">
+  {% form 'new_lead' remote: true %}
+    {% assign field = fields.email %}
+    <input type="email" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" {% if field.required %}required{% endif %} aria-label="{{ field.name }}"/>
+    {% unless section.settings.hide_checkbox %}
+      <label for="{{ id }}-accept">
+        <input id="{{ id }}-accept" name="accept" type="checkbox" value="y" />
+        {{ section.settings.checkbox_label }}
+      </label>
+    {% endunless %}
+
+    <p>{{ 'liquid.partials.lead_capture.error' | translate }}</p>
+    <input id="{{ id }}-submit-lead" type="submit" value="{{ fields.submit.label }}" aria-label="{{ fields.submit.label }}" {% unless section.settings.hide_checkbox %} disabled {% endunless%}/>
+
+    <script>
+      {% assign field = fields.page_url %}
+      $(function() {
+        $("#{{ id }} > input[name='{{ field.name }}']").val(window.location.href)
+      });
+      document.getElementById('{{ id }}').addEventListener('thinkific:success', function(event) {
+        $('#{{ id }}-submit-lead').val("{{ 'liquid.partials.lead_capture.success' | translate }}");
+        $('#{{ id }}').addClass('lead_capture--success')
+        $('#{{ id }} .lead_capture-error').hide();
+        setTimeout(function(){
+            $('#{{ id }}-submit-lead').val('{{ fields.submit.label }}');
+            $('#{{ id }}').removeClass('lead_capture--success')
+            $('#{{ id }}')[0].reset();
+            $('#{{ id }}-submit-lead').attr('disabled', 'disabled');
+        }, 6000);
+      })
+      document.getElementById('{{ id }}').addEventListener('thinkific:error', function(event) {
+        $('#{{ id }} .lead_capture-error').show();
+      })
+      $('#{{ id }}-accept').click(function() {
+        if ($('#{{ id }}-accept').is (':checked')) {
+            $('#{{ id }}-submit-lead').removeAttr('disabled');
+          } else {
+            $('#{{ id }}-submit-lead').attr('disabled', 'disabled');
+          }
+      });
+    </script>
+  {% endform %}
+</section>
+
+{% schema %}
+{
+  "label":"Lead Capture",
+  "settings":[
+    {
+      "label":"Headings",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Heading",
+          "default":"Coming soon!"
+        },
+        {
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+          "default":"Add your email to the mailing list to get the latest updates."
+        }
+      ]
+    },
+    {
+      "label":"Checkbox",
+      "settings":[
+        {
+          "type":"text",
+          "id":"checkbox_label",
+          "label":"Checkbox Text",
+          "default":"Yes please, save my details so you can send me educational content that is relevant and helpful."
+        },
+        {
+          "type":"checkbox",
+          "id":"hide_checkbox",
+          "label":"Hide checkbox",
+          "default":false
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

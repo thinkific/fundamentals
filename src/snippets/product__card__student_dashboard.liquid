@@ -1,0 +1,52 @@
+<article>
+  <div class="course-card__body">
+    <a class="course-card__header" href="{{ card.resume_course_url }}">
+      <h2 class="course-card__header-title">{{ card.name }}</h2>
+    {% if card.has_enrollment %}
+      <section class="course-card__progress--bar">
+        <span class="progress__bar" style="width:{{ card.progress_percentage }}%;"></span>
+        <p class="progress__percentage">
+          {% comment %} TODO: add sr-only translation for 'Percentage Complete:' {% endcomment %}
+          <span class="progress__percentage-value" style="left: {{ card.progress_percentage }}%;">{{ card.progress_percentage }}%</span>
+        </p>
+      </section>
+    {% endif %}
+    </a>
+    <section class="course-card__details">
+      <a href="{{ card.landing_page_url }}" class="course-card__overview">
+        {{ 'liquid.partials.dashboard_course_card.link_see_overview' | translate }}
+      </a>
+      {% if card.progress_percentage == 100 %}
+        {% if card.course_reviews_enabled %}
+          <a href="{{ card.course_review_url }}" class="course-card__rate">
+            {{ 'liquid.partials.dashboard_course_card.link_rate_course' | translate }}
+          </a>
+        {% else %}
+          <a href="{{ card.resume_course_url }}" class="course-card__resume">
+            {{ 'liquid.partials.dashboard_course_card.link_replay_course' | translate }}
+          </a>
+        {% endif %}
+      {% else %}
+        <a href="{{ card.resume_course_url }}" class="course-card__resume">
+          {% if card.progress_percentage == 0 %}
+            {{ 'liquid.partials.dashboard_course_card.link_start_course' | translate }}
+          {% elsif card.progress_percentage > 0 and card.progress_percentage < 100 %}
+            {{ 'liquid.partials.dashboard_course_card.link_resume_course' | translate }}
+          {% else %}
+            {{ 'liquid.partials.dashboard_course_card.link_replay_course' | translate }}
+          {% endif %}
+        </a>
+      {% endif %}
+    </section>
+  </div>
+  {% if card.image.medium != blank %}
+  {% assign product_image = card.image.medium %}
+  {% else %}
+  {% assign product_image = card.image.original %}
+  {% endif %}
+  <section>
+    <a href="{{ card.resume_course_url }}">
+      <img class="course-card__img" src="{{ product_image }}" alt="{{ card.name }}"/>
+    </a>
+  </section>
+</article>

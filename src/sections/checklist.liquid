@@ -1,40 +1,28 @@
-<section class="checklist
-{% include 'section_utility_color_preset' %}
-{% include 'section_utility_column_layout' %}
-{% include 'section_utility_height_preset' %}" data-preview-item="checklist">
-  <div class="checklist__container">
-    <div class="checklist__wrapper">
-      {% include 'section_headings' %}
-      {% if section.blocks != empty %}
-        <article class="section__content">
-          <ul class="checklist__list section__body">
-            {% for block in section.blocks %}
-              <li class="checklist__list-item">
-                <h4><i class="fa {{ block.settings.item_icon }}"></i>{{ block.settings.item_name }}</h4>
-              </li>
-            {% endfor %}
-          </ul>
-        </article>
-        {% endif %}
-    </div>
-  </div>
+<section class="checklist" data-preview-item="checklist">
+  {% if section.blocks != empty %}
+    <ul>
+      {% for block in section.blocks %}
+        <li>
+          <p>
+            <i class="fa {{ block.settings.item_icon }}" aria-hidden="true"></i>
+            {{ block.settings.item_name }}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </section>
-
-{% style %}
-
-section.checklist {
-  {% include 'section_style_column_layout' %}
-  {% include 'section_style_heading_alignment' %}
-  {% include 'section_style_heading_order' %}
-  {% include 'section_style_heading_ornament' %}
-}
-
-{% endstyle %}
 
 {% schema %}
 {
   "label":"Checklist",
   "settings":[
+    {
+      "type":"checkbox",
+      "id":"section_background_decoration",
+      "label":"Show styled background",
+      "default":true
+    },
     {
       "label":"Headings",
       "settings":[
@@ -42,18 +30,52 @@ section.checklist {
           "type":"text",
           "id":"heading",
           "label":"Heading",
-          "default":"What you'll learn"
+          "default":"Checklist"
         },
         {
           "type":"text",
           "id":"subheading",
           "label":"Subheading",
-          "default":"Aliquam cursus lectus eget ante suscipit, id lacinia metus ultricies. Phasellus nisl nisi, pretium vitae suscipit a, lacinia eget magna. Sed at molestie metus, et auctor nisl."
+          "default":"Include a list of items to support the central theme of your page. Bulleted lists are a great way to parse information into digestible pieces."
+        }
+      ]
+    },
+    {
+      "label":"Layout",
+      "settings":[
+        {
+          "type":"checkbox",
+          "id":"section_padding_top",
+          "label":"Remove top section padding",
+          "default":false
+        },
+        {
+          "type":"checkbox",
+          "id":"section_padding_bottom",
+          "label":"Remove bottom section padding",
+          "default":false
+        },
+        {
+          "type":"radio",
+          "id":"column_layout",
+          "label":"Layout",
+          "description":"",
+          "default":"two-column",
+          "options":[
+            {
+              "value":"one-column",
+              "label":"One Column"
+            },
+            {
+              "value":"two-column",
+              "label":"Two Columns"
+            }
+          ]
         },
         {
           "type":"radio",
           "id":"heading_alignment",
-          "label":"Alignment",
+          "label":"Heading alignment",
           "description":"",
           "default":"left",
           "options":[
@@ -70,124 +92,28 @@ section.checklist {
               "label":"Right"
             }
           ]
-        },
-        {
-          "type":"radio",
-          "id":"heading_order",
-          "label":"Heading Order",
-          "default":"default",
-          "options":[
-            {
-              "value":"normal",
-              "label":"Normal"
-            },
-            {
-              "value":"reverse",
-              "label":"Reverse"
-            }
-          ]
-        },
-        {
-          "type":"checkbox",
-          "id":"show_heading_ornament",
-          "label":"Show ornament",
-          "default":false
-        }
-      ]
-    },
-    {
-      "label":"Layout",
-      "settings":[
-        {
-          "type":"radio",
-          "id":"column_layout",
-          "label":"",
-          "description":"",
-          "default":"two-column",
-          "options":[
-            {
-              "value":"two-column",
-              "label":"Two Column"
-            },
-            {
-              "value":"one-column",
-              "label":"One Column"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Background",
-      "settings":[
-        {
-          "type":"select",
-          "id":"background_color_preset",
-          "label":"Choose color set",
-          "description":"Color sets can be configured in the Design area.",
-          "default":"secondary",
-          "options":[
-            {
-              "value":"primary",
-              "label":"Primary"
-            },
-            {
-              "value":"secondary",
-              "label":"Secondary"
-            },
-            {
-              "value":"tertiary",
-              "label":"Tertiary"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "label":"Section height",
-      "settings":[
-        {
-          "type":"select",
-          "id":"section_height_preset",
-          "label":"Height preset",
-          "description":"",
-          "default":"large",
-          "options":[
-            {
-              "value":"small",
-              "label":"Small"
-            },
-            {
-              "value":"medium",
-              "label":"Medium"
-            },
-            {
-              "value":"large",
-              "label":"Large"
-            }
-          ]
         }
       ]
     }
   ],
   "blocks":{
-    "label":"Add item",
+    "label":"Add checklist item",
     "limit":10,
     "types":[
       {
         "type":"item",
-        "label":"Item",
+        "label":"Checklist item",
         "settings":[
           {
-            "type":"text",
+            "type":"icon",
             "id":"item_icon",
-            "label":"",
+            "label":"Icon",
             "default":"fa-check"
           },
           {
             "type":"text",
             "id":"item_name",
-            "label":"Name"
+            "label":"Description"
           }
         ]
       }
@@ -197,42 +123,21 @@ section.checklist {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Management"
+          "item_name":"Text length of individual points can be shorter or longer depending on your needs"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Marketing"
+          "item_name":"Text length of individual points can be shorter or longer depending on your needs"
         }
       },
       {
         "type":"item",
         "values":{
           "item_icon":"fa-check",
-          "item_name":"Branding"
-        }
-      },
-      {
-        "type":"item",
-        "values":{
-          "item_icon":"fa-check",
-          "item_name":"Social Media"
-        }
-      },
-      {
-        "type":"item",
-        "values":{
-          "item_icon":"fa-check",
-          "item_name":"Email marketing"
-        }
-      },
-      {
-        "type":"item",
-        "values":{
-          "item_icon":"fa-check",
-          "item_name":"Leadership"
+          "item_name":"Text length of individual points can be shorter or longer depending on your needs"
         }
       }
     ]

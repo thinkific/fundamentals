@@ -1,0 +1,8 @@
+.theme__high-contrast-filter {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: attr(data-background-color);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}

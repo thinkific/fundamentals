@@ -1,0 +1,18 @@
+{% if page.has_remote_signin %}
+  <fieldset>
+    <p>{{ 'liquid.views.sign_in_page.sign_in_or_text' | translate }}</p>
+    <p>{{ 'liquid.views.sign_up_page.sign_up_or_text' | translate }}</p>
+    {% if page.social_providers != null %}
+      <ul>
+        {% for provider in page.social_providers %}
+          <li>
+            <a href="{{ provider.oauth_url }}" class="{{ provider.class }}">
+              <i class="fa {{ provider.fa_icon }}" aria-label="{{ provider.oauth_url }}"></i>
+              <span>{{ provider.class }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </fieldset>
+{% endif %}

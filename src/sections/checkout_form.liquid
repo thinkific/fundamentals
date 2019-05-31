@@ -1,0 +1,18 @@
+<section class="checkout__form">
+  <ul>
+    <li>{{ 'checkouts.new.list_item_1' | translate }}</li>
+    <li class="active">{{ 'checkouts.new.list_item_2' | translate }}</li>
+  </ul>
+  <h1>
+    {{ 'liquid.partials.checkout_form.header_complete_your_purchase' | translate }}
+  </h1>
+  {{ page.checkout_form }}
+</section>
+
+{% schema %}
+{
+  "label":"Default",
+  "description":"This is a default section — the foundation of your Thinkific site.  While this section is not editable, you can customize this page by adding new sections.",
+  "settings":[]
+}
+{% endschema %}

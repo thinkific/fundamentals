@@ -1,0 +1,53 @@
+<article class="social-sign-up__form">
+  <h1>
+    {{ 'liquid.views.social_sign_up_page.header_thanks_for_sign_up' | translate }}
+  </h1>
+  <h2>
+    {{ 'liquid.views.social_sign_up_page.description_complete_sign_up' | translate }}
+  </h2>
+  {% form 'social_sign_up' %}
+    {% if errors.size > 0 %}
+      {% include 'form__errors' %}
+    {% endif %}
+
+    {% if page.requiring_email %}
+      {% assign field = fields.email %}
+      <label for="{{ field.name }}">{{ field.label }}
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+        <span>{{ 'liquid.views.social_sign_up_page.tooltip_email_required' | translate }}</span>
+        <input type="email" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}" {% if field.required %}required{% endif %} autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" />
+      </label>
+    {% endif %}
+
+    {% for field in custom_signup_fields %}
+      {{ field.hidden_input }}
+      <label for="{{ field.name }}">{{ field.label }}
+        {% if field.type_is_country %}
+          <select id="{{ field.name }}" name="{{ field.name }}" {% if field.required %}required{% endif %}>
+            {{ field.country_options }}
+          </select>
+        {% else %}
+          <input type="text" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.label }}" {% if field.required %}required{% endif %} />
+        {% endif %}
+      </label>
+    {% endfor %}
+
+    {% if fields.terms != blank %}
+      {% assign field = fields.terms %}
+      <label for="{{ field.name }}">
+        <input type="hidden" name="{{ field.name }}" value="0" />
+        <input type="checkbox" id="{{ field.name }}" name="{{ field.name }}" value="{{ field.value }}" required />
+        {{ field.label }}
+      </label>
+    {% endif %}
+    <input type="submit" value="{{ fields.submit.label }}" id="social-sign-up" />
+  {% endform %}
+</article>
+
+{% schema %}
+{
+  "label":"Default",
+  "description":"This is a default section — the foundation of your Thinkific site.  While this section is not editable, you can customize this page by adding new sections.",
+  "settings":[]
+}
+{% endschema %}

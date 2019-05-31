@@ -1,0 +1,12 @@
+<fieldset>
+  <input type="submit" value="{{ fields.submit.label }}"
+    class="g-recaptcha"
+    data-sitekey="{{ site.invisible_recaptcha_key }}"
+    data-callback='onSubmit' />
+
+  <script>
+    function onSubmit(token) {
+      document.getElementsByTagName('form')[0].submit();
+    }
+  </script>
+</fieldset>
