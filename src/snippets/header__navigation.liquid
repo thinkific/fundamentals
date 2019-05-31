@@ -1,14 +1,14 @@
 <nav>
   <ul>
     {% include 'header__links' %}
-    {% include 'header__default-links' %}
+    {% include 'header__default_links' %}
     {% if site.current_user.signed_in %}
       <li>
         <button type="button">
           {{ site.current_user.first_name_last_initial }}
           <img src="{{ site.current_user.avatar }}" alt="User avatar" title="User avatar" aria-hidden="true" />
         </button>
-        {% include 'header__user-menu' %}
+        {% include 'header__user_menu' %}
       </li>
     {% else %}
       <li>
