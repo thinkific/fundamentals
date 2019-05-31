@@ -33,6 +33,23 @@
       {{ 'liquid.partials.header_with_links.link_my_account' | translate }}
     </a>
   </li>
+  {% if theme.settings.enable_high_contrast == true %}
+    <li>
+      <button type="button" id="toggle-high-contrast">
+        Enable High Contrast
+      </button>
+    </li>
+    <script>
+      var highContrastToggle = document.querySelector('#toggle-high-contrast'),
+          highContrastFilter = document.querySelector('.theme__high-contrast-filter');
+
+      highContrastToggle.addEventListener('click', function() {
+        highContrastFilter.classList.toggle('active');
+        var highContrastButtonText = highContrastFilter.classList.contains('active') ? 'Disable High Contrast' : 'Enable High Contrast';
+        highContrastToggle.textContent = highContrastButtonText;
+      });
+    </script>
+  {% endif %}
   <li>
     <a href="mailto:{{ site.support_email }}" target="_blank">
       {{ 'liquid.partials.header_with_links.link_support' | translate }}
