@@ -6,7 +6,9 @@
     {% include 'theme__font_loader' %}
     {% include 'theme__css' %}
   </head>
-  <body class="{{ page.page_identifier | kebab_case }} {{ theme.preset_name | kebab_case }} no-js">
+  <body
+    class="{{ page.page_identifier | kebab_case }} {{ theme.preset_name | kebab_case }} no-js"
+    style="background-color: {{ theme.settings.background_color }}">
     {% if theme.settings.enable_high_contrast == true %}
       {% include 'theme__high_contrast' %}
     {% endif %}
